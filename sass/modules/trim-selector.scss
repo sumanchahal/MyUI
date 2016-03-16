@@ -1,0 +1,615 @@
+@import 'library';
+@import "compass/css3/transition";
+@import "modules/dropkick";
+@import "modules/jscrollpane";
+@import "modules/tab-switcher";
+@import "modules/drill-down-menu";
+
+$grey-accent: #efefef;
+
+#side-by-side .lexus-models .product-image {
+    // make image fit correctly while loading.
+    padding-bottom: 297/450 * 100%;
+    height:0;
+}
+
+.dimmer {
+	@include transition(opacity 300ms ease);
+
+	background: #fff;
+	position: absolute;
+	right: 0;
+	z-index: 99;
+	width: 0;
+
+	&.on {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.trim-selector-open.side-by-side {
+	.section-selector.stuck {
+		position: static;
+	}
+}
+
+.trim-selector-drawer {
+	@include container;
+
+	right: 0;
+    margin: auto;
+	overflow: hidden;
+	padding: 0px;
+	position: absolute;
+	height: 0;
+	width: 0;
+	z-index: 1;
+	background: #f7f7f7;
+
+	&.open {
+		height: auto;
+		overflow: auto;
+		width: 500px;
+	}
+
+	.trim-selector {
+		padding-top: 0;
+		width: auto;
+		min-width: 500px;
+
+		.compare-tray-heading {
+			/* fix for a Chrome rendering issue */
+			-webkit-backface-visibility: hidden;
+			padding-top: 50px;
+
+			&.stuck {
+				padding-top: 40px;
+			}
+		}
+	}
+}
+
+.trim-selector {
+	width: 50%;
+	float: right;
+	padding-top: 75px;
+	padding-bottom: 35px;
+	text-align: center;
+	background-color: #f7f7f7;
+
+	select.custom {
+		opacity: 0;
+	}
+
+	h2 {
+		@include nobel-book;
+		text-align: center;
+		font-size: 22px;
+		letter-spacing: 4px;
+		margin: auto auto 20px;
+		line-height: 1.5;
+		max-width: 350px;
+	}
+	h3 {
+		@include nobel;
+		font-weight: 400;
+		font-size: 16px;
+		text-align: center;
+		letter-spacing: 2px;
+		padding: 25px 0;
+	}
+	.compare-tray-heading {
+		background: #F7F7F7;
+		position: relative;
+
+		.close {
+			display: block;
+			position: absolute;
+			right: 20px;
+			top: 20px;
+		}
+	}
+	.compare-tray-heading.stuck {
+		position: fixed;
+		top: 0;
+		padding-top: 10px;
+		z-index: 20;
+	}
+	button {
+		cursor: pointer;
+		margin: 0 auto;
+
+		.no-touch &:hover {
+			color:  $color-black;
+			background: $color-white;
+		}
+	}
+
+	button.disabled {
+		background: #e1e1e1;
+		border-color: #e1e1e1;
+		color: #fff;
+		cursor: auto;
+
+		&:hover {
+			cursor: auto !important;
+			background: #e1e1e1 !important;
+			color: #fff !important;
+		}
+	}
+
+	.remove-vehicle-message {
+		@include palatino;
+		margin-top: 15px;
+		font-size: 13px;
+		padding: 2px 2px 20px 2px;
+		display: block;
+
+		&.hidden {
+			margin: 0px;
+			display: none;
+		}
+	}
+
+	/* Compare Tray */
+	.compare-list {
+		@include nobel;
+		background: white;
+		font-size: 12px;
+		padding: 0px 15px 20px;
+		width: 85%;
+		margin: 0 auto;
+		display: none;
+
+		&.populated {
+			display: inline-block;
+		}
+
+		li {
+			position: relative;
+			text-align: left;
+			letter-spacing: 2px;
+			list-style-type: none;
+			padding: 20px 30px 20px 0;
+			line-height: 1.2;
+			border-bottom: 1px solid $color-grey-90;
+			span {
+				text-transform: none;
+			}
+		}
+		.remove {
+			position: absolute;
+			top: 18px;
+			right: 0;
+		}
+		span {
+			font-family: nobel-bold, sans-serif;
+		}
+		button {
+			margin: 0 auto;
+			max-width: inherit;
+			margin-top: 20px;
+		}
+		.global-btn-remove {
+			display: inline-block;
+			float: right;
+			font-size: 0px;
+			text-indent: -9999px;
+			color: transparent;
+		}
+	}
+
+	/* Competitors */
+
+	.competitor {
+		@include nobel;
+		@include transition(opacity 400ms ease);
+		@include transition(background 300ms ease);
+
+		width: auto;
+		margin: 0 auto 0;
+		font-size: 13px;
+		padding: 0 20px 25px;
+		position: relative;
+		overflow: hidden;
+		opacity: .5;
+		cursor: default;
+		letter-spacing: 2px;
+
+		&.available {
+			opacity: 1;
+			cursor: pointer;
+		}
+		button {
+			position: absolute;
+			opacity: 1;
+			right: 20px;
+			display: block;
+			bottom: 16px;
+			padding: 7px 10px;
+		}
+		.trim-name {
+			line-height: 1.4;
+			text-align: left;
+			max-width: 70%;
+		}
+	}
+
+	.competitor img {
+		width: 80%;
+		max-width: 300px;
+		height: auto;
+	}
+
+	.model-types {
+		@include transition(opacity 300ms cubic-bezier(0,0,.25,1));
+		margin-top: 30px;
+		opacity: 1;
+
+		&.hidden {
+			max-height: 0;
+			overflow: hidden;
+		}
+
+		&.hidden .set.selected {
+			display: none;
+		}
+
+		.tabs {
+			display: inline-block;
+			text-align: center;
+			margin: 0 auto 35px;
+
+			li {
+				@include nobel-book;
+				float: left;
+				letter-spacing: 2px;
+				font-size: 12px;
+				padding: 0px 15px;
+				cursor: pointer;
+				position: relative;
+			}
+			li:last-child {
+				border-left: 1px dotted black;
+			}
+			li.selected {
+				@include nobel-bold;
+			}
+		}
+	}
+	.selected-icon {
+		position: absolute;
+		left: 50%;
+		margin-left: -4px;
+		bottom: -12px;
+	}
+
+	/* Lexus Models */
+	.lexus-models {
+		.trims {
+			@include transition(opacity 600ms ease, max-height 400ms ease);
+
+			max-height: 0;
+			width: 100%;
+			opacity: 0;
+			overflow: hidden;
+			border-bottom: 1px solid #d0d0d0;
+		}
+		.model-and-trims {
+			max-width: 700px;
+
+			.heading {
+				padding: 0 20px;
+
+				.default {
+					display: block;
+				}
+				.alternate {
+					display: none;
+				}
+			}
+		}
+
+		.heading .default {
+			background: url("/assets/img/compare/bg-trim-selector-arrow.png") no-repeat center top;
+			padding: 50px 0 30px 0;
+			position: relative;
+
+			.close {
+				position: absolute;
+				right: 20px;
+				top: 50px;
+			}
+		}
+
+		.heading .default h2 {
+			margin-bottom: 5px;
+			line-height: 1;
+		}
+		.heading .default p {
+			@include nobel-book;
+			font-size: 12px;
+			letter-spacing: 2px;
+		}
+		.series .open {
+			.trims {
+				opacity: 1;
+				max-height: 2000px;
+			}
+		}
+
+		.trim {
+			@include clearfix;
+			position: relative;
+			background: url("/assets/img/compare/bg-dotted-line.png") repeat-x left top;
+			padding: 20px 0;
+			margin: 0 20px;
+		}
+		.cta {
+			position: absolute;
+			right: 0;
+			top: 53px;
+		}
+		.trim-name {
+			@include grid-column(4);
+			background: url("/assets/img/compare/bg-dotted-line.png") repeat-y right top;
+			text-align: center;
+		}
+		.price-details {
+			@include grid-column(8);
+			text-align: center;
+			margin-right: 0;
+			padding: 13px 0 0 0;
+		}
+		.line {
+			margin-bottom: 5px;
+			text-transform: none;
+		}
+
+		.trim-name {
+	 		@include nobel-bold;
+	 		padding: 20px 0;
+	 		font-size: 28px;
+	 		letter-spacing: .1em;
+	 	}
+	 	.drive-train {
+	 		@include nobel-light;
+	 		font-size: 13px;
+	 		letter-spacing: .2em;
+	 		font-weight: normal;
+	 	}
+	 	.price-title {
+	 		@include nobel-book;
+	 		font-size: 12px;
+	 		color: $color-grey-50;
+	 		letter-spacing: .2em;
+	 		margin-bottom: 8px;
+	 	}
+	 	.price {
+	 		@include pakt;
+	 		font-weight: bold;
+	 		font-size: 36px;
+	 		letter-spacing: .1em;
+
+	 		.dollar-sign {
+	 			font-size: 24px;
+	 			vertical-align: top;
+	 			display: inline;
+	 		}
+	 	}
+
+		.series .model-and-trims:first-child {
+			margin-top: -45px;
+		}
+		.series {
+			border-bottom: 1px dotted #acacac;
+			margin-bottom: 30px;
+
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+		.product,
+		.group-heading {
+			margin: 0 auto;
+			width: 72%;
+		}
+		.group-heading {
+			@include nobel-light;
+			font-size: 64px;
+			color: $grey-accent;
+			text-transform: uppercase;
+			text-align: left;
+			line-height: 1;
+			max-width: 1000px;
+		}
+		img {
+			width: 80%;
+			max-width: 300px;
+			height: auto;
+		}
+		.product {
+			padding-bottom: 0;
+			cursor: pointer;
+
+			.description, .manufacturer, .year {
+				display: none;
+			}
+			.details {
+				@include nobel;
+				text-align: left;
+				position: relative;
+				top: -20px;
+			}
+			.model {
+				@include nobel-bold;
+				font-size: 20px;
+			}
+			.name {
+				margin-right: 5px;
+			}
+			.offers, .name {
+				font-size: 13px;
+				letter-spacing: 2px;
+				display: inline-block;
+			}
+		}
+		.trim-details {
+			@include transition(background-color 400ms ease);
+			cursor: pointer;
+
+			&:first-child {
+				border-top: none;
+			}
+
+			&:hover {
+				background: #eceaea;
+			}
+		}
+		.trim-details.inactive {
+			opacity: .5;
+			cursor: default;
+
+			a {
+				cursor: default;
+			}
+
+			&:hover {
+				background: transparent;
+			}
+		}
+	}
+}
+
+.no-touch {
+	.trim-selector {
+		.competitor {
+			button {
+				opacity: 0;
+				@include transition(opacity 300ms ease);
+				&:hover {
+					background: $color-white;
+	            	color: $color-black;
+				}
+			}
+		}
+
+        .competitor.available:hover {
+			background-color: $color-grey-90;
+
+			button {
+				opacity: 1;
+				display: inline-block;
+			}
+		}
+
+        .lexus-models {
+            .model-and-trims:hover {
+              background-color: $color-grey-90;
+            }
+        }
+	}
+}
+
+#content {
+	.unsticky.trim-selector {
+
+		.stuck {
+			position: absolute;
+			bottom: 0;
+			top: auto;
+		}
+	}
+}
+
+@include at-breakpoint($default-columns 700px) {
+	.trim-selector-drawer {
+		width: 100%;
+		max-width: 100%;
+		margin: 0;
+
+		&.open {
+			width: 100%;
+			max-width: 100%;
+			right: 0;
+		}
+
+		.trim-selector {
+			padding-top: 45px;
+		}
+
+		.trim-selector .lexus-models .heading .default .close {
+			right: 20px;
+		}
+	}
+}
+
+@include at-breakpoint($large-min 1100px $total-columns) {
+	.trim-selector {
+		.lexus-models {
+			.group-heading {
+				font-size: 54px;
+			}
+		}
+	}
+}
+
+@include at-medium-breakpoint() {
+	.trim-selector-drawer {
+		.trim-selector {
+			min-width: 240px;
+			width: 100%;
+			padding-top: 0;
+
+			.lexus-models {
+				.trim-name {
+					@include grid-column(6);
+				}
+				.price-details {
+					@include grid-column(5);
+					margin-right: 0;
+				}
+			}
+		}
+	}
+
+	.trim-selector {
+		.lexus-models {
+			.group-heading {
+				font-size: 40px;
+			}
+		}
+
+		.competitor {
+			.trim-name {
+				max-width: 60%;
+			}
+		}
+
+	}
+
+}
+
+@include at-small-breakpoint() {
+	.dimmer {
+		display: none;
+	}
+	.trim-selector-drawer {
+		display: none;
+	}
+	.trim-selector {
+		.competitor {
+			button {
+				opacity: 0;
+				&:hover {
+					opacity: 0;
+				}
+			}
+		}
+	}
+
+}

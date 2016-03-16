@@ -1,0 +1,10 @@
+define([
+    "mvc/Observable",
+    "mvc/AbstractModel",
+    "mvc/List",
+    "mvc/ListEvent",
+    "mvc/ListIterator",
+    "mvc/SelectableList",
+    "mvc/SelectableListItem",
+    "mvc/AbstractViewController"
+]);

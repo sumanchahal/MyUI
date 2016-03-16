@@ -1,0 +1,106 @@
+{
+    "searchedTerm": "key battery",
+    "quantityResults": 78,
+    "searchInstead": [
+        "replacement key"
+    ],
+    "results": [
+        {
+            "title": "Lexus RC - 2015 - Key Features | Lexus.com",
+            "url": "http://www.lexus.com/models/RC/features",
+            "snippet": "The Lexus RC seamlessly blends eye-catching design, advanced safety, and breathtaking performance into this all-new luxury coupe. Explore all key features.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus RC - 2015 - Accessories | Lexus.com",
+            "url": "http://www.lexus.com/models/RC/accessories",
+            "snippet": "Explore all available Lexus RC accessories such as 19-inch alloy wheels, key gloves, alloy wheel locks and door edge guards.  See the entire selection here.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus RC F - 2015 - Accessories | Lexus.com",
+            "url": "http://www.lexus.com/models/RCF/accessories",
+            "snippet": "Find new ways to upgrade your new vehicle with 2014 Lexus RC F SPORT accessories such as alloy wheel locks, car cover, key glove, and more.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus CT, CT F SPORT - Luxury Hybrid | 2015 | Overview | Lexus.com",
+            "url": "http://www.lexus.com/models/CT-hybrid",
+            "snippet": "Eats asphalt. Sips fuel. Explore the luxurious and powerful features of 2015 Lexus CT luxury hybrid.  ",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "2015 Lexus ES - Luxury Sedan | Lexus.com",
+            "url": "http://www.lexus.com/models/ES",
+            "snippet": "The 2015 Lexus ES luxury sport sedan combines exquisite luxury and convenient technologies for an impressive driving experience.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "2015 Lexus ES - Luxury Sedan | Lexus.com",
+            "url": "http://www.lexus.com/models/ES-hybrid",
+            "snippet": "The 2015 Lexus ES luxury sport sedan combines exquisite luxury and convenient technologies for an impressive driving experience.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "2015 Lexus LS - Luxury Sedan | Lexus.com",
+            "url": "http://www.lexus.com/models/LS",
+            "snippet": "The 2015 Lexus LS luxury sedan line brings exhilarating performance, brilliant technology and bold styling inside and out. Get to know the 2015 LS.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "2015 Lexus RX - Luxury Crossover | Lexus.com",
+            "url": "http://www.lexus.com/models/RX",
+            "snippet": "Never lose your edge in the 2015 Lexus RX luxury crossover. Pair all-wheel drive, luxury, and a 3.5-liter V6, the RX is a crossover elevates your everyday.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "2015 Lexus RX - Luxury Crossover | Lexus.com",
+            "url": "http://www.lexus.com/models/RX-hybrid",
+            "snippet": "Never lose your edge in the 2015 Lexus RX luxury crossover. Pair all-wheel drive, luxury, and a 3.5-liter V6, the RX is a crossover elevates your everyday.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "2015 Lexus GS - Luxury Sedan | Lexus.com",
+            "url": "http://www.lexus.com/models/GS",
+            "snippet": "The 2015 Lexus GS luxury sedan - Engineered from the ground up for performance that invigorates, technology that empowers, and unforgettable styling.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }
+    ],
+    "cards": [
+        {
+            "title": "Lexus Key Replacement",
+            "type": "faq",
+            "position": 2,
+            "questions" : [
+                {
+                    "question": "How do I obtain a replacement Key?",
+                    "answer": "If you lose your key, a Lexus dealer can help, or you can find a qualified locksmith through the Associated Locksmiths of America, just visit www.aloa.org."
+                },
+                {
+                    "question": "What size battery is used in Lexus remote keys?",
+                    "answer": "The current model Lexus vehicles use CR1632 and CR1616 Panasonic&reg; batteries, which can be obtained through a Lexus dealer."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+@import "compass/utilities/sprites";
+
+// Lexus Vars
+
+// Fonts
+$weight-light: 200;
+$weight-book: 300;
+$weight-bold: bold;
+
+// Colors
+@import "color";
+
+// Page stroke
+$width-stroke: 0.6%;
+$color-stroke: $color-black;
+
+// Images
+$play-icon: url('/assets/img/overview/gallery/gallery-video-play.png');
+$enlarge-icon: url('/assets/img/features/expand.png');
+$close-btn: url('/assets/img/overlay/close-btn.png');
+$loading-sprite: url('/assets/img/global/loading-sprite.png');
+$loading-sprite-dark: url('/assets/img/global/loading-sprite-dark.png');
+$loading-sprite-white: url('/assets/img/global/loading-sprite-white.png');
+$bullet: url('/assets/img/packages/package-list-bullet.png');
+$upArrowGold: url('/assets/img/global/expand-arrow-gold.png');
+$closeIcon: url('/assets/img/packages/package-close-icon.png');
+$divider: url('/assets/img/features/divider.png');
+
+// Global sprite reference
+
+$globalSpriteMap: sprite-map("sprites/global/*.png", $spacing: 40px);

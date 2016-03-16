@@ -1,0 +1,29 @@
+@import "about-subpage";
+@import "../grid";
+
+
+.m2-media-tile.hero {
+	
+	.m2-text-tile {
+		* {
+	    	max-width: 240px;
+		}
+	}
+
+	.media-tile-image {
+		background-position: bottom right;
+	}
+
+}
+
+@include sm-up() {
+	.m2-media-tile.hero {
+	
+		.m2-text-tile {
+			* {
+		    	max-width: 550px;
+			}
+		}
+
+	}
+}

@@ -1,0 +1,78 @@
+@import "vars";
+@import "compass/utilities/sprites";
+@import "elements";
+
+@mixin global-sprite($spriteName) {
+    background: sprite($globalSpriteMap, $spriteName) no-repeat;
+    @include sprite-dimensions($globalSpriteMap, $spriteName);
+}
+
+//	Switching to the sprite-map method, but need to support
+//	the old way of doing things i.e. including all-global-sprites
+
+.global-btn-link-arrow {
+	@include global-sprite(btn-link-arrow);
+}
+.global-btn-remove {
+	@include global-sprite(btn-remove);
+}
+.global-close-inverted {
+	@include global-sprite(close-inverted);
+}
+.global-btn-link-arrow-left {
+	@include global-sprite(btn-link-arrow-left);
+}
+.global-close {
+ 	@include global-sprite(close);
+}
+.global-details-indicator {
+	@include global-sprite(details-indicator);
+}
+.global-down-arrow-white {
+	@include global-sprite(down-arrow-white);
+}
+.global-error {
+	@include global-sprite(error);
+}
+.global-logo-solo {
+	@include global-sprite(logo-solo);
+}
+.global-logo {
+    @include global-sprite(logo);
+}
+.global-right-arrow-thin {
+	@include global-sprite(right-arrow-thin);
+}
+.global-tab-select-arrow-inverted {
+	@include global-sprite(tab-select-arrow-inverted);
+}
+.global-tab-select-arrow {
+	@include global-sprite(tab-select-arrow);
+}
+
+
+.arrow.thin.up {
+  @include arrow($direction: up, $color: #fff, $size: 40px, $width:1px, $type:thin);
+}
+.arrow.thin.left {
+  @include arrow($direction: left, $color: #fff, $size: 40px, $width:1px, $type:thin);
+}
+.arrow.thin.down {
+  @include arrow($direction: down, $color: #fff, $size: 40px, $width:1px, $type:thin);
+}
+.arrow.thin.right {
+  @include arrow($direction: right, $color: #fff, $size: 40px, $width: 1px, $type: thin);
+}
+.arrow.block.up {
+  @include arrow($direction: up, $color: #fff, $size: 40px, $width:1px, $type:block);
+}
+.arrow.block.left {
+  @include arrow($direction: left, $color: #fff, $size: 40px, $width:1px, $type:block);
+}
+.arrow.block.down {
+  @include arrow($direction: down, $color: #fff, $size: 40px, $width:1px, $type:block);
+}
+.arrow.block.right {
+  @include arrow($direction: right, $color: #fff, $size: 40px, $width:1px, $type:block);
+}
+

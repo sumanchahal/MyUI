@@ -1,0 +1,21 @@
+@import "library";
+@import "model";
+@import "gallery-filters";
+@import "gallery-tiles";
+@import "gallery-overlay";
+
+.badge-container {
+    top: 85px;
+    left: 0px;
+}
+
+@include at-small-breakpoint() {
+    .badge-container {
+        top: 0px;
+        display: none;
+    }
+}
+
+body {
+
+}

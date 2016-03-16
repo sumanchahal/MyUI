@@ -1,0 +1,29 @@
+// Stroke around page
+@import 'library';
+
+#wrapper {
+	/* Add the black stroke. */
+	background: $color-stroke;
+	padding: $width-stroke;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+
+@include at-small-and-medium-breakpoints {
+	/* Remove the black stroke */
+	#wrapper{
+		padding: 0;
+	}
+}
+
+.touch, .mstouch {
+	/* Remove the black stroke in touch devices */
+	#wrapper{
+		padding: 0;
+	}
+}
+
+#content {
+	/* this overrides the background color on `body` used for the stroke */
+	background: $color-white;
+}

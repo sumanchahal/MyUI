@@ -1,0 +1,38 @@
+// Convert the PSD's font point size to ems.
+@mixin ps-font-size ($fontSizePts: 12) {
+	// $ems: $fontSizePts/12 + 0em;
+	// font-size: $ems;
+
+	$fontSizePx: $fontSizePts + 0px;
+	font-size: $fontSizePx;
+}
+
+// Convert the PSD's leading to line-height
+@mixin ps-leading ($fontSizePts: 12, $leadingPts: auto) {
+	// @if $leadingPts == auto { $leadingPts: $fontSizePts * 1.2; }
+	// $fontSizeEms: $fontSizePts/12 + 0em;
+	// $leadingEms: $leadingPts/12 + 0em;
+	// $lineHeightEms: ($fontSizeEms + $leadingEms/2em)/$fontSizeEms + 0em;
+	// line-height: $lineHeightEms;
+
+	$fontSizePx: $fontSizePts + 0px;
+	$leadingPx: $leadingPts + 0px;
+	$lineHeightPx: $fontSizePx + $leadingPx/2 + 0px;
+
+	@if $leadingPts != auto {
+		line-height: $lineHeightPx;
+	}
+}
+
+// Convert the PSD's tracking to letter-spacing
+@mixin ps-tracking ($tracking:0) {
+	$ems: $tracking / 1000 + 0em;
+	letter-spacing: $ems;
+}
+
+// Sets the font size, leading, and tracking in one go.
+@mixin font-size($fontSizePts: 12, $leadingPts: auto, $tracking:0) {
+	@include ps-font-size($fontSizePts);
+	@include ps-leading($fontSizePts, $leadingPts);
+	@include ps-tracking($tracking);
+}

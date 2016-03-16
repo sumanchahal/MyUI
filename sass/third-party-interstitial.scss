@@ -1,0 +1,164 @@
+// Note: not importing library because it includes body { font-size: 100%; }
+// this rule clashes with partner code, so only a subset of the library
+// is being used.
+@import "vars";
+@import "grid";
+@import 'font-size';
+
+
+#colorbox, body#outlink {
+	#outbound-link {
+		background-color: $color-black;
+		color: $color-white;
+		text-align: center;
+		padding: 60px;
+		margin: 0 auto;
+		max-width: 700px;
+
+		.global-logo-solo {
+			display: inline-block;
+			margin-bottom: 20px;
+		}
+		br {
+			display: none;
+		}
+		hr { 
+			display: none;
+		}
+		.title {
+			@include font-size(22,18,200);
+			font-family: "nobel-book", Helvetica, Arial, sans-serif;
+		    text-transform: uppercase;
+		    letter-spacing: 0.2em;
+			background: none;
+			display: block;
+		}
+		.subtitle {
+			@include font-size(13,14,70);
+		    font-family: "Palatino", "Palatino Linotype", "Book Antiqua", serif;
+			color: $color-white;
+			text-transform: none; 
+			margin-bottom: 30px;
+			max-width: 100%;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-align: center;
+			display: inline-block;
+
+			li {
+				float: left;
+				margin: 0 5px;
+
+				a {
+					@include box-sizing(border-box);
+			        padding: 15px 25px 14px 25px;
+			        background: white;
+			        color: black;
+			        font-family: "nobel-bold", Helvetica, Arial, sans-serif;
+			        text-transform: uppercase;
+			        font-weight: bold;
+			        font-size: 12px;
+			        line-height: 17.5px;
+			        letter-spacing: 0.15em;
+			        text-align: center;
+			        text-decoration: none;
+			        display: block;
+			        max-width: 200px;
+			        border-width: 2px;
+			        border-style: solid;
+			        border-color: black;
+			        cursor: pointer;
+				}
+				a:hover {
+					background-color: $color-black;
+					color: $color-white;
+					border-color: $color-white;
+				}
+			}
+		}
+	}	
+}
+
+.third-party-interstitial {
+	#colorbox {
+		#cboxContent {
+			background: none;
+		}	
+	}
+}
+
+.pn #outbound-link {
+	display: none;
+}
+
+.touch, .mstouch {
+	#colorbox #outbound-link {
+		ul li a:hover {
+			background-color: $color-white;
+			color: $color-black;
+			border-color: $color-black;
+		}
+	}	
+}
+
+@include at-small-breakpoint() {
+
+
+	body.third-party-interstitial #wrapper {
+		display: none;
+	}
+	
+	#outlink.third-party-interstitial #wrapper {
+		display: block;
+	}
+
+	.third-party-interstitial, body#outlink {
+        #colorbox{
+            opacity: 1 !important;
+        }
+		#cboxOverlay {
+			opacity: 1 !important;
+		}	
+
+		#colorbox #outbound-link, #outbound-link  {
+			padding: 30px 10px;
+
+			br {
+				display: block;
+			}
+			hr {
+				display: inline-block;
+				width: 10%;
+				border-top: 1px solid $color-white;
+				margin: 10px auto 10px auto;
+				padding: 0;
+			}
+			ul {
+				display: block;
+			}
+			ul li {
+				float: none;
+				display: block;
+				margin-bottom: 5px;
+
+				a {
+					max-width: 100%;
+					display: block;
+				}
+			}
+			ul li:last-child {
+				margin-bottom: 0;
+			}
+			h1 {
+				@include font-size(18,20,200);
+			}
+			h2 {
+				@include font-size(14,14,70);
+				margin-bottom: 20px;
+			}
+		}
+	}
+}	

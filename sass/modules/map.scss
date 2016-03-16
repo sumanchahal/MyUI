@@ -1,0 +1,132 @@
+@import 'library';
+
+/**
+ * Bing Map Theme Overwrites
+ */
+.custom-map {
+    position:relative;
+
+	.BreadcrumbContainer {
+		display:none;
+	}
+
+    .OverlaysTL {
+        height: 0;
+        right: 0;
+    }
+
+    .NavBar_zoomControlContainer {
+        left: initial;
+        right: 20px;
+        top: 50px;
+        width: 30px;
+        background: transparent;
+
+        .NavBar_zoomOut,
+        .NavBar_zoomOut:hover {
+		    background: url("/assets/img/dealer-locator/icon-map-minus.png") no-repeat;
+		    width: 32px;
+		    height: 33px;
+		    margin: 0 10px 0 0;
+        }
+
+        .NavBar_zoomIn,
+        .NavBar_zoomIn:hover {
+            background: url("/assets/img/dealer-locator/icon-map-plus.png") no-repeat;
+            width: 32px;
+            height: 33px;
+            margin: 0;
+        }
+	}
+
+
+	.MicrosoftMap {
+        .infobox-body {
+		    border: none;
+	    	background: $color-white;
+		    color: $color-black;
+        }
+	    &.BingTheme .infobox-title {
+		    color: $color-black;
+        }
+	}
+
+	.NavBar_compassControlContainer {
+		display: none;
+	}
+
+	.NavBar_toolButton {
+		position: absolute;
+	}
+	.NavBar_zoomOut {
+		top: 40px;
+	}
+	.NavBar_zoomIn {
+		top: 0;
+	}
+	.NavBar_zoomDrop {
+		top: -999em;
+	}
+}
+
+/* Infobox */
+.map-tooltip {
+    cursor:pointer;
+
+    a {
+        display: block;
+        text-decoration: none;
+    }
+
+    a:hover h3 {
+        text-decoration: underline;
+    }
+
+    .dealer-locator-tooltip-top {
+        padding: 20px 20px 10px 20px;
+        width: 200px;
+        height: auto;
+    }
+
+    .dealer-locator-tooltip-bottom {
+        left: 0;
+        position: absolute;
+        width: 240px;
+    }
+
+    .dealer-locator-tooltip-arrow {
+        position: absolute;
+        display: block;
+        margin-top: -6px;
+        top: 50%;
+        right: 0;
+    }
+
+    h3 {
+        @include nobel-bold;
+        position: relative;
+        display: block;
+        color: $color-black;
+        text-decoration: none;
+        line-height: 1.2;
+        font-size: 13px;
+        margin: 0;
+        padding-right: 20px;
+    }
+
+    address {
+        @include palatino;
+        color: $color-grey-60;
+        font-size: 13px;
+        line-height: 1.2;
+        margin-top: 18px;
+
+        .street, .phone {
+            display: block;
+        }
+
+        a {
+            color:$color-grey-60;
+        }
+    }
+}

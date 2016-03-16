@@ -1,0 +1,594 @@
+@import "compass/css3/transition";
+@import "../../color";
+@import "../../library";
+
+$grey-accent: #efefef;
+$trimSelectorBG: #F7F7F7;
+
+
+$small-max: 700px;
+$medium-min: 701px;
+
+// Landing
+#landing {
+
+	.trim-overlays {
+		.select-trim {
+			position: absolute;
+			left: -999em;
+		}
+	}
+
+	.wrapper {
+		@include grid-container;
+		margin: auto;
+	}
+
+	.page-heading {
+		margin: 0px;
+
+		h1 {
+			@include nobel-book;
+			letter-spacing: 4px;
+			font-size: 22px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		.default {
+			display: block;
+		}
+		.alternate {
+			display: none;
+		}
+	}
+
+	.page-heading-info {
+		margin: 60px 0 0;
+		text-align: center;
+
+		h2 {
+			@include nobel-book;
+			letter-spacing: 4px;
+			font-size: 22px;
+			margin-bottom: 12px;
+		}
+
+		p {
+			@include palatino;
+			font-size: 13px;
+			line-height: 1.2;
+			padding: 0 30px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			width: 40px;
+			background: black;
+			margin: 20px auto;
+		}
+
+	}
+
+	.scrolling-section-header {
+		.scrolling-header {
+			position: relative;
+		}
+		h2 {
+			@include nobel-light;
+			top: 60px;
+			position: absolute;
+			font-size: 84px;
+			color: $grey-accent;
+			text-transform: uppercase;
+			margin-left: $column-width;
+		}
+	}
+	.scrolling-section-header.last {
+		border-bottom: none;
+	}
+
+	.car-group {
+		@include clearfix;
+		margin-top: 0;
+		padding-top: 70px;
+		padding-bottom: 15px;
+		border-bottom: 1px dotted #000;
+
+		.last-car-group & {
+			border-bottom: none;
+		}
+
+		.product {
+			position: relative;
+			z-index: 2;
+		}
+	}
+
+	.product {
+		padding-bottom: 0;
+		cursor: pointer;
+
+		.description, .manufacturer, .year {
+			display: none;
+		}
+
+		.details {
+			@include nobel;
+			position: relative;
+			top: -30px;
+		}
+
+		.offers {
+			text-transform: uppercase;
+			font-size: 13px;
+			letter-spacing: 2px;
+		}
+		.model {
+			@include nobel-bold;
+			font-size: 20px;
+		}
+		.name {
+			margin-right: 5px;
+		}
+		.offers, .name {
+			display: inline-block;
+		}
+
+		.price {
+			display: inline;
+		}
+
+		.prefix {
+			display: inline;
+		}
+	}
+
+	.car-wrapper {
+		@include grid-column(5);
+		@include transition(opacity 600ms ease);
+
+		margin-left: $column-width;
+		position: relative;
+
+		img {
+			height: auto;
+			width: 100%;
+		}
+	}
+
+	.car-hover {
+		@include transition(opacity 600ms ease);
+		@include animationFix;
+		cursor: pointer;
+		opacity: 0;
+		background: $grey-accent;
+		left: -7%;
+		top: -5%;
+		position: absolute;
+		overflow: hidden;
+
+		.button {
+			@include btn;
+			@include transition(bottom 300ms cubic-bezier(0,0,.25,1));
+			@include animationFix;
+			display: inline-block;
+			font-size: 12px;
+			line-height: 1;
+			padding: 1em 3em;
+			color: #fff;
+			position: absolute;
+			right: 20px;
+			bottom: -100px;
+			z-index: 10;
+			cursor: pointer;
+		}
+		.button:hover {
+          background: #fff;
+          border-color: #000;
+          color: #000;
+		}
+	}
+
+	.hover {
+		position: relative;
+		z-index: 20;
+
+		.car-hover {
+			opacity: 1;
+		}
+		.button {
+			bottom: 13px;
+		}
+	}
+
+	.car-wrapper.last {
+		@include omega;
+	}
+
+	.indicator {
+		width: 0; 
+		height: 0; 
+		border-left: 12px solid transparent;
+		border-right: 12px solid transparent;
+		border-bottom: 12px solid $trimSelectorBG;
+		position: absolute; 
+		margin-top: -12px;
+		opacity: 0;
+	}
+
+	.select-trim {
+		@include clearfix;
+		background: $trimSelectorBG;
+		color: $color-black;
+		max-height: 0;
+		width: 100%;
+		overflow: hidden;
+
+		.close {
+			@include omega;
+			cursor: pointer;
+			padding: 0;
+			margin-top: 35px;
+			margin-right: 25px;
+		}
+
+		h2 {
+			@include grid-column(4);
+			@include nobel-bold;
+			font-size: 16px;
+			letter-spacing: 3px;
+			padding: 35px 0 30px;
+			margin-left: $column-width;
+		}
+		.alternate {
+			display: none;
+		}
+
+		.trim-details {
+			@include border-box-sizing;
+			@include clearfix;
+			@include transition(background 600ms ease);
+			cursor: pointer;
+			padding: 40px 0;
+			border-top: 1px solid #373737;
+		}
+
+		.trim-details .button {
+			@include transition(all 200ms ease);
+		}
+
+		.trim-details:hover {
+			background: #373737;
+
+			.button {
+				@include black-on-white;
+			}
+		}
+		h3 {
+			@include nobel;
+			margin-top: 10px;
+			font-size: 12px;
+			letter-spacing: 2px;
+			margin-bottom: 10px;
+		}
+		.value {
+			@include pakt;
+			font-size: 36px;
+			letter-spacing: 3px;
+		}
+		.line {
+			@include nobel-bold;
+			font-weight: normal;
+			font-size: 28px;
+			margin-bottom: 7px;
+		}
+		.extra {
+			@include nobel;
+			font-size: 13px;
+			letter-spacing: 2px;
+			line-height: 1.2;
+		}
+		.trim, .price, .horsepower, .mpg, .cta {
+			text-align: center;
+		}
+		.trim {
+			@include grid-column(2); 
+			border-right: 1px dotted #373737;
+			padding: 15px 0 20px;
+		}
+		.price {
+			@include grid-column(3);
+		}
+		.horsepower {
+			@include grid-column(2); 
+		}
+		.mpg {
+			@include grid-column(3); 
+		}
+		.cta {
+			@include grid-column(2); 
+			@include omega;
+			padding-top: 18px;
+		}
+		.button {
+			@include btn-stroke;
+			display: inline-block;
+			font-size: 12px;
+			line-height: 1;
+			padding: 1em 2em;
+		}
+	}
+	.select-trim.open {
+		display: block;
+	}
+
+	.small-format-message {
+		display: none;
+	}
+
+	.chrome-attribution {
+		padding: 18px 0;
+	}
+}
+
+.no-csstransitions {
+	#landing .car-hover .button {
+		bottom: 13px;
+	}
+}
+
+/**
+ * Media Queries
+ */
+@include at-breakpoint($large-min $small-max $total-columns) {
+	#landing {
+		.scrolling-section-header {
+			h2 {
+				font-size: 73px;
+				top: 35px;
+			}
+		}
+	}
+} 
+
+@include at-small-breakpoint() {
+	#landing {
+		.page-heading-info {
+			margin: 7px 0 0;
+			
+			h2 {
+				font-size: 18px;
+			}
+			hr {
+				margin: 15px auto;
+			}
+			p {
+				max-width: 230px;
+				margin: 16px auto 0;
+			}
+		}
+		
+		.page-heading {
+			h1 {
+				font-size: 18px;
+				font-weight: 200;
+			}
+
+			.default {
+				display: none;
+			}
+
+			.alternate {
+				display: block;
+			}
+		}
+
+		.wrapper {
+			@include full-width;
+			padding: 0;
+
+			&.last-car-group {
+				margin-bottom: -1px;
+			}
+		}
+
+		.car-wrapper {
+			margin-top: -20px;
+			border-bottom: 1px dotted $color-black;
+			margin-left: 0px;
+			padding-left: 4.5%;
+		}
+
+		.product {
+			padding-bottom: 0;
+
+			.details {
+				top: -17px;
+				margin: 0;
+			}
+		}
+
+		.car-group {
+			padding-top: 80px;
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+
+		.car-wrapper, .car-wrapper.last {
+			@include grid-column(12);
+			width: 100%;
+
+			.image-wrapper-ratio-fix {
+				padding: 0 !important;
+				position: static !important;
+				height: auto !important;
+			}
+			
+			img {
+				height: auto;
+				width: 93%;
+			}
+		}
+
+		.scrolling-section-header {
+			h2 {
+				@include font-size(41, 13, 0);
+				top: 35px;
+			}
+
+			h2.compact {
+				font-size: 42px;
+			}
+		}
+
+		.select-trim {
+			border-bottom: 30px solid #fff;
+
+			.wrapper:last-child {
+				border-bottom: 1px solid #dfdfdf;
+			}
+			
+			.indicator {
+				margin-top: -8px;
+			}
+		}
+
+		.select-trim .default {
+			display: none;
+		}
+
+		.select-trim .alternate {
+			display: inline-block;
+			font-size: 22px;
+			letter-spacing: .2em;
+		}
+
+		.select-trim .close {
+			margin-top: 29px;
+		}
+
+		.select-trim {
+			width: 100%;
+
+			.wrapper {
+				@include grid-container;
+				width: auto;
+			}
+			h2 {
+				@include grid-column(3);
+				@include nobel-book;
+				margin-left: 0;
+				padding: 30px 0 25px;
+			}
+			.close {
+				@include omega;
+				margin-top: 32px;
+				position: absolute;
+				right: $column-width;
+			}
+			.trim {
+				display: block;
+				padding: 0;
+				text-align: left;
+				border: none;				
+			}
+			.trim-description {
+				background: url("/assets/img/compare/bg-dotted-line.png") repeat-x left top;
+				padding: 0;
+
+				a {
+					@include nobel-bold; 
+					background: url("/assets/img/global/right-arrow-thin.png") no-repeat right center;
+					text-decoration: none;
+					display: block;
+					color: $color-black;
+					font-size: 12px;
+					letter-spacing: 2px;
+					line-height: 56px;
+					text-transform: none;
+				}
+			}
+		}
+
+
+		.small-format-message {
+			display: block;
+		}
+
+		.wide-format-message {
+			display: none;
+		}
+
+		.chrome-attribution {
+			width: 100%;
+			text-align: center;
+			position: relative;
+			margin-top: 7px;
+		}
+
+		.chrome-attrib-text {
+			display: inline-block;
+		}
+	}
+
+	.touch #landing, .mstouch #landing {
+		.car-group {
+			overflow-x: hidden;
+		}
+	}
+}
+
+@include at-max-width-breakpoint(1130px) {
+	#landing {
+		.car-group-HYBRIDS {
+			.car-hover { 
+				padding-bottom: 14px;
+			}
+			.product {
+				.name {
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+@include at-breakpoint($medium-min $medium-max $total-columns) {
+	#landing .scrolling-section-header h2 {
+		margin-left: 0;
+	}
+}
+
+@include at-medium-breakpoint() {
+	#landing {
+		.car-hover {
+			.button {
+				padding: 1em 0;
+				width: 25%;
+			}
+		}
+	}
+}
+
+@include at-breakpoint($default-columns $small-min 800px) {
+	#landing {
+		.car-hover {
+			top: 1%;
+
+			.button {
+				opacity: 0;
+			}
+		}
+	}
+}
+
+@include at-small-breakpoint() {
+	#landing {
+		.car-group .product {
+			.name {
+				display: inline-block;
+			}
+		}
+	}
+}

@@ -1,0 +1,138 @@
+{
+    "searchedTerm": "contact info",
+    "quantityResults": 39,
+    "searchInstead": [
+        "customer service"
+    ],
+    "results": [
+        {
+            "title": "Lexus - Contact Information",
+            "url": "http://www.lexus.com/contact/",
+            "snippet": "This is the Lexus contact information page. Phone, e-mail, fax and mailing information is provided for Lexus Customer Assistance and Lexus Financial Services, as well as hours of service and FAQ/Lexus Knowledge Center topics.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus - Find a Dealer",
+            "url": "http://www.lexus.com/dealers",
+            "snippet": "Your Lexus dealer can help you explore a new Lexus and deliver impeccable certified Lexus service.  Contact us for an appointment or visit today.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus - Contact Information",
+            "url": "http://www.lexus.com/contact/index.html",
+            "snippet": "This is the Lexus contact information page. Phone, e-mail, fax and mailing information is provided for Lexus Customer Assistance and Lexus Financial Services, as well as hours of service and FAQ/Lexus Knowledge Center topics.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - Knowledge Center",
+            "url": "http://www.lexus.com/contact/knowledge_center.html",
+            "snippet": "Find answers to frequently asked questions in the Lexus Knowledge Center.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - Luxury Sedans, SUVs, Hybrids, and Performance Cars",
+            "url": "http://www.lexus.com/",
+            "snippet": "Welcome to Lexus' official site. Explore the line of Lexus luxury sedans, SUVs, hybrids, convertibles and accessories, or find a Lexus dealer near you.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Your Privacy Rights",
+            "url": "http://www.lexus.com/privacy/",
+            "snippet": "Lexus Privacy Rights and Online Privacy Statement",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Introducing the Entirely New Lexus RC F",
+            "url": "http://www.lexus.com/concept/RCF/index.html",
+            "snippet": "Learn more about the RC F: a high-performance coupe designed to exhilarate from the asphalt up.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus CT, CT F SPORT - Luxury Hybrid | 2015 | Overview | Lexus.com",
+            "url": "http://www.lexus.com/models/CT-hybrid",
+            "snippet": "Eats asphalt. Sips fuel. Explore the luxurious and powerful features of 2015 Lexus CT luxury hybrid.  ",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "2015 Lexus ES - Luxury Sedan | Lexus.com",
+            "url": "http://www.lexus.com/models/ES",
+            "snippet": "The 2015 Lexus ES luxury sport sedan combines exquisite luxury and convenient technologies for an impressive driving experience.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "2015 Lexus ES - Luxury Sedan | Lexus.com",
+            "url": "http://www.lexus.com/models/ES-hybrid",
+            "snippet": "The 2015 Lexus ES luxury sport sedan combines exquisite luxury and convenient technologies for an impressive driving experience.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }
+    ],
+    "cards": [
+        {
+            "type": "support",
+            "position": 2,
+            "title": "Lexus Customer Support",
+            "subhead": "800-255-3987",
+            "description": "Today's hours 8AM-9PM EST",
+            "linkURL": "",
+            "photos": [],
+            "actions": [
+                {
+                    "label": "Email",
+                    "url": "http://lexus2.custhelp.com/app/ask",
+                    "style": "primary"
+                },
+                {
+                    "label": "Chat",
+                    "url": "http://lexus2.custhelp.com/app/chat/chat_launch",
+                    "style": "secondary"
+                }
+            ],
+            "topics": [
+                {
+                    "title": "Bluetooth Pairing",
+                    "url": "http://www.lexus.com/contact/bluetooth_phones.html"
+                },
+                {
+                    "title": "Enform Help",
+                    "url": "http://www.lexus.com/contact/enform.html"
+                },
+                {
+                    "title": "DIY Maintenance",
+                    "url": "http://www.lexus.com/contact/mechanical.html"
+                },
+                {
+                    "title": "how to videos",
+                    "url": "http://www.lexus.com/contact/how_to_videos_rx10.html"
+                },
+                {
+                    "title": "replacement keys",
+                    "url": "http://www.lexus.com/solr/faq.do?qt=keys&rdo_search=kc"
+                },
+                {
+                    "title": "more...",
+                    "url": "http://www.lexus.com/contact/knowledge_center.html"
+                }
+            ]
+        }
+    ]
+}

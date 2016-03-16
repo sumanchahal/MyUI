@@ -1,0 +1,160 @@
+@import "typography";
+@import "grid";
+@import "../modules/sticky-header";
+
+
+.legal-format {
+
+    &.m2-content {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .page-title-cont .m2-text-tile,
+    .page-title {
+        padding: 20px 0 30px;
+        h1 {
+            @include nobel-bold;
+            font-size: 17px;
+            text-align: center;
+            letter-spacing: 4px;
+            padding: 10px 0 5px;
+        }
+    }
+
+    .m2-menu-tile {
+        margin-bottom: 25px;
+    }
+
+    .cta-cont {
+        text-align: center;
+    }
+
+    .cta-button {
+        margin: 0.6rem 0 3rem;
+    }
+
+    .cta-text {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .m2-text-tile {
+
+        p, li {
+            letter-spacing: 0.5px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.5;
+        }
+
+        h3 {
+            font-size: 12px;
+            // Partial pseudo fix for the mobile safari jumplink-scrolls-too-far-and-address-bar-is-in-the-way issue [R4C-407]. Get it? "pseudo" fix... is this thing on?
+            // Part 2 of this fix is in sticky-header.js because the sticky header gets in the way too.
+            &:before {
+                display: block;
+                content: " ";
+                margin-top: -285px;
+                height: 285px;
+                visibility: hidden;
+            }
+        }
+
+        h4 {
+            @include nobel;
+            font-size: 12px;
+            letter-spacing: 0.8px;
+        }
+
+        a[href="#"] {
+            display: block;
+            text-align: center;
+            @include nobel-bold;
+            letter-spacing: 1px;
+            color: black;
+            letter-spacing: 2px;
+            margin-bottom: 35px;
+            text-decoration: underline;
+        }
+
+        h3 + ul {
+            margin-top: 0;
+        }
+
+        ul {
+            -webkit-padding-start: 0px;
+        }
+
+        ul li {
+            list-style-type: none;
+            padding-left: 1.25em;
+            background-image: url("/assets/img/global/svg/diamond-black.svg");
+            background-size: .5em;
+            background-position: 0px 0.65em;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+@include sm-up() {
+    .no-touch.no-mstouch {
+        .legal-format .m2-text-tile a[href="#"] {
+            display: none;
+        }
+    }
+
+    .legal-format {
+
+        .m2-text-tile {
+            h3 {
+              font-size: 14px;
+            }
+        }
+
+        .page-title-cont .m2-text-tile,
+        .page-title {
+            padding: 58px 0 50px;
+            h1 {
+                font-size: 20px;
+            }
+        }
+    }
+
+}
+
+@include md-up() {
+    .legal-format {
+        .cta-cont {
+            text-align: left;
+        }
+
+        .m2-text-tile {
+            a[href="#"] {
+            display: none;
+          }
+        }
+
+        .page-title-cont .m2-text-tile,
+        .page-title {
+            padding: 78px 0 60px;
+            h1 {
+                font-size: 23px;
+            }
+        }
+    }
+
+
+}
+
+
+@media print {
+    .m2-menu-tile,
+    #mobileMenuButton,
+    .m2-cta-tile.cta-button,
+    .m2-text-tile a[href="#"]  {
+        display: none;
+    }
+}
+

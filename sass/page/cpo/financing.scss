@@ -1,0 +1,77 @@
+@import "cpo";
+
+.view-toggle {
+  display: none;
+}
+
+.hero .hero-bg-img .title {
+  margin-top: 1vw;
+}
+
+.feature-wrapper {
+  max-width: $large-max;
+  position: relative;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    &.bordered {
+      border-top: 1px solid $color-grey-85;
+    }
+
+    li {
+      display: block;
+      padding: 25px 0;
+      width: 100%;
+      p {
+        margin-bottom: 5px;
+      }
+      a {
+        @include btn;
+        margin-top: 20px;
+        margin-bottom: 0;
+        max-width: none;
+        display: inline-block;
+        
+      }
+    }
+  }
+}
+
+
+
+@include at-small-and-medium-breakpoints() {
+  .hero .hero-bg-img .title {
+    font-size: 18px;
+  }
+  body {
+    .content {
+      .feature-wrapper {
+        h2 {
+          margin-bottom: 12px;
+        }
+      }
+    }
+  }
+  .feature-wrapper {
+    ul {
+      &.bordered {
+        border-top:1px dotted $color-grey-85;
+        &:last-of-type {
+          border-bottom: 1px dotted $color-grey-85;
+          margin-bottom:24px;
+        }
+      }
+      li {
+        padding: 20px 0;
+        text-align: center;
+        .button-wrapper {
+          a {
+            margin: 20px auto 0;
+          }
+        }
+      }
+    }
+  }
+}

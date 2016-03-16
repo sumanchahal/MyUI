@@ -1,0 +1,86 @@
+@import 'library';
+
+#debug-info {
+	opacity: 0;
+}
+
+#details {
+	width: $large-min;
+	margin: auto;
+
+	#header, #categoryNav, .section-selector, 
+	.utility-nav-wrapper, .buttons, 
+	.side-by-side-footer, .button-hider, 
+	.footer-disclaimer-container, footer,
+	.utility-nav,
+	.dealer-locator-divider-large,
+	.NavBar_zoomControlContainer {
+		display: none;
+	}	
+
+	.gallery-target {
+		cursor: default;
+	}
+	
+	.enlarge-img {
+		display: none;
+	}
+
+	#wrapper {
+		padding: 0;
+		background: none;
+	}
+
+	header {
+		h1 {
+			padding: 20px 0 40px 0;	
+		}
+	}
+
+	.current-offers {
+		padding-bottom: 0;
+	}
+
+	.offers {
+		opacity: 1;
+	}
+
+	.row {
+		@include grid-container;
+		margin-bottom: 20px;
+
+		.offer:nth-child(2n) {
+			@include omega;
+		}
+
+		.button {
+			display: none;
+		}
+	}
+
+	.offer {
+		@include grid-column(6);
+	}
+
+	.key-contacts .contact {
+		@include grid-column(6);
+	}
+
+	.key-contacts .contact:nth-child(2n) {
+		@include omega;
+	}
+
+	.map {
+		.pin {
+			position: absolute;
+			left: 50%;
+			margin-left: -17px;
+			top: 50%;
+			margin-top: -48px
+		}
+	}
+}
+
+.optional-disclaimers-container {
+    display: none !important;
+}

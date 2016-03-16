@@ -1,0 +1,239 @@
+@import "library";
+
+html.lte-ie10 {
+  background: black;
+  #content {
+    .header-wrapper {
+      z-index: 10000;
+      opacity: 0.5;
+    }
+    &>:not(.header-wrapper) {
+      display: none;
+    }
+  }
+
+  #browser-not-supported {
+      display: block;
+  }
+}
+// get rid of the background black 
+// also this should be the opposite of above
+html:not(.lte-ie10) {
+  #browser-not-supported {
+      display: none;
+  }
+}
+
+body{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); //hides webkit/ios taphighlight color
+	@include palatino;
+	@include ps-font-size(13);
+	@include black-on-white;
+    position:relative;
+}
+
+
+#wrapper {
+    position:relative;
+}
+
+/* #content is a div that sits one level below body and wraps everything in the page except scripts. */
+#content {
+	width: 100%;
+    position: relative;
+}
+
+button {
+	@include btn;
+}
+#button-wrapper {
+    .button {
+        @include btn;
+    }
+}
+
+h2 {
+    @include heading;
+}
+
+h3 {
+    @include section-heading;
+}
+
+.grid-container {
+	@include grid-container;
+}
+
+/* Hide any element marked as a template offscreen */
+.template {
+	position: absolute;
+	top: -9000px;
+	left: -9000px;
+}
+
+/* Hide the loading message after a component is loaded. */
+.loaded {
+	.loading {
+		display: none;
+	}
+}
+.loaded.loading {
+	display: none;
+}
+.loading.animation {
+    width: 50px;
+    height: 36px;
+    background: $loading-sprite no-repeat top left;
+}
+
+
+.close-btn{
+    width: 60px;
+    height: 60px;
+    background: $close-btn no-repeat;
+    cursor: pointer;
+}
+
+.play-icon, .enlarge-icon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.play-icon {
+  background: $play-icon no-repeat center center;
+  background-size: 15%;
+}
+
+.enlarge-icon {
+  background: $enlarge-icon no-repeat center center;
+}
+
+.gallery-item.video .image-controls {
+  display: none;
+}
+
+/* Hide the feedback icon when printing any page */
+@media print {
+  footer,
+  img[id*="UIF-IMG-"] {
+    display: none !important;
+  }
+}
+
+/* Breakpoints */
+
+/* Back to Top */
+#back-to-top {
+  display: none;
+  background: sprite($globalSpriteMap, back-to-top) $color-black no-repeat;
+  @include sprite-dimensions($globalSpriteMap, back-to-top);
+  color: $color-white;
+  @include nobel-book;
+  @include font-size(10,auto,100);
+  position: fixed;
+  bottom: 0; /** LIM 195**/
+  right: $width-stroke;
+  padding: 30px 0 0 0;
+  width: 50px;
+  height: 20px;
+  text-align: center;
+  text-decoration: none;
+  z-index: 9999;
+  &.end {
+    position: absolute;
+    top: -50px;
+    right: 0;
+  }
+}
+
+/* Touch devices have no stroke */
+.touch, .mstouch {
+  #back-to-top {
+    right: 0;
+  }
+}
+
+@include at-medium-breakpoint() {
+  /* Medium and below have no stroke */
+  #back-to-top {
+    right: 0;
+  }
+  .enlarge-icon {
+    background: url(/assets/img/features/feature-image-hover.gif) 0 0 no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    z-index: 1;
+    opacity: 1;
+  }
+}
+
+/* Image Wrapper */
+.image-wrapper-ratio-fix{
+    position: relative;
+    height: 0;
+}
+
+/* Read More */
+.read-more, .read-less {
+    @include link($color-black, none);
+}
+.truncated-text {
+    display: none;
+}
+
+
+
+/* Styles for HTML in 'rich text' elements */
+.rich-text {
+    em, i {
+        font-style: italic;
+    }
+    strong, b {
+        font-weight: bold;
+    }
+    ul {
+        margin: 10px 0 0 20px;
+
+        li {
+            @include body-copy();
+            @include font-size(13,16,100);
+            text-transform: none;
+            text-align: left;
+            list-style-type: none;
+            position: relative;
+            line-height: 16px;
+            padding: 8px 0;
+            &:before {
+                content: "";
+                background: url(/assets/img/global/bullet-diamond.png) transparent no-repeat center center;
+                width: 7px;
+                height: 8px;
+                display: block;
+                position: absolute;
+                left: -20px;
+                top: 12px;
+            }
+        }
+    }
+}
+
+.hybrid-h, .trim-name {
+    @include trim-name();
+}
+.case-sensitive {
+    @include case-sensitive();
+}
+img[src*="tribalfusion.com"] {display: none;}
+input::-ms-clear {
+  display: none;
+}
+
+:-moz-focusring {
+  outline: none;
+}

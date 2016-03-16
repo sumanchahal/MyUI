@@ -1,0 +1,256 @@
+@import "library";
+@import "modules/jscrollpane";
+@import "compass/css3/transition";
+@import "compass/css3/transform";
+
+.tooltip-trigger {
+	cursor: pointer;
+	.asterisk {
+		position: relative;
+		padding: 0px 10px 10px 10px;
+		left: 10px;
+	    margin-left: -20px;
+	}
+}
+
+.touch, .mstouch {
+    .tooltip-trigger {
+        .asterisk {
+            &:after {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+.tooltip-background {
+	background-color: white;
+	opacity: .01;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 99998;
+	display: none;
+}
+
+.tooltip-content-hidden {
+	display: none;
+}
+
+.tooltip {
+	@include animationFix();
+	@include transition(opacity 300ms ease);
+	display: none;
+	opacity: 0;
+	position: fixed;
+	z-index: 99999;
+	overflow: visible;
+
+	em {
+		font-style: italic;
+	}
+
+	li {
+		list-style-type: disc;
+		margin-left: 20px;
+		line-height: 15px;
+	}
+
+	a {
+		color: white;
+	}
+	
+	.tooltip-content-hidden {
+		display: block;
+	}
+
+	&.shown {
+		display: block;
+		opacity: 1;
+	}
+
+	.tooltip-gradient-bottom {
+		display: none;
+	}
+
+	.tooltip-arrow {
+		position: absolute;
+	}
+
+	.close-tooltip {
+		display: none;
+	}
+
+	&.default {
+		background-color: black;
+		padding: 16px 10px 6px 20px;
+		margin-top: -27px;
+		width: 200px;
+
+		.tooltip-arrow {
+			background-image: url("/assets/img/compare/btn-link-arrow-left-large.png");
+			left: -8px;
+			top: 15px;
+			width: 8px;
+			height: 21px;
+		}
+
+		&.left {
+			.tooltip-arrow {
+				left: auto;
+				right: -8px;
+				@include rotate(180deg);
+			}
+		}
+
+		&.up {
+			margin-left: -110px;
+			.tooltip-arrow {
+				display: none;
+			}
+		}
+
+		.scroll-container {		
+			height: auto;
+			max-height: 160px;
+            min-height:100px;
+            outline:none;
+		}
+
+		.tooltip-content {
+			@include font-size(13, 18, 25);
+			@include palatino;
+			position: relative;
+			max-width: 175px;
+			color: $color-white;	
+			overflow: auto;
+			text-transform: none;
+			letter-spacing: 0px;
+			text-align: left;
+			cursor: auto;
+			padding-bottom: 15px;
+			padding-right: 25px;
+			overflow-x: hidden;
+		}
+
+		.disclaimer-title {
+			@include nobel-bold;
+			@include font-size(13, 18, 230);
+			text-transform: uppercase;
+			padding-bottom: 10px;
+		}
+
+		.disclaimer-body {
+			overflow: hidden;
+			width: auto;
+			max-width: 175px;
+			&:not(:last-child) {
+				padding: 0px 0 16px;
+			}
+		}
+
+		/* Sets a fixed height at which the gradient shows up (when tooltip starts to scroll) */
+		.tooltip-gradient-container {
+			height: auto;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		/* Compass gradient doesn't support transparency */
+		.tooltip-gradient-bottom {
+			display: block;
+			z-index: 2;
+			position: absolute;
+			top: 168px; 
+			left: 0px;
+			height: 30px;
+			width: 100%;
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.34) 17%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(17%,rgba(0,0,0,0.34)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.34) 17%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.34) 17%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.34) 17%,rgba(0,0,0,1) 100%); /* IE10+ */
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.34) 17%,rgba(0,0,0,1) 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */	
+		}
+
+		/* Compass gradient doesn't support transparency */
+		.tooltip-gradient-top {
+			display: block;
+			z-index: 2;
+			position: absolute;
+			top: 16px; 
+			left: 0px;
+			height: 4px;
+			width: 100%;
+			background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.34) 81%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(81%,rgba(0,0,0,0.34)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0.34) 81%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0.34) 81%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0.34) 81%,rgba(0,0,0,0) 100%); /* IE10+ */
+			background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0.34) 81%,rgba(0,0,0,0) 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+		}
+
+		.global-close-inverted {
+			display: block;
+			cursor: pointer;
+			position: absolute;
+			right: 18px;
+			top: 15px;
+			z-index: 5;
+		}
+
+		/* custom scrollbars */
+		.jspContainer {
+			max-height: 1000px;
+		}
+
+		.jspVerticalBar {
+			right: 0px;	
+			width: 5px;
+
+			.jspArrow {
+				height: 11px;
+				overflow: hidden;
+				padding: 0;
+				opacity: 0;
+			}
+		}
+
+		.jspTrack {
+			background: none;
+		}
+
+		.jspDrag {
+			background: $color-grey-20;
+		}
+
+	}
+}
+
+@include at-small-breakpoint() {
+	.tooltip-trigger.disclaimer {
+		cursor: auto;
+	}
+}
+
+/* Touch screen devices do not permit disclaimer tooltips, they are shown in the footer with mobile instead */
+.touch, .mstouch {
+	.tooltip-trigger.disclaimer {
+		cursor: auto;
+	}
+}
+
+

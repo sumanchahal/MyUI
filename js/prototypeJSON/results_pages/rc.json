@@ -1,0 +1,138 @@
+{
+    "searchedTerm": "RC F",
+    "quantityResults": 39,
+    "searchInstead": [
+        "RC-F"
+    ],
+    "results": [
+        {
+            "title": "Lexus Concept Vehicles",
+            "url": "http://www.lexus.com/concept/",
+            "snippet": "",
+            "type": "tree",
+            "filetype": "html",
+            "children": [
+                {
+                    "title": "LF-LC",
+                    "url": "http://www.lexus.com/concept/"
+                },
+                {
+                    "title": "NX",
+                    "url": "http://www.lexus.com/concept/NX/index.html"
+                },
+                {
+                    "title": "RC",
+                    "url": "http://www.lexus.com/concept/RC/index.html"
+                },
+                {
+                    "title": "RC F",
+                    "url": "http://www.lexus.com/concept/RCF/index.html"
+                }
+            ]
+        },
+        {
+            "title": "2015 Lexus RC, Lexus RC F SPORT - Luxury Coupe | Lexus.com",
+            "url": "http://www.lexus.com/models/RC",
+            "snippet": "The 2015 Lexus RC and RC F SPORT all-new luxury coupe body style boasts sculpted lines, a wide, low stance and seamlessly blends design with breathtaking performance",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "2015 Lexus RC F - Performance Sedan | Lexus.com",
+            "url": "http://www.lexus.com/models/RCF",
+            "snippet": "Born on the grueling Fuji International Speedway, the 2015 Lexus RC F SPORT performance sedan is the fastest, most dominant sedan Lexus has ever built.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Introducing the Entirely New Lexus RC F",
+            "url": "http://www.lexus.com/concept/RCF/index.html",
+            "snippet": "Learn more about the RC F: a high-performance coupe designed to exhilarate from the asphalt up.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus - Luxury Sedans, SUVs, Hybrids, and Performance Cars",
+            "url": "http://www.lexus.com/",
+            "snippet": "Welcome to Lexus' official site. Explore the line of Lexus luxury sedans, SUVs, hybrids, convertibles and accessories, or find a Lexus dealer near you.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Introducing the Entirely New Lexus RC and RC F SPORT",
+            "url": "http://www.lexus.com/concept/RC/index.html",
+            "snippet": "Learn more and view a full gallery of the stunning first-ever RC and RC F SPORT two-door coupes.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus RC F - Features | Lexus.com",
+            "url": "http://www.lexus.com/models/RCF/features",
+            "snippet": "Your 2014 LEXUS RC F features can include 416-HP high-performance engine, 8-speed sport direct-shift transmission, high-performance Bembro® brakes and more.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "2015 RC F Model Current Offers",
+            "url": "http://www.lexus.com/models/RCF/offers",
+            "snippet": "2015 RC F Model Current Offers",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus RC F | 2015 | Technical Specs | lexus.com",
+            "url": "http://www.lexus.com/models/RCF/specifications",
+            "snippet": "Technical specs for the 2015 Lexus RC F - Review engine, performance, drivetrain, Chassis and body dimensions.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus RC F - Images and Videos | Lexus.com",
+            "url": "http://www.lexus.com/models/RCF/gallery",
+            "snippet": "See why the Lexus RC F SPORT is anything but neutral.  Browse Lexus' gallery for the latest images and videos of the Lexus RC F SPORT performance sedan.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus RC - 2015 - Ownership Benefits | Lexus.com",
+            "url": "http://www.lexus.com/models/RC/owners",
+            "snippet": "Owning a 2015 Lexus RC comes with benefits. Unsurpassed customer service. Exclusive invitations. World-class partnerships. Learn about being an owner.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }
+    ],
+    "cards": [
+        {
+            "type": "future",
+            "position": 2,
+            "title": "The Lexus RC F",
+            "subhead": "Arriving Fall 2014",
+            "description": "Performance, in its most aggressive form.",
+            "linkURL": "http://www.lexus.com/concept/RCF/index.html",
+            "background": "/assets/img/PROTOTYPE/cards/future-bg.jpg",
+            "actions": [
+                {
+                    "label": "Get RC F Updates",
+                    "url": "https://ssl.lexus.com/rcf/request-upcoming",
+                    "style": "primary"
+                }
+            ],
+            "photos": [
+                {
+                    "alt": "RC F",
+                    "img": "http://www.lexus.com/concept/RCF/images/slides/slide3.jpg"
+                }
+            ]
+        }
+    ]
+}

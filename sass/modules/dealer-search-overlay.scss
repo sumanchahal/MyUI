@@ -1,0 +1,122 @@
+@import "library";
+
+.dealer-search-overlay {
+    background:#000;
+    height:270px;
+    width:50%;
+    position:absolute;
+    padding:30px;
+    left:50%;
+    top:50%;
+    margin-left:-25%;
+    margin-top:-125px;
+    z-index:1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+
+    .form-zip-search {
+        //max-width: 80%;
+        max-width: 50%;
+        margin:0 auto;
+        text-align: center;
+
+        &.error {
+            .invalid-zip {
+                border-bottom:none;
+            }
+        }
+    }
+
+    .input-group {
+        margin: 0 auto;
+    }
+
+    .marker-white {
+        display:block;
+        margin:15px auto 20px auto;
+        width: 24px;
+        height: 35px;
+        background: url("/assets/img/dealer-locator/icon-marker-white.png") no-repeat;
+    }
+
+    h2 {
+        color:#fff;
+        @include nobel-book;
+        text-transform: uppercase;
+        font-size: 22px;
+        letter-spacing: 1px;
+        text-align: center;
+        margin-bottom: 20px;
+
+        &.error {
+            color: #ff0000;
+            display:none;
+        }
+    }
+
+    .invalid-zip,
+    .dis-error {
+        color:#fff;
+        margin-top: -14px;
+        display:none;
+    }
+
+    .dis-error .dealer-locator-icon-error {
+        margin:0;
+    }
+
+    .dealer-locator-icon-error {
+        background: url("/assets/img/dealer-locator/icon-error-red.png") no-repeat;
+        display: inline-block;
+        position: relative;
+        left: -5px;
+        top: 5px;
+    }
+
+    .zip-tooltip-container {
+        border-bottom:none !important;
+    }
+}
+
+@include at-medium-breakpoint() {
+    .dealer-search-overlay {
+        width:80%;
+        left:50%;
+        margin-left:-40%;
+    }
+}
+/* Small */
+@include at-small-breakpoint() {
+    .first-time-visitor {
+        .sub,
+        .dealer-search-overlay .input-group {
+            max-width: 100%;
+        }
+        h2 {
+            width: 80%;
+            margin: auto;
+        }
+        .dealer-search-overlay {
+            padding: 30px 0;
+        }
+    }
+
+    .dealer-search-overlay {
+        position: static;
+        width: 100%;
+        height: auto;
+        left: auto;
+        margin: 0;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+
+        .form-zip-search {
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+    }
+}

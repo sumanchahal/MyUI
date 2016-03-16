@@ -1,0 +1,38 @@
+// Typography mixins for font styles. See also fonts.scss
+
+@import 'vars';
+
+/* Makes using ems work cross-browser */
+body { font-size: 100%; }
+
+@import 'font-size';
+
+$serif-stack: "Book Antiqua", serif;
+$sans-stack: Helvetica, Arial, sans-serif;
+@mixin nobel-stack ($weight: regular,$transform:uppercase ) { font-family: "nobel-#{$weight}", $sans-stack; text-transform: $transform; }
+@mixin pakt-stack () { font-family: "pakt", "nobel-regular", $sans-stack; }
+@mixin palatino-stack () { font-family: "Palatino", "Palatino Linotype", $serif-stack; }
+
+/* Fonts */
+@mixin nobel { @include nobel-stack(regular); }
+@mixin nobel-light { @include nobel-stack(light); font-weight: $weight-light; }
+@mixin nobel-book { @include nobel-stack(book); font-weight: $weight-book; }
+@mixin nobel-book-italic($transform:uppercase){ @include nobel-stack(book-italic,$transform); font-style: italic;}
+@mixin nobel-regular { @include nobel; font-weight: normal;}
+@mixin nobel-regular-italic { @include nobel-stack(regular-italic); font-style: italic;}
+@mixin nobel-bold($transform:uppercase) { @include nobel-stack (bold,$transform); font-weight: $weight-bold;}
+@mixin case-sensitive { text-transform: none; }
+@mixin trim-name { @include case-sensitive }
+
+@mixin pakt {  @include pakt-stack; }
+
+@mixin palatino { @include palatino-stack; }
+
+
+@mixin header-font { @include nobel; }
+@mixin body-font { @include palatino; }
+
+@mixin body-copy {
+	@include body-font;
+	@include font-size(13, 18, 25);
+}

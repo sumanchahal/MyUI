@@ -1,0 +1,68 @@
+@import "library";
+@import "compass/css3/border-radius";
+@import "compass/utilities/sprites";
+// this file is potentially redundant, should be removed if unused
+.carousel {
+	position: relative;
+	overflow: hidden;
+
+	.slide {
+		position: absolute;
+		top: 0;
+		left: -5000px;
+		width: 100%;
+
+		&.active {
+			top: 0;
+			left: 0;
+		}
+	}
+
+	.indicators {
+		text-align: center;
+		clear: both;
+		padding: 10px 0;
+
+		a {
+			display: inline-block;
+			margin-right: 4px;
+			margin-left: 4px;
+
+			&:last {
+				margin-right: 0;
+			}
+		}
+
+		.indicator {
+			@include border-radius(8px, 8px);
+			height: 8px;
+			width: 8px;
+			background: #cecece;
+
+			&.active {
+				background: #c29339;
+			}
+		}
+
+		.prev {
+			margin-right: 14px;
+			background: sprite($globalSpriteMap, left-arrow-thin) no-repeat;
+			background-position: sprite-position($globalSpriteMap, left-arrow-thin, 0, -2px);
+		}
+
+		.next {
+			margin-left: 14px;
+			margin-right: 0;
+			background: sprite($globalSpriteMap, right-arrow-thin) no-repeat;
+			background-position: sprite-position($globalSpriteMap, right-arrow-thin, -1px, -2px);
+		}
+
+		.control {
+			height: 12px;
+			width: 7px;
+			position: relative;
+			top: 2px;
+			display: inline-block;
+		}
+	}
+}

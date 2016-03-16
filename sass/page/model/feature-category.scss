@@ -1,0 +1,349 @@
+@import "features";
+@import "packages-item";
+@import "gallery-overlay";
+@import "gallery-tiles";
+@import "modules/carousel";
+
+html,
+body {
+    //overflow-x: hidden;
+}
+
+#technology {
+    position: relative;
+	overflow-x: hidden;
+}
+
+.features-wrapper {
+	@include clearfix;
+	margin: 0 auto;
+	padding: 0 $gutter-width;
+	max-width: 1204px;
+
+}
+
+.features-content {
+	float: right;
+	margin: 0 0 80px 0;
+	width: $content-width;
+    &:nth-child(0){
+        background-color: pink;
+        border-top: 0px;
+        padding-top: 0px;
+    }
+}
+
+h1 {
+	@include heading;
+	padding: 40px 0 0;
+	text-align: center;
+}
+
+.feature-group-border {
+	border-top: 1px dotted $color-black;
+	height: 1px;
+	margin: 40px 0 0 0;
+	width: 100%;
+}
+
+.feature-group {
+	@include clearfix;
+	background: url(/assets/img/features/border.gif) 50% 0 repeat-y;
+	margin: 40px 0 0 0;
+	.left {
+		float: left;
+		padding-right: 3%;
+		width: 47%;
+	}
+	.right {
+		float: right;
+		padding-left: 3%;
+		width: 47%;
+	}
+}
+
+.feature-item {
+	border-bottom: 1px solid $color-black;
+	position: relative;
+	margin: 40px 0 0 0;
+	padding: 0 0 40px 0;
+	text-align: center;
+    &:nth-child(0){
+        //background: lime; /** LIM 195**/
+    }
+	&.hero {
+		border-bottom: none;
+		padding: 0;
+		clear: both;
+		width: 100%;
+        border-top: 1px dotted black;
+		h2 {
+			padding: 25px 0 0;
+		}
+        p, .paragraph {
+            padding: 25px 0 0;
+        }
+        .hero-image-wrapper{
+            height: 0px;
+            padding-bottom: 29.80%;
+        }
+		.feature-img {
+			margin: 0;
+		}
+        .play-icon {
+            background-size: 8%;
+        }
+        .text {
+            @include body-copy;
+            margin: 0 auto 0;
+            width: 85%;
+            text-align: center;
+        }
+	}
+	&.icon {
+		img {
+			margin: 0 auto;
+			width: auto;
+            max-width: 100%;
+		}
+	}
+
+	&.overflow {
+		img {
+			position: relative;
+		}
+	}
+	&.package {
+		border-top: 1px dotted $color-black;
+		border-bottom: none;
+		padding: 0;
+		clear: both;
+        .package-item {
+            border: none;
+            img {
+                margin: 40px 0;
+            }
+            .learn-more {
+               margin: 0 auto;
+            }
+        }
+	}
+	&:last-child {
+		border-bottom: none;
+		padding: 0px;
+	}
+    &.has-overlay {
+        .feature-img {
+            cursor: pointer;
+            &:hover {
+                .enlarge-img  {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+	h2 {
+		@include heading(auto,15,150);
+		padding: 0 0 30px;
+	}
+	.feature-img {
+		display: block;
+		position: relative;
+		margin: 0 0 30px 0;
+	}
+
+    .foreground-img {
+        position: relative;
+        margin-top: -22.2%;
+        img {
+            margin: 0 auto;
+            width: 100%;
+        }
+    }
+
+    img {
+		display: block;
+		width: 100%;
+	}
+	a {
+		@include link(#000, none);
+        text-decoration: underline;
+        span {
+          text-decoration: none;
+        }
+	}
+	.text {
+		@include body-copy;
+		margin: 0 auto;
+		width: 100%;
+        text-align: left;
+		a {
+			display: inline;
+		}
+	}
+	ul {
+		margin-left: 20px;
+	}
+	.extras {
+		@include nobel-book;
+		@include font-size(12,auto,150);
+		margin: 0 auto;
+		padding: 20px 0 0 0;
+		width: 85%;
+		a,span {
+			@include nobel-bold;
+			@include font-size(12,15px,150);
+		}
+        span {
+            text-transform: none;
+        }
+	}
+    .touch, .mstouch {
+        .has-overlay{
+            .enlarge-img  {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.hero-interactive {
+  border: none;
+}
+
+
+/* Accolade */
+.feature-accolade-carousel {
+    margin-top: 40px;
+    .accolade-wrapper {
+        .accolade-container {
+            margin: 0;
+            padding: 40px 0px 0px;
+            border-top: none;
+            width: 100%;
+            .image {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.accolade-wrapper .accolade-container .link {
+  padding:0.5em 0 3px 0;
+}
+.accolade-wrapper {
+    @include accolade;
+    padding: 0;
+    margin: 40px 0;
+    width: 100%;
+    .border-container {
+        border-top: 1px dotted black;
+        padding: 40px 0px;
+        max-width: 960px;
+        margin: 0px auto;
+    }
+    .accolade-container {
+        margin: 0;
+        padding: 40px 0px 0px;
+        border-bottom: none;
+        width: 100%;
+    }
+}
+
+
+/* Breakpoints */
+
+/* Small */
+@include at-small-breakpoint() {
+	h1 {
+		@include heading;
+		@include font-size(18px,auto,auto);
+		padding: 25px 0 0;
+		text-align: center;
+	}
+	.features-content {
+		float: none;
+		margin: 0 0 50px 0;
+		width: 100%;
+	}
+    .feature-group-border {
+        margin: 20px 0 0 0;
+    }
+	.feature-group {
+		background: none;
+        margin: 20px 0 0 0;
+		.left {
+			float: none;
+			padding: 0;
+			width: 100%;
+			.feature-item {
+				&:last-child {
+					border-bottom: 1px solid $color-black;
+					position: relative;
+					margin: 40px 0 40px 0;
+					padding: 0 0 40px 0;
+				}
+			}
+		}
+		.right {
+			float: none;
+			padding: 0;
+			width: 100%;
+		}
+	}
+
+	.feature-item {
+        margin: 20px 0 0 0;
+        padding: 0 0 20px 0;
+        h2 {
+            padding: 0 0 20px;
+        }
+        h2.package-title {
+            margin: 20px 0 0 0;
+        }
+		ul {
+			li {
+				margin: 0 0 5px 0;
+			}
+		}
+        &.hero{
+            .text{
+                text-align: left;
+                width: auto;
+            }
+
+        }
+		&.overflow {
+			img {
+				position: relative;
+				left: 0;
+				width: 100%;
+			}
+		}
+        &.package {
+            .package-item {
+                &.featured {
+                    h2.package-title {
+                        @include font-size(18px);
+                        line-height: 20px;
+                    }
+                }
+                img {
+                    margin: 20px 0;
+                }
+            }
+        }
+	}
+
+
+    .feature-accolade-carousel {
+        margin: 20px 0 0 0;
+    }
+    .accolade-wrapper {
+        margin: 20px 0;
+        &:last-child {
+            margin: 20px auto 0;
+        }
+    }
+
+}

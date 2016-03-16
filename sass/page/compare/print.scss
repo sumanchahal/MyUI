@@ -1,0 +1,168 @@
+@import "side-by-side";
+
+#debug-info {
+	right: auto;
+	left: -999em;
+}
+
+#print {
+	#header, #categoryNav, .section-selector, 
+	.utility-nav-wrapper, .buttons, 
+	.side-by-side-footer, .button-hider, 
+	.footer-disclaimer-container, footer {
+		display: none;
+	}
+	
+	#side-by-side .side-by-side-header .product:hover .remove-vehicle {
+		display: none;
+	}
+
+	#wrapper {
+		padding: 0;
+		border: none;
+		width: $large-max;
+		margin: auto;
+	}
+
+	.hidden-rows {
+		max-height: none;
+		opacity: 1;
+	}
+
+	.wrapper {
+		max-width: none;
+	}
+
+	#side-by-side {
+		.advantage-toggle {
+			display: none;
+		}
+		.report.num-competitors-2 .product.selected-vehicle {
+			margin-right: 4%;
+		}
+		.vehicle {
+			width: 49%;
+		}
+		.num-competitors-2 .vehicle {
+			width: 33%;
+		}
+		.num-competitors-3 .vehicle {
+			width: 24.5%;	
+		}
+		.groomed-data.advantage-flag:after {
+			background: none;
+			content: none;
+		}
+		.groomed-data.advantage-flag:after {
+			background: none;
+			content: none;
+		}
+		.vehicle-info img {
+			position: relative;
+			float: left;
+		}
+		.num-competitors-1 .vehicle-info img {
+			top: -3px;
+		}
+	}
+
+	.report {
+		.product {
+			.combined-name {
+				font-size: 12px;
+				padding: 0 5px;
+			}
+		}	
+	}
+
+	.chrome-attrib-text {
+		display: inline-block;
+	}
+
+}
+
+@media print { 
+	#print {
+		.vehicle-info {
+			line-height: 16px;
+		}
+
+		.vehicle-info img {
+			height: 18px;
+		}
+
+		#side-by-side .vehicle-column {
+			padding: 10px 0;
+		}
+
+		#side-by-side .report h3 {
+			border-top: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+		}
+
+		#side-by-side sup {
+			font-size: 12px;
+		}
+
+		#side-by-side .vehicle {
+			padding: 5px 0
+		}
+
+		#side-by-side .vehicle-info {
+			padding: 0 20px;
+			font-size: 18px;
+			line-height: 1.2;
+		}
+		
+		#side-by-side .SMALL .vehicle-info {
+			font-size: 14px;
+		}
+
+		#side-by-side {
+			.vs {
+				color: #eee;
+			}
+
+			.report.num-competitors-1 .side-by-side-header .vs {
+				font-size: 180px;
+				margin-left: -100px;
+			}
+			.report.num-competitors-2 .side-by-side-header .vs {
+				font-size: 90px;
+				margin-left: -90px;
+			}
+			.report.num-competitors-3 .side-by-side-header .vs {
+				letter-spacing: -1px;
+				margin-top: 10px;
+				font-size: 60px;
+				margin-left: 0;
+				left: 20%;
+			}
+
+		}
+
+		#wrapper {
+			width: auto;
+		}
+
+		.chrome-attrib-text {
+			display: inline-block;
+		}
+
+		.tooltip, .tooltip-background {
+			display: none !important;
+		}
+
+		.tooltip-trigger .asterisk {
+			display: inline;
+		}
+
+		sup.disclaimer-counters {
+			display: none;
+		}
+	}
+}
+
+.optional-disclaimers-container {
+    display: none !important;
+}

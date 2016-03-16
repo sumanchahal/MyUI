@@ -1,0 +1,134 @@
+//Predictive Terms
+[
+  {
+    "term": "lease",
+    "model": false,
+    "weight": 11422
+  },
+  {
+    "term": "lease end options",
+    "model": false,
+    "weight": 32
+  },
+  {
+    "term": "lease programs",
+    "model": false,
+    "weight": 64
+  },
+  {
+    "term": "lease rates",
+    "model": false,
+    "weight": 32
+  },
+  {
+    "term": "lease return",
+    "model": false,
+    "weight": 34
+  },
+  {
+    "term": "lease specials",
+    "model": false,
+    "weight": 705
+  },
+  {
+    "term": "lease payment calculator",
+    "model": false,
+    "weight": 19
+  },
+  {
+    "term": "features",
+    "model": false,
+    "weight": 43
+  },
+  {
+    "term": "safety features",
+    "model": false,
+    "weight": 67
+  },
+  {
+    "term": "is 250",
+    "model": true,
+    "weight": 2067
+  },
+  {
+    "term": "is",
+    "model": true,
+    "weight": 1520
+  },
+  {
+    "term": "is 350",
+    "model": true,
+    "weight": 992
+  },
+  {
+    "term": "is f",
+    "model": true,
+    "weight": 992
+  },
+  {
+    "term": "is 200",
+    "model": true,
+    "weight": 105
+  },
+  {
+    "term": "2012 rx",
+    "model": true,
+    "weight": 92
+  },
+  {
+    "term": "2012 rx",
+    "model": true,
+    "weight": 110
+  },
+  {
+    "term": "2012 rx 350",
+    "model": true,
+    "weight": 80
+  },
+  {
+    "term": "2012 lexus",
+    "model": false,
+    "weight": 92
+  },
+  {
+    "term": "2012 is",
+    "model": true,
+    "weight": 92
+  },
+  {
+    "term": "extended warranty",
+    "model": false,
+    "weight": 946
+  },
+  {
+    "term": "battery warranty",
+    "model": false,
+    "weight": 93
+  },
+  {
+    "term": "warranty coverage",
+    "model": false,
+    "weight": 20
+  },
+  {
+    "term": "warning lights",
+    "model": false,
+    "weight": 84
+  },
+  {
+    "term": "coupes",
+    "model": false,
+    "weight": 284
+  },
+  {
+    "term": "service coupons",
+    "model": false,
+    "weight": 82
+  },
+  {
+    "term": "coupons for service",
+    "model": false,
+    "weight": 22
+  }
+  
+]

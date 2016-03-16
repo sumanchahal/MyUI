@@ -1,0 +1,35 @@
+@import "../../library";
+
+.package-dealer {
+    text-align: center;
+    margin-bottom: 80px;
+    @include border-dotted-top-and-bottom();
+
+    .message {
+        @include nobel-regular;
+        @include font-size(15, 18, 200);
+        margin-top: 80px;
+    }
+    .button {
+        @include btn;
+        margin: 30px auto 75px;
+    }
+}
+@include at-no-touch-device{
+    .package-dealer {
+        .button {
+            &:hover{
+                background: #fff;
+                color: #000;
+            }
+        }
+    }        
+}
+
+$width-small-margin: 3.75%;
+@include at-small-and-medium-breakpoints {
+    .package-dealer {
+        width: 100% - (2*$width-small-margin);
+        margin: 0 $width-small-margin;
+    }
+}

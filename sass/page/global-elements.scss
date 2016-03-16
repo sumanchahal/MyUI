@@ -1,0 +1,142 @@
+@import 'library';
+
+#global-elements{
+    background: pink;
+}
+
+p{
+    margin: 20px auto;
+}
+
+h2{
+    margin: 20px auto;
+}
+/* headings */
+.heading{
+    @include heading;
+}
+
+.section-heading{
+    @include section-heading;
+}
+.dealer-heading{
+    @include dealer-heading;
+}
+.overlay-heading{
+    @include overlay-heading;
+}
+.sub-heading{
+    @include sub-heading;
+}
+
+.section-heading{
+    @include section-heading;
+    .description{
+        @include section-heading-description;
+    }
+}
+
+.vehicle-heading{
+    @include vehicle-heading;
+}
+
+.vehicle-type{
+    @include vehicle-heading($font-size: 64);
+}
+
+.vs{
+    @include vehicle-heading($font-size: 280);
+}
+
+.thumbnail-title-large{
+    @include home-thumb-title;
+}
+
+.thumbnail-title-small{
+    @include home-thumb-title($font-size: 13);
+}
+
+.home-thumb-description{
+    @include home-thumb-description;
+}
+
+.price{
+	@include price;
+	.currency{
+		@include currency;
+	}
+}
+
+.price-container{
+
+	.price-starting{
+		@include nobel-book;
+		@include font-size(12,auto, 150);
+	}
+	.price{
+		@include price($font-size: 36);
+		margin-top: 8px;
+
+		.currency{
+			@include currency;
+		}
+	}
+}
+.currency{
+    @include price($font-size: 28px);
+    @include currency;
+}
+
+
+/* buttons / links */
+.btn-to-top{
+    @include btn-to-top;
+}
+
+.btn{
+    @include btn;
+}
+
+
+.btn-lgt-stroke{
+	@include btn-lgt-stroke;
+}
+
+.btn-stroke{
+	@include btn-stroke;
+}
+
+.btn-lgt{
+	@include btn-lgt;
+}
+
+.btn-sml{
+    @include btn-sml;
+}
+
+.disabled{
+    @include disabled;
+}
+
+.link-arrow{
+    @include link-arrow;
+}
+
+.link{
+    @include link;
+}
+
+
+.terms{
+    @include terms;
+}
+
+
+.btn-remove{
+    @include btn-remove;
+}
+
+
+.carousel-dots{
+    @include carousel-dots;
+}

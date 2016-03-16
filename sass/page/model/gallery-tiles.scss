@@ -1,0 +1,736 @@
+@import "library";
+@import "model";
+
+@mixin darkBackground {
+    background-color: rgba(0,0,0,.5);
+}
+
+
+/* Gallery */
+.gallery {
+    padding: 0 $gutter-width 60px;
+    margin: 0 auto;
+    max-width: $large-max;
+    position: relative;
+    h2 {
+        @include heading;
+        text-align: center;
+        margin: 45px 0;
+    }
+
+    .loading.animation {
+        margin: 0 auto;
+    }
+}
+
+.gallery-wrapper { margin: 2% 0 0 0; @include clearfix; }
+
+.view-gallery {
+    clear: both;
+    padding: 40px 0 0 0;
+    position: relative;
+    z-index: 2;
+    .btn {
+        @include btn;
+        margin: 0 auto;
+        &:hover{
+            background: $color-white;
+            color: $color-black;
+        }
+    }
+}
+
+.enlarge-img {
+  //    background: url(/assets/img/features/feature-image-hover.gif) 0 0 no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  opacity: 0;
+  z-index: 1;
+}
+
+.gallery-item {
+    display: table;
+    position: relative;
+    z-index: 0;
+    @include animationFix;
+    .btn {
+        @include btn-lgt;
+        @include font-size(11,auto,auto);
+        display: inline;
+        width: 161px;
+        height: 48px;
+        overflow: auto;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: inherit;
+    }
+    &:hover {
+        .enlarge-img{
+            opacity: 1;
+            @include darkBackground;
+        }
+        .image-controls {
+            opacity: 1;
+        }
+    }
+    .enlarge-img {
+        @include animationFix;
+        top: 0;
+//        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all .3s ease-in-out;
+        cursor: pointer;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0);
+        cursor: pointer;
+    }
+    .image-controls {
+//        transition: all .3s ease-in-out;
+//        opacity: 0;
+//        position: relative;
+        .enlarge-icon {
+//            background: url(/assets/img/features/feature-image-hover.gif) 0 0 no-repeat;
+//            background-size: 100%;
+//            position: absolute;
+//            top: 0;
+//            right: 0;
+//            width: 100%;
+//            height: 100%;
+//            z-index: 1;
+        }
+
+    }
+    // do not hide the button or description text for video thumbs.
+    &.video {
+        .enlarge-img{
+            opacity: 1;
+            // but dont' show the back ground until hover.
+            background: none;
+            &:hover {
+                @include darkBackground;
+            }
+        }
+    }
+
+    .title {
+        @include nobel-bold;
+        @include font-size(11,auto,100);
+        text-transform: none;
+        background: url(/assets/img/overview/gallery/gallery-bg.png) 0 0 repeat;
+        color: $color-white;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        text-transform: none;
+    }
+    img {
+        display: block;
+        width: 100%;
+    }
+    &.image, &.interactive{
+        .video-controls {
+            display: none;
+        }
+    }
+    &.video{
+        .image-controls{
+            display: none;
+        }
+    }
+    &.image_transparent{
+        z-index: 10;
+        .video-controls,
+        .image-controls{
+            display: none;
+        }
+        &:hover{
+            cursor: default;
+            .enlarge-img{
+                display: none;
+            }
+        }
+    }
+}
+@include at-touch-device{
+  .gallery-item .enlarge-img {
+     display: block;
+      background: url(/assets/img/features/feature-image-hover.gif) 0 0 no-repeat;
+      background-size: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      width: 22px;
+      height: 22px;
+      opacity: 1;
+  }
+
+  .gallery-item .enlarge-icon {
+    background: none;
+  }
+
+  .gallery {
+    .enlarge-img, .enlarge-icon {
+      background: none;
+    }
+
+    .play-icon {
+      background-size: 15%;
+    }
+
+    .enlarge-img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .view-gallery {
+    .btn {
+      &:hover{
+        background: $color-black;
+        color: $color-white;
+      }
+    }
+  }
+
+
+}
+
+.touch .gallery-item,
+.mstouch .gallery-item {
+  &:hover, &:active {
+    .enlarge-img {
+      display: none;
+    }
+  }
+}
+
+.gallery-container {
+    position: relative;
+}
+
+.gallery {
+    .gallery-0 {
+        width: 40%;
+        float: left;
+        margin: 0 2% 0 0;
+    }
+    .gallery-1 {
+        width: 58%;
+        float: right;
+        margin: 0 0 2% 0;
+    }
+    .gallery-2 {
+        width: 65.5%;
+        float: left;
+        margin: 0 2% 2% 0;
+    }
+    .gallery-3 {
+        width: 32.5%;
+        float: right;
+    }
+    .gallery-4 {
+        width: 58%;
+        float: left;
+        margin: 0 2% 0 0;
+    }
+    .gallery-5 {
+        width: 40%;
+        float: right;
+        margin: 0 0 2% 0;
+    }
+    .gallery-6 {
+        clear: both;
+        width: 62%;
+        float: right;
+        margin: 0 0 2% 0;
+    }
+    .gallery-7 {
+        float: left;
+        margin: 0 2% 2% 0;
+        width: 57.5%;
+    }
+    .gallery-8 {
+        float: left;
+        margin: 0 0 2% 0;
+        width: 39%;
+    }
+    .gallery-9 {
+        float: left;
+        margin: 0 0 2% 0;
+        width: 75%;
+    }
+    .gallery-10 {
+        float: left;
+        margin: 0 0 2% 0;
+        width: 60%;
+    }
+    .gallery-11 {
+        float: right;
+        width: 38%;
+    }
+    .gallery-12 {
+        @include clearfix;
+        float: left;
+        margin: 0 2% 0 0;
+        width: 39%;
+    }
+    .gallery-13 {
+        float: right;
+        width: 59%;
+    }
+    .item-0 {
+        display: block;
+        float: right;
+        width: 57%;
+        margin: 0 0 6% 0;
+    }
+    .item-1 {
+        width: 64%;
+        margin: 0 0 4% 0;
+    }
+    .item-2 {
+        clear: left;
+        display: block;
+        float: right;
+        width: 94%;
+    }
+    .item-3{
+        width: 40.5%;
+        margin: 0 3.5% 0 0;
+    }
+    .item-4 {
+        width: 56%;
+        position: absolute;
+        bottom: -14.1%;
+        left: 44%;
+    }
+    .item-5 {
+        width: 35%;
+        position: relative;
+        top: 0;
+        float: left;
+    }
+    .item-6 {
+        float: right;
+        width: 61.5%;
+    }
+    .item-7 {
+        width: 70%;
+        position: relative;
+        margin: 21% 0 0 0;
+    }
+    .item-7.image_transparent {
+       width: 100%;
+       position: relative;
+       margin: 6% 0 0 0;
+    }
+    .item-8 {
+        float: right;
+        width: 70%;
+    }
+
+    .item-9 {
+        width: 52%;
+        margin: 0 0 5.5% 0;
+    }
+    .item-10 {
+        width: 70%;
+    }
+
+    .item-11 {
+        position: absolute;
+        bottom: -51%;
+        width: 32%;
+        left: 30%;
+    }
+    .item-11.image_transparent {
+        position: absolute;
+        bottom: -55%;
+        width: 77%;
+        left: -6%;
+    }
+
+    .item-12 {
+        width: 63%;
+    }
+
+    .item-13 {
+        position: absolute;
+        width: 54%;
+        top: -18%;
+        left: 8.5%
+    }
+    .item-14 {
+        float: right;
+        width: 34%;
+        margin: 0 0 4% 0;
+    }
+    .item-16 {
+        clear: both;
+        float: right;
+        width: 71%;
+    }
+    .item-15 {
+        width: 100%;
+        margin: 0 0 5% 0;
+    }
+    .item-17 {
+        width: 56.5%;
+    }
+    .item-18 {
+        float: left;
+        width: 41%;
+        left: 8%;
+    }
+    .item-19 {
+        float: right;
+        width: 56%;
+        left: 8%;
+    }
+    .item-20 {
+        position: absolute;
+        bottom: -35%;
+        left: 18%;
+        width: 31%;
+    }
+    .item-20.image_transparent {
+        position: absolute;
+        bottom: -71%;
+        left: 1%;
+        width: 48%;
+    }
+    .item-21 {
+        float: right;
+        width: 35%;
+        margin: 0 0 3.5% 0;
+    }
+    .item-22 {
+        clear: both;
+        float: right;
+        width: 70%;
+    }
+    .item-23 {
+        float: left;
+        width: 95%;
+        margin: 0 0 5% 0;
+    }
+    .item-24 {
+        float: left;
+        width: 65%;
+    }
+    .item-25 {
+        float: right;
+        margin: 0 0 4% 0;
+        width: 73%;
+    }
+    .item-26 {
+       float: right;
+       width: 100%;
+    }
+    .item-27 {
+        position: relative;
+        left: 0;
+        margin: 0 0 3% 0;
+        width: 72%;
+    }
+    .item-27.image_transparent {
+        position: relative;
+        left: 0%;
+        margin: 0 0 3% 0;
+        width: 88%;
+    }
+    .item-28 {
+        float: left;
+        width: 42%;
+    }
+}
+
+@include at-medium-breakpoint {
+    .enlarge-img {
+      opacity: 1;
+    }
+    .gallery-item {
+        .enlarge-icon {
+          background: url(/assets/img/features/feature-image-hover.gif) 0 0 no-repeat;
+          background-size: 100%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 22px;
+          height: 22px;
+          z-index: 1;
+          opacity: 1;
+        }
+        .btn {
+            @include font-size(8,auto,auto);
+            width: 97px;
+            height: 28px;
+            padding: 5px 8px 6px 8px;
+        }
+        .title {
+            @include font-size(8,auto,auto)
+        }
+    }
+}
+
+@include at-small-breakpoint {
+  .enlarge-img {
+    opacity: 1;
+  }
+    .gallery-item {
+        display: block;
+        position: relative;
+        .enlarge-icon {
+          background: url(/assets/img/features/feature-image-hover.gif) 0 0 no-repeat;
+          background-size: 100%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 22px;
+          height: 22px;
+          z-index: 1;
+          opacity: 1;
+        }
+        .btn {
+            @include font-size(8,auto,auto);
+            width: 97px;
+            height: 28px;
+            padding: 5px 8px 6px 8px;
+        }
+        a {
+            display: block;
+        }
+        img {
+            display: block;
+            width: 100%;
+        }
+        &.image_transparent {
+            display: none !important;
+        }
+    }
+    .gallery-wrapper {margin: 0;}
+    .gallery-images-small { @include clearfix; }
+    .gallery {
+        h2 {
+            @include font-size(18,auto,200);
+        }
+        .gallery-item.left {
+            float: left;
+            margin: 0 1.5% 3% 0;
+            width: 48.5%;
+        }
+        .gallery-item.right {
+            float: right;
+            margin: 0 0 3% 1.5%;
+            width: 48.5%;
+        }
+        .item-0 {
+            clear: none;
+            position: relative;
+            left: 0;
+        }
+        .item-1 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-2 {
+            clear: none;
+            display: inline;
+            position: relative;
+            left: 0;
+        }
+        .item-3{
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-4 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            position: relative;
+            left: 0;
+        }
+        .item-5 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            position: relative;
+            left: 0;
+        }
+        .item-6 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-7 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            position: relative;
+            left: 0;
+            &.image_transparent {
+                display: none;
+            }
+        }
+        .item-8 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-9 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-10 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-11 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            position: relative;
+            left: 0;
+            &.image_transparent {
+                display: none;
+            }
+        }
+        .item-12 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            position: relative;
+            left: 0;
+        }
+        .item-13 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        .item-14 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-16 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-15 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+            &.image_transparent {
+                display: none;
+            }
+        }
+        .item-17 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-18 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-19 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-20 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            position: relative;
+            left: 0;
+            &.image_transparent {
+                display: none;
+            }
+        }
+        .item-21 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-23 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-22 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-24 {
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-25 {
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-26 {
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+        .item-27 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            position: relative;
+            left: 0;
+            &.image_transparent {
+                display: none;
+            }
+        }
+        .item-28 {
+            clear: none;
+            width: 100%;
+            margin: 0 0 6% 0;
+            left: 0;
+        }
+    }
+}

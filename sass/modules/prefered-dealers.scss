@@ -1,0 +1,32 @@
+@import "library";
+
+.prefered-dealers {
+	@include clearfix();
+	/*margin:20px 0 20px 0;*/
+	
+	dt, dd {
+	    float: left; 
+	    display: block; 
+	    width: 50%;
+	    height:40px;
+	    padding:10px;
+	}
+
+	dt {
+    	clear: left;
+    	width:30px;
+    	line-height:40px;
+    	text-align:center;
+	}
+
+	input[type=radio] {
+		float:none;
+		margin:0;
+		padding:0;
+	}
+
+	.ajax-error {
+		display:none;
+		color:#f00;
+	}
+}	

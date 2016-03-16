@@ -1,0 +1,91 @@
+@import "typography";
+@import "../modules/module-base";
+@import "legal-base";
+
+.right-col:before {
+    border: none;
+}
+
+.right-col {
+    margin-top: 3rem;
+    .m2-text-tile h3 a {
+        text-align: left;
+    }
+}
+
+
+
+.m2-text-tile {
+
+    // all h3 that follow an h3 should have extra top margin
+    h3 + h3 {
+        // margin-top: 40px;
+    }
+
+    // ul on this page are tight on padding
+    ul {
+        margin-bottom: 0 0 10px;
+    }
+
+    ul + h3 {
+        padding-top: 0;
+    }
+
+    // Super special case for these. sorry not sure of a better
+    // way to handle this without styling all links on page the same way.
+    // TinyMCE wont let us wrap a link in an h3 and have non-formatted
+    // text on the same line.
+
+    // @will - I had Alvin rename these two fields to "important-info."
+    // Made the change accordingly
+    a[title="important-info"] {
+        @include nobel-bold;
+    }
+
+    // Centering links from h3s
+    h3 a {
+        // not optimal since it center aligns text and the links dont look great when they wrap. gotta do it though.
+        display: block;
+        text-align: center;
+        font-size: 12px;
+    }
+
+
+}
+
+@include md-up() {
+
+    .left-col {
+        padding-right: 75px;
+    }
+
+    .right-col {
+        margin-top: 0;
+        padding-left: 25px;
+        // border left
+        &:before {
+            content: "";
+            position: absolute;
+            border-left: solid #000 1px;
+            height: 120%;
+            left: -17px;
+        }
+
+
+    }
+
+    // Left align links for desktop
+    .m2-text-tile {
+        h3 a {
+            text-align: left;
+            // position: inherit;
+            // -ms-transform: none;
+            // -webkit-transform: none;
+            // -moz-transform: none;
+            // transform: none;
+        }
+
+    }
+
+
+}

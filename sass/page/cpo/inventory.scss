@@ -1,0 +1,477 @@
+@import "../../modules/dropkick";
+@import 'cpo';
+@import "cpo-dealer-search";
+
+
+.no-flexbox .dk_options_inner .disable {
+  display: none;
+}
+
+.hero {
+  img {
+    display: none;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .description {
+    display: none;
+  }
+  hr {
+    margin: 10px auto 30px;
+  }
+  .title {
+    text-transform: none;
+  }
+}
+
+body.no-scroll{
+  overflow: hidden;
+}
+
+#content{
+  overflow: hidden;
+}
+
+.grid-container{
+  clear:both;
+  margin-top: -60px;
+  .content{
+    max-width: none;
+    padding: 0;
+    &.space{
+      padding-top: 60px;
+    }
+  }
+}
+
+.scroll-pane-search-results {
+  display: none;
+}
+.select-all-container {
+  display: block;
+  text-align: center;
+  clear: both;
+  margin-top: 30px;
+  h2 {
+    @include nobel-book;
+    @include font-size(16, 16, 0);
+    padding-bottom: 10px;
+  }
+  .fake-check {
+    content: " ";
+    position: relative;
+    top: 1px;
+    width: 14px;
+    height: 14px;
+    border: solid 1px $color-black;
+    display: inline-block;
+    &.checked {
+      background-image: url('/assets/img/global/select-x.png');
+    }
+  }
+  label {
+    @include nobel-bold(initial);
+    @include font-size(20, 18, 150);
+    cursor: pointer;
+    margin-top: 5px;
+    padding-left: 5px;
+    display: inline-block;
+  }
+}
+.search-form {
+  background-color: $color-grey-90;
+  height: 95px;
+  max-width: $large-max;
+  margin: 0 auto;
+  
+  .form-box {
+    float:left;
+    position: relative;
+    width: 16%;
+    padding: 23px 1%;
+    text-align: center;
+    vertical-align: top;
+    &:last-child {
+      width: 12%;
+    }
+    .dk_toggle {
+      display: none;
+    }
+    select {
+      opacity: 0;
+    }
+    &.yearrange {
+      width: 30%;
+      .dk_container {
+        display: inline-block;
+        width: 48%;
+      }
+    }
+    &.yearrange, &.price {
+      &:after {
+        content: ' ';
+        width: 1px;
+        height: 82px;
+        background-color: $color-white;
+        position: absolute;
+        right: 0px;
+        top: 7px;
+      }
+    }
+    .form-label {
+      @include nobel-book;
+      @include font-size(12, 12, 0);
+      position:relative;
+      white-space: nowrap;
+      top: 4px;
+      &.get-api-zip {
+        @include nobel-bold;
+      }
+    }
+    .submit {
+      max-width: 280px;
+      white-space: nowrap;
+      margin: 0 auto;
+    }
+    a.disable {
+      cursor: default;
+      color: #999;
+    }
+    &.form-zip-search input {
+      height: 40px;
+      border: none;
+      @include nobel-bold(initial);
+      @include font-size(14, 14, 0);
+      max-width: 160px;
+      -webkit-appearance: none;
+      border-radius: 0;
+      padding: 1px 0 1px 12px;
+    }
+  }
+}
+
+#categoryBorderWrap{
+  .allVehicles{
+    a{
+      border-bottom: 1px solid #000;
+      padding-bottom: 2px
+    }
+  }
+}
+
+.cpo-models,
+.cpo-models-container{
+  background: #fff;
+}
+
+.grid-view{
+  margin: 0px auto 80px auto;
+  display: block;
+  .product{
+    float: left;
+    width: 19%;
+    padding-right: 1%;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+    padding-top: 30px;
+    text-decoration: none;
+    outline: none;
+    color: #000;
+    height: 205px;
+    z-index: 22;
+    @include no-select;
+
+    &:nth-child(6n+1) {
+      .border{
+        display: none;
+      }
+    }
+    &:hover{
+      cursor: pointer;
+    }
+    a{
+      text-decoration: none;
+      color: inherit;
+    }
+    .content-wrapper{
+      margin-left: 0;
+      left: 6.97%;
+      position: relative;
+      padding-top: 20px;
+      @include no-select;
+      .border{
+        width: 1px;
+        position: absolute;
+        background: $color-grey-90;
+        height: 100%;
+        left: -6.97%;
+        top: 0;
+      }
+    }
+    .details-wrapper {
+      margin: 20px 0 0 10px;
+      z-index:20;
+      input {
+        display: none;
+        visibility: hidden;
+      }
+      .fake-check {
+        content: " ";
+        position: relative;
+        top: 1px;
+        width: 14px;
+        height: 14px;
+        border: solid 1px $color-black;
+        display: inline-block;
+        &.checked {
+          background-image: url('/assets/img/global/select-x.png');
+        }
+      }
+    }
+    .title{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      @include nobel-light;
+      @include font-size(24, 13, 0);
+      color: $color-grey-80;
+    }
+    .product-image{
+      padding-top: 20px;
+      .image-wrapper-ratio-fix {
+        padding-bottom: 45%;
+      }
+      img{
+        position: absolute;
+        width: 100%;
+        display: block;
+      }
+    }
+    .details{
+      .name{
+        @include nobel-bold(initial);
+        @include font-size(20, 18, 50);
+        padding-left: 5px;
+        .hybrid-name{
+          font-size: 75%;
+        }
+      }
+    }
+  }
+}
+
+@mixin noHoverItem{
+  .model-group{
+    width: 87.5%;
+    margin: 0px auto;
+    float: none;
+    .title{
+      margin-top: 0px;
+    }
+    .product{
+      width: 100%;
+      margin: 0px auto;
+      float: none;
+      .over-state{
+        display: none;
+      }
+      .content-wrapper{
+        left: 0px;
+        position: static;
+      }
+      .product-image{
+        opacity: 1;
+        width: 100%;
+        margin: 0px auto;
+      }
+      .details-wrapper{
+        float: none;
+        width :100%;
+        .details{
+          @include clearfix;
+          margin-bottom: 30px;
+          .name{
+            float: left;
+            @include font-size(28, auto, 50);
+            margin-right: 10px;
+            width: auto;
+          }
+          .description{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin listViewTouch{
+  .model-group{
+    .product{
+      height: auto;
+      padding-bottom: 0px;
+      .over-state{
+        display: none;
+      }
+      .product-image{
+        opacity: 1;
+        margin-bottom: 3.5%;
+      }
+      .content-wrapper{
+        position: relative;
+      }
+      .details-wrapper{
+        margin-top: 3%;
+        width: 35%;
+        .details{
+          .btn-learn-more{
+            @include rotate(-90deg);
+            display: block;
+            width: 26px;
+            height: 0px;
+            overflow: hidden;
+            position: absolute;
+            right: $gutter-width;
+            bottom: 50%;
+            background: url('/assets/img/global/expand-arrow-gold.png') no-repeat;
+            opacity: 1;
+            border: 0px;
+            padding: 14px 0px 0px 0px;
+            margin-bottom: -13px
+          }
+        }
+      }
+    }
+  }
+}
+
+@include at-max-width-breakpoint(780px){
+  .grid-view .product .details .name{
+    @include font-size(15);
+  }
+}
+
+@include at-medium-breakpoint{
+  .list-view {
+    .model-group {
+      .product {
+        .product-image {
+          margin-top: 6%;
+        }
+      }
+    }
+  }
+
+  .list-view {
+    @include listViewTouch();
+  }
+
+  .grid-view{
+
+    .product{
+      height: 185px;
+      .title{
+        font-size: 19px;
+      }
+    }
+
+  }
+
+}
+
+@include at-small-and-medium-breakpoints() {
+  .hero {
+    h1,p,hr {
+      display:none;
+    }
+    img {
+      display: block;
+    }
+  }
+  #zip-wrapper {
+    display:block;
+    margin-bottom: 25px;
+  }
+  .scroll-pane-search-results {
+  	display: block;
+  }
+  .select-all-container {
+    display: none;
+  }
+  .search-form {
+    display:none;
+  }
+  .grid-view {
+    display:none;
+  }
+  
+}
+
+@include at-small-breakpoint{
+  .hero {
+    max-height:initial;
+  }
+  .list-view{
+    @include noHoverItem();
+    .model-group{
+      .title{
+        margin-top: 0px;
+        @include font-size(84, auto, 22);
+      }
+      .product{
+
+        .content-wrapper{
+          padding-bottom: 0px;
+        }
+        .product-image{
+          float: none;
+          width: 100%;
+          position: relative;
+          top: 40px;
+          img {
+            width: 100%;
+            display: block;
+          }
+        }
+        .details-wrapper{
+          width: 100%;
+          float: left;
+          margin-top: 10%;
+          .details{
+            @include clearfix;
+            .name{
+              float: none;
+            }
+            .description{
+              display: none;
+            }
+            .name{
+              float: left;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .subnav-models{
+    display: none;
+  }
+}
+
+@include at-breakpoint($medium-min 1350px $total-columns) {
+  .grid-view {
+    .product {
+      .details {
+        .prefix {
+          br {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+}
+

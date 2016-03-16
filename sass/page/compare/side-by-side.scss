@@ -1,0 +1,2275 @@
+@import "compare";
+@import "modules/trim-selector";
+@import "modules/carousel";
+@import "modules/utility-nav";
+@import "modules/share";
+@import "modules/drill-down-menu";
+
+$small-max: 700px;
+$medium-min: 701px;
+
+/**
+ * Side-by-Side
+ */
+#side-by-side {
+	.dk_options a, .dk_label {
+		text-transform: none;
+	}
+
+	#resultsLoader {
+		display: none;
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		margin-left: -25px;
+		margin-top: -18px;
+		z-index: 101;
+
+		&.show {
+			display: block;
+		}
+	}
+
+	.mobile-top-header {
+		display: none;
+	}
+
+	h1 {
+		display: none;
+	}
+
+	.versus-links {
+		text-decoration: none;
+		color: black;
+	}
+
+	.advantage-toggle {
+		@include nobel-book;
+		position: absolute;
+		display: inline-block;
+		font-size: 12px;
+		line-height: 16px;
+		top: 23px;
+		right: 15px;
+
+		.show-all {
+			margin-right: 15px;
+		}
+		.show-advantage {
+			padding-left: 15px;
+		}
+
+		li {
+			float: left;
+			cursor: pointer;
+			letter-spacing: .15em;
+			position: relative;
+			&.selected {
+				@include nobel-bold;
+				text-decoration: none;
+				.global-tab-select-arrow {
+					display: block;
+				}
+			}
+			&:last-child {
+				border-left: 1px dotted $color-grey-60;
+			}
+			
+			&.advantage-flag:before {
+				top: 0px;
+				margin-right: 7px;
+				content: "" ;
+	 			display: inline-block;
+	 			width: 15px;
+				height: 15px;
+	 			background: url("/assets/img/global-non-sprite/checkmark.png") no-repeat right center;
+	 			background-size: 100% 100%;
+	 			font-size: 0px;
+	 			color: transparent;
+	 			float: left;
+	 			text-indent: -9999px;
+			}
+
+			.global-tab-select-arrow {
+				width: 9px;
+				height: 4px;
+				position: absolute;
+				top: 18px;
+				left: 50%;
+				margin-left: -2px;
+				display: none;
+			}
+		}
+	}
+
+	.short-name {
+		display: none;
+	}
+
+ 	.report {
+ 		text-align: center;
+ 		text-transform: uppercase;
+
+ 		&.display-advantage {
+ 			.no-advantage {
+ 				display: none;
+ 			}
+
+ 			.button-hider {
+				max-height: 0px;
+				opacity: 0;
+				padding-top: 0px;
+				padding-bottom: 0px;
+				margin-bottom: 0px;
+	 		}
+ 		}
+
+ 		&.mobile-style {
+
+ 			.change-header-backdrop {
+				opacity: .6;
+			}
+
+			.change-header {
+				padding: 30px 0 !important;
+				width: 100% !important;
+				left: 0 !important;
+
+				.global-close {
+					display: block;
+					position: absolute;
+					right: 20px;
+					top: 20px;
+				}
+			}
+
+			.up-arrow { 
+				display: none;
+			}
+ 		}
+
+ 		.wrapper {
+	 		position: relative;
+	 	}
+
+ 		.error {
+ 			display: none;
+ 		}
+
+ 		h2 {
+	 		@include nobel-book;
+	 		font-size: 22px;
+	 		letter-spacing: .2em;
+	 		line-height: 70px;
+	 		border-top: 1px dotted black;
+	 		margin-top: 10px;
+	 	}
+
+	 	h3 {
+	 		@include nobel-bold;
+	 		font-size: 12px;
+	 		letter-spacing: .2em;
+	 		line-height: 1.3;
+	 		padding: 10px;
+	 		background-color: $color-grey-95;
+	 	} 
+
+	 	.product-container {
+	 		@include clearfix;
+	 	}
+
+	 	.product {
+	 		position: relative;
+			float: left;
+			padding-bottom: 0px;
+			z-index: 1;
+			width: 45%;
+			
+
+			&.selected-vehicle {
+				margin-right: 0;
+				margin-left: 5%;
+			}
+
+
+			.product-image, .details {
+				@include transition(opacity 300ms ease);
+				opacity: 1;
+			}
+
+			&.hover {
+				.product-image, .details {
+					opacity: .2;
+				}
+			}
+
+			.details {
+				@include nobel;
+				position: relative;
+			}
+
+			.combined-name {
+				@include nobel-bold;
+				font-size: 16px;
+				letter-spacing: 2px;
+				height: 22px;
+                text-transform: none;
+			}
+
+			.name {
+				margin-right: 5px;
+			}
+
+			.offers, .name {
+				font-size: 13px;
+				letter-spacing: 2px;
+				display: inline-block;
+			}
+
+			.product-image {
+				padding-top: 30px;
+				/* fix for mobile safari bug */
+        		-webkit-backface-visibility: hidden;
+			}
+
+			img {
+				width: 74%;
+				height: auto;
+				max-width: 450px;
+			}
+		}
+
+		.buttons {
+			width: 100%;
+			position: relative;
+			z-index: 2;
+		}
+
+		.button {
+			margin: 20px auto 0;
+			cursor: pointer;
+			padding: 12px 20px;
+		}
+
+		.button-container {
+			width: 45%;
+			float: left;
+			&:first-child {
+				margin-left: 5%;
+			}
+			&:last-child {
+				margin-right: 5%;
+			}
+			&.add {
+				.button {
+					display: inline-block;
+					float: left;
+					margin-left: 22%;
+					&.add-button {
+						background-color: white;
+						color: black;
+						margin-left: 5%;
+						&:hover {
+							background: $color-black;
+                            color: $color-white;
+						}
+					}
+				}
+			}
+		}
+
+		&.num-competitors-2 {
+			.side-by-side-header {
+				.vs {
+					@include nobel-book;
+					text-transform: uppercase;
+					font-size: 135px;
+					letter-spacing: -8px;
+					left: 33%;
+					top: 12%;
+					margin-left: -70px;
+				}	
+			}
+
+			.product {
+				width: 30.3%;
+
+				&.selected-vehicle {
+					margin-left: 1%;
+					margin-right: 6%;
+				}
+
+				&:last-child {
+					margin-right: 1%;
+				}
+
+				.product-image {
+					margin-bottom: -5px;
+				}
+
+				img {
+					width: 71%;
+				}
+			}	
+
+			.button-container {
+				width: 30.3%;
+				&:first-child {
+					margin-left: 1%;
+					margin-right: 6%;
+				}
+				&:last-child {
+					margin-right: 0%;
+					.button {
+						margin-left: 5%;
+					}
+				}
+			}
+		}
+
+
+		&.num-competitors-3 {
+			.side-by-side-header {
+				.vs {
+					@include nobel-book;
+					font-size: 135px;
+					letter-spacing: -8px;
+					left: 25%;
+					top: 10%;
+					margin-left: -80px;
+				}					
+			}
+
+			.product {
+				width: 24.5%;
+
+				&.selected-vehicle {
+					margin-left: 1%;
+				}
+
+				&:last-child {
+					margin-right: 1%;
+				}
+
+				.product-image {
+					margin-bottom: 5px;
+				}
+
+				img {
+					width: 72%;
+				}
+			}
+
+			.button-container {
+				width: 24.5%;
+				&:first-child {
+					margin-left: 1%;
+				}
+				&:last-child {
+					margin-right: 1%;
+				}
+			}	
+		}
+ 	}
+
+ 	.side-by-side-header {
+ 		@include clearfix;
+ 		padding: 0px 0px 45px;
+ 		position: relative;
+ 		background-color: white;
+ 		max-height: 1000px;
+
+ 		.vs {
+ 			@include nobel-light;
+ 			color: $color-grey-95;
+ 			font-size: 280px;
+ 			position: absolute;
+ 			left: 50%;
+			margin-left: -170px;
+			letter-spacing: -18px;
+ 		}
+ 	}
+
+	.selected-vehicle {
+		text-align: center;
+		float: left;
+	}
+
+	.general {
+		font-size: 10px;
+		padding-bottom: 9px;
+		display: block;
+		letter-spacing: 2px;
+	}
+
+ 	.wrapper {
+		@include grid-container;
+		margin: auto;
+		background: transparent;
+		padding: 0px;
+	}
+
+ 	.subsections {
+ 		button {
+ 			@include btn;
+			display: block;
+			margin: 0 auto 45px;
+			cursor: pointer;
+			border-color: inherit;
+			&:focus {
+				outline: none;
+			}
+ 		}
+
+ 		.button-hider {
+ 			@include transition(opacity 200ms cubic-bezier(0,0,.25,1), margin-bottom 200ms cubic-bezier(0,0,.25,1), max-height 200ms cubic-bezier(0,0,.25,1));
+			max-height: 200px;
+			overflow: hidden;
+			padding-bottom: 30px;
+
+			&.hidden {
+				max-height: 0px;
+				opacity: 0;
+				padding-top: 0px;
+				padding-bottom: 0px;
+				margin-bottom: 0px;
+			}
+ 		}
+ 	}
+
+ 	.vehicle-column {
+ 		@include clearfix;
+ 		overflow: visible;
+ 		padding: 18px 0;
+
+ 		sup {
+	 		font-size: 28px;
+	 		display: inline;
+	 		vertical-align: top;
+	 		position: relative;
+	 		top: 2px;
+	 	}
+ 	}
+
+ 	.vehicle {
+ 		@include pakt;
+ 		@include box-sizing(border-box);
+ 		font-size: 42px;
+ 		letter-spacing: .15em;
+ 		float: left;
+ 		width: 50%;
+ 		padding: 23px 0;
+ 		border-right: 1px dotted $color-grey-80;
+ 		text-align: center;
+
+ 		&:last-child {
+ 			border-right: none;
+ 			margin-right: 0px;
+ 		}
+ 	}
+
+ 	.num-competitors-2 .vehicle {
+ 		width: 33.33%;
+ 		font-size: 36px;
+ 	}
+
+ 	.num-competitors-3 .vehicle {
+ 		width: 25%;
+ 		font-size: 36px;
+ 	}
+
+ 	.num-competitors-3 .SMALL .vehicle, 
+ 	.num-competitors-2 .SMALL .vehicle, 
+ 	.SMALL .vehicle {
+ 		font-size: 18px;
+
+ 		.vehicle-info {
+ 			max-width: 90%;
+ 		}
+
+ 		.advantage-flag:after {
+ 			width: 15px;
+ 			height: 15px;
+ 			margin-left: 5px;
+ 		}
+ 	}
+
+ 	.vehicle-info {
+ 		display: inline-block;
+ 		margin: 0 auto;
+ 	}
+
+ 	.groomed-data {
+ 		float: left;
+ 		&.advantage-flag:after {
+ 			content: "" ;
+ 			display: inline-block;
+ 			position: relative;
+ 			width: 27px;
+ 			height: 27px;
+ 			background: url("/assets/img/global-non-sprite/checkmark.png") no-repeat right center;
+ 			background-size: 100% 100%;
+ 			overflow: hidden;
+ 			font-size: 0px;
+ 			color: transparent;
+ 			text-indent: -9999px;
+ 		}
+ 	}
+
+ 	.SMALL sup {
+ 		font-size: inherit;
+ 		top: 0px;
+ 		margin-left: 4px;
+ 	}
+
+ 	.at-sign {
+		margin: 0px 12px;
+	}
+
+ 	.hidden-rows {
+ 		overflow: hidden;
+ 		max-height: 0px;
+ 		opacity: 0;
+ 		@include transition(opacity 300ms ease, max-height 300ms ease);
+
+ 		&.shown {
+ 			max-height: 30000px;
+ 			opacity: 1;
+ 		}
+ 	}
+
+ 	.header-select {
+ 		display: none;
+ 	}
+
+ 	.sticky-header.stuck {
+		position: fixed;
+		top: 0px;
+		left: .6%;
+		right: .6%;
+		z-index: 20;
+		-webkit-transform: scale3d(1,1,1);
+
+		.side-by-side-header {
+ 			max-height: 300px;
+ 			height: auto;
+ 			padding: 0px;
+ 			border-bottom: 1px solid $color-grey-90;
+ 		}
+
+ 		.seriesname {
+ 			@include nobel-bold;
+ 		}
+
+ 		.vs {
+			display: none;
+		}
+
+		.product {
+			height: 100%;
+			border-right: 1px solid $color-grey-90;
+			margin-right: -1px;
+			padding-bottom: 35px;
+			&.last {
+				border-right: none;
+			}
+		}
+
+
+		.product-image {
+			display: inline-block;
+			float: left;
+		}
+
+		.general {
+			padding-bottom: 5px;
+		}
+
+		.buttons {
+			@include clearfix;
+			position: absolute;
+			bottom: 15px;
+			z-index: 2;
+		}
+
+		.button-container {
+			float: left;
+			margin-right: 0px;
+		}
+ 	}
+
+ 	.num-competitors-3, .num-competitors-2 {
+ 		.sticky-header.stuck {
+
+ 			.product {
+ 				border-right: 1px solid $color-grey-90;
+ 				margin-right: -1px;
+	 		}
+
+ 			img {
+ 				width: 100%;
+ 			}
+
+ 			.details {
+ 				overflow: hidden;
+ 				width: 60%;
+				margin-top: 25px;
+				text-align: left;
+				margin-left: 6%;
+				line-height: 11px;
+				float: left;
+ 			}
+
+ 			.general, .combined-name {
+ 				float: none;
+ 				text-align: left;
+ 				font-size: 11px; 					
+			}
+
+			.combined-name {
+				overflow: hidden;
+			}
+
+ 			.general {
+ 				display: block;
+ 			}
+
+ 			a.remove-vehicle {
+ 				right: 5%;
+ 			}
+
+ 			button.button.change-button, button.button.add-button {
+ 				transition: none;
+				padding: 0px;
+				color: $color-grey-60;
+				text-decoration: underline;
+				font-size: 9px;
+				background: transparent;
+				background-color: transparent;
+				border: 0px;
+				margin: 0px;
+				position: relative;
+			
+				&:hover {
+					background: transparent !important;
+					background-color: transparent !important;
+					color: black;
+				}
+			}
+
+ 		}
+		
+	}
+
+	.num-competitors-3 {
+		.sticky-header.stuck {
+			.product {
+				width: 23%;
+				margin-left: 2%;
+
+				.product-image {
+					width: 25%;
+				}
+				.details {
+					margin-left: 6%;
+					width: 65%;
+				}
+			}
+
+			.button-container {
+				width: 23%;
+				margin-left: 2%;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+
+			button.button.change-button, 
+			button.button.add-button {
+				left: 31%;
+			}
+		}
+	}
+
+	.num-competitors-2 {
+		.sticky-header.stuck {
+			.product {
+				width: 30.33%;
+				margin-left: 3%;
+
+				.product-image {
+					width: 33%;
+					padding-top: 20px;
+				}
+			}
+
+			.buttons {
+				.button-container {
+					width: 30.33%;
+					margin-left: 3%;
+					&:first-child {
+						margin-right: 0%;
+						margin-left: 3%;
+					}
+					&.add {
+						.button {
+							margin-left: 0;
+						}
+						.add-button {
+							color: $color-grey-60;
+							margin-left: 10px;
+							&:hover {
+								background: transparent !important;
+								background-color: transparent !important;
+								color: black;
+							}
+						}
+					}
+				}
+			}
+
+			.button-positioner {
+				margin-left: 39%;
+			}
+		}
+	}
+
+	.num-competitors-1 {
+		.sticky-header.stuck {
+
+			.product {
+				width: 46%;
+
+				&.selected-vehicle {
+					margin-left: 4%;
+				}
+
+
+				&.last {
+					padding-right: 4%;
+
+					.product-image {
+						float: right;
+					}
+
+					.details {
+						left: 0%;
+						text-align: center;
+					}
+
+				}
+
+			}
+
+			.product-image {
+				width: 22%;
+				padding-top: 20px;
+			}
+
+			img {
+				width: 100%;
+			}
+
+			.details {
+				overflow: hidden;
+				width: 70%;
+				text-align: left;
+				margin-top: 20px;
+				display: block;
+				left: 30%;
+				position: absolute;	
+				.model {
+					@include nobel-bold;
+					text-transform: none;
+				}
+			}
+
+			.general, .combined-name {
+				font-size: 13px;
+				display: inline;
+			}
+
+			.button-container {			
+				width: 46%;
+				margin-left: 4%;
+				text-align: left;
+
+				&.add {
+					margin-right: 0;
+					padding-right: 4%;
+					margin-left: 0;
+					text-align: center;
+					.button-positioner {
+						width: 295px;
+					}
+
+					.button {
+						left: 0;
+						&.add-button {
+							margin-left: 2.5%;
+						}
+					}	
+				}
+			}
+
+			.button-positioner {
+				display: inline-block;
+				margin: 0 auto 0 30%;
+				.button {
+					padding: 12px 20px;
+					margin: 0px;
+					position: relative;
+				}
+			}
+
+			.add {
+				.button-positioner {
+					padding-right: 22%;
+					margin-left: 0;
+				}
+			}
+
+			
+
+		}
+
+		.remove-vehicle {
+			display: none;
+			opacity: 0;
+		}
+	}
+
+ 	.section-selector {
+		background-color: black;
+		color: white;
+		padding: 8px $gutter-width;
+		overflow: hidden;
+
+		ul {
+			float: left;
+			padding: 16px 0;
+		}
+
+		li {
+			@include nobel;
+			@include animationFix;
+			font-size: 11px;
+			line-height: 16px;
+			float: left;
+			margin: 0px 12px;
+			letter-spacing: .15em;
+			cursor: pointer;
+			&:first-child {
+				margin-left: 0px;
+			}
+			&.selected {
+				border-bottom: 1px solid white;
+			}
+		}
+
+		.button {
+			@include btn;
+			background-color: black;
+			float: right;
+			font-size: 11px;
+			padding: 10px 22px;
+			border: 2px solid white;
+			cursor: pointer;
+			margin-top: 4px;
+			&:hover {
+				background: $color-white;
+			}
+		}
+	}
+
+	.side-by-side-footer {
+		text-align: center;
+
+		.wrapper {
+			background-color: #f7f7f7;
+			border: 25px solid white;
+		}
+
+		h2 {
+			font-size: 16px;
+			border: none;
+			line-height: 22px;
+			margin-top: 16px;
+			margin-bottom: 16px;
+			width: 96%;
+			padding: 0 2%;
+		}
+
+		hr {
+			border: 0;
+			height: 1px;
+			width: 22px;
+			background: black;
+			margin: 0 auto;
+		}
+
+		.description {
+			@include palatino;
+			font-size: 13px;
+			text-transform: none;
+			margin: 10px auto;
+			color: $color-grey-60;
+			max-width: 72%;
+			line-height: 24px;
+		}
+
+		.benefits {
+			@include clearfix;
+			padding: 35px 0;
+			margin-top: 26px;
+		}
+
+		.benefit {
+			float: left;
+			width: 31.3%;
+			padding: 0px 1%;
+		}
+
+		.title {
+			@include nobel;
+			display: block;
+			font-size: 12px;
+			margin-bottom: 5px;
+		}
+
+		.learn-more {
+			@include nobel-bold;
+			font-size: 11px;
+			display: inline-block;
+			margin-top: 10px;
+			color: black;
+			text-decoration: none;
+			position: relative;
+			left: -5px;
+			.global-btn-link-arrow {
+				position: absolute;
+				top: 2.5px;
+				right: -10px;
+			}
+		}
+
+		.footer-explore {
+			background-color: black;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+			background-position: center center;
+			height: 450px;
+			position: relative;
+
+			.dark-overlay {
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: black;
+				opacity: .2;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+
+			.container {
+				margin: auto;
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+				max-width: 950px;
+				position: relative;
+			}
+
+			.contents {
+				width: 335px;
+				right: 5%;
+				top: 32%;
+				overflow: hidden;
+				position: absolute;
+			}
+
+			.brand {
+				@include nobel;
+				font-size: 16px;
+				margin-bottom: 12px;
+				letter-spacing: .3em;
+				color: white;
+				display: block;
+			}
+
+			.trim {
+				@include nobel-bold;
+				font-size: 22px;
+				letter-spacing: .3em;
+				color: white;
+                text-transform: none;
+			}
+
+			.buttons {
+				@include clearfix;
+			}
+
+			.button {
+				@include btn;
+				padding: 10px 20px;
+
+				.no-touch &:hover {
+					color: $color-black;
+					background: $color-white;
+				}
+			}
+
+			.build-yours {
+				float: left;
+			}
+
+			.find-dealer {
+				float: right;
+			}
+
+			h2 {
+				@include nobel-bold;
+			}
+		}
+	}
+
+	/**
+	 * Utility nav - print/share/pdf
+	 */
+	.sticky-header .utility-nav-wrapper {
+		@include grid-container;
+		padding: 15px $gutter-width 0 $gutter-width;
+	}	
+
+	.sticky-header.stuck {
+		.utility-nav-wrapper {
+			display: none;
+		}
+	}
+
+	.find-vehicle {
+		&.change-header {
+			@include transition(opacity 300ms ease);
+			opacity: .02;
+			background-color: #efefef;
+			padding: 30px;
+			border-top: 0px;
+			margin-left: 0;
+			position: absolute;
+			top: -2000px;
+			left: -5000px;
+			z-index: -1;
+
+			width: 300px;
+			margin-top: 12px;
+
+			&.shown {
+				opacity: 1;
+				z-index: 21;
+			}
+
+			&.right {
+				margin-left: 100px;
+				.up-arrow {
+					margin-left: -105px;
+				}
+			}
+
+			&.left {
+				margin-left: -100px;
+				.up-arrow {
+					margin-left: 95px;
+				}
+			}
+
+			h3 {
+				@include nobel-book;
+				font-size: 18px;
+				background-color: transparent;
+				margin-bottom: 25px;
+			}
+
+			.change-trim-drill-down {
+				margin-top: 25px;
+			}
+
+			.up-arrow {
+				background: url("/assets/img/compare/up-arrow-grey.png") no-repeat center center;
+				position: absolute;
+				width: 20px;
+				height: 10px;
+				left: 50%;
+				top: -10px;
+				margin-left: -10px;
+			}
+		}
+	}
+
+	.change-header-backdrop {
+		@include transition(opacity 200ms ease);
+		opacity: .02;
+		display: none;
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		background-color: white;
+		z-index: 20;
+		&.shown {
+			display: block;
+		}
+	}
+
+	.report h2.quick {
+		margin-top: 0;
+		position: relative;
+	}
+
+	.chrome-attribution {
+		/* fix for mobile safari bug */
+        -webkit-backface-visibility: hidden;
+		z-index: 2;
+		top: 25px;
+		left: 15px;
+	}
+
+	.remove-vehicle {
+		display: block;
+		@include transition(opacity 600ms ease);
+		opacity: 1;
+		text-indent: -9999px;
+		color: transparent;
+		position: absolute;
+		right: 10%;
+		top: 10%;
+		font-size: 0px;
+		cursor: pointer;
+	}
+
+}
+
+/**
+ * Media Queries
+ */ 
+@media screen {
+	@include at-small-and-medium-breakpoints() {
+		#side-by-side {
+			.utility-nav {
+				.print {
+					display: none;
+				}
+				.share a {
+					padding-right: 0;
+				}
+			}
+			.report {
+				.product:hover {
+					.details {
+						opacity: 1;
+					}
+					.product-image {
+						opacity: 1;
+					}
+				}
+				button.button.change-button:hover,
+				button.button.add-button:hover {
+					color: $color-black;
+					background: $color-white;
+				}
+			}	
+		}
+	}
+
+	@include at-breakpoint($large-min $small-max $total-columns) {
+		#side-by-side {
+			.num-competitors-2, .num-competitors-3 {
+				.vehicle {
+					font-size: 30px;
+                    letter-spacing: 0.11em; 
+				}
+
+				.SMALL .vehicle {
+					font-size: 18px;
+
+					sup {
+						font-size: 14px;
+					}
+
+					.advantage-flag:after {
+						width: 15px;
+						height: 15px;
+					}
+				}
+			}
+
+			
+		}
+	}
+
+	@include at-breakpoint($small-min $small-max $total-columns) {
+		#side-by-side {
+
+			.side-by-side-footer {
+
+				.benefit {
+					width: 100%;
+				}
+
+				.carousel .indicators {
+					margin-top: 5px;
+
+				}
+
+				.wrapper {
+					border: none;
+					padding-top: 25px;
+				}
+
+				h2 {
+					@include nobel-bold;
+					margin-left: auto;
+					margin-right: auto;
+					padding: 0;
+				}
+
+				.footer-explore {
+					height: 300px;
+					position: relative;
+					background-size: 100% auto;
+
+					.container {
+						position: relative;
+						width: 100%;
+					}
+
+					.contents {
+						width: 100%;
+						position: relative;
+						overflow: hidden;
+						text-align: center;
+						right: auto;
+						top: 20%;
+					}
+
+					.brand {
+						@include nobel;
+						font-size: 10px;
+						display: block;
+						margin-bottom: 10px;
+						letter-spacing: .3em;
+						color: white;
+					}
+
+					.trim {
+						@include nobel-bold;
+						font-size: 16px;
+						letter-spacing: .3em;
+						color: white;
+                        text-transform: none;
+					}
+
+					.buttons {
+						@include clearfix;
+						margin-top: 30px;
+					}
+
+					.button {
+						@include btn;
+						padding: 12px 20px;
+						background-color: white;
+						color: black;
+						border: none;
+						margin: 12px auto;
+						max-width: 170px;
+					}
+
+					.build-yours, .find-dealer {
+						float: none;
+					}
+
+				}
+
+			}
+
+			.remove-vehicle {
+				opacity: 0;
+				display: none;
+			}
+
+			.trim-selector-drawer {
+				display: none;
+			}
+
+			.dimmer {
+				display: none;
+				
+				&.on {
+					display: block;
+				}
+			}
+
+			.tooltip-trigger .asterisk {
+		        display: none;
+		    }
+
+		    sup.disclaimer-counters {
+		        font-size: 60%;
+		        vertical-align: super;
+		        display: inline;
+		    }
+
+		    .optional-disclaimers-container {
+		        display: block;
+		        &.hidden {
+		            display: none;
+		        }
+		    }
+
+		}
+	}
+
+	@include at-breakpoint($medium-min $medium-max $total-columns) {
+		#side-by-side {
+
+			.advantage-flag:after {
+				top: 1px;
+			}
+
+			.vehicle-column {
+				sup {
+		 			font-size: 23px;
+		 			top: 0px;
+		 		}
+			}
+			
+	 		.SMALL sup {
+		 		font-size: inherit;
+		 		top: 0px;
+		 		margin-left: 3px;
+		 	}
+
+
+		 	.sticky-header {
+
+		 		.section-selector {
+
+					padding: 8px 5px;
+
+					li {
+						font-size: 10px;
+						margin: 0px 5px;
+					}
+
+					.button-wrapper {
+						display: inline-block;
+						float: left;
+						margin-left: 10px;
+						top: 10px;
+						position: relative;
+					}
+
+					.button.build-yours {
+						@include transition(none);
+						@include nobel-regular;
+						font-size: 9px;
+						border-top: 0px;
+						border-right: 0px;
+						border-bottom: 0px;
+						border-left: 1px dotted white;
+						top: 16px;
+						padding: 0 0 0 10px;
+						letter-spacing: .1em;
+						&:hover {
+							background-color: transparent;
+
+						}
+					}
+				}
+
+				&.stuck {
+					left: 0;
+					right: 0;
+
+					.product.selected-vehicle {
+						margin-right: -1px;
+					}
+				}
+		 	}
+
+			.num-competitors-1 {
+				.sticky-header.stuck {
+
+					.button-positioner {
+						width: 165px;
+						margin: 0 auto 0 32%;
+					}
+
+					button.button.change-button,
+					button.button.add-button {
+						padding: 0;
+						color: $color-grey-60;
+						text-decoration: underline;
+						background: transparent;
+						border: 0;
+						margin: 0;
+						position: relative;
+						font-size: 11px;
+					
+						&:hover {
+							background: transparent !important;
+							background-color: transparent !important;
+							color: $color-black;
+						}
+
+					}
+
+					.product-image {
+						width: 28%;
+					}
+
+					.details {
+						width: 61%;
+						left: 32%
+					}
+
+					.button-container.add {
+						text-align: right;
+						.button {
+							left: auto;
+							&.add-button {
+								color: $color-grey-60;
+								margin-left: 15px;
+								&:hover {
+									background: transparent !important;
+									background-color: transparent !important;
+									color: black;
+								}
+							}
+						}
+						
+						.button-positioner {
+							padding-right: 31%;
+							width: 175px;
+							margin: 0 auto;
+						}
+					}
+
+					.product {
+						min-height: 70px;
+						&.last {
+							.details {
+								text-align: right;
+								left: 2%;
+							}
+						}
+					}
+				}
+
+			}
+
+
+			.num-competitors-1 {
+				.side-by-side-header {
+					.vs {
+						font-size: 190px;
+						margin-left: -125px;
+						letter-spacing: -10px;
+					}
+				}
+
+				.button-positioner {
+					display: inline-block;
+					width: 310px;
+				}
+
+				.button-container.add .button {
+					margin-left: 0;
+				}
+			}
+
+			.num-competitors-2 {
+				.side-by-side-header {
+					.vs {
+						font-size: 135px;
+						letter-spacing: -8px;
+						margin-left: 0;
+						left: 22%;
+						top: 10%;
+					}	
+
+					.button {
+			 			padding: 8px 10px;
+						font-size: 11px;
+			 		}					
+				}
+
+				.product {
+					&.selected-vehicle {
+						margin-right: 6%;
+					}
+					img {
+						width: 90%;
+					}
+				}	
+
+				.optional {
+					display: none;
+				}
+
+				.sticky-header:not(.stuck) {
+					.add {
+						.button-positioner {
+							margin: 0 auto;
+							width: 160px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include at-small-and-medium-breakpoints() {
+		#side-by-side {
+			/* disabled until BYL is mobile friendly. */
+			.sticky-header .section-selector .button.build-yours,
+			.side-by-side-footer .footer-explore .footer-buttons .build-yours {
+				display: none;
+			}
+			.side-by-side-footer .footer-explore .find-dealer {
+				float: none;
+			}
+		}
+	}
+
+	@include at-small-breakpoint() {
+		#side-by-side {
+			.chrome-attrib-text {
+				display: none;
+			}
+			
+			.mobile-top-header {
+				background: $color-black;
+				height: 70px;
+				display: block;
+				.mobile-title {
+					color: white;
+					font-weight: 300;
+					font-size: 18px;
+					font-family: nobel-regular, Helvetica, Arial, sans-serif;
+					text-transform: uppercase;
+					letter-spacing: 2px;
+					float: left;
+					display: block;
+					margin-top: 25px;
+					margin-left: 25px;
+				}
+				.button.mobile {
+					color: white;
+					font-family: "nobel-bold", Helvetica, Arial, sans-serif;
+					text-transform: uppercase;
+					font-weight: bold;
+					font-size: 12px;
+					line-height: 17.5px;
+					letter-spacing: 0.15em;
+					text-align: center;
+					text-decoration: none;
+					display: block;
+					max-width: 73px;
+					border: 2px solid black;
+					cursor: pointer;
+					background-color: black;
+					float: right;
+					font-size: 11px;
+					padding: 5px 15px;
+					border: 2px solid white;
+					cursor: pointer;
+					margin-top: 11px;
+					margin-right: 15px;
+				}
+				.button.mobile:hover {
+					background: white;
+					color: black;
+				}
+			}
+
+			.report h2.quick {
+				padding: 60px 0 10px;
+				margin-bottom: 0;
+				line-height: 1;
+			}
+
+			.advantage-toggle {
+				position: static;
+				margin-bottom: 35px;
+
+				.advantage-flag:before {
+					top: -2px;
+					background-size: 100%;
+					width: 19px;
+					height: 18px;
+					margin-left: 0;
+				}
+			}
+
+			.quick {
+				position: relative;
+				margin-bottom: 38px;
+			}
+
+			.report {
+				.short-name {
+					display: inline-block;
+				}
+
+				.full-name {
+					display: none;
+				}
+
+				&.num-competitors-1, &.num-competitors-2, &.num-competitors-3 {
+					
+					.sticky-header {
+						&.stuck {
+							left: 0;
+							right: 0;
+
+							.side-by-side-header {
+								padding-bottom: 0px;
+								.product {
+									margin-left: 0px;
+									margin-right: -1px;
+									padding-bottom: 50px;
+									&.selected-vehicle {
+										margin-right: -1px;
+									}
+									&.last {
+										padding-right: 0px;
+									}
+									.product-image {
+										display: none;
+									}
+									.details {
+										left: 0px;
+										width: 98%;
+										text-align: center;
+										margin-left: 1%;
+										position: relative;
+										.general {
+											text-align: center;
+										}
+										.combined-name {
+											font-size: 16px;
+											height: 38px;
+											line-height: 20px;
+											display: block;
+											text-align: center;
+										}
+										.powertrain {
+											@include nobel;
+											display: block;
+											font-size: 10px;
+											text-align: center;
+										}
+										.model {
+											@include nobel-bold;
+                                            text-transform: none;
+										}
+									}
+									
+
+								}
+
+								.buttons {
+									.button-container {
+										width: 50%;
+										margin-left: 0px;
+										text-align: center;
+										&.add {
+											padding-right: 0px;
+										}
+									}
+									.button-positioner {
+										margin: 0 auto;
+										padding: 0px;
+										width: auto;
+										text-align: center;
+									}
+									.button.change-button {
+										font-size: 11px;
+										left: 0px;
+										float: none;
+										margin: 0 auto;
+										padding: 0px;
+										background: transparent;
+										color: $color-grey-60;
+										border: none;
+										text-decoration: underline;
+
+										&:hover {
+											color: $color-black;
+										}
+									}
+								}
+								
+								
+							}
+						}
+
+						.utility-nav-wrapper {
+							padding-bottom: 10px;
+						}		
+					}
+				}
+
+
+			}
+			
+
+			.utility-nav {
+				.download-pdf {
+					display: none;
+				}
+				.divider {
+					border: none;
+				}
+				a {
+					padding: 0 6px; 
+				}
+			}
+
+			.hide-small-format {
+				display: none;
+			}
+		 	
+
+
+			.report, .report.num-competitors-2, .report.num-competitors-3, .report.num-competitors-1 {
+
+				.error {
+					display: block;
+					width: 86%;
+					border: 1px solid red;
+					padding: 14px 0px 25px;
+					margin: 8px auto 20px;
+					text-align: center;
+
+					.global-error {
+						margin: 0 auto;
+					}
+					.error-message, .view-full-site {
+						display: block;
+						width: 70%;
+						margin: 15px auto 0;
+					}
+
+					.error-message {
+						@include nobel-bold;
+						font-size: 12px;
+						line-height: 18px;
+					}
+
+					.view-full-site {
+						@include palatino;
+						font-size: 13px;
+						text-transform: none;
+					}
+				}
+
+				.side-by-side-header {
+					padding-bottom: 30px;
+
+					.vs {
+						@include nobel-light;
+						font-size: 176px;
+						letter-spacing: -18px;
+						margin-left: 0px;
+						left: 50%;
+						top: -10px;
+						margin-left: -95px;
+					}	
+
+					.product {
+						width: 50%;
+
+						&.selected-vehicle {
+							margin-left: 0%;
+							margin-right: 0;
+							img {
+								left: -31%;
+							}
+						}
+
+						&:last-child {
+							margin-right: 0%;
+						}
+
+						img {
+							position: relative;
+							width: 130%;
+							left: 1%;
+						}
+
+						&.hide-small-format {
+							display: none;
+						}
+					} 	
+					
+					.button-container {
+						width: 50%;
+						margin-left: 0%;
+						margin-right: 0;
+						.button {
+							left: 0px;
+							float: none;
+							margin: 15px auto 0;
+						}
+						.add-button {
+							display: none;
+						}
+					}	
+				}
+
+
+				.vehicle {
+					width: 50%;
+					font-size: 26px;
+
+					&:nth-child(3) {
+						display: none;
+					}
+					&:nth-child(4) {
+						display: none;
+					}
+
+					sup {
+						font-size: 20px;
+					}
+
+					.groomed-data.advantage-flag:after {
+						width: 20px;
+						height: 20px;
+						margin-left: 0px;
+					}
+				}
+
+				.vehicle-column:not(.SMALL) {
+					.at-sign {
+						font-size: 24px;
+						display: inline;
+				 		vertical-align: top;
+				 		position: relative;
+				 		top: 3px;
+				 		margin: 0px;
+					}
+				}
+
+				.SMALL {
+					.vehicle {
+						font-size: 16px;
+					}
+
+					.groomed-data.advantage-flag:after {
+						width: 15px;
+						height: 15px;
+						margin-left: 5px;
+					}
+
+					.groomed-data.advantage-flag:after {
+						position: relative;
+						top: 1px;
+					}
+				}
+				
+			}
+
+			.wrapper {
+				@include full-width;
+				padding: 0;
+			}
+
+			.hidden-rows {
+				max-height: 20000px;
+				opacity: 1;
+			}
+
+			.section-header:not(.first) {
+				background-color: black;
+				color: white;
+				font-size: 18px;
+				line-height: 70px;
+				margin-top: 0px; 
+				margin-bottom: 1px;
+				position: relative;
+				text-align: left;
+				padding: 0px 20px;
+			}
+
+			.section-header {
+				&.first {
+					font-size: 18px;
+					margin-top: 40px;
+				}
+			}
+
+			.subsections:not(.first-subsection) {
+				@include transition(opacity 300ms ease, max-height 300ms ease);
+				overflow: hidden;
+		 		max-height: 0px;
+		 		opacity: 0;
+		 		&.shown {
+		 			max-height: 20000px;
+		 			opacity: 1;
+		 		}
+				.button {
+					display: none;
+				}
+			}
+
+			.header-select {
+				display: inline-block;
+				position: absolute; 
+				right: 20px;
+				top: 50%;
+				margin-top: -5px;
+			}
+
+			.close {
+				.header-select {
+					@include rotate(180deg);
+				}
+			}
+
+
+			sup {
+				position: relative;
+				top: -2px;
+			}
+
+			.SMALL sup {
+		 		font-size: inherit;
+		 		top: 0px;
+		 		margin-left: 2px;
+		 	}
+
+			.section-selector {
+	 			display: none;
+	 		}
+
+	 		.side-by-side-footer .wrapper {
+	 			border: none;
+	 		}
+
+	 		.compare-tray-heading {
+				display: none;
+			}
+
+
+			.side-by-side-header {
+				overflow: hidden;
+			}
+		}
+	}
+
+	@include at-breakpoint($large-min $total-columns) {
+
+		#side-by-side {
+			.button {
+				&:hover {
+					background: $color-white;
+	                color: $color-black;
+				}
+			}
+
+			.button.disabled {
+				&:hover {
+					color: $color-white;
+				}
+			}
+
+			.sticky-header.stuck {
+
+				.side-by-side-header {
+		 			border-left: 1px solid $color-grey-90;
+		 			border-right: 1px solid $color-grey-90;
+		 		}
+			}
+
+			.side-by-side-footer {
+				.footer-explore {
+					background-size: 100% auto;
+				}	
+			}
+
+			.remove-vehicle {
+				opacity: 0;
+				display: none;
+			}
+
+			.num-competitors-3, .num-competitors-2 {
+				.product {
+					&:hover {
+						.remove-vehicle {
+							display: block;
+							opacity: 1;
+						}
+					}
+				}	
+
+				.sticky-header:not(.stuck) {
+					.button-positioner {
+						margin: 0 auto;
+						max-width: 100%;
+						width: 300px;
+					}
+				}
+			}
+
+
+		}
+	}
+
+	/**
+	 * Approved tweaks to font-sizes and margins based on various breakpoints
+	 */
+
+	@include at-breakpoint($medium-min 750px $total-columns) {
+		#side-by-side {
+			.num-competitors-2, .num-competitors-3 {
+				h2 {
+					font-size: 18px;
+				}
+				.vehicle {
+					font-size: 20px;
+					letter-spacing: .05em;
+					.at-sign {
+						margin: 0px 4px;
+					}
+					sup {
+						font-size: 13px;
+					}
+				}
+
+				.SMALL .vehicle {
+					font-size: 12px;
+					sup {
+						font-size: 10px;
+					}
+					.advantage-flag:after {
+						width: 12px;
+						height: 12px;
+					}
+				}
+
+				.advantage-flag:after {
+					background-size: 100%;
+					width: 18px;
+					height: 18px;
+					margin-left: 5px;
+				}
+			}
+
+			.num-competitors-3 {
+				.sticky-header.stuck {
+
+					.product {
+
+						.product-image {
+							width: 38%;
+						}
+
+						.details {
+							width: 45%;
+						}
+
+					} 
+
+					.button-container {
+						width: 13%;
+						margin-left: 12%;
+					}
+
+					button.button.change-button, 
+					button.button.add-button {
+						left: 0%;
+					}
+
+				}
+
+			}
+		}
+	}
+
+
+	@include at-breakpoint($medium-min 800px $total-columns) {
+		#side-by-side {
+			.num-competitors-2 {
+				.sticky-header.stuck {
+					.product {
+
+						.details {
+							margin-top: 12px;
+						}
+					}
+
+					.buttons {
+						bottom: 8px;
+
+						.button-container.add {
+							.add-button {
+								margin-left: 4px;
+							}
+						}
+					}
+					
+				}
+			}
+		}
+	}
+
+	@include at-breakpoint(550px $medium-min $total-columns) {
+		
+		#side-by-side {
+
+			.num-competitors-3, .num-competitors-2, .num-competitors-1 {
+				.sticky-header.stuck {
+
+					.product {
+
+						.product-image {
+							display: none;
+						}
+
+						.details {
+							width: 98%;
+							margin: 25px 0 0 0;
+							left: 1%;
+						}
+					} 
+				}
+			}
+
+			.num-competitors-3 {
+				.sticky-header.stuck {
+					button.button.change-button,
+					button.button.add-button {
+						margin: 0 auto;
+					}
+					.button-container {
+						width: 23%;
+						margin-left: 2%;
+						text-align: center;
+					}	
+
+					.product {
+						&.last {
+							.details {
+								text-align: center;
+							}
+						}				
+					}				
+				}
+
+			}
+
+			.num-competitors-2 {
+				.sticky-header.stuck {
+					.buttons {
+						bottom: 8px;
+					}
+
+					.button-positioner {
+						margin-left: 0px;
+					}
+
+					.product {
+						padding-bottom: 50px;
+					}	
+
+					.buttons {
+						.button-container.add {
+							button.add-button {
+								margin-left: 0px;
+								clear: left;
+							}
+						}
+						
+					}
+								
+				}
+			}
+
+			.num-competitors-1 {
+				.sticky-header.stuck {
+					.button-container.add {
+						.button-positioner {
+							padding-right: 0px;
+						}
+					}
+
+					.product {
+						&.last {
+							.details {
+								text-align: center;
+								left: 1%;
+							}
+						}				
+					}
+				}
+
+				.product {
+					&.last {
+						.details {
+							text-align: center;
+						}
+					}				
+				}
+
+			}
+		}
+	}
+
+	@include at-breakpoint($medium-min $total-columns) {
+		#side-by-side {
+			.report.mobile-style {
+				.change-header {
+					width: 360px !important;
+					left: 50% !important;
+					margin: 0px auto 0 -180px;
+				}
+			}
+		}
+		
+	}
+}
+
+.touch, .mstouch {
+	#side-by-side {
+		@include at-breakpoint($medium-min $total-columns) {
+			.num-competitors-2, 
+			.num-competitors-3 {
+				.remove-vehicle {
+					display: block;
+					opacity: 1;
+				}
+			}
+		}
+
+		@include at-breakpoint($small-min $medium-max $total-columns) {
+			button.button.change-button:hover,
+			button.button.add-button:hover {
+				color: $color-white;
+				background: $color-black;
+			}
+		}
+
+		/* disabled until BYL is mobile friendly. */
+		.sticky-header .section-selector .button.build-yours,
+		.side-by-side-footer .footer-explore .footer-buttons .build-yours {
+			display: none;
+		}
+		.side-by-side-footer .footer-explore .find-dealer {
+			float: none;
+		}	
+	}
+}

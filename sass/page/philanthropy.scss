@@ -1,0 +1,45 @@
+@import "about-subpage";
+// @import "../grid";
+// @import "./model/gallery-overlay";
+
+// .m2-media-tile.hero {
+	
+// 	.m2-text-tile {
+// 	    width: 290px;
+// 	}
+
+// }
+
+// @include sm-up() {
+// 	.m2-media-tile.hero {
+	
+// 		.m2-text-tile {
+// 				width: 80%;
+// 		    max-width: 600px;
+// 		}
+
+// 	}
+// }
+
+
+.m2-media-tile.hero {
+    .m2-text-tile {
+        * {
+            max-width: 290px;
+        }
+
+    }
+
+}
+
+@include sm-up() {
+    .m2-media-tile.hero {
+        .m2-text-tile {
+             padding-right: 100px;
+            * {
+                max-width: 600px;
+            }
+        }
+
+    }
+}

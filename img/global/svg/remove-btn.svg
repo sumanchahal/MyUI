@@ -1,0 +1,11 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="22px" height="22px" viewBox="0 0 26.889 27.359" enable-background="new 0 0 26.889 27.359" xml:space="preserve">
+    <g>
+        <path class="remove-background" fill="#FFFFFF" d="M13.444,23.974c-5.79,0-10.5-4.71-10.5-10.5s4.71-10.5,10.5-10.5s10.5,4.71,10.5,10.5
+            C23.945,19.264,19.234,23.974,13.444,23.974z"/>
+        <path class="remove-border" fill="#000000" d="M13.444,3.474c5.515,0,10,4.485,10,10c0,5.514-4.485,10-10,10c-5.514,0-10-4.486-10-10C3.445,7.96,7.93,3.474,13.444,3.474
+             M13.444,2.474c-6.074,0-11,4.925-11,11c0,6.073,4.926,11,11,11c6.075,0,11-4.927,11-11C24.445,7.399,19.519,2.474,13.444,2.474
+            L13.444,2.474z"/>
+    </g>
+    <line class="remove-dash" stroke-width="2" fill="none" stroke="#000000" stroke-miterlimit="10" x1="9.444" y1="13.474" x2="17.444" y2="13.474"/>
+</svg>

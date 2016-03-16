@@ -1,0 +1,107 @@
+{
+    "searchedTerm": "coupes",
+    "quantityResults": 145,
+    "searchInstead": [
+        "convertible"
+    ],
+    "results": [
+        {
+            "title": "Lexus Coupes",
+            "url": "http://www.lexus.com/coupes",
+            "snippet": "Learn more and view a full gallery of the stunning first-ever RC and RC FSPORT two-door coupes",
+            "type": "tree",
+            "filetype": "html",
+            "children": [
+                {
+                    "title": "2015 IS C",
+                    "url": "http://www.lexus.com/models/ISC"
+                },
+                {
+                    "title": "2015 RC Coupe",
+                    "url": "http://www.lexus.com/concept/RC/index.html"
+                }
+            ]
+        },
+        {
+            "title": "2015 Lexus RC, Lexus RC F SPORT - Luxury Coupe | Lexus.com",
+            "url": "http://www.lexus.com/models/RC",
+            "snippet": "The 2015 Lexus RC and RC F SPORT all-new luxury coupe body style boasts sculpted lines, a wide, low stance and seamlessly blends design with breathtaking performance",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Introducing the Entirely New Lexus RC F",
+            "url": "http://www.lexus.com/concept/RCF/index.html",
+            "snippet": "Learn more about the RC F: a high-performance coupe designed to exhilarate from the asphalt up.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Introducing the Entirely New Lexus RC and RC F SPORT",
+            "url": "http://www.lexus.com/concept/RC/index.html",
+            "snippet": "Learn more and view a full gallery of the stunning first-ever RC and RC F SPORT two-door coupes.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - Knowledge Center - SC Model Specifications and Pricing",
+            "url": "http://www.lexus.com/contact/model_specifications_pricing_sc.html",
+            "snippet": "Find answers to frequently asked questions about the Lexus SC.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - Luxury Sedans, SUVs, Hybrids, and Performance Cars",
+            "url": "http://www.lexus.com/",
+            "snippet": "Welcome to Lexus' official site. Explore the line of Lexus luxury sedans, SUVs, hybrids, convertibles and accessories, or find a Lexus dealer near you.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus LF-LC Concept Car: 2012 Detroit Auto Show Concept Vehicles",
+            "url": "http://www.lexus.com/concept/index.html",
+            "snippet": "See for yourself why everyone was talking about the 2012 Lexus LF-LC concept car at the 2012 Detroit Auto Show.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus RC - 2015 - Key Features | Lexus.com",
+            "url": "http://www.lexus.com/models/RC/features",
+            "snippet": "The Lexus RC seamlessly blends eye-catching design, advanced safety, and breathtaking performance into this all-new luxury coupe. Explore all key features.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus LF-LC Concept Car: 2012 Detroit Auto Show Concept Vehicles",
+            "url": "http://www.lexus.com/concept/",
+            "snippet": "See for yourself why everyone was talking about the 2012 Lexus LF-LC concept car at the 2012 Detroit Auto Show.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - All Models",
+            "url": "http://www.lexus.com/models",
+            "snippet": "From luxury SUVs to fuel-efficient hybrids, Lexus offers vehicles that stand out from the crowd. See our line of models including the IS, RX and F SPORT.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus RC - 2015 - Comfort and Design Features | Lexus.com",
+            "url": "http://www.lexus.com/models/RC/comfort-design",
+            "snippet": "The Lexus RC comfort and design features takes cues from the sophisticated lines of the coupe body, a sleek yet aggressive command center, and its luxurious details.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }
+    ],
+    "cards": []
+}

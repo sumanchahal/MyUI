@@ -1,0 +1,1109 @@
+@import 'library';
+
+body.no-scroll{
+    overflow: hidden;
+}
+#content{
+    overflow: hidden;
+}
+
+#all-models {
+
+    .content {
+        .optional-disclaimers-container {
+            display: block;
+        }
+
+        sup.disclaimer-counters {
+            font-size: 9px;
+            position: relative;
+            top: -4px;
+            font-family: arial;
+        }
+
+    }
+
+}
+
+.grid-container{
+    padding: 0px;
+    max-width: $full-bleed-width;
+    .content{
+        &.space{
+            padding-top: 60px;
+        }
+    }
+
+}
+
+#categoryBorderWrap{
+    .allVehicles{
+        a{
+            border-bottom: 1px solid #000;
+            padding-bottom: 2px
+        }
+    }
+}
+
+.all-models,
+.all-models-container{
+    background: #fff;
+}
+.sub-nav{
+    @include white-on-black;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    &.sticky{
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        .grid-container{
+            max-width: $large-max;
+        }
+        .sub-nav-models{
+            @include clearfix;
+            display: block;
+        }
+        .title{
+            display: none;
+        }
+    }
+    &.unstuck{
+        .title{
+            display: block;
+        }
+        .sub-nav-models{
+            display: none;
+        }
+    }
+    .nav-wrapper{
+        @include clearfix();
+        width: 100%;
+        max-width: $full-bleed-width;
+        margin: 0px auto;
+        padding: 0px $gutter-width;
+        @include box-sizing(border-box);
+        overflow: auto;
+    }
+    .title{
+        float: left;
+        @include heading($color: $color-white);
+        margin-right: 0;
+        display: block;
+        margin-top: 21px;
+        padding-left: 0px;
+        .arrow{
+            display: none;
+        }
+    }
+    .default{
+        display: none;
+    }
+    .sub-nav-models{
+        display: none;
+        width: 63%;
+        float: left;
+        li {
+            display: inline-block;
+            float: left;
+            margin-right: 3%;
+        }
+        a{
+            display: block;
+            @include link($color-white, none);
+            padding: 24px 0;
+            &.active{
+                border-bottom: 1px solid #FFF;
+                padding-bottom: 2px;
+            }
+        }
+    }
+    .compare {
+        float: right;
+        width: 37%;
+        max-width: 255px;
+        .btn-stroke{
+            @include btn-stroke;
+            float: left;
+            margin-top: 11px;
+            padding: 9px 25px;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            width: 115px;
+            &:hover{
+              background: $color-white;
+              color: $color-black;
+            }
+        }
+
+        .dealer{
+            display: none;
+        }
+    }
+}
+
+.sub-nav-container{
+    position: relative;
+}
+
+.view-toggle{
+    @include clearfix;
+    z-index: 2;
+    float: right;
+    width: 110px;
+    margin-top: 25px;
+    a{
+        overflow: hidden;
+        display: block;
+        float: left;
+        @include nobel-regular;
+        color: #fff;
+        @include font-size(10, auto, 11);
+        text-decoration: none;
+        color: #adadad;
+        padding-bottom: 3px;
+    .icon{
+            background: url('/assets/img/all-models/view-toggles.png') 0 0 no-repeat;
+            width: 12px;
+            height: 12px;
+            margin-right: 6px;
+            display: inline-block;
+            position: relative;
+            top: 1px;
+        }
+        &.list-view-btn{
+            margin-right: 12px;
+            &.selected,
+            &:hover{
+                .icon{
+                    background-position: 0px -14px;
+                }
+                color: #fff;
+            }
+        }
+        &.grid-view-btn{
+            .icon{
+                background: url('/assets/img/all-models/view-toggles.png') -14px 0px no-repeat;
+            }
+            &.selected,
+            &:hover{
+                .icon{
+                    background-position: -14px -14px;
+                }
+                color: #fff;
+            }
+        }
+
+    }
+
+}
+
+.content {
+    position: relative;
+}
+
+
+.optional-disclaimers-container {
+    margin: 0 auto;
+    max-width: 1312px;
+    border: none;
+    padding: 0;
+    .optional-disclaimers-container-inner {
+        border-top: 1px solid $color-black;
+        padding: 40px 20px;
+        margin: 0 $gutter-width;
+    }
+}
+
+///// DISCLAIMERS /////
+// Always asterisks on grid view
+// Always numeric on list view
+//        except in medium viewport which uses asterisks
+///////////////////////
+
+@mixin numericDisclaimers {
+    .disclaimer-counters{
+        display: inline-block;
+    }
+    .asterisk{
+        display: none;
+    }
+    .optional-disclaimers-container {
+        display: block;
+        .optional-disclaimers-container-inner {
+            margin: 0;
+        }
+    }
+}
+
+@mixin asteriskDisclaimers {
+    .disclaimer-counters{
+        display: none;
+    }
+    .asterisk{
+        display: inline-block;
+    }
+    .optional-disclaimers-container {
+        display: none;
+    }
+}
+
+.showing-list-view {
+    @include numericDisclaimers;
+}
+@include at-medium-breakpoint() {
+    .showing-list-view {
+        @include asteriskDisclaimers;
+    }
+}
+@include at-small-breakpoint() {
+    .showing-list-view {
+        @include numericDisclaimers;
+    }
+}
+
+.showing-grid-view {
+    @include asteriskDisclaimers;
+}
+
+//// END DISCLAIMERS ////
+/////////////////////////
+
+.list-view,
+.grid-view{
+    .vehicle-link{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 50;
+        top: 0px;
+        left: 0px;
+        background-color: white;
+        /* fix for ie10 */
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+}
+
+.list-view{
+    display: none;
+    .model-group{
+        border-bottom: 1px solid $color-black;
+        margin: 0;
+        position: relative;
+        &:last-child{
+            border-bottom: none;
+        }
+        .title{
+            @include vehicle-heading;
+            position: absolute;
+            z-index: 0;
+            line-height: normal;
+            padding-left: $grid-padding;
+            &.sticky{
+                position: fixed;
+                top: 75px;
+            }
+            &.sticky-bottom{
+                position: absolute;
+                top: auto;
+                left: 0px;
+                bottom: 30px;
+            }
+        }
+        .product{
+            cursor: pointer;
+            @include animationFix;
+            background: url("/assets/img/all-models/dotted-border.png") 0 100% repeat-x;
+            margin: 0px auto;
+            width: 100%;
+            max-width: $full-bleed-width;
+            position: relative;
+            z-index: 1;
+            display: block;
+            text-decoration: none;
+            color: #000;
+            min-height: 270;
+            padding-bottom: 25.99%; //calculated based on (height / width) * 100 of image;
+            height: 0px;
+
+            &:last-child{
+                background: none;
+            }
+            a{
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .product-image{
+                float: left;
+                width: 40.31%;
+                margin-left: 8.43%;
+                margin-right: 3.22%;
+                margin-top: 3%;
+                opacity: 0;
+                img {
+                    width: 100%;
+                    max-width: 474px;
+                    display: block;
+                }
+            }
+            .over-state{
+                @include clearfix;
+                position: absolute;
+                opacity: 0;
+                img{
+                    position: relative;
+                    display: block;
+                    margin: 0px auto;
+                    width: 100%;
+                    max-width: $full-bleed-width;
+                    z-index: 0;
+                }
+            }
+            .content-wrapper{
+                margin: 0px auto;
+                width: 100%;
+                position: absolute;
+                z-index: 10;
+                top: 0px;
+                .inside-content{
+                    width: 100%;
+                    max-width: 1204px;
+                    margin: 0px auto;
+                    @include clearfix;
+                }
+            }
+            .details-wrapper{
+
+                width: 39.79%;
+                float: left;
+                margin-top: 9%;
+
+                .details{
+                    .name{
+                        @include dealer-heading;
+                        color: inherit;
+                        display: block;
+                    }
+                    .prefix {
+                        line-height: 19px;
+                        br {
+                            display: none;
+                        }
+                    }
+                    .offers{
+                        overflow: hidden;
+                        width: 100%;
+                        @include heading($font-size: 13px);
+                        @include nobel-regular;
+                        padding: 2% 0;
+                        margin: 0 0 2% 0;
+                        color: inherit;
+                        @include clearfix;
+                        .prefix{
+                            margin-right: 10px;
+                        }
+
+                        .prefix,
+                        .price{
+                            float: left;
+                        }
+                    }
+                    .description{
+                        @include body-copy;
+                    }
+                    .btn-learn-more{
+                        @include animationFix();
+                        @include btn;
+                        margin-top: 8%;
+                        opacity: 0;
+                        background: #fff;
+                        color: #000;
+                        border-color: #fff;
+                    }
+                    .terms{
+                        @include terms;
+                        position: absolute;
+                        right: 0;
+                        bottom: 4%;
+                    }
+                }
+            }
+            .border{
+                @include grid-column(12);
+                margin-right: 0;
+                background: url('/assets/img/all-models/dotted-border.png') 0 100% repeat-x;
+                height: 1px;
+            }
+        }
+    }
+}
+
+.touch, .mstouch {
+  .grid-view {
+    .product {
+      &:hover, &:active {
+        background: transparent;
+      }
+    }
+  }
+}
+
+.grid-view{
+    @include clearfix;
+    margin: 0px auto 80px auto;
+    display: none;
+    padding: 0px $gutter-width;
+    .product{
+        position: relative;
+        float: left;
+        width: 16.35%;
+        padding-right: 3.64%;
+        border-bottom: 1px solid #000;
+        padding-bottom: 20px;
+        padding-top: 30px;
+        text-decoration: none;
+        color: #000;
+        height: 205px;
+
+        &:nth-child(5n){
+        }
+        &:nth-child(5n+1) {
+            .border{
+                display: none;
+            }
+        }
+
+
+        &:hover{
+            cursor: pointer;
+            background: $color-grey-90;
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+        .content-wrapper{
+            margin-left: 0;
+            left: 6.97%;
+            position: relative;
+            padding-top: 20px;
+            .border{
+                width: 1px;
+                position: absolute;
+                background: $color-grey-90;
+                height: 100%;
+                left: -6.97%;
+                top: 0;
+            }
+        }
+        .title{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            @include nobel-light;
+            @include font-size(24, 13, 0);
+            color: $color-grey-80;
+        }
+        .product-image{
+            img{
+                position: absolute;
+                width: 100%;
+                display: block;
+            }
+        }
+        .details{
+            .name{
+                @include nobel-bold;
+                @include font-size(20, 18, 50);
+                .hybrid-name{
+                    font-size: 75%;
+                }
+            }
+            .prefix,
+            .price{
+                display: inline-block;
+                @include nobel-book;
+                @include font-size(13, 18, 230);
+            }
+            .prefix {
+                line-height: 19px;
+                br {
+                    display: none;
+                }
+            }
+            .price{
+                display: inline-block;
+            }
+            .price-wrapper{
+                @include clearfix;
+                background: pink;
+            }
+            .tooltip-trigger{
+                position: relative;
+                z-index: 20;
+            }
+        }
+    }
+}
+
+/**
+* this mixin is used on both small breakpoint as well as on .touch
+*/
+@mixin noHoverItem{
+    .model-group{
+        width: 87.5%;
+        margin: 0px auto;
+        float: none;
+        .title{
+            margin-top: 0px;
+        }
+        .product{
+            width: 100%;
+            margin: 0px auto;
+            float: none;
+            .over-state{
+                display: none;
+            }
+            .content-wrapper{
+                left: 0px;
+                position: static;
+            }
+            .product-image{
+                opacity: 1;
+                width: 100%;
+                margin: 0px auto;
+            }
+            .details-wrapper{
+                float: none;
+                width :100%;
+                .details{
+                    @include clearfix;
+                    margin-bottom: 30px;
+                    .name{
+                        float: left;
+                        @include font-size(28, auto, 50);
+                        margin-right: 10px;
+                        width: auto;
+                    }
+                    .description{
+                        display: none;
+                    }
+                    .offers{
+                        /*width: 60%;*/
+                        float: left;
+                        @include font-size(13, 12, 230);
+                        background: none;
+                        margin: 6px 0px 0px;
+                        padding: 0px;
+                        .prefix{
+                            margin-right: 10px;
+                        }
+                        .prefix,
+                        .price{
+                            float: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* listViewTouch mixin is used to set the list view to the touch styles used in .touch as well as medium viewports*/
+@mixin listViewTouch{
+    .model-group{
+        .product{
+            height: auto;
+            padding-bottom: 0px;
+            .over-state{
+                display: none;
+            }
+            .product-image{
+                opacity: 1;
+                margin-bottom: 3.5%;
+            }
+            .content-wrapper{
+                position: relative;
+            }
+            .details-wrapper{
+                margin-top: 3%;
+                width: 35%;
+                .details{
+                    .btn-learn-more{
+                        @include rotate(-90deg);
+                        display: block;
+                        width: 26px;
+                        height: 0px;
+                        overflow: hidden;
+                        position: absolute;
+                        right: $gutter-width;
+                        bottom: 50%;
+                        background: url('/assets/img/global/expand-arrow-gold.png') no-repeat;
+                        opacity: 1;
+                        border: 0px;
+                        padding: 14px 0px 0px 0px;
+                        margin-bottom: -13px
+                    }
+                }
+                .offers{
+                    .prefix{
+
+                    }
+                    .price{
+                        display: inline-block;
+                    }
+                    .tooltip-trigger{
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.touch, .mstouch{
+    .list-view{
+        @include noHoverItem();
+        .model-group{
+            .title{
+                margin-top: 0px;
+                @include vehicle-heading-medium;
+            }
+            .product{
+                padding-bottom: 0;
+                height: auto;
+                .content-wrapper{
+                    padding-bottom: 40px;
+                }
+                .product-image{
+                    float: left;
+                    width: 45%;
+                    margin-left: 0%;
+                    margin-right: 4%;
+                    margin-top: 3%;
+                    max-width: 474px;
+                    img {
+                        width: 100%;
+                        max-width: 474px;
+                        display: block;
+                    }
+                }
+                .details-wrapper{
+                    width: 38%;
+                    float: left;
+                    margin-top: 4%;
+                    .details{
+                        @include clearfix;
+                        .btn-learn-more{
+                            opacity: 1;
+                            margin-bottom: 30px;
+                            max-width: 166px;
+                            padding: 15px 17px 14px 17px;
+                            background: #000;
+                            color: #fff;
+                            border-color: #000;
+                        }
+                        .name{
+                            float: none;
+                        }
+                        .description{
+                            display: block;
+                        }
+                        .offers{
+                            float: none;
+                            @include font-size(13, 12, 230);
+                            .prefix{
+                                margin-right: 10px;
+                            }
+                            .prefix,
+                            .price{
+                                float: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include listViewTouch();
+    }
+}
+@include at-max-width-breakpoint(780px){
+    .sub-nav{
+        .sub-nav-models{
+            li{
+                margin-right: 2%;
+                a{
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+    .grid-view .product .details .name{
+        @include font-size(15);
+    }
+}
+
+@include at-medium-breakpoint{
+    .list-view {
+        .model-group {
+            .product {
+                .product-image {
+                    margin-top: 6%;
+                }
+            }
+        }
+    }
+
+    .touch, .mstouch{
+        .list-view {
+            .model-group{
+                .product{
+                    .details-wrapper{
+                        .details{
+                            .btn-learn-more{
+                                @include rotate(-90deg);
+                                display: block;
+                                width: 26px;
+                                height: 0px;
+                                overflow: hidden;
+                                position: absolute;
+                                right: $gutter-width;
+                                bottom: 50%;
+                                background: url('/assets/img/global/expand-arrow-gold.png') no-repeat;
+                                opacity: 1;
+                                border: 0px;
+                                padding: 14px 0px 0px 0px;
+                                margin-bottom: -13px
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sub-nav {
+        .compare{
+            .btn-stroke{
+                padding: 9px 0px;
+                width: 93px;
+            }
+        }
+        .sub-nav-models{
+            li{
+                margin-right: 2%;
+                a{
+                    @include font-size(10, 12, auto);
+                }
+            }
+        }
+    }
+
+    .list-view {
+        @include listViewTouch();
+    }
+
+  .grid-view{
+
+    .product{
+        height: 185px;
+        .title{
+            font-size: 19px;
+        }
+    }
+
+  }
+
+}
+
+@include at-small-and-medium-breakpoints {
+  .list-view{
+    .model-group{
+      .title{
+        @include vehicle-heading-medium;
+        }
+    }
+  }
+
+  .grid-view{
+
+    .product{
+      height: 170px;
+    }
+
+  }
+}
+
+@include at-small-breakpoint{
+    .view-toggle{
+        display: none;
+    }
+
+    .sub-nav{
+        .nav-wrapper{
+            z-index: 10;
+            position: relative;
+            background: #000;
+
+
+        }
+        .compare{
+            display: none;
+        }
+        .title{
+            display: block;
+            width: 100%;
+            padding-left: 0px;
+            text-align: center;
+            padding-top: 21px;
+            float: none;
+            margin-top: 0px;
+            min-height: 39px;
+            .arrow{
+                display: inline-block;
+                width: 11px;
+                height: 6px;
+                position: relative;
+                top: -4px;
+                left: 10px;
+                background: url('/assets/img/global/tab-select-arrow-inverted.png') no-repeat;
+                &.open{
+                    @include rotate(180deg);
+                }
+            }
+
+        }
+        .dropdown{
+            @include clearfix;
+            display: none;
+            padding-bottom: 40px;
+            .default{
+                display: block;
+                color: #fff;
+                text-align: center;
+                display: block;
+                width: 100%;
+                font-size: 12px;
+                line-height: 18.5px;
+                letter-spacing: 0.1em;
+                border-bottom: 1px solid #646464;
+                @include nobel-bold;
+                text-decoration: none;
+                @include font-size(12, 12, 100);
+                padding: 24px 0;
+                &.active{
+                    border-bottom: 1px solid #FFF;
+                    padding-bottom: 2px;
+                }
+            }
+        }
+        .sub-nav-models{
+            display: block;
+            width: 100%;
+            float: none;
+            li{
+                float: none;
+                width: 100%;
+                margin-right: 0px;
+                a{
+                    text-align: center;
+                    display: block;
+                    width :100%;
+                    @include font-size(12, 13, 100);
+                    border-bottom: 1px solid $color-grey-50;
+                }
+
+            }
+        }
+        &.sticky{
+            .title{
+                display: block;
+                width: 100%;
+                padding-left: 0px;
+                text-align: center;
+            }
+            .sub-nav-models{
+                //display: none;
+            }
+
+        }
+        .compare{
+            width: 50%;
+            display: block;
+            float: none;
+            margin: 30px auto 0px;
+            .btn-stroke{
+                background: #fff;
+                color: #000;
+                width: 100%;
+                float: none;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .dealer{
+                display: block;
+            }
+        }
+    }
+
+    .list-view{
+        @include noHoverItem();
+        .model-group{
+            .title{
+                margin-top: 0px;
+                @include font-size(84, auto, 22);
+            }
+            .product{
+
+                .content-wrapper{
+                    padding-bottom: 0px;
+                }
+                .product-image{
+                    float: none;
+                    width: 100%;
+                    position: relative;
+                    top: 40px;
+                    img {
+                        width: 100%;
+                        display: block;
+                    }
+                }
+                .details-wrapper{
+                    width: 100%;
+                    float: left;
+                    margin-top: 10%;
+                    .details{
+                        @include clearfix;
+                        .btn-learn-more{
+                            @include rotate(0deg);
+                            display: block;
+                            width: 8px;
+                            height: 0px;
+                            padding-top: 13px;
+                            overflow: hidden;
+                            position: absolute;
+                            right: 0px;
+                            bottom: 0px;
+                            background: url('/assets/img/all-models/small-right-arrow.png') no-repeat;
+                            opacity: 1;
+                            border: 0px;
+                            padding: 13px 0px 0px 0px;
+                            margin-bottom: 30px;
+                        }
+                        .name{
+                            float: none;
+                        }
+                        .description{
+                            display: none;
+                        }
+                        .name{
+                            float: left;
+                        }
+                        .offers{
+                            @include clearfix;
+                            background: none;
+                            width: 76%;
+                            padding-top: 0px;
+                            .prefix{
+
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .touch, .mstouch {
+        .list-view{
+            @include noHoverItem();
+            .model-group{
+                .title{
+                    //margin-top: -35px;
+                    @include font-size(84, auto, 22);
+                }
+                .product{
+
+                    .content-wrapper{
+                        padding-bottom: 0px;
+                    }
+                    .product-image{
+                        float: none;
+                        width: 100%;
+                        margin: 0 auto 25px;
+                        position: relative;
+                        top: 40px;
+                        img {
+                            width: 100%;
+                            display: block;
+                        }
+                    }
+                    .details-wrapper{
+                        width: 100%;
+                        float: left;
+                        margin-top: 10%;
+                        .details{
+                            @include clearfix;
+                            .btn-learn-more{
+                                @include rotate(0deg);
+                                display: block;
+                                width: 8px;
+                                height: 0px;
+                                padding-top: 13px;
+                                overflow: hidden;
+                                position: absolute;
+                                right: 0px;
+                                bottom: 0px;
+                                background: url('/assets/img/all-models/small-right-arrow.png') no-repeat;
+                                opacity: 1;
+                                border: 0px;
+                                padding: 13px 0px 0px 0px;
+                                margin-bottom: 30px;
+                            }
+                            .name{
+                                float: none;
+                            }
+                            .description{
+                                display: none;
+                            }
+                            .name{
+                                float: left;
+                            }
+                            .offers{
+                                @include clearfix;
+                                background: none;
+                                width: 76%;
+                                padding-top: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .sub-nav-models{
+        display: none;
+    }
+}
+
+@include at-breakpoint($medium-min 1350px $total-columns) {
+    .grid-view {
+        .product {
+            .details {
+                .prefix {
+                    br {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+}
+

@@ -1,0 +1,176 @@
+{
+    "searchedTerm": "RX lease",
+    "quantityResults": 127,
+    "searchInstead": [
+        "lease",
+        "lease specials"
+    ],
+    "results": [
+        {
+            "title": "Lexus Lease Programs",   
+            "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease",
+            "snippet": "LFS offers flexible payment options and a variety of innovative lease features custom-tailored to your leasing needs.",
+            "type": "tree",
+            "filetype": "html",
+            "children": [
+                {
+                    "title": "Buy or Lease Quiz",
+                    "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/buy_or_lease"
+                },
+                {
+                    "title": "Lease Payment Calculator",
+                    "url": "https://www.lexusfinancial.com/pub/w/#payment_estimator/get_payment/lease/IS"
+                },
+                {
+                    "title": "Lease-End Preparation",
+                    "url": "https://www.lexusfinancial.com/pub/static/lease_end/index.html?referrer=LFS_PilotBrochure"
+                },
+                {
+                    "title": "Lexus Credit Application",
+                    "url": "https://www.lexusfinancial.com/pub/w/#apply_for_credit"
+                }
+            ]
+        },
+        {
+            "title": "Lexus - Knowledge Center - Financial Services",
+            "url": "http://www.lexus.com/contact/financial_services.html",
+            "snippet": "Find answers to frequently asked questions about Lexus Financial Services.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus | Warranty Benefits | 2014 Lexus",
+            "url": "http://www.lexus.com/warranty",
+            "snippet": "Lexus - Learn about the warranty benefits of owning a 2014 Lexus",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - Contact Information",
+            "url": "http://www.lexus.com/contact/",
+            "snippet": "This is the Lexus contact information page. Phone, e-mail, fax and mailing information is provided for Lexus Customer Assistance and Lexus Financial Services, as well as hours of service and FAQ/Lexus Knowledge Center topics.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - Knowledge Center",
+            "url": "http://www.lexus.com/contact/knowledge_center.html",
+            "snippet": "Find answers to frequently asked questions in the Lexus Knowledge Center.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Legal Terms",
+            "url": "http://www.lexus.com/privacy/legal_terms.html",
+            "snippet": "Legal Terms.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - Contact Information",
+            "url": "http://www.lexus.com/contact/index.html",
+            "snippet": "This is the Lexus contact information page. Phone, e-mail, fax and mailing information is provided for Lexus Customer Assistance and Lexus Financial Services, as well as hours of service and FAQ/Lexus Knowledge Center topics.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "null",
+            "url": "http://www.lexus.com/pdf/Enform/Terms_and_Conditions.pdf",
+            "snippet": "null",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus Drivers Site Help",
+            "url": "http://drivers.lexus.com/lexusdrivers/info/faq.do",
+            "snippet": "null",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Going Solar",
+            "url": "http://drivers.lexus.com/lexusdrivers/magazine/articles/Lexus-Lifestyle/Going-Solar",
+            "snippet": "Converting your home to solar energy—a few considerations.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Can I include payment for additional years of subscription with my lease or purchase contract?",
+            "url": "http://drivers.lexus.com/pub-share/faqs/answers/faq-2010-2012_2_2.html",
+            "snippet": "Activation",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }
+    ],
+    "cards": [
+        {
+            "type": "dealers",
+            "position": 2,
+            "title": "Nearby Dealers",
+            "count": 5,
+            "zip": 90210,
+            "dealerships": [
+                {
+                    "name": "Jim Faulk Lexus of Beverly Hills",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                },
+                {
+                    "name": "Lexus of Glendale",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                },
+                {
+                    "name": "Lexus of Santa Monica",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                },
+                {
+                    "name": "Lexus of Santa Monica",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                },
+                {
+                    "name": "Lexus of Santa Monica",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+@import "../mixins";
+
+
+.sticky-header-display {
+	position: fixed;
+	width: 100%;
+	top: -100%;
+
+	line-height: 140%;
+	background-color: #fff;
+	visibility: hidden;
+	@include opacity(0);
+	@include ease-in-quart(0.4s);
+	z-index: 1;
+
+	.sticky-text {
+		text-align: center;
+		padding: 15px;
+	}
+
+	&.show {
+		top: 0%;
+		visibility: visible;
+		@include opacity(1);
+		@include ease-out-quart(0.4s);
+		transition-delay: 0;
+	}
+}
+
+/*LIM-3199 compensating for the LFR Hub*/
+#lfr-wrapper .sticky-header-display {
+    width: calc(100% - 88px);
+}

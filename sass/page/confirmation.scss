@@ -1,0 +1,52 @@
+@import "library";
+
+.page-wrap {
+	padding-top: 15px;
+	border-top: 1px solid #efefef;
+}
+.wrapper {
+	@include grid-container;
+	margin: auto;
+}
+
+.page-heading-info {
+	margin: 80px auto;
+	max-width: 630px;
+	text-align: center;
+
+	h2 {
+		@include nobel-bold;
+		letter-spacing: 4px;
+		font-size: 30px;
+		margin-bottom: 20px;
+		text-transform: uppercase;
+	}
+
+	p {
+		@include palatino;
+		font-size:13px;
+		line-height:1.4em;
+		color:#757575;
+		text-align: center;
+	}
+
+	hr {
+		border: none;
+		border-bottom: 1px dotted #b2b2b2;
+		margin: 30px 0 35px;
+	}
+
+	.button {
+        @include link;
+        border: none;
+	}
+}
+
+@media screen {
+	@include at-small-breakpoint() {
+		.page-heading-info {
+			margin: 40px 20px;
+			width: auto;
+		}
+	}
+}

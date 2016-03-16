@@ -1,0 +1,60 @@
+@import "../../library";
+@import "model";
+@import "features-nav";
+@import 'features';
+@import "packages-options";
+@import "packages-dealer";
+@import "packages-item";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+
+//Features variables
+$content-width: 77.8125%;
+
+
+#packages-container {
+    width: 100%;
+    max-width: $large-max;
+    @include box-sizing(border-box);
+    @include clearfix;
+    margin: 0px auto;
+    .content {
+        min-height: 300px;
+        float: right;
+        @include clearfix;
+        @include box-sizing(border-box);
+//        padding: 0px $gutter-width 0px 0px;
+        h1{
+            @include nobel-book;
+            @include font-size(22, auto, 200);
+            text-align: center;
+            margin: 40px 0 0;
+        }
+    }
+    .package-item-wrapper {
+        @include transition();
+    }
+}
+@include at-no-touch-device{
+    #packages-container {
+        .package-item-wrapper:hover {
+            @include transition();
+            background-color: $color-grey-95;
+        }
+    }
+}
+
+
+@include at-small-breakpoint() {
+    #packages-container{
+        .content {
+            width: 100%;
+            padding: 0;
+            h1 {
+                margin: 25px $gutter-width 0;
+                border-bottom: 1px solid $color-black;
+                padding-bottom: 25px;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@import "library";
+@import "compass/css3/box-sizing";
+@import "compass/css3/transform";
+
+html, body {
+	height: 100%;
+}
+
+body#outlink {
+	background-color: #ccc;
+
+	#content, #wrapper {
+		height: 100%;
+	}
+	#content {
+		background: none;
+	}
+	#wrapper {
+		@include box-sizing(border-box);
+		height: 100%;
+		padding: 0;
+		background: none;
+	}
+	#outbound-link {
+		@include translateY(-50%);
+		margin: auto;
+		position: relative;
+		top: 50%;
+	}
+}
+
+@include at-small-breakpoint() {
+	body#outlink {
+		background: #000;
+	}
+}

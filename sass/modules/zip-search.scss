@@ -1,0 +1,258 @@
+@import "library";
+
+$dealer-locator-sprite-dimensions: true;
+@import "dealer-locator/*.png";
+@include all-dealer-locator-sprites;
+
+.form-zip-search {
+	position:relative;
+
+	&.error {
+		.input-group {
+			border-top:1px solid $color-error;
+			border-left:1px solid $color-error;
+			border-bottom:1px solid $color-error;
+
+			input,
+			button,
+			.input-group-addon {
+				color:$color-error;
+				@include nobel-bold;
+				background-color:#ffe8e8;
+				text-transform:none;
+			}
+
+			input {
+				color: $color-error !important;
+			}
+		}
+
+		.zip-tooltip-container {
+			border-bottom:none !important;
+		}
+
+		.btn-search {
+			background: #ffe8e8 url("/assets/img/dealer-locator/icon-search.png") no-repeat 4px center !important;
+			border-right:1px solid $color-error;
+		}
+	}
+
+	.no-dealers-found {
+		border-bottom:1px dotted #ddd;
+		padding-bottom:10px;
+	}
+
+	.invalid-zip {
+		color:$color-error;
+		display:none;
+		padding-bottom:10px;
+//		border-bottom:1px dotted #ddd;
+	}
+
+	.zip-tooltip-container {
+        margin: 10px 0 0 0;
+        &.hidden {
+            border-bottom:none !important;
+        }
+        .disclaimer-counters {
+            font-size: 8px;
+            color: $color-grey-60;
+        }
+	}
+
+	input {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.custom-form.select-state {
+		font-size: 16px;
+	}
+
+	.input-group {
+		display: table;
+		position: relative;
+		border-collapse: separate;
+	}
+
+	.input-group-addon,
+	.input-group-btn,
+	.input-group .form-control {
+		display: table-cell;
+		width: 100%;
+	}
+
+	.input-group-addon,
+	.input-group-btn {
+		width: 1%;
+		white-space: nowrap;
+		vertical-align: middle;
+	}
+
+	.input-group-btn:last-child>.btn {
+		margin-left: -1px;
+		position: relative;
+	}
+
+	.input-group-addon {
+		padding: 6px 0 6px 15px;
+		line-height: 1;
+		text-align: center;
+		background: #f5f5f5;
+	}
+
+	.geolocation-icon {
+		display: none;
+		width: 11px;
+		height: 14px;
+		background: url("/assets/img/dealer-locator/icon-marker-gold.png") no-repeat center 1px;
+
+		&.active {
+			display: inline-block;
+		}
+	}
+
+	input[type=text]::-ms-clear { display: none; }
+
+	.input-search {
+		background: #f5f5f5;
+		box-shadow: none;
+		border: none;
+		color: #000;
+		display: table-cell;
+		font-size: 14px;
+		height: 42px;
+		padding: 6px 12px 6px 10px;
+		line-height: 1.428571429;
+		border-radius:0;
+		vertical-align: middle;
+		width: 100%;
+		@include nobel;
+		text-transform:none;
+
+	}
+
+	.input-search::-ms-clear {
+    	display: none;
+	}
+
+	.btn-search {
+		background: #f5f5f5 url("/assets/img/dealer-locator/icon-search.png") no-repeat 4px center;
+		border: none;
+		cursor: pointer;
+		display: table-cell;
+		margin: 0;
+		height:42px;
+		text-align: center;
+		vertical-align: middle;
+		white-space: nowrap;
+		-webkit-user-select: none;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.zip-tooltip-container {
+		text-align:right;
+		border-bottom:1px dotted #ddd;
+	}
+
+	.sub {
+		color: #8c8c8c;
+		display: inline;
+		@include palatino;
+		font-size: 9px;
+		line-height:2.5em;
+		padding-bottom:20px;
+		text-align: right;
+		cursor:pointer;
+	}
+
+	.error-wrapper {
+		border: 1px solid #ff9999;
+		@include nobel-bold;
+		font-size:13px;
+		margin:20px 0 20px 0;
+		padding: 20px 25px;
+		text-align:center;
+
+		.global-error {
+			display: block;
+			margin:0 auto 10px auto;
+		}
+
+		p {
+			line-height: 1.4em;
+			margin-bottom:10px;
+			text-transform:none !important;
+			@include palatino;
+		}
+
+		.error-message {
+			color: $color-error;
+			text-transform: uppercase !important;
+			@include nobel-bold;
+		}
+	}
+
+	.error-message {
+		@include palatino;
+		color:$color-error;
+		font-size: 13px;
+		text-transform:none;
+		line-height: 1.4em;
+		margin-bottom: 10px;
+	}
+
+	.dk_options {
+		z-index:9999;
+	}
+
+	.dk_options {
+		li {
+			border-bottom:1px solid $color-grey-90;
+		}
+
+		li:last-child {
+			border-bottom:none;
+		}
+
+		a {
+			border-bottom:none;
+		}
+	}
+
+}
+
+/* Small */
+@include at-small-breakpoint() {
+	.form-zip-search {
+		border-bottom:none;
+		padding: 0 20px 0 20px;
+		.location-tooltip {
+			//left: 0;
+			width: auto;
+			margin: 0 4.05449% 0 4.05449%;
+
+			.tooltip-close {
+				right: 10px;
+				top: 10px;
+			}
+
+			.tooltip-arrow {
+				background: url("/assets/img/dealer-locator/tooltip-arrow-up.png") no-repeat;
+				height: 8px;
+				left:auto;
+				right: 10px;
+				top: -8px;
+				width: 21px;
+			}
+		}
+	}
+}

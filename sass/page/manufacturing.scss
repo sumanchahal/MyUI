@@ -1,0 +1,28 @@
+@import "about-subpage";
+.table-manufacturing {
+    max-width: 100%;
+    td[colspan="3"] {
+        text-align: center;
+    }
+}
+
+.m2-media-tile.hero {
+    .m2-text-tile {
+        * {
+            max-width: 270px;
+        }
+
+    }
+
+}
+
+@include sm-up() {
+    .m2-media-tile.hero {
+        .m2-text-tile {
+            * {
+                max-width: 670px;
+            }
+        }
+
+    }
+}

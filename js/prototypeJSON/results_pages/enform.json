@@ -1,0 +1,147 @@
+{
+    "searchedTerm": "Enform",
+    "quantityResults": 39,
+    "searchInstead": [
+        "Lexus Enform"
+    ],
+    "results": [
+        {
+            "title": "Lexus Enform Home",
+            "url": "http://www.lexus.com/enform/?tab=suite",
+            "snippet": "Using your compatible smartphone, the complimentary Lexus Enform App Suite* offers access to your favorite mobile applications through your vehicle's center-console display. And now, in select Lexus vehicles, advanced voice recognition makes accessing and controlling the features easier than ever.",
+            "type": "tree",
+            "filetype": "html",
+            "children": [
+                {
+                    "title": "Enform Login",
+                    "url": "https://www.lexusenformappsuite.com/login.jsp"
+                },
+                {
+                    "title": "Create an Enform App Suite Account",
+                    "url": "https://www.lexusenformappsuite.com/login.jsp"
+                },
+                {
+                    "title": "Enform Subscription Renewal",
+                    "url": "://drivers.lexus.com/lexusdrivers/lexusenform/mysubscriptions-enform.do"
+                },
+                {
+                    "title": "Enform FAQs",
+                    "url": "http://www.lexus.com/enform/?tab=faq"
+                }
+            ]
+        },
+        {
+            "title": "Lexus Enform",
+            "url": "http://www.lexus.com/enform/",
+            "snippet": "Lexus Enform is Lexus branded connected services and currently consists of the following products: Lexus Enform Safety Connect, Lexus Enform Destinations, Lexus Enform Remote™ and Lexus Enform App Suite.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus - Knowledge Center - Enform",
+            "url": "http://www.lexus.com/contact/enform.html",
+            "snippet": "Find answers to frequently asked questions about Lexus Enform.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - Luxury Sedans, SUVs, Hybrids, and Performance Cars",
+            "url": "http://www.lexus.com/",
+            "snippet": "Welcome to Lexus' official site. Explore the line of Lexus luxury sedans, SUVs, hybrids, convertibles and accessories, or find a Lexus dealer near you.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus CT Hybrid, CT F SPORT - In-Vehicle Technology | 2015 | Lexus.com",
+            "url": "http://www.lexus.com/models/CT-hybrid/technology",
+            "snippet": "The Lexus CT Hybridand CT F SPORT includes in-vehicle technology such as USB iPod connectivity, HD or satellite radio, Lexus Enform app suite, and more.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus ES - In-Vehicle Technology | Lexus.com",
+            "url": "http://www.lexus.com/models/ES-hybrid/technology",
+            "snippet": "Explore the in-vehicle technology of the Lexus ES such as the navigation system, Bluetooth connectivity, the Lexus Enform app suite, and 5.1 Surround Sound.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus ES - In-Vehicle Technology | Lexus.com",
+            "url": "http://www.lexus.com/models/ES/technology",
+            "snippet": "Explore the in-vehicle technology of the Lexus ES such as the navigation system, Bluetooth connectivity, the Lexus Enform app suite, and 5.1 Surround Sound.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus LX - In-Vehicle Technology | Lexus.com",
+            "url": "http://www.lexus.com/models/LX/technology",
+            "snippet": "Explore the in-vehicle technology of the Lexus LX such as advanced voice command, the Lexus Enform app suite, and enhanced Bluetooth technology.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus RC, RC F SPORT - In-Vehicle Technology | 2015 | Lexus.com",
+            "url": "http://www.lexus.com/models/RC/technology",
+            "snippet": "The Lexus RC and RC F SPORT includes in-vehicle technology such as Lexus Enform, SmartAccess, color multi-information display, digital tachometer, and more.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus CT, CT F SPORT - Luxury Hybrid | 2015 | Overview | Lexus.com",
+            "url": "http://www.lexus.com/models/CT-hybrid",
+            "snippet": "Eats asphalt. Sips fuel. Explore the luxurious and powerful features of 2015 Lexus CT luxury hybrid.  ",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "2015 Lexus ES - Luxury Sedan | Lexus.com",
+            "url": "http://www.lexus.com/models/ES",
+            "snippet": "The 2015 Lexus ES luxury sport sedan combines exquisite luxury and convenient technologies for an impressive driving experience.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }
+    ],
+    "cards": [
+        {
+            "type": "app",
+            "position": 2,
+            "title": "Lexus Enform",
+            "backgroundImage": "/assets/img/PROTOTYPE/cards/app-bg.jpg",
+            "subhead": "",
+            "description": "",
+            "linkURL": "",
+            "photos": [],
+            "actions": {
+                    "label": "More Apps",
+                    "url": "http://www.lexus.com",
+                    "style": "primary"
+            },
+            "apps": [
+                {
+                    "title": "Enform Remote",
+                    "description": "Lets you remotely lock &amp; unlock your doors and start or stop the engine.",
+                    "icon": "/assets/img/PROTOTYPE/cards/app-icon-enform.png",
+                    "android": "https://play.google.com/store/apps/details?id=com.tweddle.lexus.enform",
+                    "ios": "https://itunes.apple.com/us/app/lexus-enform/id495024090?mt=8"
+                },
+                {
+                    "title": "Enform App Suite",
+                    "description": "In-car multimedia experience including MovieTickets.com, OpenTable&reg;, and Pandora&reg;",
+                    "icon": "/assets/img/PROTOTYPE/cards/app-icon-enform.png",
+                    "android": "https://play.google.com/store/apps/details?id=com.tweddle.lexus.enform",
+                    "ios": "https://itunes.apple.com/us/app/lexus-enform/id495024090?mt=8"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,197 @@
+@import "library";
+@import "compass/css3/transition";
+
+$grey-accent: #efefef;
+
+$small-max: 700px;
+$medium-min: 701px;
+
+/** 
+ * Compare section-level styles
+ */ 
+
+.compare {
+	height: auto;
+
+	.page-wrap {
+		border-top: 1px solid $grey-accent;
+	}
+
+	.chrome-attribution {
+		@include palatino;
+		float: left;
+		text-transform: none;
+		font-size: 10px;
+		color: $color-grey-60;
+		position: absolute;
+	}
+
+	.chrome-logo {
+		width: 98px;
+		height: 12px;
+		display: inline-block;
+		margin-left: 5px;
+	}
+}
+
+/**
+ * Select Competitor and Select Trim shared headings
+ */
+#select-competitor, 
+#select-trim {
+	.page-wrap {
+		background-image: url("/assets/img/borders/background-half-grey-2.png");
+		background-repeat: repeat-y; 
+		background-position: 50% 0;
+	}
+	.wrapper {
+		@include grid-container;
+		margin: auto;
+		background: transparent;
+		overflow: hidden;
+	}
+
+	.selected-vehicle h2,
+	.lexus-trims h2 {
+		@include nobel-book;
+		text-align: center;
+		font-size: 22px;
+		letter-spacing: 4px;
+		margin: auto auto 20px;
+		line-height: 1.5;
+		max-width: 350px;
+	}
+
+	.chrome-attribution {
+ 		margin-top: 15px;
+ 	}
+
+ 	.product-placeholder {
+ 		width: 50%;
+ 		float: left;
+ 		position: relative;
+ 	}
+
+ 	.vehicle-container {
+ 		width: 100%;
+ 		left: 0px;
+
+ 		&.stuck {
+			position: fixed;
+			top: 0px;
+			width: 98.8%;
+			left: .6%;
+		}
+
+		&.unsticky {
+			position: absolute;
+			top: auto;
+			bottom: 0px;
+			width: 100%;
+ 			left: 0px;
+		}
+ 	}
+
+ 	.selected-vehicle {
+		padding-top: 10px;
+		margin-top: 65px;
+		padding-bottom: 35px;
+		right: 50%;
+		position: absolute;
+		width: 45%;
+		max-width: 650px;
+
+		.product-image {
+			width: 100%;
+			img {
+				width: 100%;
+				max-width: 450px;
+			}
+		}
+
+		h2 {
+			background-color: white;
+		}
+	}
+
+	.stuck {
+		.selected-vehicle {
+			margin-top: 0px;
+		}
+	}
+}
+
+@include at-medium-breakpoint() {
+	#select-competitor, 
+	#select-trim {
+		.selected-vehicle {
+			right: 50%;
+		}
+
+		.vehicle-container {
+	 		&.stuck {
+				width: 100%;
+				left: 0;
+			}
+		}
+	}
+}
+
+@include at-small-breakpoint() {
+	.chrome-attrib-text {
+		display: none;
+	}
+//    .footer{
+//        &.large{
+//            display: none;
+//        }
+//        &.small{
+//            display: block;
+//        }
+//        ul {
+//          margin: 0;
+//        }
+//	}
+	#back-to-top {
+		visibility: hidden;
+	}
+    .footer-disclaimer {
+        &.large{
+          display: none;
+        }
+        &.small{
+          display: block;
+        }
+    }
+    .compare {
+    	.optional-disclaimers-container {
+    		display: block;
+    	}
+    	.tooltip-trigger .asterisk {
+	        display: none;
+	    }
+    	sup.disclaimer-counters {
+	        font-size: 60%;
+	        vertical-align: text-top;
+	        display: inline;
+	    }	
+
+	    .chrome-attribution {
+	    	sup.disclaimer-counters {
+		        vertical-align: top;
+		    }
+	    }
+    }
+    
+    #select-competitor .trims h2 .disclaimer-counters {
+		vertical-align: super;
+		position: relative;
+		top: -3px;
+	}
+	.chrome-attribution {
+		.disclaimer-counters {
+			font-size: 11px !important;
+			margin-left: 2px;
+		}
+	}
+}

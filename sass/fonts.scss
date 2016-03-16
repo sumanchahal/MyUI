@@ -1,0 +1,61 @@
+// Loads all font faces. See also typography.scss
+
+@import 'vars';
+
+/* Nobel Light */
+@font-face {
+  font-family: 'nobel-light';
+  font-weight: $weight-light;
+  src: url("/assets/font/nobel-light.eot");
+  src: url("/assets/font/nobel-light.eot") format("embedded-opentype"), url("/assets/font/nobel-light.woff") format("woff"), url("/assets/font/nobel-light.ttf") format("truetype"), url("/assets/font/nobel-light.svg#NobelLight") format("svg");
+}
+
+/* Nobel Book */
+@font-face {
+  font-family: 'nobel-book';
+  font-weight: $weight-book;
+  src: url("/assets/font/nobel-book.eot");
+  src: url("/assets/font/nobel-book.eot") format("embedded-opentype"), url("/assets/font/nobel-book.woff") format("woff"), url("/assets/font/nobel-book.ttf") format("truetype"), url("/assets/font/nobel-book.svg#NobelBook") format("svg");
+}
+
+/* Nobel Book Italic */
+@font-face {
+	font-family: 'nobel-book-italic';
+	src: url('/assets/font/nobel-book-italic.eot');
+	src: url('/assets/font/nobel-book-italic.eot') format("embedded-opentype"), url('/assets/font/nobel-book-italic.woff') format('woff'), url('/assets/font/nobel-book-italic.ttf') format('truetype'), url('/assets/font/nobel-book-italic.svg') format('svg');
+	font-weight: $weight-book;
+	font-style: italic;
+}
+
+/* Nobel Regular */
+@font-face {
+	font-family: 'nobel-regular';
+	src: url('/assets/font/nobelregular.eot');
+	src: url('/assets/font/nobel-regular.ttf') format('truetype'), url('/assets/font/nobelregular.eot') format("embedded-opentype"), url('/assets/font/nobel-regular.woff') format('woff'), url('/assets/font/nobel-regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Nobel Regular Italic */
+@font-face {
+	font-family: 'nobel-regular-italic';
+	src: url('/assets/font/nobelregularitalic.eot');
+	src: url('/assets/font/nobelregularitalic.eot') format("embedded-opentype"), url('/assets/font/nobel-regular-italic.woff') format('woff'), url('/assets/font/nobel-regular-italic.ttf') format('truetype'), url('/assets/font/nobel-regular-italic.svg') format('svg');
+	font-style: italic;
+}
+
+/* Nobel Bold */
+@font-face {
+	font-family: 'nobel-bold';
+	src: url('/assets/font/nobelbold.eot');
+	src: url('/assets/font/nobelbold.eot') format("embedded-opentype"), url('/assets/font/nobel-bold.woff') format('woff'), url('/assets/font/nobel-bold.ttf') format('truetype'), url('/assets/font/nobel-bold.svg') format('svg');
+	font-weight: $weight-bold;
+}
+
+
+/* Pakt */
+@font-face {
+  font-family: 'pakt';
+  src: url("/assets/font/pakt.eot");
+  src: url("/assets/font/pakt.eot") format("embedded-opentype"), url("/assets/font/pakt.woff") format("woff"), url("/assets/font/pakt.ttf") format("truetype"), url("/assets/font/pakt.svg#PaktRegular") format("svg");
+}

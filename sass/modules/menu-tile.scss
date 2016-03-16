@@ -1,0 +1,600 @@
+@import "mixins";
+@import "grid";
+@import "typography";
+
+
+.no-touch.no-mstouch .m2-menu-tile {
+    &.menu-bar {
+        .menu-item .cta-button:hover {
+            border: none;
+            background: #fff;
+            color: #000;
+        }
+    }
+
+    &.drop-down {
+        .menu-item:hover {
+            background-color: #eee;
+        }
+    }
+    //Getting rid of the overflow so the animations don't look weird in desktop but mobile size.
+    @include at-small-and-medium-breakpoints() {
+        &.menu-bar-collapse {
+            .menu-cont {
+                overflow: hidden;
+                .menu-item-cont {
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+
+    &.drop-down-black {
+
+        .menu-item {
+            // category menu item HOVER
+            &:not(.deadlink):hover {
+                
+                // link hover style
+                a {
+                    background-color: white;
+                    color: black;
+                }
+
+                // hide border top on next menu item's link
+                &+ .menu-item a {
+                    &:after {
+                        border-bottom-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.menu-stuck {
+    .sticky-wrapper {
+        height: 61px;
+        background-color: black;
+    }
+    
+    .m2-menu-tile.menu-bar-collapse {
+        position: fixed;
+        left: 0px;
+        top: 0;
+        z-index: 2;
+        width: 100%;
+    }
+}
+
+
+
+.touch, .mstouch {
+
+    .menu-stuck {
+        .m2-menu-tile.menu-bar-collapse.open {
+            .menu-item-cont {
+                height: 100vh;
+                padding-bottom: 100px;
+            }
+        }
+
+        @include md-up() {
+            .m2-menu-tile.menu-bar-collapse.open {
+                .menu-item-cont {
+                    height: auto;
+                    padding-bottom: 0px;
+                }
+            }
+        }
+    }
+
+}
+
+.m2-menu-tile {
+    position: relative;
+
+    // ---------------------------------------------
+    //
+    //  Menu Bar Style CTA List
+    //
+    // ---------------------------------------------
+    &.menu-bar {
+        text-align: center;
+        background-color: #000;
+
+        .menu-title {
+            display: none;
+        }
+
+        .m2-cta-tile.cta-button {
+            letter-spacing: 0.05em;
+        }
+
+        .menu-item {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+
+            .cta-button {
+                font-size: 11px;
+                max-width: none;
+                padding-top: 20px;
+                padding-bottom: 24px;
+                width: 100%;
+                border: none;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                top: 0;
+                left: 0;
+                margin: auto;
+                background-color: #333;
+                // border-bottom: solid 1px #333333;
+                box-sizing: border-box;
+            }
+        }
+
+        .menu-item.active,
+        .menu-item.active:hover {
+            .cta-button {
+                border: none;
+                background: #fff;
+                color: #000;
+            }
+        }
+
+        @include md-up() {
+
+            .menu-cont {
+                max-width: 1195px;
+                margin: 0 auto;
+            }
+
+            .menu-item {
+
+                &:after {
+                    background-color: transparent;
+                }
+
+                .cta-button {
+                    &:hover {
+                        border-right: dotted 1px #333333;
+                    }
+                }
+
+                &:not(:last-child) {
+
+                    a {
+                        // we need the styles broken out so the background color doesnt get wiped out.
+                        background-image: url('/assets/img/global/separator-vert-dots-grey.png');
+                        background-repeat: no-repeat;
+                        background-position: right center;
+                    }
+                }
+            }
+
+            .menu-item {
+                width: auto;
+            }
+
+            &.distribute {
+
+                /* two items */
+                .menu-item:first-child:nth-last-child(2),
+                .menu-item:first-child:nth-last-child(2) ~ .menu-item {
+                    width: 50%;
+                }
+
+                /* three items */
+                .menu-item:first-child:nth-last-child(3),
+                .menu-item:first-child:nth-last-child(3) ~ .menu-item {
+                    width: 33.3333%;
+                }
+
+                /* four items */
+                .menu-item:first-child:nth-last-child(4),
+                .menu-item:first-child:nth-last-child(4) ~ .menu-item {
+                    width: 25%;
+                }
+
+                /* five items */
+                .menu-item:first-child:nth-last-child(5),
+                .menu-item:first-child:nth-last-child(5) ~ .menu-item {
+                    width: 20%;
+                }
+
+                /* six items */
+                .menu-item:first-child:nth-last-child(6),
+                .menu-item:first-child:nth-last-child(6) ~ .menu-item {
+                    width: 16.6666%;
+                }
+
+                /* seven items */
+                .menu-item:first-child:nth-last-child(7),
+                .menu-item:first-child:nth-last-child(7) ~ .menu-item {
+                    width: 14.2857%;
+                }
+
+            }
+        }
+
+    }
+
+
+
+
+    &.menu-bar-collapse,
+    &.drop-down,
+    &.drop-down-black {
+
+        display: block;
+
+
+        &.open .menu-cont {
+            @include opacity(1);
+            visibility: visible;
+            transition-delay: 0;
+        }
+
+        .menu-cont {
+            position: absolute;
+            background-color: #eee;
+            @include opacity(0);
+            visibility: hidden;
+            text-align: left;
+            left: 0;
+            right: 0;
+            margin: auto;
+            max-width: 510px;
+            z-index: 2;
+        }
+
+        .menu-title {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto;
+            cursor: pointer;
+            padding-bottom: 4px;
+            border-bottom: solid 1px black;
+            white-space: nowrap;
+        }
+
+        .menu-btn {
+            position: relative;
+            display: inline-block;
+            width: 21px;
+            height: 20px;
+            vertical-align: middle;
+            cursor: pointer;
+            background: url(/assets/img/specifications/dropdown-arrows.gif) no-repeat;
+            background-position: -22px 0;
+            margin: 5px 0 5px 5px;
+        }
+
+
+        .menu-subtitle {
+            width: 100%;
+            margin: 30px 0 25px;
+            @include nobel-book;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .cta-text {
+            display: inline-block;
+            width: 100%;
+            padding: 15px 0;
+            text-decoration: none;
+            font-size: 11px;
+            line-height: 130%;
+        }
+
+    }
+
+
+    // ---------------------------------------------
+    //
+    //  Menu Collapse Style
+    //
+    // ---------------------------------------------
+    &.menu-bar-collapse {
+        z-index: 2;
+        // height: 61px;
+        .menu-btn {
+            @include ease-out-sine(0.3s);
+        }
+        
+        &.open {
+            .menu-btn {
+                // @include transform(rotate(180deg));
+                @include transform(scale(1, -1));
+            }
+        }
+        .menu-title {
+            color: white;
+            margin: 20px 0px 20px;
+            font-family: "nobel-regular";
+            font-size: 15px;
+            padding: 0;
+        }
+        .menu-btn {
+            top: -2px;
+            background: url('/assets/img/global/tab-select-arrow-inverted.png') no-repeat;
+            background-position: center;
+        }
+        .menu-cont {
+            overflow: hidden;
+            // position: relative; // NOTE: include if we want the menu to push page content down.
+            // height: 0px;
+            max-height: 0px;
+            opacity: 1;
+            visibility: visible;
+            // -webkit-transition: max-height 300ms ease;
+            // -moz-transition: max-height 300ms ease;
+            // transition: max-height 300ms ease;
+            @include ease-none(350ms, max-height);
+            padding: 0 5px;
+            // padding-bottom: 5px;
+            background-color: #000;
+            max-width: 100%;
+            .menu-subtitle {
+                margin: 0;
+            }
+
+        }
+
+        // not mobile up but it works so we dont need to override styles for md-up
+        @include at-small-and-medium-breakpoints() {
+            // .menu-cont {
+            //     .menu-item-cont {
+            //         opacity: 0;
+            //         visibility: hidden;
+            //     }
+            // }
+            .menu-item {
+                .cta-button {
+                    font-size: 12px;
+                }
+            }
+            &.open {
+                .menu-cont {
+                    max-height: 100vh;
+                    // height: auto;
+                    // height: 320px;
+                    border-bottom: solid 3px #FFF;
+                    .menu-item-cont {
+                        opacity: 1;
+                        visibility: visible;
+                        padding-bottom: 5px;
+                    }
+                }
+                ul {
+                    // max-height: 75%;
+                    overflow-y: auto;
+                }
+            }
+            // &.menu-stuck {
+            //     left: 0px;
+            // }
+            .menu-item.active,
+            .menu-item.active:hover {
+                border: 2px solid #FFF;
+                .cta-button {
+                    border: none;
+                    background: #000;
+                    color: #fff;
+                }
+            }
+        }
+
+        @include md-up() {
+            .menu-title {
+                display: none;
+            }
+            .menu-btn {
+                display: none;
+            }
+            .menu-cont {
+                // height: auto;
+                max-height: inherit;
+                max-width: 700px;
+                margin: 0 auto;
+                position: relative;
+                background-color: #000;
+                opacity: 1;
+                visibility: visible;
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    // ---------------------------------------------
+    //
+    //  Drop Down Style CTA List
+    //
+    // ---------------------------------------------
+    &.drop-down {
+
+        text-align: center;
+
+        &.open .menu-cont {
+            top: 210%;
+            width: 100%;
+            @include ease-out-quart(0.4s);
+        }
+
+        .menu-cont {
+            top: 0px;
+            width: 100%;
+            padding: 0px 30px 68px;
+            @include ease-in-quart(0.4s);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+
+            /* the little arrow */
+            &:after {
+                content: "";
+                position: absolute;
+                top: -19px;
+                left: 50%;
+                width: 0px;
+                transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                -webkit-transform:translateX(-50%);
+                border-bottom: 20px solid #eee;
+                border-bottom-color: #eee;
+                border-left: 19px solid transparent;
+                border-right: 19px solid transparent;
+            }
+        }
+
+        .menu-btn {
+            // vertical-align: middle;
+            background-position: -22px 0;
+        }
+
+        .menu-title {
+            text-align: center;
+            font-size: 15px;
+        }
+
+
+        .menu-subtitle {
+            display: inline-block;
+        }
+
+        .menu-item {
+            padding: 0 20px;
+        }
+
+        .menu-item:not(:last-child) {
+            border-bottom: solid 1px #eee;
+        }
+
+        .menu-item .cta-text {
+            font-size: 11px;
+            word-break: break-word;
+        }
+
+        .menu-item-cont {
+            background-color: #fff;
+        }
+
+        .cta-text {
+            font-family: "nobel-book";
+            font-weight: 300;
+        }
+
+        @include sm-up() {
+            .menu-title {
+                font-size: 20px;
+            }
+        }
+    }
+
+    // ---------------------------------------------
+    //
+    //  Menu Bar Black Style CTA List
+    //
+    // ---------------------------------------------
+
+    &.drop-down-black {
+
+        background-color: black;
+
+		.menu-item-cont {
+			max-height: 350px;
+			overflow-y: auto;
+			background-color: #000;
+			// -webkit-overflow-scrolling: touch;
+		}
+
+        .menu-item-cont {
+            max-height: 350px;
+            overflow-y: auto;
+            background-color: #000;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .menu-title {
+            text-align: left;
+            font-size: 11px;
+            color: white;
+            padding: 1rem;
+            width: calc(100% - 42px);
+        }
+
+        .menu-subtitle {
+            display: none;
+        }
+
+        .menu-btn {
+            background-position: -22px 1px;
+            &:before {
+                content: "";
+                position: absolute;
+                width: 1px;
+                height: 100%;
+                background-color: #303030;
+                left: -8px;
+                top: 0;
+            }
+        }
+
+        .menu-item-cont {
+            max-height: 350px;
+            overflow: auto;
+            background-color: #000;
+        }
+
+        .menu-item {
+            position: relative;
+            padding-left: 0;
+            
+            // border top for line separators
+            a:after {
+                content: "";
+                position: absolute;
+                height: 1px;
+                left: 15px;
+                top: -1px;
+                width: calc(100% - 30px);
+                border-bottom: solid 1px #eee;
+            }
+
+            // first border top should be 100% width
+            &:first-child a:after {
+                left: 0;
+                width: 100%;
+            }
+
+            // category menu item
+            &.deadlink a {
+                font-family: "nobel-bold";
+                cursor: default;
+            }
+
+            // not category menu item
+            &:not(.deadlink) a {
+                text-indent: 1.1rem;
+            }
+
+        }
+
+        .cta-text {
+            font-family: "nobel-book";
+            color: #fff;
+            padding: 1rem;
+            vertical-align: middle;
+        }
+    }
+}

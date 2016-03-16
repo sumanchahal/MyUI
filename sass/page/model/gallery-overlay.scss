@@ -1,0 +1,793 @@
+@import "library";
+@import "mixins";
+@import "modules/share";
+
+.touch, .mstouch {
+  #colorbox {
+    * {
+      -webkit-transform: translate3d(0,0,0);
+      -webkit-backface-visibility: hidden;
+    }
+  }
+}
+
+#colorbox #overlay-container{
+    display: block;
+}
+
+#overlay-container{
+    display: none;
+    position: relative;
+    .close-btn{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        z-index: 10;
+    }
+    .image{
+        margin-bottom: 5%;
+        position: relative;
+        #overlay-image {
+            width: 100%;
+            display: block;
+        }
+        .loading.animation {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -25px;
+            margin-top: -18px;
+        }
+        // #brightCovePlayer {
+        //     @include opacity(0);
+        //     @include ease-none(0.5s);
+        //     &.show {
+        //         @include opacity(1);
+        //     }
+        //     // width: 100%;
+        //     // min-height: 20%;
+        //     // overflow: hidden;
+        //     // padding-bottom: 56.3%;
+        // }
+        #overlay-interactive-frame {
+            width: 100%;
+            min-height: 20%;
+            overflow: hidden;
+        }
+        #overlay-interactive-small-image {
+            display: none;
+        }
+    }
+    .overlay-content {
+        width: 100%;
+        @include box-sizing(border-box);
+        padding: 0px 10% 3% 10%;
+        /* min-height: 1509px; */
+        position: relative;
+        z-index: 0;
+        .overlay-top{
+            @include clearfix;
+            margin-bottom: 0%;
+            position: relative;
+            z-index: 10;
+            .image-count{
+                float: left;
+                @include nobel-book;
+                @include font-size(11, auto, 210);
+                strong{
+                    @include nobel-bold;
+                }
+            }
+            .actionable-links{
+                float: right;
+                margin-bottom: 5%;
+                position: relative;
+                z-index: 20;
+                ul{
+                    @include clearfix;
+                    li {
+                        float: left;
+                        position: relative;
+                        a{
+                            @include section-heading;
+                            @include font-size(11, auto, 150);
+                            text-decoration: underline;
+                        }
+                        .download-wall-paper{
+                            display: none;
+                            background: url(/assets/img/overlay/downloads-down-arrow.png) no-repeat 86% center;
+                            padding-right: 33px;
+                            margin-right: 23px;
+                            border-right: 1px dotted $color-black;
+                        }
+                        .download-dropdown {
+                            display: none;
+                            position: absolute;
+                            left: 0;
+                            top: 20px;
+                            white-space: nowrap;
+                            z-index: 12;
+                            .download-dropdown-top {
+                                background: url(/assets/img/overlay/downloads-top-border.png) no-repeat 0 0;
+                                width: 199px;
+                                height: 10px;
+                            }
+                            .download-dropdown-content {
+                                ul {
+                                    background-color: #f1f1f1;
+                                    padding: 20px 15px;
+                                    width: 169px;
+                                }
+                                li {
+                                    margin: 0 0 15px 0;
+                                    a {
+                                        @include font-size(11,16,10);
+                                        display: block;
+                                    }
+                                    &:last-child {
+                                        margin: 0;
+                                    }
+                                }
+                                .title {
+                                    @include nobel-bold;
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                    margin: 0 5px 0 0;
+                                }
+                                .dimensions {
+                                    @include nobel-regular;
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                }
+                                .icon {
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                    margin: 0 10px 0 0;
+                                }
+                                .desktop {
+                                    background: url(/assets/img/overlay/downloads-desktop-icon.png) no-repeat 0 0;
+                                    width: 27px;
+                                    height: 24px;
+                                }
+                                .tablet {
+                                    background: url(/assets/img/overlay/downloads-tablet-icon.png) no-repeat center 0;
+                                    width: 27px;
+                                    height: 21px;
+                                }
+                                .mobile {
+                                    background: url(/assets/img/overlay/downloads-mobile-icon.png) no-repeat center 0;
+                                    width: 27px;
+                                    height: 21px;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+        .overlay-bottom{
+            position: relative;
+            z-index: 1;
+        }
+        h2{
+            @include nobel-bold;
+            color: $color-black;
+            @include font-size(12, auto, 50);
+            margin-bottom: 1%;
+            text-align: left;
+
+            &.no-description {
+                margin-bottom: 25px;
+            }
+        }
+        h3{
+            @include nobel-bold;
+            color: $color-black;
+            @include font-size(22, auto, 50);
+            margin-bottom: 7px;
+        }
+        div.paragraph {
+            @include palatino;
+            color: $color-black;
+            text-transform: none;
+            @include font-size(14, 24, 35);
+            margin: 0 0 3% 0;
+        }
+        #overlay-touts {
+            margin-bottom: 25px;
+            .title {
+                @include nobel-bold;
+                color: $color-black;
+                @include font-size(12, 20, 95);
+            }
+            .description {
+                @include palatino;
+                color: $color-black;
+                text-transform: none;
+                @include font-size(13, 18, 35);
+            }
+        }
+
+        #gallery-overlay-button,
+        #dealer-overlay-button{
+            display: inline-block;
+            margin: 0 0 3% 0;
+            a {
+                @include btn;
+                &:hover{
+                    background: #fff;
+                    border-color: #000;
+                    color: #000;
+                }
+            }
+        }
+
+    }
+}
+
+@include at-no-touch-device{
+    #overlay-container{
+        .overlay-content{
+            #overlay-button {
+                a{
+                    &:hover{
+                        background: #fff;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+}
+html.touch, html.mstouch{
+    -webkit-text-size-adjust: 100%;
+}
+
+#overlay-current-index {
+    @include nobel-bold;
+}
+
+#overlay-nav{
+    width: 90%;
+    max-width: 1204px;
+    @include clearfix;
+    position: fixed;
+    margin: 0 auto;
+    top: 50%;
+    pointer-events:none;
+
+    .nav-item{
+        background: $color-black;
+        height: 60px;
+        width: auto;
+        pointer-events:all;
+        a{
+            display: block;
+            width: 60px;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            text-decoration: none;
+            background: $color-black;
+            .arrow-wrapper{
+                background: $color-black;
+                display: block;
+                width: 60px;
+                height: 100%;
+                position: relative;
+                z-index: 10;
+            }
+            .arrow{
+                width: 13px;
+                height: 100%;
+                background: url(/assets/img/overlay/arrows-sprite.gif) no-repeat 0px center;
+                display: block;
+                margin: 0px auto;
+                position: relative;
+                z-index: 10;
+            }
+        }
+        .peek{
+            z-index: 5;
+            display: block;
+            opacity: 1;
+            height: 60px;
+            line-height: 60px;
+            position: relative;
+            top: -60px;
+            overflow: hidden;
+            left: -200%;
+            @include font-size(12, auto, 50);
+            @include nobel-bold;
+            color: #fff;
+            @include box-sizing(border-box);
+            display: inline-block;
+            white-space: nowrap;
+            .next-prev-label {
+                color: #939393;
+                text-transform: none;
+                @include palatino;
+                margin-right: 5px;
+            }
+        }
+
+    }
+
+    #overlay-prev-btn{
+        float: left;
+        .peek{
+            margin-right: 25px;
+        }
+
+    }
+    #overlay-next-btn{
+        float: right;
+        cursor: pointer;
+        a{
+            right: 0px;
+            .arrow{
+                background-position: -13px center;
+            }
+        }
+        .peek{
+            display: inline-block;
+            white-space: nowrap;
+            position:absolute;
+            left: 0px;
+            top: 0px;
+            margin-left: 25px;
+            width: auto;
+            div{
+                width: auto;
+            }
+        }
+    }
+
+}
+
+#lfr-wrapper #overlay-nav {
+    width: calc(90% - 75px);    
+}
+
+
+.gallery-video {
+    width: 100%;
+    position: relative;
+    z-index: -1;
+}
+.gallery-video-wrapper {
+    padding-top: 1px;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+* html .gallery-video-wrapper {
+    margin-bottom: 45px;
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+}
+embed,
+object, {
+    width: 100%;
+    height: 100%;
+}
+
+
+.gallery-video-wrapper div,
+.gallery-video-wrapper embed,
+.gallery-video-wrapper object,
+.BrightcoveExperience {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+// Minimal layout
+#colorbox.minimal {
+
+    #cboxContent {
+        background: transparent;
+    }
+
+    #overlay-container {
+
+        .image {
+            margin-bottom: 0;
+        }
+
+        .overlay-content {
+            padding: 15px;
+            background: #000;
+        }
+
+        .overlay-top .image-count {
+            display: none;
+        }
+
+        .overlay-top .actionable-links {
+            float: left;
+            margin-bottom: 0;
+
+            ul li a {
+                color: #FFF;
+                text-decoration: none;
+                display: none;
+
+                &.share-btn {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    #overlay-nav {
+        top: 33%;
+
+        .nav-item .peek .next-prev-label {
+            display: none;
+        }
+
+    }
+}
+
+@mixin touch-overlay-nav {
+  .overlay-content{
+    padding-bottom: 0px;
+  }
+  #overlay-nav{
+    position: relative;
+    margin: 0px 10% 85px;
+    height: auto;
+    width: auto;
+    @include clearfix;
+    .nav-item{
+
+      position: relative;
+      width: 50%;
+      min-height: 60px;
+      height: auto;
+      background: #fff;
+      a{
+        width: 100%;
+        position: relative;
+        background: $color-white;
+        @include box-sizing(border-box);
+        padding-top: 16px;
+        .arrow-wrapper{
+          background: #fff;
+          width: 8px;
+          @include box-sizing(border-box);
+          position: absolute;
+          .arrow{
+            @include box-sizing(border-box);
+            background: url(/assets/img/overlay/arrows-sprite-light.gif) no-repeat 0px center;
+            width: 8px;
+            height: 60px;
+            margin: auto;
+          }
+        }
+      }
+      .peek{
+        background: #fff;
+        color: $color-black;
+        position: static;
+        @include box-sizing(border-box);
+        white-space: normal;
+        width: 100%;
+
+        padding: 0px 0px 0px 0px;
+        height: auto;
+        display: block;
+        float: none;
+        line-height: 28px;
+        .next-prev-label {
+          display: inline;
+        }
+      }
+    }
+
+    #overlay-prev-btn{
+      @include box-sizing(border-box);
+      a{
+        .arrow-wrapper{
+          float: none;
+          position: absolute;
+          left: 0px;
+          top: 0px;
+        }
+        .peek{
+          text-align: left;
+          float: none;
+          padding: 0px 23px;
+        }
+      }
+    }
+
+    #overlay-next-btn{
+      border-left: 1px dotted $color-black;
+      @include box-sizing(border-box);
+      a{
+        .arrow-wrapper{
+          float: none;
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          .arrow{
+            background-position: -8px center;
+            margin-left: auto;
+          }
+        }
+        .peek{
+          text-align: left;
+          float: none;
+          padding: 0px 23px;
+          position: static;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@mixin minimal-touch-overlay-nav {
+
+    .overlay-content .overlay-top {
+        margin-bottom: 0;
+    }
+
+    #overlay-nav {
+        padding-left: 10%;
+        padding-right: 10%;
+        margin: 0;
+        background: #000;
+        padding: 0 10% 25px;
+
+        .nav-item a {
+            background: #000;
+            min-height: 60px;
+
+            .arrow-wrapper .arrow {
+                background: #000 url(/assets/img/overlay/arrows-sprite-small.gif) no-repeat 0px center;
+            }
+
+            .peek {
+                display: none;
+            }
+        }
+
+        #overlay-next-btn, #overlay-prev-btn {
+            background: $color-black;
+        }
+
+        #overlay-next-btn a .arrow-wrapper .arrow {
+            background-position: -8px center;
+            margin-left: auto;
+        }
+
+        #overlay-prev-btn {
+            border-right: 1px dotted $color-white;
+        }
+    }
+}
+
+@include at-touch-device{
+    #overlay-container{
+        @include touch-overlay-nav;
+        .overlay-content {
+            #dealer-overlay-button{
+                display: inline-block;
+                margin: 0 0 3% 0;
+                a {
+                    @include btn;
+                    &:hover{
+                        background: $color-black;
+                        border-color: $color-black;
+                        color: $color-white;
+                    }
+                }
+            }
+        }
+    }
+
+    // MINIMAL LAYOUT
+    #colorbox.minimal #overlay-container {
+        @include minimal-touch-overlay-nav;
+    }
+
+}
+
+
+@media (min-width: $medium-max) and (max-width: 1084px) {
+    #overlay-container {
+        .image {
+            #overlay-interactive-frame {
+                display: none;
+                &.video {
+                    display: block;
+                }
+            }
+            #overlay-interactive-small-image {
+                width: 100%;
+                min-height: 20%;
+                overflow: hidden;
+                display: block;
+            }
+        }
+    }
+}
+
+@include at-small-and-medium-breakpoints(){
+    #overlay-container{
+        .overlay-content {
+            z-index: 12;
+        }
+        @include touch-overlay-nav;
+    }
+    html.touch #overlay-container,
+    html.mstouch #overlay-container,
+    #overlay-container{
+        #overlay-nav{
+            margin-left: 10%;
+            margin-right: 10%;
+            #overlay-prev-btn{
+                a{
+                    .peek{
+                        float: left;
+                        text-align: left;
+                        padding: 0px 0px 0px 58px;
+                        font-size: 10px;
+                        .next-prev-label{
+                            font-style: italic;
+                            position: relative;
+                            left: -35px;
+                            margin-right: -27px;
+                        }
+                    }
+                }
+            }
+            #overlay-next-btn{
+
+                a{
+                    .peek{
+                        float: right;
+                        text-align: left;
+                        font-size: 10px;
+                        padding: 0px 23px 0px 35px;
+                        .next-prev-label{
+                            font-style: italic;
+                            position: relative;
+                            left: -35px;
+                            margin-right: -27px;
+                        }
+                    }
+                }
+            }
+        }
+      .image {
+        #overlay-interactive-frame {
+          display: none;
+          &.video {
+              display: block;
+          }
+        }
+        #overlay-interactive-small-image {
+          width: 100%;
+          min-height: 20%;
+          overflow: hidden;
+          display: block;
+        }
+      }
+    }
+
+    // MINIMAL LAYOUT
+    html.touch #colorbox.minimal #overlay-container,
+    html.mstouch #colorbox.minimal #overlay-container,
+    #colorbox.minimal #overlay-container {
+        @include minimal-touch-overlay-nav;
+    }
+}
+
+
+@include at-small-breakpoint() {
+    html.touch #overlay-container,
+    html.mstouch #overlay-container,
+    #overlay-container{
+        .asterisk {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        #overlay-nav{
+            margin-top:40px;
+            margin-bottom: 25px;
+            padding-top: 15px;
+            border-top: 1px dotted $color-black;
+
+            #overlay-prev-btn{
+                display: none;
+            }
+
+            #overlay-next-btn{
+                width: 100%;
+                padding-left: 0px;
+                border-left: 0;
+                a{
+                    .peek{
+                        float: right;
+                        padding-left: 36px;
+                        margin-left: 0px;
+                        max-height: 100%;
+                        overflow: hidden;
+                        line-height: 20px;
+                    }
+                    #overlay-next-title {
+                        line-height: 0;
+                    }
+                }
+            }
+        }
+        .overlay-content{
+
+            #overlay-button{
+                a{
+                    max-width: 100%;
+                    height: 40px;
+                    line-height: 10px;
+                }
+            }
+
+            .overlay-top{
+                margin-bottom: 10%;
+
+                .image-count{
+                    float: none;
+                }
+
+                .actionable-links{
+                    float: none;
+                    width: 100%;
+                }
+            }
+
+            .find-a-dealer-btn{
+                max-width: 100%;
+            }
+
+            h2{
+                margin-bottom: 1%;
+
+                &.no-description {
+                    margin-bottom: 20px;
+                }
+            }
+
+            h3{
+                @include font-size(14, auto, 50);
+            }
+
+            #dealer-overlay-button,
+            #gallery-overlay-button{
+                display: inline-block;
+                width: 100%;
+
+            a {
+                max-width: 100%;
+            }
+}
+        }
+
+        .close-btn{
+            width:45px;
+            height:45px;
+            background-size: 100%;
+        }
+    }
+}

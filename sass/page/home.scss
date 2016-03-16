@@ -1,0 +1,996 @@
+@import "library";
+// @import "spinner";
+@import "compass/css3/opacity";
+@import "compass/utilities/sprites";
+
+@mixin hideCaption () {
+       .hit-area {
+              @include opacity(0);
+       }
+       .caption {
+              @include opacity(0);
+       }
+}
+@mixin showCaptionOverlay () {
+       .hit-area {
+              @include opacity(0.6);
+       }
+       .caption {
+              @include opacity(1.0);
+       }
+}
+
+.grid {
+       @include clearfix;
+       width: 100 + (2 * $width-stroke);
+       left: -$width-stroke;
+       position: relative;
+       background-color: $color-black;
+}
+
+#home .loading.animation {
+    background: $loading-sprite-white no-repeat top left;
+    // background: $loading-sprite-dark no-repeat top left;
+    z-index: 2;
+}
+
+/** LIM 341 changes**/
+       .recentbuild{
+              //background-color: $color-grey-lighter;
+              background: url(/assets/img/global/recentbuildtile.jpg) no-repeat;
+              background-size: 100%;
+              -webkit-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+              -moz-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+              -o-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+              -ms-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+              transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+              //for larger screens
+              img{
+                    position: relative;
+                    //padding-top:50px;
+              }            
+               p.description{
+                         font-size: 10px; 
+               }
+              
+       }
+       
+       //for tile-0
+       .recentbuild-0{
+              @extend .recentbuild;
+              img{
+                           width:120% !important;
+                           margin-left:-45px;
+                           margin-top:-20px;
+              }
+       }
+       
+       //for tile-1 -- old position
+       .recentbuild-1{
+           @extend .recentbuild;             
+           img{
+                    width:120% !important;
+                    margin-left:-35px;
+                    margin-top:-35px;
+           }          
+       }
+       
+/** LIM 341 changes**/
+
+
+
+
+
+.tile {
+    display: block;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    @include opacity(0);
+    -webkit-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+    -moz-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+    -o-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+    -ms-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+    transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+    
+
+       // This is a hack that fixes a problem when the percentage widths
+       // of the tiles cause the height of the tiles to be off by 1px.
+       // padding-top: 0.49px;
+       .hit-area {
+            display: block;
+            position: absolute;
+            top:0;
+            z-index: 1;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            background-color: $color-black;
+            @include opacity(0);
+            -webkit-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+            -moz-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+            -o-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+            -ms-transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+            transition: all 1000ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+       }
+
+    .hit-grid {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        a {
+            position: relative;
+            display: block;
+        }
+        &.grid-img-horizontal {
+            &.grid-4 {
+                a {
+                    height: 25%;
+                    width: 100%;
+                }
+            }
+        }
+        .btn {
+            @include btn-lgt;
+            padding: 10px 20px;
+            cursor: pointer;
+            position: relative;
+            margin: 0 auto;
+            display: block;
+            visibility: hidden;
+        }
+        .btn-outer {
+            margin: 0 0 10px 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    }
+    
+    .background {
+        display: block;
+        width: 100%;
+        // time was reduce on this because of client feedback. complaints that the beginning of the vide was "cut off" by the image fade.
+        -webkit-transition: all 500ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+        -moz-transition: all 500ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+        -o-transition: all 500ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+        -ms-transition: all 500ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+        transition: all 500ms cubic-bezier(0.335, 0.015, 0.46, 0.995);
+    }
+
+    &.video .background {
+      position: absolute;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+    }
+
+    &.loaded {
+      @include opacity(1);
+    }
+
+    .tile-video {
+      width: 100%;
+    }
+
+    .tile-animation {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        &:not(.tile-video) { opacity: 0; }
+        img {
+            position: relative;
+            width: 100%;
+        }
+    }
+
+    .caption-outer {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .caption-inner {
+        display: table;
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+    }
+
+    .image-disclaimer {
+        color: $color-white;
+        font-size: 10px;
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+        &.inverted {
+            color: $color-black;
+        }
+    }
+
+    .caption {
+        color: $color-white;
+        width: 100%;
+        z-index: 2;
+        text-align: center;
+        text-decoration: none;
+
+        &.bottom{
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          .btn {
+              display: block;
+          }
+          .btn-outer {
+              margin: 0 0 10px 0;
+          }
+        }
+
+        &.middle{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            position: relative;
+            .btn {
+                display: none;
+            }
+        }
+
+        &.inverted {
+            color: $color-black;
+            h2 {
+                color: $color-black;
+            }
+        }
+        h2 {
+            @include nobel-bold;
+            @include font-size(13, 17, 200);
+            color: $color-white;
+            position: relative;
+            padding: 0 3%;
+            bottom: -25px;
+            -webkit-transition: all 400ms cubic-bezier(0.025, 0.025, 0.17, 1);
+            -moz-transition: all 400ms cubic-bezier(0.025, 0.025, 0.17, 1);
+            -o-transition: all 400ms cubic-bezier(0.025, 0.025, 0.17, 1);
+            -ms-transition: all 400ms cubic-bezier(0.025, 0.025, 0.17, 1);
+            transition: all 400ms cubic-bezier(0.025, 0.025, 0.17, 1);
+            -webkit-transition-delay: 40ms;
+            -moz-transition-delay: 40ms;
+            -o-transition-delay: 40ms;
+            -ms-transition-delay: 40ms;
+            transition-delay: 40ms;
+        }
+        p {
+            @include nobel-regular;
+            @include font-size(12, 20, 200);
+            text-transform: uppercase;
+            bottom: -25px;
+            margin: 0;
+            position: relative;
+            padding: 0 3%;
+            opacity: 0;
+            height: 22px;
+            -webkit-transition: opacity,position,bottom 400ms cubic-bezier(0.02, 0.045, 0.22, 0.975);
+            -moz-transition: opacity,position,bottom 400ms cubic-bezier(0.02, 0.045, 0.22, 0.975);
+            -o-transition: opacity,position,bottom 400ms cubic-bezier(0.02, 0.045, 0.22, 0.975);
+            -ms-transition: opacity,position,bottom 400ms cubic-bezier(0.02, 0.045, 0.22, 0.975);
+            transition: opacity,position,bottom 400ms cubic-bezier(0.02, 0.045, 0.22, 0.975);
+            -webkit-transition-delay: 20ms;
+            -moz-transition-delay: 20ms;
+            -o-transition-delay: 20ms;
+            -ms-transition-delay: 20ms;
+            transition-delay: 20ms;
+        }
+        .btn {
+            @include btn-lgt;
+            padding: 10px 20px;
+            cursor: pointer;
+            position: relative;
+            margin: 0 auto;
+            -webkit-transition: all 350ms cubic-bezier(0.02, 0.045, 0.22, 0.975);
+            -moz-transition: all 350ms cubic-bezier(0.02, 0.045, 0.22, 0.975);
+            -o-transition: all 350ms cubic-bezier(0.02, 0.045, 0.22, 0.975);
+            -ms-transition: all 350ms cubic-bezier(0.02, 0.045, 0.22, 0.975);
+            transition: all 350ms cubic-bezier(0.02, 0.045, 0.22, 0.975);
+            
+             -webkit-transition-delay: 0ms;
+            -moz-transition-delay: 0ms;
+            -o-transition-delay: 0ms;
+            -ms-transition-delay: 0ms;
+            transition-delay: 0ms;
+            
+            -webkit-transform: scale(1,0);
+            -moz-transform: scale(1,0);
+            -o-transform: scale(1,0);
+            -ms-transform: scale(1,0);
+            transform: scale(1,0);
+            opacity: 0;
+            bottom: 0px;
+        }
+    }
+
+    &.herosquare {
+        height: 0px;
+        padding-bottom: 50%;
+    }
+
+       // Special tile types
+       &.imghero {
+              .caption {
+                     color: $color-white;
+                     width: 100%;
+                     z-index: 2;
+            display:none;
+        }
+        h2 {
+            @include nobel-bold;
+            @include font-size(13, 17, 200);
+            color: $color-gold;
+        }
+        p {
+            @include nobel-light;
+            @include font-size(50,35,75);
+            padding: 0 5%;
+            margin-top: 0;
+        }
+       }
+}
+
+// for touch devices, show the paragraph text by default
+.touch .tile .caption, .mstouch .tile .caption {
+    p {
+        opacity: 1;
+        height: auto;
+    }
+}
+// for ie9, undo the css properties that would have otherwise been transitioned
+.no-cssanimations {
+    .tile {
+        .caption {
+            p {
+                opacity: 1;
+            }
+            .btn {
+                -ms-transform: scale(1,1);
+                transform: scale(1,1);
+                bottom: 13px;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+$image-scale: 1.1;
+
+
+.no-touch.no-mstouch .tile.video.video-ready {
+  &.hover {
+    .background {
+      opacity: 0;
+    }
+  }
+}
+
+.tile.video.played-once {
+  .tile-video {
+    display: none;
+  }
+}
+
+
+.no-touch.no-mstouch {
+  .tile.video:not(.video-ready):not(.played-once).hover {
+    // @include spinner();
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#000, 0.4);
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .loading.animation {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+    }
+  }
+  // image zoom stuff
+  &.cssanimations .tile {
+    &[data-image-opts='center'] {
+      .background { transform-origin: center center; }
+    }
+
+    &[data-image-opts='top'] {
+      .background { transform-origin: top center; }
+    }
+
+    &[data-image-opts='right'] {
+      .background { transform-origin: right center; }
+    }
+
+    &[data-image-opts='bottom'] {
+      .background { transform-origin: bottom center; }
+    }
+
+    &[data-image-opts='left'] {
+      .background { transform-origin: left center; }
+    }
+
+    // we only want the images to scale when there is a no video
+    // or the video is set to 'play once' and has already played.
+    &.no-video,
+    &.played-once {
+      &[data-image-opts='center'],
+      &[data-image-opts='top'],
+      &[data-image-opts='right'],
+      &[data-image-opts='bottom'],
+      &[data-image-opts='left'] {
+        &.hover, &:hover {
+          .background {
+              -webkit-transform: scale($image-scale);
+              -moz-transform: scale($image-scale);
+              -o-transform: scale($image-scale);
+              -ms-transform: scale($image-scale);
+              transform: scale($image-scale);
+
+              -webkit-backface-visibility: hidden;
+              -moz-backface-visibility: hidden;
+              -o-backface-visibility: hidden;
+              -ms-backface-visibility: hidden;
+              backface-visibility: hidden;
+
+              -webkit-webkit-perspective: 1000;
+              -moz-webkit-perspective: 1000;
+              -o-webkit-perspective: 1000;
+              -ms-webkit-perspective: 1000;
+              perspective: 1000;
+          }
+        }
+      }
+    }
+    
+  }
+}
+
+.no-touch.no-mstouch.cssanimations {
+  .grid:hover {
+    .tile.offer, .tile.owner, .tile.img, .tile.dealer {
+      .hit-area {
+        opacity: .20;
+      }
+      &.hover,
+      &:hover {
+        .hit-area {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+// only apply for desktop
+.no-touch.no-mstouch.cssanimations {
+
+    .tile {
+        
+        &.hover,
+        &:hover {
+            &.recentbuild, &.recentbuild-0, &.recentbuild-1{
+                background-size: 110%;
+                background-position: -17px -13px;
+            }
+
+            .caption {
+                h2 {
+                    bottom: 18px;
+                }
+                p {
+                    opacity: 1;
+                    bottom: 18px;
+                    height: auto;
+                    -webkit-transition-delay: 125ms;
+                    -moz-transition-delay: 125ms;
+                    -o-transition-delay: 125ms;
+                    -ms-transition-delay: 125ms;
+                    transition-delay: 125ms;
+                }
+                .btn {
+                    -webkit-transform: scale(1,1);
+                    -moz-transform: scale(1,1);
+                    -o-transform: scale(1,1);
+                    -ms-transform: scale(1,1);
+                    transform: scale(1,1);
+                    bottom: 13px;
+                    opacity: 1;
+                    -webkit-transition-delay: 250ms;
+                    -moz-transition-delay: 250ms;
+                    -o-transition-delay: 250ms;
+                    -ms-transition-delay: 250ms;
+                    transition-delay: 250ms;
+                }
+            }
+        }
+    }
+}
+
+/* Large tile sizes */
+#tile-0 {
+       width: 50%;
+    height: 0px;
+    padding-bottom: 50%;
+       .caption{
+              h2{
+                     @include font-size (20, auto, 200);
+              }
+       }
+}
+#tile-0.imghero h2 {
+    @include font-size(13, auto, 100);
+}
+#tile-0,
+#tile-1, #tile-2, #tile-3,
+#tile-4, #tile-5, #tile-6,
+#tile-7, #tile-8, #tile-9 {
+    height: 0;
+}
+#tile-1 { width: 25%; padding-bottom: 25%;}
+#tile-2 { width: 25%; padding-bottom: 25%;}
+#tile-3 { width: 50%; padding-bottom: 25%;}
+.grid-sema #tile-3 {
+    width: 25%;
+}
+#tile-4 { width: 25%; padding-bottom: 25%;}
+#tile-5 { width: 50%; padding-bottom: 25%;}
+#tile-6 {
+    padding-bottom: 25%;
+    width: 25%;
+}
+#tile-7 { width: 50%; padding-bottom: 25%; }
+#tile-8 { width: 25%; padding-bottom: 25%; }
+#tile-9 { width: 25%; padding-bottom: 25%; }
+
+.grid.hero {
+       #tile-0 {
+              width: 100%;
+       }
+}
+
+/* Image resize clear */
+.clear {
+       clear: both;
+       display: block;
+       width: 100%;
+       &.extra {
+              display: none;
+       }
+}
+
+
+.recall-warning{
+    background: #000;
+    max-width: 100%;
+    padding: 30px 0px;
+    width: 100%;
+    @include clearfix;
+
+    .warning-wrapper{
+        @include container;
+       max-width: $large-max;
+        margin: 0px auto;
+
+        .icon {
+            background: sprite($globalSpriteMap, recall-warning-icon) no-repeat;
+            @include sprite-dimensions($globalSpriteMap, recall-warning-icon);
+
+            float: left;
+            margin-right: 18px;
+            padding-right: 15px;
+            padding-top: 2px;
+            border-right: 1px solid $color-grey-50;
+            img {
+                display: block;
+            }
+        }
+        .warning-message {
+            @include box-sizing(border-box);
+            float: left;
+            width: 80%;
+            h2 {
+                @include nobel-bold;
+                @include font-size(12, auto, 150);
+                color: #fff;
+                margin-bottom: 6px;
+                display: block;
+            }
+            p {
+                float: left;
+                @include palatino;
+                @include font-size(12, 8, 100);
+                color: $color-grey-80;
+                margin-right: 10px;
+            }
+            a {
+                float: left;
+                @include nobel-bold;
+                @include font-size(9, auto, 100);
+                padding-right: 8px;
+                background: url(/assets/img/global/right-arrow-white.png) no-repeat right center;
+                color: #fff;
+                text-decoration: none;
+                margin-top: 3px;
+            }
+        }
+    }
+    &.footer{
+        .warning-wrapper{
+            .icon{
+                padding-right: 0px;
+                border-right: 0px;
+                margin-right: 10px;
+            }
+            .warning-message{
+                p{
+                    margin-top: 8px;
+                }
+                a{
+                    margin-top: 11px;
+                }
+            }
+        }
+    }
+}
+
+/* SEMA specific disclaimer rules */
+.grid-sema + .recall-warning.footer .warning-wrapper .icon {
+  display: none;
+}
+
+.grid-sema + .recall-warning .warning-wrapper .warning-message p {
+  font-size: 10px;
+  line-height: 12px;
+  color: #939393;
+  text-align: center; 
+  font-family: "nobel-book",Helvetica,Arial,sans-serif;
+}
+
+.grid-sema + .recall-warning .warning-wrapper .warning-message {
+  width: 100%;
+}
+
+#home #back-to-top{
+    right: 0%;
+}
+
+
+/* Touch Viewport */
+
+.touch, .mstouch {
+       .tile {
+        .caption {
+            &.bottom{
+                .btn-outer {
+                    margin: 0;
+                }
+            }
+        }
+              .btn{
+                     visibility: hidden;
+              }
+       }
+       #tile-6 {
+              .caption {
+                     opacity: 1;
+              }
+       }
+}
+
+
+/* Breakpoints */
+
+@include at-breakpoint(1 1000px 1920px) {
+    #tile-0.imghero {
+        h2{
+            @include font-size(20, auto, 100);
+        }
+        p {
+            @include font-size(80,35,75);
+        }
+    }
+}
+
+@include at-large-breakpoint() {
+       /** LIM 341 changes**/
+       .recentbuild-0{
+                     img{
+                    	 margin-left: -30px;
+                     }
+       }
+       
+
+       .recentbuild-1{
+                     img {
+                    	 margin-left: -25px;
+                    	 margin-top:-25px;
+                     }
+       }
+       /** LIM 341 changes**/
+    #tile-0.imghero {
+        h2 {
+            @include font-size(13, 17, 200);
+        }
+        p {
+            @include font-size(50,35,75);
+        }
+    }
+}
+
+/* Medium */
+@include at-medium-breakpoint() {
+/** LIM 341 changes**/         
+       .recentbuild-0 {
+                     img{
+                    	 margin-left: -20px;
+                      }
+       }
+       
+
+       .recentbuild-1{
+                     img {
+                    	 margin-left: -25px;
+                     }
+       }
+              
+             /** LIM 341 changes**/    
+/*-- newly added for recentbuild 1 --*/
+              .recentbuild-1{
+                     background-size: 100% 100%; 
+                      img {
+                    	  	position: relative;
+                     }
+              }
+                     
+    #recall-warning{
+        .warning-wrapper{
+            @include container;
+              max-width: $medium-max;
+              .warning-message{
+                  p,a{
+                     float: none;
+              }
+              }
+        }          
+
+    }
+
+       #tile-0 { width: 66.66%; padding-bottom: 66.66%; }
+       #tile-1 { width: 33.33%; padding-bottom: 33.33%; }
+       #tile-2 { width: 33.33%; padding-bottom: 33.33%; }
+       #tile-3 { width: 66.66%; float: right; padding-bottom: 33.33%; }
+       #tile-4 { width: 33.33%; padding-bottom: 33.33%; }
+       #tile-5 { width: 66.66%; padding-bottom: 33.33%; }
+       #tile-6 { width: 33.33%; padding-bottom: 33.33%; }
+       #tile-7 { width: 33.33%; padding-bottom: 33.33%; }
+       #tile-8 { width: 33.33%; padding-bottom: 33.33%; }
+       #tile-9 { width: 33.33%; padding-bottom: 33.33%; }
+       .grid-sema {
+          /* Sema specific grid layout */
+          #tile-0 { width: 50%; padding-bottom: 50%; }
+          #tile-1 { width: 25%; padding-bottom: 25%; }
+          #tile-2 { width: 25%; padding-bottom: 25%; }
+          #tile-3 { width: 25%; padding-bottom: 25%; }
+          #tile-4 { width: 25%; padding-bottom: 25%; }
+       }
+
+       .grid.hero {
+              #tile-1 {
+                     width: 66.66%;
+              }
+       }
+
+       /* Image resize clear */
+       .clear {
+              &.extra {
+                     display: block;
+              }
+       }
+
+
+    #tile-0.imghero {
+        padding-bottom:50%;
+        h2 {
+            @include font-size(13, 17, 200);
+        }
+        p {
+            @include font-size(40,35,75);
+        }
+    }
+}
+
+/* Small */
+@include at-small-breakpoint() {
+    /** LIM 341 changes**/
+    .recentbuild-0{
+      img {
+        padding-top: 0;
+        width: 110% !important;
+        bottom: 0px;
+      }
+    }
+
+    .recentbuild-1{
+      img {
+        padding-top: 0;
+        width: 110% !important;
+        bottom: 0px;
+      }
+    }
+            /** LIM 341 changes**/
+    #tile-0.imghero {
+        padding-bottom:0%;
+        h2 {
+            @include font-size(20, 17, 200);
+        }
+        p {
+            @include font-size(50,auto,75);
+        }
+    }
+
+    .tile {
+        float: none;
+        width: 100%;
+
+        &.video {
+          .background {
+            position: relative;
+          }
+
+          .tile-video {
+            display: none;
+          }
+        }
+
+        .caption{
+            h2{
+                font-size: 18px;
+            }
+            p{
+                font-size: 15px;
+                padding: 0 5%;
+            }
+        }
+        &.imghero {
+            .caption {
+                top: 10%;
+            }
+        }
+    }
+    #tile-0 .caption h2 {
+        font-size: 18px;
+    }
+
+    #tile-3 {
+      width: 100%;
+      padding-bottom: 0;
+      height: auto;
+      float: none;
+    }
+
+    #tile-0, #tile-1, #tile-2,
+    #tile-4, #tile-5, #tile-6,
+    #tile-7, #tile-8, #tile-9 {
+        width: 100%;
+        padding-bottom: 0;
+        height: auto;
+    }
+    .grid-sema {
+        /* Need this to overwrite the sema styles */
+        #tile-0, #tile-1, #tile-2, #tile-3,
+        #tile-4, #tile-5, #tile-6,
+        #tile-7, #tile-8, #tile-9 {
+            width: 100%;
+            padding-bottom: 0;
+            height: auto;
+        }
+    }
+
+    /*#tile-4 .hit-area {
+        height: 50%;
+        margin-top: 100%;
+    }*/
+
+    .grid.hero {
+        #tile-1 {
+            width: 100%;
+        }
+    }
+
+
+    .touch, .mstouch {
+        .tile {
+            .btn {
+                visibility: hidden;
+            }
+        }
+
+        #tile-0 {
+            .btn {
+                margin: 0;
+            }
+        }
+
+        #tile-6 {
+            .caption {
+                opacity: 1;
+            }
+        }
+    }
+    .clear {
+        &.extra {
+            display: none;
+        }
+    }
+}
+
+@include at-breakpoint(1 0px 470px) {
+    #tile-0.imghero {
+        h2{
+            @include font-size(13, auto, 100);
+        }
+        p {
+            @include font-size(40,35,75);
+        }
+    }
+}
+
+/* Small - Medium */
+@include at-small-and-medium-breakpoints() {
+    .recall-warning{
+        .warning-wrapper{
+            @include container;
+              max-width: $medium-max;
+              .warning-message{
+                  p{
+                  float: none;
+                  }
+                  a{
+                     float: none;
+              }
+              }
+        }
+        &.footer{
+            .warning-wrapper{
+                .warning-message{
+                    p{
+                        margin-top: 0px;
+                    }
+                }
+            }
+        }
+    }
+       .grid {
+       width: 100%;
+              left: 0;
+    }
+
+    /* Image resize clear */
+       .clear {
+              display: none;
+       }
+}
+
+

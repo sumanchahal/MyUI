@@ -1,0 +1,435 @@
+@import "modules/location-tooltip";
+@import "modules/tooltip";
+@import "modules/zip-search";
+@import "modules/map";
+@import "modules/dealer-search-overlay";
+@import "modules/find-nearby-dealers-search-results";
+
+
+
+.find-nearby-dealers {
+    max-width: 92.49%;
+    _width: 92.49%;
+    padding-left: 3.75%;
+    padding-right: 3.75%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1204px;
+    margin-bottom:30px;
+    position:relative;
+
+    .first-time-visitor {
+        display:none;
+    }
+
+    .zip-tooltip-container,
+    .invalid-zip,
+    .no-dealers-found {
+        border-bottom:none !important;
+    }
+
+    .zip-tooltip-container {
+        margin: 10px 0 0 0;
+        .disclaimer-counters {
+            font-size: 8px;
+            color: $color-grey-60;
+        }
+    }
+
+    .no-dealers-found {
+        display:none;
+    }
+
+    .dis-error-large {
+        display:none;
+        border: 1px solid #ff9999;
+        @include nobel-bold;
+        font-size:13px;
+        margin:20px 0 20px 0;
+        padding: 60px 25px;
+        text-align:center;
+
+        .dealer-locator-icon-error {
+            display: block;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.4em;
+            margin-bottom:10px;
+            text-transform:none !important;
+            @include palatino;
+        }
+
+        .error-message {
+            color: $color-error;
+            text-transform: uppercase !important;
+            @include nobel-bold;
+        }
+    }
+
+    .error-message {
+        @include palatino;
+        font-size: 13px;
+        text-transform:none;
+        line-height: 1.4em;
+        margin-bottom: 10px;
+    }
+
+
+    &.mode-landing {
+        .MicrosoftNav .NavBar_button {
+            display: none;
+        }
+    }
+
+
+    #map {
+        z-index:0;
+        height:600px;
+        position:relative;
+    }
+
+    #mapDiv {
+        float:left;
+        width:100%;
+    }
+
+    .map-container {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        float:left;
+        height:600px;
+        width:100%;
+
+        &.active-offer {
+            padding-right:360px !important;
+        }
+    }
+
+    .MicrosoftNav .NavBar_zoomControlContainer .NavBar_zoomOut,
+    .MicrosoftNav .NavBar_zoomControlContainer .NavBar_zoomIn {
+        position:absolute;
+        margin:0 !important;
+    }
+    .MicrosoftNav .NavBar_zoomDrop {
+        visibility: hidden;
+    }
+
+    .MicrosoftNav .OverlaysTL {
+        height: 0;
+    }
+
+    #market-offer {
+        display:none;
+        background:#000;
+        color:#fff;
+        width:360px;
+        height:600px;
+        position: absolute;
+        right: 0;
+
+        .offer {
+            text-align: center;
+
+            img {
+                width: auto;
+                max-width: 245px;
+            }
+        }
+
+        header h2 {
+            text-transform:uppercase;
+            @include nobel-bold;
+            color:#be8f33;
+            font-size:16px;
+            text-align:center;
+            margin:0;
+            padding:40px 0 40px 0;
+        }
+
+        .value {
+            @include pakt;
+            font-size: 54px;
+
+            sup {
+                vertical-align: top;
+                position: relative;
+                top: 4px;
+                font-size: 27px;
+            }
+        }
+
+        .details {
+            margin-bottom: 15px;
+        }
+
+        .detail {
+            display: inline-block;
+        }
+
+        .dealer-locator-divider-small {
+            display: inline-block;
+            margin: 0 5px;
+            position: relative;
+            top: 3px;
+            vertical-align: top;
+        }
+
+        .qualifier {
+            @include nobel-bold;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .offer-title {
+            @include nobel;
+            font-weight: 300;
+            color:#fff;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+
+        .financing {
+            line-height: 1.2;
+            display: inline-block;
+            width: 55px;
+            padding: 0 20px;
+            margin: auto;
+            vertical-align: top;
+            position: relative;
+            padding-top: 18px;
+        }
+
+        .dealer-locator-divider-large {
+            text-align: center;
+            vertical-align: top;
+            position: absolute;
+            top: 0;
+            right: 50%;
+            margin-left: -7px;
+        }
+
+        .terms {
+            @include palatino;
+            font-size: 13px;
+            min-height: 20px;
+            text-align:center;
+            line-height: 1.4;
+            color:#767676;
+            width:70%;
+            margin:0 auto 25px auto;
+
+            a {
+                @include nobel-bold;
+                font-size: 11px;
+                text-transform: uppercase;
+                color: #767676;
+            }
+
+            a:hover {
+                text-decoration: none;
+            }
+        }
+
+        .button {
+            @include btn;
+            background:#fff;
+            color:#000;
+            display: inline-block;
+
+            &:hover {
+                background:#000;
+                color:#fff;
+                border-color:#fff;
+            }
+        }
+    }
+
+
+
+    h2 {
+        margin-bottom:30px;
+    }
+
+    .zip-search-wrapper {
+        display:none;
+        position:relative;
+        top:42px;
+        width:270px;
+
+        .sub {
+            text-transform: none;
+            letter-spacing: normal;
+        }
+
+        &.active {
+            display:inline-block;
+        }
+
+        #ajaxLoaderNearbyDealers {
+            position: absolute;
+            right: -60px;
+            top: 5px;
+        }
+
+        .zip-tooltip-container {
+            position:relative;
+            top:-3px;
+        }
+    }
+
+    .module-header {
+        .zip-search-wrapper {
+            .form-zip-search.error {
+                margin-bottom:35px;
+            }
+
+            .invalid-zip,
+            .no-dealers-found {
+                position:absolute;
+                left:0;
+                bottom:-54px;
+                text-align:left;
+                letter-spacing: normal;
+            }
+        }
+    }
+
+    .search-results {
+        display:none;
+        margin-top:30px;
+
+        h2.sub-heading {
+            margin:20px auto !important;
+        }
+    }
+}
+
+
+@include at-breakpoint($medium-min $large-min $total-columns) {
+    .find-nearby-dealers {
+        .map-container {
+            &.active-offer {
+                padding-right:360px;
+            }
+        }
+    }
+}
+
+/* Medium */
+@include at-medium-breakpoint() {
+    .find-nearby-dealers {
+        .module-header {
+            .zip-search-wrapper {
+                .invalid-zip,
+                .no-dealers-found {
+                    position:static;
+                    padding:0;
+                }
+            }
+            .form-zip-search.error {
+                margin-bottom:16px !important;
+            }
+
+
+        }
+    }
+}
+
+/* Small */
+@include at-small-breakpoint() {
+    .find-nearby-dealers {
+        .module-header {
+            .zip-search-wrapper {
+                width:100%;
+                input {
+                    font-size: 16px;
+                }
+            }
+        }
+        .form-zip-search input {
+            font-size: 16px;
+        }
+
+        #map {
+            height:auto;
+            position:relative;
+
+            .mobile-map-blocker {
+                height: 360px;
+                width: 100%;
+                z-index: 10;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .MicrosoftNav .NavBar_zoomControlContainer .NavBar_zoomOut,
+            .MicrosoftNav .NavBar_zoomControlContainer .NavBar_zoomIn {
+                display:none;
+            }
+
+            &.hide {
+                display:none;
+            }
+        }
+
+        .zip-search-wrapper {
+            #ajaxLoaderNearbyDealers {
+                position: relative;
+                margin: 0 auto;
+                right: auto;
+                top: auto;
+            }
+        }
+
+        .map-container {
+            width:100%;
+            height:260px;
+            padding-right:0;
+            float:none;
+
+            &.active-offer {
+                padding-right:0 !important;
+            }
+        }
+
+        .search-results {
+            display:block;
+
+            .marker:hover {
+                cursor:default;
+                
+            }
+        }
+
+        #market-offer {
+            position:static;
+            float:none;
+            width:100%;
+            height: auto;
+            margin-left:auto;
+            .button{
+                margin-bottom: 25px;
+            }
+        }
+
+        .first-time-visitor {
+            h2 {
+                width:100%;
+                margin-bottom:30px;
+            }
+        }
+    }
+}
+
+

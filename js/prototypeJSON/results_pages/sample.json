@@ -1,0 +1,270 @@
+{
+    "searchedTerm": "is",
+    "quantityResults": 284,
+    "searchInstead": [
+        "IS 2015",
+        "IS F"
+    ],
+    "results": [
+        {
+            "title": "IS 2015 Overview",
+            "url": "http://www.lexus.com/models/is",
+            "snippet": "Track-honed performance meets aggressive styling meets the very latest in available technology with the 2015 Lexus IS luxury sport sedan",
+            "type": "tree",
+            "filetype": "html",
+            "children": [
+                {
+                    "title": "Gallery",
+                    "url": "http://www.lexus.com/models/is/gallery"
+                },
+                {
+                    "title": "Current Offers",
+                    "url": "http://www.lexus.com/models/is/offers"
+                }
+            ]
+        },
+        {
+            "title": "IS Link Group",
+            "url": "http://www.lexus.com/models/is",
+            "snippet": "Track-honed performance meets aggressive styling meets the very latest in available technology with the 2015 Lexus IS luxury sport sedan",
+            "type": "group",
+            "filetype": "html",
+            "children": [
+                {
+                    "title": "Gallery",
+                    "url": "http://www.lexus.com/models/is/gallery"
+                },
+                {
+                    "title": "Current Offers",
+                    "url": "http://www.lexus.com/models/is/offers"
+                }
+            ]
+        },
+        {
+            "title": "IS Inventory Search",
+            "url": "http://www.yourlexusdealer.com",
+            "snippet": "Lorem Ipsum",
+            "type": "single",
+            "filetype": "pdf",
+            "children": []
+        }
+    ],
+    "cards": [
+        {
+            "type": "model",
+            "position": 2,
+            "title": "IS 2015",
+            "subhead": "$36,550 Starting MSRP",
+            "description": "Lorem two or so lines of copy",
+            "linkURL": "https://secure.drivers.lexus.com/lexusdrivers/info/my-lexus/resources/owners-manual-search.do",
+            "actions": [
+                {
+                    "label": "Build",
+                    "url": "http://www.lexus.com/build/is",
+                    "style": "primary"
+                },
+                {
+                    "label": "Inventory",
+                    "url": "#",
+                    "style": "secondary"
+                }
+            ],
+            "photos": [
+                {
+                    "alt": "IS 2015",
+                    "img": "img1.jpg"
+                }
+            ]
+        },
+        {
+            "type": "future",
+            "position": 2,
+            "title": "The Lexus RC",
+            "subhead": "Coming 2016",
+            "description": "Lorem two or so lines of copy",
+            "linkURL": "http://www.lexus.com",
+            "actions": [
+                {
+                    "label": "Get RC Updates",
+                    "url": "http://www.lexus.com",
+                    "style": "primary"
+                }
+            ],
+            "photos": [
+                {
+                    "alt": "RC",
+                    "img": "img1.jpg"
+                }
+            ]
+        },
+        {
+            "type": "certified",
+            "position": 2,
+            "title": "ES",
+            "subhead": "Certified Pre-Owned",
+            "description": "Lorem two or so lines of copy",
+            "linkURL": "https://secure.drivers.lexus.com/lexusdrivers/info/my-lexus/resources/owners-manual-search.do",
+            "actions": [
+                {
+                    "label": "Search Inventory",
+                    "url": "http://www.lexus.com",
+                    "style": "primary"
+                }
+            ],
+            "photos": [
+                {
+                    "alt": "ES",
+                    "img": "img1.jpg"
+                }
+            ]
+        },
+        {
+            "type": "gallery",
+            "position": 6,
+            "title": "IS 2015 Gallery",
+            "subhead": "15 Photos",
+            "description": "Lorem two or so lines of copy",
+            "linkURL": "http://wwww.lexus.com/models/is/gallery",
+            "photos": [
+                {
+                    "alt": "Search Inventory",
+                    "img": "http://www.lexus.com/models/is/gallery/img1.jpg"
+                }
+            ]
+        },
+        {
+            "type": "apps",
+            "position": 2,
+            "title": "Lexus Enform",
+            "title_icon": "enformlogo.jpg",
+            "subhead": "",
+            "description": "",
+            "linkURL": "",
+            "photos": [
+                {
+                    "alt": "Guy with phone",
+                    "img": "img1.jpg"
+                }
+            ],
+            "actions": [
+                {
+                    "label": "More Apps",
+                    "url": "http://www.lexus.com",
+                    "style": "primary"
+                }
+            ],
+            "apps": [
+                {
+                    "title": "Enform App Suite",
+                    "description": "In car multimedia experience including Blind, iHeart and more",
+                    "android": "#url",
+                    "ios": "#url"
+                }
+            ]
+        },
+        {
+            "type": "support",
+            "position": 2,
+            "title": "Lexus Customer Support",
+            "subhead": "800-255-3987",
+            "description": "Today's hours 8AM-9PM EST",
+            "linkURL": "",
+            "photos": [
+                {
+                    "alt": "",
+                    "img": ""
+                }
+            ],
+            "actions": [
+                {
+                    "label": "Email",
+                    "url": "http://www.lexus.com",
+                    "style": "primary"
+                },
+                {
+                    "label": "Chat",
+                    "url": "http://www.lexus.com",
+                    "style": "secondary"
+                }
+            ],
+            "topics": [
+                {
+                    "title": "Bluetooth",
+                    "url": "#"
+                },
+                {
+                    "title": "Enform Help",
+                    "url": "#"
+                },
+                {
+                    "title": "Bluetooth",
+                    "url": "#"
+                }
+            ]
+        },
+        
+        {
+            "type": "roadside",
+            "position": 2,
+            "eyebrow" : "24/7",
+            "title": "Lexus Roadside Support",
+            "subhead": "800-255-3987",
+            "description": "If there is an emergency please dial 911",
+            "apps": [
+                {
+                    "title": "Lexus Roadside Assistance",
+                    "icon" : "img.jpg",
+                    "description": "Access to roadside services on your phone",
+                    "android": "#url",
+                    "ios": "#url"
+                }
+            ]
+        },
+        
+        {
+            "type": "FAQ",
+            "position": 2,
+            "title": "Help TopicC",
+            "subhead": "How do I obtain a replacement Key?",
+            "description": "Lorem Answer"
+        },
+        
+        {
+            "type": "dealers",
+            "position": 2,
+            "title": "Nearby Dealers",
+            "dealerships": [
+                {
+                    "name": "Jim Faulk Lexus of Beverly Hills",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                },
+                {
+                    "name": "Jim Faulk Lexus of Beverly Hills",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                },
+                {
+                    "name": "Jim Faulk Lexus of Beverly Hills",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                }
+            ]
+        }
+    ]
+}

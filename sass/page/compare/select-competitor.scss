@@ -1,0 +1,357 @@
+@import "compare";
+@import "modules/trim-selector";
+@import "selected-vehicle";
+
+$small-max: 700px;
+$medium-min: 701px;
+
+/**
+ * Select Competitor
+ */
+#select-competitor {
+	/* Prevent font scaling in landscape */
+	-webkit-text-size-adjust: none;
+	
+	.wrapper {
+		overflow: visible;
+        
+        h1 {
+            @include heading($color-white, 18, 200);
+            @include nobel;
+            background: $color-black;
+            line-height: 70px;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 2px;
+            display: none;
+        }
+
+        h3 {
+            @include nobel;
+            font-weight: 400;
+            font-size: 16px;
+            text-align: center;
+            letter-spacing: 2px;
+            padding: 25px 0;
+        }
+	}
+
+	.trim-selector {
+		min-height: 750px;	
+		float: right;	
+		position: relative;
+		z-index: 10;
+	}
+
+	.find-vehicle {
+		@include transition(opacity 400ms ease, max-height 400ms ease);
+		border-top: 1px dotted #000;
+		width: 90%;
+		margin-left: 5%;
+		opacity: 1;
+		max-height: 2000px;
+
+		&.hidden {
+			opacity: 0;
+			max-height: 0px;
+
+			h3 {
+				margin: 0px;
+				height: 0px;
+				padding: 0px;
+			}
+		}
+	}
+
+    .trim-selector {
+      .lexus-models {
+        .group-heading {
+          max-width: 100%;
+          width: 100%;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+    }
+
+	 .product-container {
+ 		.sticky-wrapper {
+	 		width: 100%;
+	 		position: absolute;
+	 		left: 0px;
+	 	}
+ 	}
+}
+
+/**
+ * Media Queries
+ */
+@include at-breakpoint($large-min $small-max $total-columns) {
+	#select-competitor {
+		.wrapper {
+			@include full-width;
+			padding: 0;
+			margin: 0;
+		}
+	}
+}
+
+@include at-medium-breakpoint() {
+	#select-competitor .selected-vehicle,
+	#select-competitor .competitors {
+		margin: 0;
+		width: 50%;
+	}
+
+	#select-competitor .selected-image  {
+		width: 83%;
+	}
+
+	#select-competitor .description {
+		font-size: 28px;
+		width: 80%;
+	}
+
+	#select-competitor {
+		.find-vehicle {
+			background: #f7f7f7;
+			padding-bottom: 35px;
+		}
+		.competitors {
+			padding-bottom: 0;
+		}
+	}
+
+	#select-competitor {
+		.competitors {
+			padding-top: 45px;
+		}
+		.compare-list.populated {
+			margin-top: 20px;
+		}
+		h2 {
+			max-width: 320px;
+		}
+		.competitors h2 {
+			margin-bottom: 0;
+		}
+		.trims .heading {
+			width: auto;
+		}
+		.lexus-models {
+			.product,
+			.group-heading {
+				width: 100%;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+			.trim-name {
+				background: none;
+			}
+		}
+		.chrome-attribution {
+			left: 33px;
+		}
+		.selected-vehicle {
+			margin-top: 35px;
+		}
+	}
+}
+
+@include at-small-breakpoint() {
+	#select-competitor {
+		h1 {
+			display: block;
+			background-image: url("/assets/img/global/white-left-arrow.png");
+			background-repeat: no-repeat;
+			background-position: 5% center;
+
+			a {
+				@include nobel;
+				display: block;
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+		.trim-selector h2 {
+			max-width: 100%;
+		}
+		.wrapper {
+			background: white;
+			@include full-width;
+			padding: 0;
+			margin: 0;
+		}
+        .chrome-attribution {
+            width: 100%;
+            left: 0;
+            text-align: center;
+            position: relative;
+            padding: 18px 0;
+            margin-top: 7px;
+        }
+        .chrome-attrib-text {
+            display: inline-block;
+        }
+		.competitor {
+			width: auto;
+			padding: 0 20px;
+
+			.trim-name {
+				line-height: 1.2;
+				text-align: center;
+				max-width: 100%;
+			}
+		}
+		.competitors {
+			@include grid-column(12);
+			width: 100%;
+			padding-top: 15px;
+
+			ul {
+				margin: 0 auto;
+			}
+		}
+		.selected-vehicle, 
+		.competitors .compare-tray-heading h2 {
+			display: none;
+		}
+
+		.find-vehicle {
+			border: none;
+		}
+
+		.wrapper {
+			.competitors {
+				background-color: #fff; 
+				top: 35px;
+
+				.model-types {
+					margin-top: 2px;
+				}
+				.model-types .tabs {
+					margin-bottom: 20px;
+				}
+			}
+		}
+
+		.compare-tray-heading {
+			display: none;
+		}
+
+		.competitors .find-vehicle {
+			width: 100%;
+			margin: 20px 0 0;
+		}
+
+		.lexus-models {
+			padding: 0;
+
+			.indicator-wrap {
+				position: relative;
+			}
+			.indicator {
+				width: 0; 
+				height: 0; 
+				border-left: 8px solid transparent;
+				border-right: 8px solid transparent;
+				border-bottom: 8px solid #f8f8f8;
+				position: absolute;
+				top: -8px; 
+				left: 6%;
+			} 
+			.trims {
+				padding: 0;
+				background: #f8f8f8;
+
+				.heading {
+					padding: 0;
+					background: none;
+				}
+				h2 {
+					position: relative;
+					width: 89%;
+					max-width: 1000px;
+					margin: auto;
+					padding: 0;
+					line-height: 67px;
+					text-align: left;
+				}
+				h2 .close {
+					position: absolute;
+					right: 0;
+					top: 27px;
+				}
+			}
+			.cta {
+				top: 22px;
+			}
+			.model-and-trims {
+				.heading {
+					.default {
+						display: none;
+					}
+					.alternate {
+						display: block;
+					}
+				}
+			}
+			.trim-details {
+				border: none;
+				padding: 0 20px;
+			}
+			.series .open {
+				.trims {
+					overflow: visible;
+				}
+			}
+			.trim {
+				padding: 0;
+				margin: 0;
+			}
+			.line, .drive-train {
+				@include nobel-bold;
+				display: inline;
+				font-size: 12px;
+				letter-spacing: 2px;
+				line-height: 60px;
+				margin-bottom: 0;
+				text-transform: none;
+			}
+			.product, 
+			.group-heading {
+				width: 90%;
+			}	
+			.trim-name {
+				@include grid-column(12);
+				text-align: left;
+				padding: 0;
+			}
+			.price-details {
+				display: none;
+			}
+		}
+
+		.change-vehicle {
+			display: block;
+		}
+
+		.competitors {
+			padding-bottom: 0;
+
+			.find-vehicle {
+				background: #f7f7f7;
+				padding-bottom: 35px;
+
+				/* prevents iphone from zooming on focus */
+				select {
+					font-size: 16px;
+				}
+
+				form {
+					width: 287px;
+				}
+			}
+		}
+	}
+}

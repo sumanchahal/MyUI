@@ -1,0 +1,175 @@
+@import "compare";
+@import "selected-vehicle";
+@import "model-listing";
+
+.large-view {
+ 	display: block;
+}
+.small-view {
+	display: none;
+}
+
+/**
+ * Select Trim
+ */
+
+ #select-trim {
+ 	.global-details-indicator {
+ 		position: absolute;
+ 		left: -15px;
+ 	}
+
+ 	.lexus-trims {
+ 		position: relative;
+ 		float: right;
+ 		width: 50%;
+ 		padding-top: 75px;
+ 		min-height: 450px;
+
+ 		h2 {
+ 			margin-bottom: 0;
+ 		}
+ 		.trims-heading {
+ 			margin-bottom: 45px;
+ 			text-align: center;
+
+ 			p {
+ 				@include nobel-book;
+		 		font-size: 12px;
+		 		color: $color-grey-60;
+		 		letter-spacing: .2em;
+ 			}
+ 		}
+ 	}
+
+ 	.lexus-trim {
+ 		display: block;
+ 		width: 100%;
+ 		padding: 0px 18px;
+ 		overflow: hidden;
+ 		cursor: pointer;
+ 		position: relative;
+ 		color: #000;
+ 		background-color: #f7f7f7;
+ 		@include transition(background-color 400ms ease);
+
+ 		&.show-hover:hover {
+
+ 			background-color: $color-grey-90;
+ 			border-bottom: 1px solid rgba(238, 238, 238, 1);
+ 			margin-bottom: -1px;
+ 			z-index: 1;
+
+ 			.trim-container {
+ 				border-top: 1px solid $color-grey-90;
+ 			}
+ 		}
+ 	}
+
+ 	.trim-container {
+ 		padding: 24px 0;
+ 		border-top: 1px dotted $color-grey-80;
+ 		overflow: hidden;
+
+ 		.global-right-arrow-thin {
+ 			display: block;
+ 			margin-top: 32px;
+ 			float: left;
+ 			text-align: center;
+ 		}
+ 	}
+
+ 	.trim-container div {
+ 		float: left;
+ 		text-align: center;
+
+ 		&.info {
+ 			border-right: 1px dotted $color-grey-80;
+ 			width: 25%;
+ 			height: 82px;
+ 		}
+
+ 		&.trim-price {
+ 			width: 65%;
+ 			height: 82px;
+ 		}
+
+ 	}
+
+ 	.trim-name {
+ 		@include nobel-bold;
+ 		font-size: 28px;
+ 		margin: 20px 0 6px;
+ 		letter-spacing: .1em;
+        text-transform: none;
+        display: block;
+ 	}
+
+ 	.drive-train {
+ 		@include nobel;
+ 		font-size: 13px;
+ 		letter-spacing: .2em;
+ 		display: block;
+ 	}
+
+ 	.price-title {
+ 		@include nobel-book;
+ 		font-size: 12px;
+ 		color: $color-grey-60;
+ 		margin: 8px 0;
+ 		letter-spacing: .2em;
+ 		display: block;
+ 	}
+
+ 	.price {
+ 		display: block;
+ 	}
+
+ 	.large-view {
+ 		.price {
+	 		@include pakt;
+	 		font-weight: bold;
+	 		font-size: 36px;
+	 		letter-spacing: .1em;
+	 		
+	 		.dollar-sign {
+	 			font-size: 24px;
+	 			vertical-align: top;
+	 			display: inline;
+	 			position: relative;
+				top: 2px;
+	 		}
+	 	}
+ 	}
+
+ 	 .sticky-wrapper {
+ 		width: 100%;
+ 		left: 0px;
+ 		position: absolute;
+ 	}
+}
+
+@include at-medium-breakpoint() {
+	#select-trim {
+		.trim-container div {
+			&.info {
+				width: 45%;
+			}
+			&.trim-price {
+				width: 51%;
+			}
+		}
+	}
+}
+
+@include at-small-breakpoint() {
+	#select-trim .page-wrap {
+		background: #fff;
+	}
+	.large-view {
+	 	display: none;
+	}
+	.small-view {
+		display: block;
+	}
+}

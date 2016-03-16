@@ -1,0 +1,329 @@
+/*this is applied on that hidden select. DO NOT USE display:none; or visiblity:hidden; and Do not override any of these properties. */
+
+.SelectClass {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity = 0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+
+.SumoSelect {
+  .optWrapper .options li {
+    -moz-transition: 200ms ease;
+    -webkit-transition: 200ms ease;
+    transition: 200ms ease;
+    label {
+      user-select: none;
+      -o-user-select: none;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+    }
+  }
+  .CaptionCont {
+    user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+  }
+  /*display: inline-block;*/
+  position: relative;
+}
+
+.SlectBox, .SlectBoxa {
+  padding: 6px 0px 0 6px;
+}
+
+.SumoSelect > .CaptionCont, .SlectBox, .SlectBoxa {
+  background: #f0f0f0 url("/assets/img/global/bg-selectbox-transparent.png") no-repeat right top;
+  border: 1px solid #f0f0f0;
+  border-left: none;
+  border-right: none;
+  box-shadow: none;
+  color: #000;
+  display: block;
+  font-size: 14px;
+  height: 34px;
+  line-height: 1.42857;
+  padding: 0px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  width: 100%;
+}
+
+.SumoSelect {
+  > .CaptionCont > label {
+    background-color: #f0f0f0;
+  }
+  .CaptionCont span {
+    display: block;
+    padding-right: 30px;
+    text-overflow: ellipsis;
+    text-transform : uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    &.placeholder {
+      background: #f0f0f0 url("/assets/img/global/bg-selectbox-transparent.png") no-repeat right top;
+      /*width: 100% !important;*/
+      /*padding-left: 25px;
+      line-height: 34px;*/
+    }
+  }
+}
+
+/*placeholder style*/
+
+.SlectBox > span {
+  padding-left: 25px;
+  line-height: 34px;
+  font-family: "Palatino","Palatino Linotype","Book Antiqua",serif;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.SumoSelect {
+  .CaptionCont label i {}
+  .optWrapper {
+    top: 30px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    /*transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms
+    	ease-out;
+    -webkit-transition: opacity 300ms ease-out, top 300ms ease-out,
+    	visibility 300ms ease-out;
+    -moz-transition: opacity 300ms ease-out, top 300ms ease-out, visibility
+    	300ms ease-out;
+    -ms-transition: opacity 300ms ease-out, top 300ms ease-out, visibility
+    	300ms ease-out;
+    -o-transition: opacity 300ms ease-out, top 300ms ease-out, visibility
+    	300ms ease-out;
+    	box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.11); */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: -100;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0px;
+    &.open {
+      top: -196px;
+      /*--36px---*/
+      visibility: visible;
+      opacity: 1;
+      z-index: 1000;
+      position: absolute;
+      /*-- position: relative;newly added/can be removed if top is changed to 36px --*/
+    }
+    .options {
+      list-style: none;
+      display: block;
+      padding: 0px 0px;
+      margin: 0px;
+      overflow: auto;
+      border-radius: 0px;
+      /*Set the height of pop up here (only for desktop mode)*/
+      max-height: 194px;
+      /*height*/
+    }
+    &.isFloating .options {
+      max-height: 100%;
+    }
+    .options li {
+      padding: 4px 6px;
+      border-bottom: 1px solid #F3F3F3;
+      position: relative;
+      &:first-child {
+        border-radius: 0;
+      }
+      &:last-child {
+        border-bottom: none;
+        border-radius: 0px;
+      }
+    }
+  }
+}
+
+.outer_border {
+  padding: 0px 14px;
+}
+
+.SumoSelect {
+  .optWrapper {
+    .options {
+      .outer_border:hover {
+        background-color: #f0f0f0;
+      }
+      li {
+        &:hover {
+          background-color: #f0f0f0;
+        }
+        label {
+          margin-bottom: 2px;
+          padding-left: 35px;
+          font-family: "Palatino","Palatino Linotype","Book Antiqua",serif;
+          font-size: 13px;
+          letter-spacing: 0;
+          text-transform: none;
+          font-weight: normal;
+          text-transform: uppercase;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          display: block;
+        }
+        span {
+          display: none;
+        }
+      }
+    }
+    &.isFloating {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      width: 90%;
+      bottom: 0px;
+      margin: auto;
+      max-height: 90%;
+    }
+  }
+  &:hover .CaptionCont label {
+    background-color: #f0f0f0;
+  }
+  > .CaptionCont > label > i {
+    background: #f0f0f0 url('http://graphics8.nytimes.com/packages/flash/business/20100325-FinancialTuneUp/gfx/checkbox.png') no-repeat;
+  }
+  .optWrapper {
+    .options li.disabled {
+      background-color: inherit;
+      * {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+        /* IE 5-7 */
+        filter: alpha(opacity = 50);
+        /* Netscape */
+        -moz-opacity: 0.5;
+        /* Safari 1.x */
+        -khtml-opacity: 0.5;
+        /* Good browsers */
+        opacity: 0.5;
+      }
+    }
+    &.multiple .options li {
+      /*padding-left: 35px;*/
+      font-family: "Palatino","Palatino Linotype","Book Antiqua",serif;
+      font-size: 13px;
+      letter-spacing: 0;
+      text-transform: none;
+      border-bottom: 1px solid #e9e9e9;
+      font-weight: 300;
+      line-height: 1.2;
+      padding: 15px 14px;
+      span {
+        position: absolute;
+        display: block;
+        width: 30px;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        i {
+          height: 30px;
+          width: 30px;
+          background: #f0f0f0;
+          position: absolute;
+          margin: auto;
+          left: 5px;
+          right: 0px;
+          top: 0px;
+          bottom: 0px;
+          border: 1px solid #ccc;
+        }
+      }
+    }
+    .MultiControls {
+      display: none;
+      border-top: 1px solid #ddd;
+      background-color: #fff;
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.13);
+      border-radius: 0px;
+    }
+    &.multiple {
+      &.isFloating .MultiControls {
+        display: block;
+        margin-top: 5px;
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+      }
+      &.okCancelInMulti .MultiControls {
+        display: block;
+        p {
+          padding: 6px;
+        }
+      }
+      .MultiControls p {
+        display: inline-block;
+        cursor: pointer;
+        padding: 12px;
+        width: 50%;
+        box-sizing: border-box;
+        text-align: center;
+        &:hover {
+          background-color: #f1f1f1;
+        }
+        &.btnOk {
+          border-right: 1px solid #DBDBDB;
+          border-radius: 0px;
+        }
+        &.btnCancel {
+          border-radius: 0px;
+        }
+      }
+    }
+    &.isFloating .options li {
+      padding: 12px 6px;
+    }
+    &.multiple {
+      &.isFloating {
+        .options li {
+          padding-left: 35px;
+        }
+        padding-bottom: 43px;
+      }
+      .options li {
+        &.selected span i {
+          background: url("/assets/img/global/check.png") no-repeat scroll center center #f0f0f0;
+          border: 1px solid #000;
+        }
+        span i:hover {
+          border: 1px solid #000;
+        }
+      }
+    }
+  }
+  &.disabled {
+    opacity: 0.7;
+    .CaptionCont label {
+      background-color: #F1F1F1;
+    }
+  }
+  .optWrapper .options li.optGroup {
+    padding-left: 5px;
+    text-decoration: underline;
+  }
+}

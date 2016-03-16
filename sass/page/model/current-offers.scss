@@ -1,0 +1,582 @@
+@import "compass/css3/transition";
+@import "model";
+@import "modules/carousel";
+@import "modules/location-tooltip";
+@import "modules/tooltip";
+@import "modules/zip-search";
+@import "modules/current-offers";
+@import "modules/map";
+
+
+/// Added for multiple market names.
+
+#map {
+    height: 600px;
+    margin-bottom: 40px; 
+
+    /* hide white bar at top of map */
+    .OverlaysTL {
+        height: 0;
+    }
+    .NavBar_zoomDrop {
+        visibility: hidden;
+    }
+}
+
+.select-button {
+    @include btn;
+    margin-top: 13px;
+}
+
+
+
+.offers.carousel {
+    margin-top: 35px;
+}
+
+.generalHeader { }
+.multipleMarketsHeader { display: none; }
+
+#multipleMarketDealers {
+    margin-top: -60px;
+    padding-top: 0;
+}
+#multipleMarketDealerList {
+    width: 100%;
+
+    .dealerTile {
+        border-top: 1px solid $color-grey-80;
+        &:first-child {
+            border-top: none;
+        }
+
+        margin: 20px 40px;
+        text-align: center;
+
+        .map-tooltip {
+            margin: 0 auto;
+            text-align: left;
+        }
+        .dealer-locator-tooltip-top {
+            width: auto;
+            background: none;
+            padding: 20px 0;
+        }
+        .dealer-locator-tooltip-bottom {
+            display: none;
+        }
+        .select-button {
+            max-width: none;
+        }
+    }
+}
+
+@include at-small-breakpoint() {
+    #multipleMarketMap {
+        display: none;
+    }
+}
+
+/////
+
+#current-offers {
+	.form-zip-search .input-group {
+		background: #F5F5F5;
+	}
+    #loadingAnimation {
+        margin: 10px auto 0;
+    }
+    #ajaxLoader,#ajaxLoaderMoreToConsider {
+       display: none;
+       margin: 0 auto;
+    }
+    .location-tooltip {
+		z-index:107;
+	}
+	.badge-container {
+		left: 0;
+	}
+	.hidden {
+		//opacity: 0;
+		display:none;
+	}
+	.disabled {
+		position: absolute;
+		left: -999em;
+	}
+	.more-to-consider {
+		border-top: 1px dotted $color-black;
+	}
+}
+
+.page-wrap {
+	padding: 15px 0 0 0;
+	min-height: 250px;
+	margin-bottom: 0;
+}
+
+.wrapper {
+	@include grid-container;
+	margin: auto;
+}
+
+header {
+	h1 {
+		@include heading;
+		@include nobel-bold;
+		padding: 40px 0;
+		text-align: center;
+		font-size: 30px;
+	}
+	img {
+		display: inline-block;
+		position: relative;
+		top: 5px;
+	}
+	.dealer-locator-icon-elite-dealer {
+		display: none;
+	}
+}
+
+section {
+	padding: 35px 0;
+
+	header {
+		text-align: center;
+
+		.subtitle {
+			@include nobel-book;
+			@include font-size(12, 12, 150);
+			margin-top: 15px;
+		}
+
+		a {
+			@include nobel-bold;
+			color: #000;
+		}
+
+		a:hover {
+			text-decoration: none;
+		}
+	}
+
+	&.find-a-dealer {
+		border-bottom: 1px dotted #000;
+	}
+
+	.find-a-dealer {
+		margin-top: 40px;
+	}
+}
+
+.current-offers {
+	border-top: none;
+
+	&.more-to-consider {
+		.loader {
+			display:none;
+
+			&.active {
+				display:block;
+				margin:0 auto;
+			}
+		}
+
+		.terms {
+			margin: 0 auto 0;
+		}
+	}
+
+	&.side-by-side {
+        // fix an issue where search box runs into map
+        padding-bottom: 0;
+        header {
+            padding-bottom: 0;
+        }
+
+
+        .offer img{
+		    display:none;
+        }
+	}
+
+
+	.sub {
+		width: 100%;
+	}
+
+	.zip-search-wrapper {
+		position:relative;
+		width: 270px;
+		margin:20px auto 20px auto;
+
+
+        .loader {
+            display:none;
+            position: absolute;
+            right: -30px;
+            top: 10px;
+
+            &.active {
+                display:inline-block;
+            }
+        }
+
+        .error-message {
+        	display:none;
+        	text-align:left;
+        	letter-spacing: normal;
+        }
+	}
+
+	.button {
+		@include btn;
+		margin:0 auto;
+	}
+}
+
+.btn-find-a-dealer {
+	@include btn;
+	margin: 0 auto;
+	display:none;
+
+	&:hover {
+		background: $color-white;
+		color: $color-black;
+	}
+
+	&.active {
+		display:block;
+	}
+}
+
+/**
+ * Hero
+ */
+
+.offers-hero {
+	@include transition(opacity 800ms ease);
+	margin-top: 8px;
+	padding-top: 0;
+	border-top: 0;
+
+	.content {
+		position: relative;
+		width: 86%;
+		margin-left: 14%;
+
+		.foreground {
+			position: absolute;
+			top: 45%;
+			margin: auto;
+			left: 0;
+			right: 0;
+		}
+		img {
+			margin: auto;
+			display: block;
+            width: 100%;
+		}
+		.full-width {
+			width: 100%;
+		}
+		.msg {
+			position: absolute;
+            left: 4%;
+            top: 11%;
+			max-width: 35%;
+
+		}
+		.msg p {
+			@include font-size(16, 24, 135);
+			color: $color-white;
+			margin-bottom: 20px;
+		}
+		.btn {
+			@include btn;
+			max-width: 180px;
+			padding: auto 20px;
+
+			&:hover {
+				background: $color-white;
+				color: $color-black;
+			}
+		}
+	}
+}
+
+.offers-hero.no-offers {
+	padding-bottom: 110px;
+	margin-bottom: 0px;
+
+	.background {
+		height: 226px;
+		background-color: #999;
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
+
+	.foreground {
+		top: 30%;
+		left: auto;
+		right: 0;
+	}
+}
+
+.offers-hero.no-tout {
+	margin-bottom: 20px;
+
+	.foreground {
+		top: 35%;
+	}
+}
+
+/**
+ * Breakpoints
+ */
+@include at-max-width-breakpoint(780px){
+    .offers-hero {
+        .content {
+            .msg{
+                p{
+                    @include font-size(13, 20);
+                }
+            }
+        }
+    }
+
+}
+
+@include at-medium-breakpoint() {
+	.current-offers {
+		.offer {
+			@include clearfix();
+			padding-bottom:10px;
+		}
+	}
+
+	.offers-hero {
+		.content {
+			.foreground {
+				width: 60%;
+				top: 40%;
+				left: 0;
+				right: 0;
+			}
+		}
+	}
+
+	.offers-hero.no-tout {
+		.content {
+			.foreground {
+				width: 50%;
+			}
+		}
+	}
+
+	.offers-hero.no-offers {
+		padding-bottom: 75px;
+
+		.content {
+			.msg {
+				left: 30px;
+				max-width: 60%;
+			}
+			.foreground {
+				top: 50%;
+				left: auto;
+				right: 0;
+			}
+		}
+	}
+}
+
+
+@include at-breakpoint($large-min $default-columns 4000px) {
+	#current-offers {
+		.side-by-side {
+			.dealer-locator-divider-small {
+				height: 67px;
+				width: 16px;
+				background: url("/assets/img/offers/divider-big.png") 0 0 no-repeat;
+			}
+			.dealer-locator-divider-large {
+				background: url("/assets/img/offers/divider-big-gap.png") 0 0 no-repeat;
+				width: 24px;
+				height: 84px;
+			}
+			.value {
+				font-size: 78px;
+			}
+			.qualifier {
+				@include font-size(11, 0, 238);
+			}
+			.offer-title {
+				@include font-size(18, 18, 240);
+			}
+			.terms {
+				//margin: 0 auto 25px;
+				margin: 0 auto 0;
+				width: 80%;
+				@include font-size(14, 20, 25);
+			}
+
+			.offer {
+				@include grid-column(6);
+			}
+			.offer:nth-child(2n) {
+				@include omega;
+			}
+
+			.offer-financing {
+				.qualifier {
+					@include font-size(13, 19, 238);
+				}
+				.financing {
+					@include nobel;
+					font-weight: normal;
+					padding-top: 26px;
+					line-height: 1.3;
+					width: 95px;
+				}
+			}
+		}
+	}
+}
+
+/* Custom breakpoint for adjusting foreground size/position */
+@include at-breakpoint($medium-max $default-columns $large-max) {
+	.offers-hero {
+		.content {
+			.foreground {
+				width: 50%;
+				top: 45%;
+				left: 0;
+				right: 0;
+			}
+		}
+	}
+
+	.offers-hero.no-tout {
+		.content {
+			.foreground {
+				top: 39%;
+			}
+		}
+	}
+
+	.offers-hero.no-offers {
+		.content {
+			.msg {
+				max-width: 45%;
+			}
+			.foreground {
+				top: 40%;
+				left: auto;
+				right: 0;
+				min-width: 65%;
+			}
+		}
+	}
+}
+
+@include at-breakpoint($medium-min $default-columns 750px) {
+	.offers-hero.no-offers {
+		.content {
+			.msg {
+				max-width: 70%;
+			}
+			.foreground {
+				top: 58%;
+				width: 60%;
+				left: auto;
+				right: 0;
+			}
+		}
+	}
+}
+
+@include at-small-breakpoint() {
+	.page-wrap {
+		padding-top: 0;
+		border: none;
+	}
+
+	.current-offers {
+		.form-zip-search {
+			padding:0;
+		}
+
+		.zip-search-wrapper {
+			.loader {
+				right: -6px;
+			}
+		}
+	}
+
+	section {
+		&.find-a-dealer {
+			padding:0;
+			margin-bottom:30px;
+		}
+	}
+
+	.find-a-dealer {
+		margin:30px 0 30px 0;
+	}
+
+	.badge-container {
+		display: none;
+	}
+
+	.offers-hero {
+		margin: 0;
+		padding: 0;
+
+		img {
+			width: 100%;
+		}
+		.content {
+			width: 100%;
+			margin: 0;
+		}
+	}
+
+	.offers-hero.no-offers {
+		padding-bottom: 0;
+
+		.content {
+			text-align: center;
+
+			.msg {
+				position: absolute;
+				left: auto;
+				max-width: 100%;
+				padding: 40px 30px 0;
+                p{
+                    @include font-size(16,auto, 18);
+                }
+
+			}
+			.btn {
+				display: inline-block;
+			}
+		}
+		.background {
+			display: block;
+		}
+		.foreground {
+			display: none;
+		}
+	}
+
+	.offers-hero.no-tout {
+		margin-bottom: 0px;
+
+		.content {
+			.foreground {
+				width: 100%;
+			}
+		}
+	}
+}

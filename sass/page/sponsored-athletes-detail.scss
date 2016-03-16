@@ -1,0 +1,41 @@
+//----------------------------------------------
+// @note: all the sponsored athletes pages use
+// about subpage tag and scss. Any references
+// here to about subpage are because of this.
+//----------------------------------------------
+
+// @import "about-subpage";
+@import "sponsored-athletes-base";
+
+.about-subpage-content .m2-text-tile p {
+    max-width: none;
+}
+
+.about-subpage-content .m2-media-tile + .m2-text-tile {
+    margin-bottom: 40px;
+}
+
+
+.m2-content {
+    text-align: left;
+}
+
+.about-subpage-content a[title^="cta-out_"] {
+    text-decoration: none;
+    &:after {
+        content: "";
+        display: inline-block;
+        background: url("/assets/img/global/btn-link-arrow.png") no-repeat center right;
+        height: 7px;
+        width: 7px;
+    }
+}
+
+@include at-small-and-medium-breakpoints() {
+    .about-subpage-content {
+        .media-image {
+            margin-bottom: 30px;
+        }
+    }
+
+}

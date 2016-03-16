@@ -1,0 +1,498 @@
+@import "cpo";
+@import "cpo-specifications";
+@import "modules/dropkick";
+
+/*.no-flexbox {
+  table#cpo-compare-table tbody {
+    tr {
+      td {
+        &.details {
+          border: none;
+          padding: 0!important;
+          &:after, &:before {
+            content: none;
+          }
+          .divide {
+            padding: 25px 25px 20px 25px;
+            border-right: 1px solid $color-black;
+          }
+        }
+      }
+    }
+  }
+}*/
+
+table, table td {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.hero {
+  hr {
+    margin:30px auto 40px;
+  }
+}
+#cpo-compare-table {
+  max-width: $large-max;
+  margin: 0 auto 30px;
+  border: 1px solid #000;
+  @include nobel-bold;
+  @include font-size(18, 18, auto);
+  th {
+    height: 89px;
+    border-bottom: 1px solid #000;
+    text-indent: 60px;
+    @include at-small-and-mid-breakpoints() {
+      height:60px;
+    }
+    
+    .global-logo {
+      margin: 0 auto;
+      width:185px;
+    }
+    &:nth-child(2) {
+      border-right: 1px solid #000;
+    }
+    &:last-child {
+      
+      @include font-size(14, 17, 100);
+      position:relative;
+    }
+    .dk_container {
+      display:none;
+      border: none;
+      position:relative;
+    }
+    select {
+      opacity: 0;
+      font-size: 16px;
+    }
+    .dk_toggle {
+      @include nobel-book();
+      @include font-size(16, auto, 100);
+      @include no-select();
+      text-align: center;
+      display: inline-block;
+      background: transparent;
+      text-indent: 0;
+      margin: 0 25%;
+      text-decoration: none;
+      color: $color-grey-00;
+      line-height: initial;
+      &:after {
+        content: '\A';
+        position: absolute;
+        border-top: 1px solid #000;
+        border-left: 1px solid #000;
+        height: 15px;
+        width: 15px;
+        right: -20%;
+        top: 50%;
+        margin-top:-12px;
+        -webkit-transform: rotate(225deg);
+        -moz-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+        -o-transform: rotate(225deg);
+        transform: rotate(225deg);
+      }
+      &.competitor {
+        @include font-size(18, 18, 100);
+        white-space: nowrap;
+        margin: 0 auto;
+        &:after {
+          right: 10%;
+        }
+      }
+    }
+    .dk_options {
+      top:58px!important;
+      @include at-small-and-medium-breakpoints() {
+        top:52px!important;
+      }
+      @include at-small-and-mid-breakpoints() {
+        top:38px!important;
+      }
+      @include at-small-breakpoint() {
+        width:207px;
+        top:34px!important;
+      }
+    }
+    .dk_options_inner {
+      background-color: #FFF;
+      
+    }
+  }
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background: $color-grey-90;
+        /*.details:before, .details:after {
+          background: $color-grey-90;
+        }*/
+      }
+      td {
+        text-transform: none;
+        text-align: center;
+        h1 {
+          @include nobel-bold();
+          margin-bottom: 4px;
+        }
+        .large {
+          font-size:24px;
+          line-height: 1.25;
+          text-transform: uppercase;
+          display: block;
+        }
+        .med {
+          font-size:20px;
+        }
+        &:nth-child(1) {
+          padding: 25px 10px 20px 60px;
+          width: 33%;
+          text-align: left;
+          @include palatino();
+          @include font-size(14, 14, 100);
+          @include at-small-and-mid-breakpoints() {
+            width:46.875%;
+          }
+        }
+        &:nth-child(2) {
+          padding:25px 25px 20px 25px;
+          width:34.5%;
+          @include at-small-and-mid-breakpoints() {
+            width:26.5625%;
+          }
+        }
+        &:nth-child(3) {
+          padding:25px 25px 20px 25px;
+          width: 34.5%;
+          position: relative;
+          @include at-small-and-mid-breakpoints() {
+            width:26.5625%;
+          }
+        }
+        &.details, .comp {
+          @include font-size(16, 16, 100);
+          letter-spacing:0.02em;
+          sup {
+            font-size: 0.7em;
+            position: relative;
+            bottom: 8px;
+            right: 2px;
+            letter-spacing: initial;
+          }
+        }
+        &.details {
+          border-right: 1px solid $color-black;
+          /*&:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -2px;
+            width: 2px;
+            height: 15px;
+            background-color: $color-grey-100;
+          }
+          &:after {
+            content: "\A";
+            position: absolute;
+            bottom: 0px;
+            right: -2px;
+            width: 2px;
+            height: 15px;
+            background-color: $color-grey-100;
+          }*/
+        }
+        .comp {
+          position: relative;
+          display: none;
+          &.default {
+            &:after {
+              content: '\A';
+              position: absolute;
+              height: 1px;
+              background: #000;
+              width: 15px;
+              left: 0;
+              right: 0;
+              margin: 0 auto;
+            }
+          }
+        }
+        .empty:before {
+          content: '\A';
+          position: absolute;
+          height: 1px;
+          left: 50%;
+          margin-left: -8px;
+          vertical-align: middle;
+          width: 16px;
+          background: #000;
+        }
+      }
+    }
+  }
+}
+
+@include at-medium-and-large-breakpoints() {
+  #cpo-compare-table {
+    @include font-size(16, 18, 100);
+    th {
+      text-indent: 18px;
+
+    }
+    tbody {
+      tr {
+        td {
+          padding: 22px 18px 20px;
+      
+          &:nth-child(1) {
+            width: 34%;
+            padding: 25px 10px 20px 20px;
+          }
+          &:nth-child(2) {
+            width: 30%;
+          }
+          &:nth-child(3) {
+            width: 32%;
+          }
+          &.details, .comp {
+            @include font-size(14, 17, 100);
+          }
+          .large {
+            @include font-size(25, 18, 100);
+          }
+          .med {
+            @include font-size(22,18,150);
+          }
+        }
+      }
+    }
+  }
+}
+
+.compare-disclaimer {
+  @include nobel-book();
+  @include font-size(12, 20, 50);
+  margin-left: 3.75%;
+  margin-bottom: 10px;
+}
+
+@include at-small-and-medium-breakpoints() {
+  #cpo-compare-table {
+    max-width: 100%;
+
+    @include font-size(14, 17, 100);
+    th {
+      text-indent: 15px;
+      .dk_toggle {
+        margin: 0 20%;
+        &.competitor {
+          font-size: 14px;
+          margin: 0 auto;
+        }
+        &:after {
+          width: 10px;
+          height: 10px;
+
+        }
+      }
+      tbody {
+        tr {
+          td {
+            &:nth-child(2) {
+              @include font-size(14, 17, 100);
+            }
+            &:nth-child(3) {
+              @include font-size(14, 17, 100);
+            }
+            &.details, .comp {
+              @include font-size(12, 15, 100);
+            }
+            .large {
+              @include font-size(18, 16, 100);
+            }
+            .med{
+              @include font-size(14, 12, 100);
+            }
+          }
+        }
+      }
+    }
+
+    #cpo-compare-table th .global-logo {
+      width: 200px;
+      height: 40px;
+      position: absolute;
+    }
+  }
+}
+
+@include at-small-breakpoint() {
+  #cpo-compare-table {
+    margin-top: 20px;
+    .details {
+      /*&:before {
+        height: 50px;
+      }
+      &:after {
+        height: 50px;
+      }*/
+    }
+  }
+  .hero {
+    max-height:999px;
+    hr {
+      display: none;
+    }
+    .title {
+      text-align: center;
+      padding-left: 6%;
+      padding-right: 6%;
+      line-height: 20px;
+    }
+    .description {
+      padding-left: 8%;
+      padding-right: 8%;
+    }
+  }
+  #cpo-compare-table {
+    @include font-size(10, 12, 100);
+    th {
+      text-indent: 14px;
+      height: 55px;
+      &:nth-child(2) {
+        max-width:100px;
+        
+      }
+      .global-logo {
+        background-size: cover;
+        width: 179px;
+        height: 21px;
+        margin-left: 33px;
+        margin-right:-20px;
+
+      }
+      .dk_toggle {
+        padding: 0;
+        font-size: 8px;
+        line-height: 11px;
+        .competitor {
+          @include font-size(12, 12, 100);
+          white-space: normal;
+          margin: 0 25%;
+          &:after {
+            right: -80%;
+          }
+        }
+      }
+      .dk_open .dk_options {
+        right: 0;
+        top: 46px!important;
+        width:283px;
+        ul {
+          li:first-child {
+            display: none !important;
+          }
+        }
+      }
+    }
+    th img {
+      max-width: 100px;
+      height: auto;
+    }
+    tbody {
+      tr {
+        border-top:1px solid $color-grey-00;
+        td {
+          @include font-size(10, 12, 100);
+          letter-spacing:0.01em;
+          .large {
+            font-size: 17px!important;
+            line-height: initial;
+          }
+          .med {
+            font-size:14px!important;
+            line-height:10px;
+          }
+
+          &:nth-child(1) {
+            padding:20px 0 20px 14px;
+            word-spacing:-1px;
+            h1 {
+              word-spacing:1.5px;
+              font-size: 9px;
+              margin-right:-18px;
+              margin-bottom:10px;
+              line-height: initial;
+            }
+            p {
+              @include palatino();
+              font-size:10px;
+              line-height:initial;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include at-max-width-breakpoint(500px) {
+  #cpo-compare-table tbody tr td.details, #cpo-compare-table tbody tr td .comp {
+    font-size: 12px;
+  }
+  .hero {
+    .title {
+      max-width:100%;
+      padding-left:20%;
+      padding-right:20%;
+    }
+    .description {
+      max-width:100%;
+      padding-left:5%;
+      padding-right:5%;
+    }
+  }
+  #cpo-compare-table th .global-logo {
+    width:170px;
+    height:20px;
+    margin-left:30px;
+    margin-right:0;
+  }
+  #cpo-compare-table th:last-child {
+    &:before,&:after {
+      display:none;
+    }
+  }
+  .dk_container {
+    display: block;
+    .dk_toggle {
+      margin:0 0 0 8%;
+    }
+  }
+  #cpo-compare-table tbody tr td.details, #cpo-compare-table tbody tr td .comp {
+    font-size: 10px;
+  }
+  #cpo-compare-table tbody tr td:nth-child(1) {
+    paddign: 10px 5px;
+  }
+  #cpo-compare-table tbody tr td:nth-child(2) {
+    padding: 10px 5px;
+  }
+  #cpo-compare-table tbody tr td:nth-child(3) {
+    padding: 10px 5px;
+  }
+  #cpo-compare-table th .global-logo {
+    width: 151px;
+    margin-left: 5px;
+  }
+  #cpo-compare-table th .dk_toggle {
+    &.competitor{
+      font-size: 10px;
+    }
+    &.competitor:after, &:after {
+      right: 43%;
+      top: 30px;
+    }
+  }
+}
+

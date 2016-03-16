@@ -1,0 +1,55 @@
+@import "library";
+
+.tab-filter {
+    &.large {
+        @include tab-filter;
+    }
+    &.small{
+        @include tab-filter-small;
+    }
+}
+
+#gallery {
+	.tab-filter {
+		&.large {
+			margin-top: 45px;
+		}
+	}
+}
+
+@include at-max-width-breakpoint(777px) {
+    .tab-filter {
+        width: 70%;
+    }
+}
+
+@include at-small-breakpoint() {
+    .tab-filter {
+        width: 93%;
+    }
+}
+
+@include at-medium-and-large-breakpoints() {
+}
+
+@include at-medium-and-large-breakpoint-landscape() {
+  .tab-filter {
+    &.large {
+      margin-top: 0;
+      margin-bottom: 14px;
+      padding-bottom: 0;
+    }
+  }
+}
+
+@include at-laptop-breakpoint() {
+  .no-touch.no-mstouch {
+    .tab-filter {
+      &.large {
+        margin-top: 0;
+        margin-bottom: 7px;
+        padding-bottom: 0;
+      }
+    }
+  }
+}

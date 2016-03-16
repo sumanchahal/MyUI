@@ -1,0 +1,22 @@
+@import "library";
+
+.tab-sets {
+
+	.set {
+		display: none;
+	}
+
+	.set.selected {
+		display: block;
+	}
+
+	.selected .selected-icon {
+		opacity: 1;
+		@include transition(opacity 200ms ease-in-out);
+	}
+
+	.selected-icon {
+		opacity: 0;
+	}
+
+}

@@ -1,0 +1,157 @@
+@import "typography";
+@import "../modules/module-base";
+
+
+.hero {
+    .m2-text-tile {
+
+        p {
+            @include nobel-regular();
+            line-height: 150%;
+            letter-spacing: 1px;
+            padding: 4px 0 0;
+            font-size: 11px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 5px;
+            // font-size: 13px;
+            letter-spacing: initial;
+        }
+
+        &.media-sub-tile.m2-text-tile {
+            // width: 63%;
+            top: 50%;
+            left: 8%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+        }
+    }
+
+    &.m2-media-tile .media-tile-image {
+        background-position: top center;
+    }
+}
+
+.m2-menu-tile.menu-bar .menu-item .cta-button{
+    font-size: 14px;
+}
+
+// no underlined links on this page.
+.m2-text-tile p > a {
+    text-decoration: none;
+}
+
+.m2-content {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-bottom: 0;
+}
+
+.cta-icon {
+    vertical-align: text-bottom;
+}
+
+.contact-us-content {
+
+    [class*="col-"] {
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+
+    .m2-text-tile {
+        a {
+            @include nobel-bold(none);
+            font-size: 14px;
+            margin-bottom: 15px;
+            &[href^='tel:'] {
+                text-decoration: none;
+                line-height: 190%;
+            }
+        }
+
+        p {
+            // font-size: 14px;
+            padding-top: 0;
+        }
+
+        h3 {
+            font-size: 16px;
+            letter-spacing: 3px;
+        }
+
+        h6 {
+            font-size: 13px;
+        }
+
+        h3, h6 {
+            line-height: 160%;
+        }
+    }
+
+    .m2-cta-tile {
+        margin-top: 10px;
+    }
+
+    .contact-item {
+        text-align: center;
+        padding: 55px 20px;
+    }
+}
+
+
+
+
+
+
+.column-grid {
+    // removes top padding from top item only
+    .grid-row:first-child > [class*="col-"]:first-child {
+        padding-top: 0;
+    }
+}
+
+
+
+
+
+@include sm-up() {
+
+    .hero {
+        .m2-text-tile {
+            p {
+                padding-bottom: 14px;
+                font-size: 13px;
+            }
+        }
+    }
+
+}
+
+
+@include md-up() {
+
+    .contact-us-content {
+        .contact-item {
+            padding-right: 70px;
+            padding-left: 70px;
+        }
+    }
+
+    .column-grid {
+
+        // removes top padding from all items in top row
+        .grid-row:first-child > [class*="col-"] {
+            padding-top: 0;
+        }
+
+        // removes bottom padding from all items in bottom row
+        .grid-row:last-child > [class*="col-"] {
+            padding-bottom: 0;
+        }
+
+    }
+
+}

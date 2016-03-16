@@ -1,0 +1,160 @@
+@import "library";
+@import "../typography";
+@import "../modules/module-base";
+
+.m2-media-tile.hero {
+	background-color: #fff;
+	.media-tile-image {
+		background-position: center bottom;
+	}
+}
+
+.media-sub-tile.m2-text-tile {
+	// width: 85%;
+	// top: 8%;
+	left: 8%;
+	h2 {
+		letter-spacing: 0;
+		line-height: 105%;
+	}
+}
+
+.accessories-content {
+	max-width: 764px;
+
+	.m2-text-tile h3 {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.m2-text-tile p {
+		text-align: center;
+	}
+
+	img.media-tile-image, h4 {
+		display: block;
+		margin: 0;
+		text-align: center;
+		width: 100%;
+	}
+
+	hr {
+		margin: 3rem 0;
+	}
+
+	h5 {
+		text-align: center;
+		font-size: 15.5px;
+		letter-spacing: 2.57px;
+		line-height: 20px;
+	}
+
+	.lexus-collection {
+		padding: 0 30px;
+		h6, p {
+			text-align: center;
+		}
+		h6 {
+			padding-top: 25px;
+		}
+
+		h6 {
+	    padding-left: 20px;
+	    padding-right: 20px;
+	    letter-spacing: 2px;
+	    font-size: 16px;
+		}
+
+		a {
+			width: 100%;
+			margin: 0 auto;
+			display: inline-block;
+			text-decoration: none;
+			&:after {
+		    content: "";
+		    display: inline-block;
+		    background: url("/assets/img/global/btn-link-arrow.png") no-repeat center right;
+		    height: 7px;
+		    width: 7px;
+		  }
+		}
+	}
+
+}
+
+// .m2-content {
+//     margin-bottom: 0;
+// }
+
+@include at-small-breakpoint() {
+	.col-sm-6 {
+		margin-bottom: 15px;
+	}
+}
+
+@include sm-up() {
+	// .m2-media-tile.hero {
+	//     height: 0;
+	//     padding-bottom: 33%;
+	// }
+
+	.media-sub-tile.m2-text-tile {
+		width: 40%;
+		max-width: 470px;
+		h2 {
+			font-size: 39px;
+	  }
+	}
+
+	.accessories-content {
+
+		.lexus-collection {
+			width: 100%;
+			margin: 0 auto;
+			display: block;
+			text-decoration: none;
+			.m2-media-tile, .m2-text-tile {
+				display: inline-block;
+			}
+
+			.m2-text-tile {
+				vertical-align: top;
+				padding-left: 2rem;
+			}
+
+			h6, img.media-tile-image, p, a, h3 {
+				text-align: left;
+				display: inline-block;
+			}
+
+			h6, h3, h4 {
+				padding-top: 0;
+		    padding-left: 0;
+		    padding-right: 0;
+			}
+
+			.m2-media-tile.media-image .media-tile-image {
+				height: 108px;
+				width: 162px;
+			}
+
+			.m2-text-tile {
+				width: calc(100% - 162px);
+			}
+
+		}
+	}
+}
+
+@include md-up() {
+	.accessories-content {
+		.drop-down-black {
+			width: 100%;
+			margin: .75rem auto 1rem;
+			display: block;
+		}
+
+
+	}
+}

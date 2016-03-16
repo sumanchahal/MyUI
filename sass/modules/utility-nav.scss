@@ -1,0 +1,77 @@
+@import "library";
+
+.utility-nav {
+	@include clearfix;
+	margin: auto;
+
+	.divider {
+		border-left: 1px dotted #333;
+	}
+	ul {
+		float: right;
+	}
+	li { 
+		display: inline-block;
+	}
+	a {
+		@include nobel-bold;
+		color: #000;
+		font-size: 12px;
+		padding: 0 13px;
+		letter-spacing: 2px;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	.back {
+		float: left;
+		padding-left: 10px;
+		position: relative;
+		text-decoration: none;
+		margin-top: 3px;
+		span {
+			display: inline-block; 
+			position: absolute;
+			left: 0;
+			top: 3px;
+		}
+	}
+}
+
+.touch, .mstouch {
+	.utility-nav {
+		.share a {
+			padding: 0 0 0 13px;
+		}
+		.print {
+			display: none;
+		}
+	}		
+}
+
+#footernav ul {
+  text-align: justify;
+}
+
+#footernav li {
+  display: inline-block;
+  position: relative;
+  margin: 0 2px;
+  background: #f1f1f1;
+  padding: 15px 10px;
+  cursor:pointer;
+}
+
+#footernav ul:before {
+  content: '';
+  display: block;
+  width: 100%;
+}
+
+#footernav ul:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+

@@ -1,0 +1,112 @@
+@import 'library';
+
+/* Disclaimers Footer */
+.optional-disclaimers-container {
+    display: none;
+    padding: 40px 20px;
+    background-color: white;
+    border-top: 1px solid black;
+    text-align: left;
+
+    li {
+        @include nobel-book;
+        text-transform: none;
+        list-style-type: disc;
+        margin-left: 20px;
+        line-height: 15px;
+        font-size: 12px;
+    }
+
+    em {
+        @include nobel-book-italic;
+        text-transform: none;
+    }
+
+    .disclaimers-title {
+        @include nobel-bold;
+        color: black;
+        font-size: 13px;
+        line-height: 24px;
+        cursor: pointer;
+    }
+
+    .show-disclaimers {
+        background: url(/assets/img/global/disclaimers-arrow-down.png) transparent no-repeat center center;
+        width: 11px;
+        height: 5px;
+        display: inline-block;
+        padding: 5px;
+        margin-left: 6px;
+        position: relative;
+        top: 3px;
+        cursor: pointer;
+        &.close {
+            @include rotate(180deg);
+        }
+    }
+
+    .disclaimers {
+        @include transition(max-height 300ms ease);
+        max-height: 0px;
+        overflow: hidden;
+        &.shown {
+            max-height: 10000px;
+        }
+        p {
+            @include nobel-book;
+            text-transform: none;
+            line-height: 20px;
+            font-size: 12px;
+            padding: 6px 0;
+        }
+    }
+
+    &.never-show {
+        display: none;
+    }
+}
+
+sup.disclaimer-counters {
+    display: none;
+}
+
+.disclaimers-tooltip-title {
+    display: none;
+}
+
+@include at-small-breakpoint() {
+    .accolade-wrapper{
+        width: auto;
+        .accolade-container{
+            @include full-width;
+        }
+    }
+
+    .optional-disclaimers-container {
+        display: block;
+        &.hidden {
+            display: none;
+        }
+        &.never-show {
+            display: none;
+        }
+    }
+
+    .asterisk {
+        display: none;
+    }
+
+    .shownPrice .asterisk {
+        display: inline-block;
+    }
+
+    .tooltip-trigger .asterisk {
+        display: none;
+    }
+
+    sup.disclaimer-counters {
+        font-size: 60%;
+        vertical-align: super;
+        display: inline;
+    }
+}

@@ -1,0 +1,355 @@
+@import "library";
+
+/* basic form styles */
+::-webkit-validation-bubble {
+  z-index:-1;
+  
+}
+form {
+  input,
+  input[type="checkbox"],
+  input[type="radio"] {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+
+  button[disabled],
+  input[disabled],
+  select[disabled],
+  select[disabled] option,
+  select[disabled] optgroup,
+  textarea[disabled] {
+    @include opacity(0.25);
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    cursor: default;
+  }
+
+  input[type=search] {
+    width:200px;
+    padding:4px 50px 4px 8px;
+    height:47px;
+    background: none;
+    border: 0;
+    margin: 0;
+    outline: 0;
+    text-align: left;
+    vertical-align: top;
+    -webkit-appearance: none;
+    -webkit-background-clip: padding;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+  input[type=search]::-webkit-search-cancel-button,
+  input[type=search]::-webkit-search-decoration,
+  input[type=search]::-webkit-search-results-button,
+  input[type=search]::-webkit-search-results-decoration {
+    -webkit-appearance:none;
+  }
+
+  textarea.form-control {
+    height: auto;
+  }
+
+  label,
+  legend {
+    display: inline-block;
+    margin-bottom: 8px;
+    text-transform:uppercase;
+    font-size:11px;
+    @include nobel-bold;
+
+    .optional {
+      color:#8f8f8f;
+      text-transform:none !important;
+      @include nobel;
+      font-size:11px;
+      font-weight:normal;
+    }
+  }
+
+  input[type=radio],
+  input[type=checkbox] {
+    float: left;
+    margin-left: -20px;
+    margin: 0 0 0 -20px;
+    margin-top: 1px \9;
+    padding:5px;
+    line-height: normal;
+  }
+
+  .help-block-required {
+    display:block;
+    text-align:right;
+    font-size:12px;
+  }
+  
+  .checkbox.custom-checkbox,
+  .radio.custom-radio {
+    // display:table;
+    margin: 0 0 17px;
+    position: relative;
+    width: 100%;
+
+    &.error {
+      margin-bottom: 15px;
+
+      label {
+        padding-bottom: 15px;
+      }
+    }
+
+    span.error {
+      line-height: 13px;
+    }
+  }
+
+  .checkbox.custom-checkbox label,
+  .radio.custom-radio label {
+    display: table-cell;
+    cursor: pointer;
+    position: relative;
+    padding-left: 41px;
+    margin-right: 15px;
+    font-size: 13px;
+    height: 33px;
+    vertical-align:middle;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      background-color: #f0f0f0;
+    }
+  }
+
+  .checkbox.custom-checkbox label:before {
+    width: 33px;
+    height: 33px;
+    left: 0;
+    top: 0;
+  }
+
+  .checkbox.custom-checkbox input[type=checkbox] {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+
+    &:checked + label:before {
+      background: #f0f0f0 url(/assets/img/global/check.png) no-repeat center center;
+    }
+  }
+
+  .radio.custom-radio label:before {
+    @include border-radius(100%);
+    @include box-shadow(0 0 0 1px #e3e3e3);
+    border: 3px solid #f0f0f0;
+    width: 15px;
+    height: 15px;
+    left: 4px;
+    top: 3px;
+  }
+
+  .radio.custom-radio input[type=radio] {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+
+    &:checked + label:before {
+      background: #000;
+    }
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #000;
+    background-color: #f0f0f0;
+    background-image: none;
+    box-shadow: none;
+    border:1px solid #f0f0f0;
+    box-shadow:none;
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+    &.error {
+      border:1px solid #ff0000;
+      background-color: #ffe8e8;
+    }
+  }
+
+  .form-control:focus,
+  .checkbox.custom-checkbox input[type=checkbox]:focus + label:before {
+    border-color: #66afe9;
+    outline: 0;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6));
+  }
+
+  .radio.custom-radio input[type=radio]:focus + label:before {
+    @include box-shadow(0 0 8px 0 #66afe9);
+  }
+
+  .form-control::-moz-placeholder {
+    color: #999999;
+    opacity: 1;
+  }
+
+  .form-control:-ms-input-placeholder {
+    color: #999999;
+  }
+
+  .form-control::-webkit-input-placeholder {
+    color: #999999;
+  }
+
+  .form-control[disabled],
+  .form-control[readonly],
+  fieldset[disabled] .form-control {
+    cursor: not-allowed;
+    background-color: #eeeeee;
+    opacity: 1;
+  }
+
+  .form-control-group {
+    margin-bottom: 15px;
+
+    &.required:before {
+      content:"*";
+      font-size:12px;
+      display:inline-block;
+    }
+  }
+
+  .dk_container.custom {
+    padding:0;
+
+    .dk_toggle {
+      background-color:#f0f0f0;
+    }
+  }
+
+  hr {
+    border:1px dotted #b2b2b2;
+    margin:20px 0 20px 0;
+  }
+
+  /* dis down error message */
+  .error-wrapper {
+    border: 1px solid #ff9999;
+    @include nobel-bold;
+    font-size:13px;
+    margin:20px 0 20px 0;
+    padding: 20px 25px 18px;
+    text-align:center;
+
+    .global-error {
+      display: block;
+      margin:0 auto 10px auto;
+    }
+
+    .dealer-locator-icon-error {
+      background: url(/assets/img/global/error-transparent.png) no-repeat center center;
+      display: block;
+      width: 32px;
+      height: 29px;
+      margin: 0 auto 10px;
+    }
+
+    .icon-error {
+      display: inline-block;
+      margin: auto;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.4em;
+      margin-bottom:10px;
+      text-transform:none !important;
+      @include palatino;
+    }
+
+    .error-message {
+      color: $color-error;
+      text-transform: uppercase !important;
+      @include nobel-bold;
+    }
+  }
+
+  .form-error {
+    display: none;
+  }
+
+
+  span.error {
+    display: none;
+    @include palatino;
+    font-size:13px;
+    line-height:2em;
+    text-transform:none;
+    color:#ff0000;
+  }
+
+  .form-actions {
+    padding-top:20px;
+    border-top:1px solid #000;
+  }
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+// For Firefox
+@-moz-document url-prefix() {
+  // open this link in Firefox to see browser default style
+  // resource://gre-resources/forms.css
+  input,
+  button,
+  select,
+  textarea {
+    &:invalid {
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+    }
+  }
+  select {
+    border-color:none;
+    background-color:inherit;
+    color:inherit;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: "";
+    
+  }
+}

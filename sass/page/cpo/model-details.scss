@@ -1,0 +1,413 @@
+@import "../../library";
+@import 'cpo-specifications';
+@import 'badge';
+@import "modules/dropkick";
+@import "cpo";
+@import "cpo-dealer-search";
+
+#model-details {
+    .hero {
+        position: relative;
+        h2 {
+            position: initial;
+            margin-top: 65px;
+            margin-bottom: 28px;
+        }
+        p {
+            @include body-copy();
+            margin-bottom: 50px;
+            text-align: left;
+        }
+    }
+    .badge-container {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+    .hero-bg-img {
+        width: auto;
+        overflow: hidden;
+        margin-bottom: 0;
+        height: 0;
+        padding: 0;
+        // padding-bottom: 43.48769898%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+
+    }
+    .feature-wrapper {
+      @include container;
+      max-width: $large-max;
+      position: relative;
+    }
+    .specifications-category {
+        .bottom-specs-container {
+            border: 0;
+            .spec {
+                width: 49.5%;
+                .spec-wrapper {
+                  height: 80px;
+                }
+                &:nth-last-child(2), &:last-child {
+                    .spec-wrapper {
+                        border-bottom: 0;
+                    }
+                }
+            }
+
+        }
+    }
+    .page-wrap .button-wrapper {
+        margin: 38px auto 76px auto;
+        text-align: center;
+        a {
+            @include btn;
+            display: inline;
+            max-width: 420px;
+        }
+    }
+}
+
+#desktop-zip-wrapper {
+  display: none;
+  .form-zip-search .get-api-zip {
+    color: $color-grey-60;
+    color: $color-white;
+    font-size: 11px;
+  }
+}
+
+
+.cpoSubNav {
+    background-color: $color-black;
+    height: 58px;
+    padding: 0 $gutter-width;
+    outline: none;
+    width: 93%;
+    select {
+      opacity: 0;
+    }
+    .dk_container {
+      border: none;
+      height: 58px;
+      display: none;
+      .dk_toggle {
+        height: 58px;
+        background: black url("/assets/img/global/bg-selectbox-inverted.jpg") no-repeat right center;
+      }
+      .dk_open, .dk_label, li {
+        background-color: $color-black;
+        color: $color-white;
+        white-space: nowrap;
+      }
+      .dk_current-option {
+         background-color: $color-grey-30;
+      }
+    }
+
+    > ul {
+        height: 58px;
+        padding: 0px;
+        position: relative;
+        margin: 0px auto;
+        max-width: 1204px;
+        width: 100%;
+        > li {
+            background: url('/assets/img/global/separator-vert-dots-grey.png') no-repeat center left;
+            display: block;
+            float: left;
+            padding: 0px;
+            margin: 0px;
+            cursor: pointer;
+            &:nth-child(1) {
+              display: none;
+            }
+            &:nth-child(2) {
+              width: 100%;
+            }
+            &.primary {
+                float: left;
+            }
+            &.secondary {
+                float: right;
+                li {
+                    background-image: none;
+                }
+                li:last-child {
+                    padding-left: 10px;
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            &:first-child {
+                background-image: none;
+            }
+            &:not(.no-link) {
+              &.active,
+              &:hover{
+                background: $color-white none;
+                a {
+                      color: $color-black;
+                      &.btn-stroke {
+                          color: $color-white;
+                          &:hover{
+                              background: $color-white;
+                              color: $color-black;
+                          }
+                      }
+                  }
+              }
+            }
+
+
+          &.has-tertiary,
+          &.has-tertiary:hover{
+            background: url('/assets/img/global-non-sprite/expand-right-arrow.gif') no-repeat 90% center;
+          }
+            a {
+                @include box-sizing(border-box);
+                @include nobel-bold;
+                @include font-size (11,13,100);
+                color: $color-white;
+                text-decoration: none;
+                padding: 21px 30px;
+                width: 100%;
+                display: block;
+                text-align: center;
+
+                &.btn-stroke {
+                    @include btn($font-color: $color-white, $stroke-size: 2px, $stroke-color: $color-white, $bg-color: $color-black );
+                    float: right;
+                    line-height: 0;
+                    padding: 15px 25px 14px 25px;
+                    height: auto;
+                    margin-left: 10px;
+                    position: relative;
+                    top: 13px;
+                }
+            }
+        }
+    }
+    .secondary {
+        background-image: none;
+        float: right;
+        &:hover {
+            background-color: transparent;
+            li {
+                a {
+                    color: #FFF;
+                }
+            }
+        }
+        li {
+            background: url('/assets/img/global/separator-vert-dots-grey.png') no-repeat center left;
+            &:first-child {
+                background-image: none;
+            }
+            &:hover a {
+                color: #000;
+            }
+        }
+    }
+    &.stuck {
+        @include animationFix();
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 110;
+        -webkit-transform: translatez(0);
+        -moz-transform: translatez(0);
+        -ms-transform: translatez(0);
+        -o-transform: translatez(0);
+        transform: translatez(0);
+    }
+    &.small {
+        display: none;
+        cursor: pointer;
+    }
+    &.large {
+        display: block;
+        li {
+            &.active+:hover {
+                background-image: url('/assets/img/global/separator-vert-dots-grey.png');
+                &.build-yours-nav {
+                    background: none;
+                }
+            }
+            &:hover+.active {
+                background-image: url('/assets/img/global/separator-vert-dots-grey.png');
+            }
+        }
+    }
+}
+
+
+@include at-small-and-medium-breakpoints() {
+  #model-details {
+    .page-wrap .button-wrapper {
+      margin: 0 auto;
+      padding: 38px 0;
+      border-top: 1px dotted $color-black;
+      border-bottom: 1px dotted $color-black;
+    }
+  }
+  #zip-wrapper {
+    display: block;
+    margin-bottom: 35px;
+
+  }
+  #zip-wrapper .form-zip-search .get-api-zip {
+      color: $color-black;
+  }
+}
+
+@include at-small-breakpoint() {
+  #model-details {
+    .hero {
+      max-height: none;
+      height: auto;
+      .badge {
+        display: none;
+      }
+      .hero-bg-img {
+            height: 0;
+      	padding-bottom: 53.5%;
+      }
+    }
+    .specifications-category {
+      .bottom-specs-container {
+        .spec {
+          width: 100%;
+          border-right: none;
+          .spec-wrapper {
+            position: initial;
+            height: auto;
+          }
+          &:nth-last-child(2) {
+            .spec-wrapper {
+                border-bottom: 1px solid #eee;
+            }
+          }
+          &:nth-child(odd) {
+            padding-left: 3%;
+          }
+        }
+      }
+    }
+    .page-wrap .button-wrapper {
+      margin: 0 auto;
+      padding: 38px 0;
+      border-top: 1px dotted $color-black;
+      border-bottom: 1px dotted $color-black;
+    }
+  }
+}
+
+/**
+ * these media queries change layout as page scales up
+ * instead of down, but share breakpoints with the rest
+ * of the site
+ */
+@media only screen and (min-width : $large-min) {
+  #zip-wrapper {
+    display: none;
+  }
+  .scroll-pane-search-results {
+    display: none;
+  }
+  #desktop-zip-wrapper {
+    display: block;
+    width: 41vw;
+    height: 56px;
+    padding-top: 6px;
+    overflow: hidden;
+    .form-zip-search {
+      h3 {
+        color: $color-white;
+        @include nobel-bold;
+        @include font-size (11,12,100);
+        width: 160px;
+        position: relative;
+        top: 15px;
+        left: -4%;
+      }
+      .input-group-btn {
+        position: relative;
+        top: -28px;
+        left: -5%;
+      }
+      .get-api-zip {
+        position: relative;
+        top: -70px;
+        left: 36%;
+
+      }
+    }
+  }
+  .cpoSubNav {
+    > ul {
+      > li {
+        &:nth-child(1) {
+          width: 25%;
+          display: block;
+        }
+        &:nth-child(2) {
+          width: 30%;
+        }
+        &:nth-child(3) {
+          width: 45%;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width : $large-max) {
+  #desktop-zip-wrapper {
+    left: 46vw;
+    width: 58vw;
+    max-width: 550px;
+    .form-zip-search {
+      h3 {
+        font-size: 11px;
+        top: 15px;
+        left: 70px;
+      }
+      .input-group-btn {
+        left: 0;
+        top: -28px;
+      }
+      .get-api-zip {
+        top: -72px;
+        left: 30%;
+      }
+    }
+  }
+  .cpoSubNav {
+    > ul {
+      > li {
+        a {
+          padding: 21px 30px;
+        }
+        &:nth-child(1) {
+          width: 20%;
+        }
+        &:nth-child(2) {
+          width: 25%;
+        }
+        &:nth-child(3) {
+          width: 55%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 500px) {
+    #model-details .page-wrap .button-wrapper a {
+      font-size: 10px;
+    }
+}

@@ -1,0 +1,18 @@
+@import "grid";
+
+
+@mixin make-columns($span) {
+    width: ($span / $default-columns) * 100%;
+}
+
+@mixin pull-columns($span) {
+    right: ($span / $default-columns) * 100%;
+}
+
+@mixin push-columns($span) {
+    left: ($span / $default-columns) * 100%;
+}
+
+@mixin offset-columns($span) {
+    left: ($span / $default-columns) * 100%;
+}

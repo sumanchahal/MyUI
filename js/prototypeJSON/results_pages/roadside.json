@@ -1,0 +1,108 @@
+{
+    "searchedTerm": "roadside",
+    "quantityResults": 174,
+    "searchInstead": [
+        "roadside assistance"
+    ],
+    "results": [
+        {
+            "title": "Lexus Enform",
+            "url": "http://www.lexus.com/enform/",
+            "snippet": "Lexus Enform is Lexus branded connected services and currently consists of the following products: Lexus Enform Safety Connect, Lexus Enform Destinations, Lexus Enform Remote™ and Lexus Enform App Suite.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus - Contact Information",
+            "url": "http://www.lexus.com/contact/",
+            "snippet": "This is the Lexus contact information page. Phone, e-mail, fax and mailing information is provided for Lexus Customer Assistance and Lexus Financial Services, as well as hours of service and FAQ/Lexus Knowledge Center topics.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus | Warranty Benefits | 2014 Lexus",
+            "url": "http://www.lexus.com/warranty",
+            "snippet": "Lexus - Learn about the warranty benefits of owning a 2014 Lexus",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus | Ownership Benefits | 2014 Lexus",
+            "url": "http://www.lexus.com/ownership",
+            "snippet": "Lexus - Learn about the ownership benefits of owning a 2014 Lexus",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - Find a Dealer",
+            "url": "http://www.lexus.com/dealers",
+            "snippet": "Your Lexus dealer can help you explore a new Lexus and deliver impeccable certified Lexus service.  Contact us for an appointment or visit today.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus LS - Owner Benefits | Lexus.com",
+            "url": "http://www.lexus.com/models/LS-hybrid/owners",
+            "snippet": "Owning a Lexus LS comes with numerous benefits. From roadside assistance to world-class partnerships, there are perks to being an owner. Learn more.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus LS - Owner Benefits | Lexus.com",
+            "url": "http://www.lexus.com/models/LS/owners",
+            "snippet": "Owning a Lexus LS comes with numerous benefits. From roadside assistance to world-class partnerships, there are perks to being an owner. Learn more.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus Certified Pre-Owned Vehicles: What is a Certified Pre Owned Car?",
+            "url": "http://www.lexus.com/cpo/overview/index.html",
+            "snippet": "Find out more about Lexus Certified Pre-Owned Vehicles.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus | Service Benefits | 2014 Lexus",
+            "url": "http://www.lexus.com/service",
+            "snippet": "Lexus - Learn about the service benefits of owning a 2014 Lexus",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "2015 Lexus RC F - Performance Sedan | Lexus.com",
+            "url": "http://www.lexus.com/models/RCF",
+            "snippet": "Born on the grueling Fuji International Speedway, the 2015 Lexus RC F SPORT performance sedan is the fastest, most dominant sedan Lexus has ever built.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }
+    ],
+    "cards": [
+        {
+            "type": "roadside",
+            "position": 2,
+            "eyebrow": "24/7",
+            "title": "Lexus Roadside Support",
+            "subhead": "800-255-3987",
+            "description": "If there is an emergency please dial 911",
+            "apps": [
+                {
+                    "title": "Lexus Roadside Assistance",
+                    "icon": "/assets/img/PROTOTYPE/cards/app-icon.jpg",
+                    "description": "Access to roadside services on your phone",
+                    "android": "https://play.google.com/store/apps/details?id=com.tweddle.lexus.enform",
+                    "ios": "https://itunes.apple.com/us/app/lexus-enform/id495024090?mt=8"
+                }
+            ]
+        }
+    ]
+}

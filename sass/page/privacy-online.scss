@@ -1,0 +1,13 @@
+@import "../modules/module-base";
+@import "legal-base";
+
+.m2-text-tile {
+
+	h5 {
+		font-size: 14px;
+		&> a {
+			text-decoration: underline;
+		}
+	}
+
+}

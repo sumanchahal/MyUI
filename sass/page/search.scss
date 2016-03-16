@@ -1,0 +1,1604 @@
+@import "library";
+@import "modules/zip-search";
+
+#search {
+
+    //Designated Lexus CMS tags for overwriting
+    .lexus-em, .LEXUS-EM {
+        font-style: italic !important;
+    }
+
+    #search-input-summary {
+        display: none;
+        margin: 35px auto 0;
+        max-width: 740px;
+        position: relative;
+    }
+    #search-form-search {
+        margin: 0 auto;
+        position: relative;
+    }
+    #search-page-search {
+        @include nobel-book();
+        border: 0;
+        border-bottom: 1px solid #a8a8a8;
+        font-size: 32px;
+        letter-spacing: 0.15em;
+        margin: 0 0 15px;
+        outline: 0;
+        padding: 0 10px 5px;
+        text-indent: 20px;
+        width: 100%;
+        background: transparent url("/assets/img/PROTOTYPE/global/magnifying-glass.svg") no-repeat scroll left 8px;
+    }
+    #close-search-search {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    #predictive-container-search {
+        bottom: 0;
+        background-color: #FFF;
+        display: none;
+        position: absolute;
+        top: 43px;
+        width: 100%;
+        z-index: 10;
+        #predictive-terms-search {
+            background-color: #FFF;
+            text-indent: 15px;
+            width: 100%;
+            a {
+                color: #000;
+                text-decoration: none;
+                @include nobel-bold();
+                font-size: 15px;
+                letter-spacing: 0.15em;
+                padding: 13.5px 5px;
+                display: block;
+                &:hover, &.focus {
+                    background-color: #f2f2f2;
+                }
+                em {
+                    @include nobel-regular();
+                }
+            }
+            li {
+                display: block;
+                &:first-child {
+                    padding-top: 5px;
+                }
+            }
+            .destination {
+                padding-top: 20px;
+                margin-top: 20px;
+                border-top: 1px solid #DDD;
+                strong {
+                    display: block;
+                    @include nobel-regular();
+                    margin-bottom: 10px;
+                }
+                span {
+                    display: block;
+                    @include nobel-regular-italic();
+                    color: #939393;
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+    #predictive-terms-search-outer {
+        background-color: #FFF;
+        padding: 20px 2% 10px;
+        width: 96%;
+        &.empty-terms {
+            #predictive-terms-search .destination {
+                margin-top: 0;
+            }
+        }
+    }
+
+    //Summary
+    .search-summary {
+        @include nobel-book-italic();
+        font-style: italic;
+        color: #010000;
+        font-size: 14px;
+        letter-spacing: 0.15em;
+        line-height: 1.6em;
+        margin: 0px 3.75% 60px;
+        text-align: center;
+        text-transform: none;
+        border-top: 1px solid #DDD;
+        padding: 15px 10% 0;
+        a {
+            @include nobel-bold();
+            color: #000;
+            display: inline-block;
+            font-style: normal;
+            text-decoration: none;
+            text-transform: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    #results {
+        min-height: 400px;
+        .animation {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    //Searched Term
+    .searched-term {
+        font-family: nobel-book;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    //Result
+    .result {
+        opacity: 0;
+        margin: 0 auto 65px;
+        max-width: 640px;
+        width: 90%;
+        .title {
+            @include nobel-book();
+            color: #000;
+            display: inline-block;
+            font-size: 18px;
+            letter-spacing: 0.2em;
+            line-height: 1.4em;
+            margin-bottom: 6px;
+            text-decoration: none;
+            text-transform: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        .url {
+            @include nobel-regular-italic();
+            color: #939393;
+            //display: block;
+            display: none; //temporary for user testing
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            margin-bottom: 25px;
+        }
+        .snippet {
+            @include palatino();
+            color: #000000;
+            font-size: 13px;
+            letter-spacing: 0.03em;
+            line-height: 1.6em;
+            margin-left: 0;
+            text-transform: none;
+            word-wrap: break-word;
+        }
+    }
+
+    //Single Link (FAQ and PDF)
+    .single, .group {
+        .title {
+            position: relative;
+            span {
+                display: none;
+            }
+            .pdf, .faq {
+                @include nobel-bold();
+                color: #939393;
+                display: inline-block;
+                font-size: 11px;
+                letter-spacing: 0.2em;
+                position: absolute;
+                z-index: 1;
+            }
+            .faq {
+                left: -55px;
+                letter-spacing: 0.15em;
+                outline: 1px solid #c9c9c9;
+                padding-left: 6px;
+                padding-right: 4px;
+            }
+            .pdf {
+                left: -65px;
+                .icon {
+                    background: transparent sprite($globalSpriteMap, pdf) no-repeat scroll;
+                    display: inline-block;
+                    height: 16px;
+                    position: relative;
+                    top: 4px;
+                    width: 13px;
+                }
+            }
+        }
+    }
+
+    //Tree Link
+    .tree {
+        .title-link + p {
+            display: none;
+        }
+        p.title:hover {
+            text-decoration: none;
+        }
+        .snippet {
+            margin-bottom: 15px;
+        }
+        ul {
+            text-align: left;
+        }
+        li {
+            display: block;
+            padding: 7px 10px 13px 50px;
+            vertical-align: middle;
+        }
+    }
+
+    //Group Links
+    .group {
+        .link-group {
+            max-height: 0;
+            margin-top: 15px;
+            overflow: hidden;
+            transition: 0.5s max-height;
+            &.expanded {
+                max-height: 800px;
+            }
+            a {
+                display: block;
+                font-size: 13px;
+                margin-bottom: 10px;
+                outline: 0;
+            }
+        }
+        li {
+            display: block;
+            margin: 5px 0 30px 50px;
+        }
+        .toggle-group-links {
+            @include nobel-bold();
+            cursor: pointer;
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            margin: 10px 10px 10px 0;
+            .indicator {
+                display: inline-block;
+                border: 5px solid #FFF;
+                border-top: 5px solid #000;
+                left: 4px;
+                position: relative;
+                top: 3px;
+            }
+            .more, .less {
+                border-bottom: 1px solid #000;
+            }
+            .more {
+                display: inline-block;
+            }
+            .less {
+                display: none;
+            }
+            &.expanded {
+                .indicator {
+                    border: 5px solid #FFF;
+                    border-bottom: 5px solid #000;
+                    top: -2px;
+                }
+                .more {
+                    display: none;
+                }
+                .less {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    //Tree and Group
+    .group a, .tree a {
+        @include nobel-bold();
+        color: #000;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-decoration: none;
+        text-transform: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    //Card
+    .card {
+        opacity: 0;
+        background-color: #000;
+        color: #FFF;
+        margin: 0 auto 50px;
+        max-width: 960px;
+        &.plain {
+            background-color: #FFF;
+            border: 4px double #DDD;
+            color: #000;
+            .btn {
+                border-color: #000;
+                &.primary {
+                    background-color: #000;
+                    color: #FFF;
+                    &:hover {
+                        background-color: #FFF;
+                        color: #000;
+                    }
+                }
+                &.secondary {
+                    background-color: transparent;
+                    color: #000;
+                    &:hover {
+                        background-color: #000;
+                        color: #FFF;
+                    }
+                }
+            }
+        }
+        .content-container {
+            margin: 0 auto;
+            max-width: 960px;
+            position: relative;
+        }
+        .content-container-inner {
+            padding: 0 5%;
+        }
+        .title {
+            line-height: 1.4em;
+            letter-spacing: 0.15em;
+        }
+        .btn {
+            @include nobel-bold();
+            border: 2px solid #FFF;
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            padding: 12px 20px;
+            margin-left: 4px;
+            min-width: 85px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            &.primary {
+                background-color: #FFF;
+                color: #000;
+                &:hover {
+                    background-color: #000;
+                    color: #FFF;
+                }
+            }
+            &.secondary {
+                background-color: transparent;
+                color: #FFF;
+                &:hover {
+                    background-color: #FFF;
+                    color: #000;
+                }
+            }
+        }
+        .phone {
+            color: #000;
+            text-decoration: none;
+            &:hover {
+                cursor: default;
+            }
+        }
+        input {
+            border-radius: 0;
+            -webkit-appearance: none;
+        }
+        .lowercase {
+            text-transform: lowercase;
+        }
+    }
+
+    //Model Card
+    .card.model {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        text-align: left;
+        .content-container {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #000 85%), repeat-x scroll 0 bottom;
+            min-height: 435px;
+        }
+        .content-container-inner {
+            bottom: 0;
+            padding: 0 9% 40px;
+            position: absolute;
+            width: 82%;
+        }
+        .title {
+            @include nobel-bold();
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .subhead {
+            @include nobel-book();
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            margin-bottom: 15px;
+        }
+        .description {
+            @include palatino();
+            color: #939393;
+            font-size: 13px;
+            line-height: 1.4em;
+            margin-bottom: 15px;
+            max-width: 300px;
+            .disclaimer {
+                position: relative;
+                top: -3px;
+            }
+        }
+        .main-link {
+            @include nobel-bold();
+            border-bottom: 1px solid #FFF;
+            color: #FFF;
+            display: inline-block;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            padding-bottom: 2px;
+            text-decoration: none;
+        }
+        .cta-container {
+            bottom: 40px;
+            position: absolute;
+            right: 90px;
+            .disclaimer {
+                max-width: 270px;
+                text-align: right;
+            }
+        }
+        .disclaimer {
+            font-size: 8px;
+            margin-top: 10px;
+            text-align: right;
+        }
+    }
+
+    //FAQ Card
+    .card.faq {
+        text-align: center;
+        padding: 50px 0;
+        .title {
+            @include nobel-book();
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .title, .question {
+            text-transform: uppercase;
+        }
+        hr {
+            border: 0;
+            border-bottom: 1px solid #555555;
+            height: 2px;
+            width: 100px;
+        }
+        .faq-item {
+            display: inline-block;
+            margin-top: 20px;
+            max-width: 335px;
+            vertical-align: top;
+            &:nth-child(2) {
+                margin-left: 20px;
+            }
+        }
+        .question, .view-more {
+            @include nobel-bold();
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            line-height: 1.4em;
+            margin-bottom: 20px;
+            a {
+                color: #000;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .answer {
+            @include palatino();
+            color: #000;
+            font-size: 12px;
+            letter-spacing: 0.02em;
+            line-height: 1.5em;
+            margin: 0 auto;
+            width: 90%;
+            &.full {
+                display: none;
+            }
+            a {
+                color: #000;
+            }
+        }
+        .view-more {
+            color: #000;
+            display: inline-block;
+            font-size: 10px;
+            margin-top: 5px;
+            text-decoration: none;
+        }
+    }
+
+    //Contact Card
+    .card.contact {
+        padding-bottom: 35px;
+        padding-top: 35px;
+        text-align: center;
+        .title {
+            @include nobel-book();
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .subhead {
+            @include nobel-bold();
+            font-size: 18px;
+            letter-spacing: 0.25em;
+            margin-bottom: 10px;
+        }
+        .description {
+            @include nobel-book();
+            font-size: 12px;
+            letter-spacing: 0.25em;
+            margin-bottom: 35px;
+        }
+        .cta-container {
+            margin-bottom: 35px;
+        }
+        hr {
+            border: 0;
+            border-bottom: 4px double #EEE;
+            margin-bottom: 30px;
+        }
+        .topics-title {
+            @include nobel-bold();
+            letter-spacing: 0.15em;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        .topic {
+            display: inline-block;
+            a {
+                @include nobel-bold();
+                color: #939393;
+                font-size: 10px;
+                letter-spacing: 0.1em;
+                padding: 0 7px;
+                text-decoration: none;
+                em {
+                    font-style:italic;
+                }
+            }
+        }
+    }
+
+    //Roadside Card
+    .card.roadside {
+        text-align: center;
+        padding: 50px 0;
+        .eyebrow {
+            @include nobel-bold();
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            margin-bottom: 10px;
+        }
+        .title {
+            @include nobel-book();
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .subhead {
+            @include nobel-bold();
+            font-size: 18px;
+            letter-spacing: 0.25em;
+            margin-bottom: 10px;
+        }
+        .description {
+            @include palatino();
+            color: #939393;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #EEE;
+            border-bottom: 1px solid #EEE;
+            height: 2px;
+            margin-bottom: 25px;
+        }
+        .app-icon {
+            border-right: 1px solid #EEE;
+            display: inline-block;
+            height: 38px;
+            margin-right: 0;
+            padding: 15px 25px 15px 0;
+            vertical-align: middle;
+            width: 38px;
+        }
+        .app {
+            display: inline-block;
+            padding-left: 20px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        .app-title {
+            @include nobel-bold();
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            margin-bottom: 7px;
+            text-transform: uppercase;
+        }
+        .app-description {
+            @include palatino();
+            color: #939393;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+        .devices {
+            li {
+                display: inline-block;
+            }
+            a {
+                @include nobel-bold();
+                color: #000;
+                font-size: 10px;
+                letter-spacing: 0.15em;
+                margin-right: 30px;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+            .arrow {
+                border: 5px solid transparent;
+                border-left: 5px solid #000;
+                display: inline-block;
+                height: 0;
+                padding-left: 5px;
+                position: relative;
+                top: 1px;
+                width: 0;
+            }
+        }
+    }
+
+    //Dealers Card
+    .card.dealers {
+        padding: 50px 0;
+        .title {
+            @include nobel-book();
+            font-size: 22px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        hr {
+            border: 0;
+            border-bottom: 1px solid #939393;
+            border-top: 1px solid #939393;
+            height: 2px;
+            margin-bottom: 25px;
+            width: 90px;
+        }
+        .mobile-summary, .summary {
+            @include nobel-bold();
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            line-height: 1.4em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .mobile-summary {
+            display: none;
+        }
+        .btn {
+            display: none;
+            margin: 0 auto;
+            width: 100px;
+            &.no-dealers {
+                display: block;
+                width: 150px;
+            }
+        }
+        .input-group {
+            margin: 0 auto 15px;
+        }
+        .form-zip-search {
+            margin: 0 auto;
+            width: 150px;
+            &.error {
+                .input-group {
+                    border-right: 1px solid red;
+                }
+            }
+        }
+        .error-message {
+            display: none;
+        }
+        .dealers-list {
+            li {
+                display: inline-block;
+                margin-right: 2.86%;
+                vertical-align: top;
+                width: 17%;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            .dealer-title {
+                @include nobel-bold();
+                font-size: 12px;
+                letter-spacing: 0.15em;
+                line-height: 1.4em;
+                margin-bottom: 15px;
+                min-height: 35px;
+            }
+            .dealer-info {
+                @include palatino();
+                color: #939393;
+                font-size: 13px;
+                line-height: 1.4em;
+            }
+            .directions-link {
+                margin-top: 20px;
+            }
+            .directions {
+                @include nobel-bold();
+                color: #000;
+                font-size: 12px;
+                letter-spacing: 0.15em;
+                text-decoration: none;
+                span {
+                    border: 5px solid transparent;
+                    border-left: 5px solid #000000;
+                    display: inline-block;
+                    left: 10px;
+                    height: 0;
+                    position: relative;
+                    width: 0;
+                }
+            }
+        }
+    }
+
+    //Apps Card
+    .card.app {
+        .content-container-inner {
+            background-position: center 0;
+            background-repeat: no-repeat;
+            margin: 0 auto;
+            min-height: 220px;
+            max-width: 960px;
+            padding: 60px 0 50px;
+            position: relative;
+            text-align: left;
+        }
+        .title {
+            @include nobel-book();
+            font-size: 36px;
+            letter-spacing: 0.15em;
+            margin-left: 80px;
+        }
+        hr {
+            border: 0;
+            border-bottom: 1px solid #939393;
+            border-top: 1px solid #939393;
+            display: none;
+            height: 2px;
+            margin-bottom: 25px;
+            width: 90px;
+        }
+        .bottom-content {
+            bottom: 50px;
+            left: 80px;
+            position: absolute;
+        }
+        li {
+            display: inline-block;
+        }
+        .app-list {
+            > li {
+                padding-right: 30px;
+                margin-right: 40px;
+                width: 245px;
+            }
+        }
+        .icon {
+            height: 29px;
+            margin-bottom: 10px;
+            width: 29px;
+        }
+        .app-title {
+            @include nobel-bold();
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            margin-bottom: 15px;
+        }
+        .app-description {
+            @include palatino();
+            color: #939393;
+            font-size: 13px;
+            line-height: 1.4em;
+            margin-bottom: 10px;
+        }
+        .primary {
+            bottom: 55px;
+            position: absolute;
+            right: 95px;
+        }
+        .devices {
+            a {
+                @include nobel-bold();
+                color: #FFF;
+                display: inline-block;
+                font-size: 10px;
+                letter-spacing: 0.15em;
+                margin-right: 25px;
+                text-decoration: none;
+                .arrow {
+                    border: 5px solid transparent;
+                    border-left: 5px solid #FFFFFF;
+                    display: inline-block;
+                    left: 10px;
+                    height: 0;
+                    position: relative;
+                    width: 0;
+                }
+            }
+        }
+    }
+
+    //Gallery "Card" (It's not a card but the styles are similar)
+    .card.gallery {
+        background-color: #FFF;
+        border-top: 1px solid #EEE;
+        color: #000;
+        max-width: 100%;
+        padding: 35px 0 25px;
+        .title {
+            @include nobel-book();
+            font-size: 18px;
+            letter-spacing: 0.15em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .description {
+            @include nobel-book();
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            margin-bottom: 35px;
+            text-align: center;
+            a {
+                @include nobel-bold();
+                color: #000;
+                text-decoration: none;
+            }
+        }
+        .gallery-outer {
+            height: 310px;
+            overflow: hidden;
+            position: relative;
+        }
+        .gallery-inner {
+            height: 350px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        #gallery-list {
+            @include clearfix();
+            max-height: 289px;
+            overflow-y: hidden;
+            width: 20000px; //make width overkill on load, use javascript to trim it exactly.
+        }
+        .gallery-item {
+            float: left;
+            img {
+                height: 285px;
+            }
+        }
+        .arrow {
+            background-color: #ffffff;
+            cursor: pointer;
+            display: block;
+            height: 20px;
+            opacity: 1;
+            padding: 15px;
+            position: absolute;
+            top: 120px;
+            transition: opacity 0.3s;
+            width: 20px;
+            z-index: 99;
+            &.prev {
+                left: 0;
+            }
+            &.next {
+                right: 0;
+            }
+            &.hide {
+                opacity: 0.2;
+            }
+        }
+    }
+
+    //Card
+    .card {
+        background-color: #000;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    //Pagination
+    #pagination {
+        border-top: 1px dotted #000;
+        margin: 0 auto;
+        max-width: 870px;
+        padding: 25px 20px 50px;
+        position: relative;
+        text-align: center;
+        li {
+            display: inline-block;
+            margin-right: 0;
+        }
+        a, span {
+            @include nobel-bold();
+            color: #cecece;
+            font-size: 12px;
+            padding: 0 7px;
+            text-decoration: none;
+        }
+        span {
+            color: #c19237;
+        }
+        .next, .prev {
+            background: #FFF;
+            display: inline-block;
+            height: 12px;
+            position: relative;
+            padding: 0;
+            top: 2px;
+            width: 7px;
+        }
+        .next {
+            margin-left: 10px;
+            &.available {
+                background: transparent sprite($globalSpriteMap,right-arrow-thin-search) no-repeat scroll;
+            }
+        }
+        .prev {
+            margin-right: 10px;
+            &.available {
+                background: transparent sprite($globalSpriteMap,left-arrow-thin-search) no-repeat scroll;
+            }
+        }
+        .feedback {
+            @include nobel-bold();
+            position: absolute;
+            right: 0;
+            top: 25px;
+            a {
+                color: #000;
+                font-size: 10px;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    //No Results
+    #no-results-container {
+        display: none;
+        padding-bottom: 80px; //I don't like this, margin seems to visually add padding to the footer. Need to learn why.
+    }
+    #no-results {
+        background-color: #000;
+        color: #FFF;
+        padding: 60px 0;
+        margin-top: 25px;
+        margin-bottom: 80px;
+        text-align: center;
+        .title, .subtitle {
+            @include nobel-light();
+            letter-spacing: 0.15em;
+            line-height: 1.4em;
+            text-transform: uppercase;
+            span, strong {
+                @include nobel-regular();
+            }
+        }
+        .title {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .subtitle {
+            font-size: 12px;
+            margin-bottom: 30px;
+            a {
+                color: #FFF;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+        hr {
+            border-top: 1px solid #FFF;
+            border-bottom: 1px solid #FFF;
+            border-right: 0;
+            border-left: 0;
+            height: 3px;
+            margin-bottom: 30px;
+            width: 60px;
+        }
+        .supplemental-desc {
+            @include palatino();
+            color: #939393;
+            font-size: 13px;
+            letter-spacing: 0.07em;
+            line-height: 1.4em;
+            margin: 0 auto 40px;
+            width: 475px;
+            strong {
+                color: #FFF;
+                font-weight: bold;
+            }
+        }
+        .btn {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px 35px;
+            background: #000;
+            color: #FFF;
+            font-family: "nobel-bold",Helvetica,Arial,sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 17.5px;
+            letter-spacing: 0.15em;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            max-width: 160px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #FFF;
+            cursor: pointer;
+            line-height: 0;
+            padding: 20px;
+            height: auto;
+            margin: 0 auto;
+            &:hover {
+                background-color: #FFF;
+                color: #000;
+            }
+        }
+    }
+
+    //Top Searches
+    #top-searches {
+        width: 640px;
+        margin: 0 auto;
+        .title {
+            @include nobel-bold();
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+    }
+    #top-searches-list {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        li {
+            border-bottom: 1px dotted #000;
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+        a {
+            color: #000;
+            display: block;
+            padding: 20px 0;
+            position: relative;
+            text-decoration: none;
+        }
+        .index {
+            @include pakt();
+            display: inline-block;
+            font-size: 22px;
+            width: 50px;
+        }
+        .term {
+            @include nobel-book();
+            display: inline-block;
+            font-size: 18px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .decoration {
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 25px;
+            right: 0;
+            border: 7px solid transparent;
+            border-left: 7px solid black;
+        }
+    }
+}
+@media (min-width: 1280px) {
+    #search {
+        .search-summary {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-right: 2%;
+            padding-left: 2%;
+        }
+    }
+}
+@include at-small-and-medium-breakpoints() {
+    #search {
+        .search-summary {
+            margin-bottom: 45px;
+        }
+        //Single Link (FAQ and PDF)
+        .single, .group {
+            &.faq .title, &.pdf .title {
+                margin-top: 30px;
+            }
+            .title {
+                .faq {
+                    left: 0;
+                    top: -30px;
+                }
+                .pdf {
+                    left: 0;
+                    top: -30px;
+                }
+            }
+        }
+        #pagination {
+            width: 85%;
+        }
+    }
+}
+
+@include at-medium-breakpoint() {
+    #search {
+
+        #search-input-summary {
+            display: block;
+            width: 92%;
+        }
+        #search-page-search {
+            padding: 0 8% 5px 2%;
+            width: 90%;
+        }
+        .search-summary {
+            border-top: 0;
+        }
+
+        .result {
+            margin: 0 auto 65px;
+            max-width: 740px;
+            .title, .snippet {
+                max-width: 640px;
+            }
+        }
+
+        //Non-background image cards
+        .card {
+            &.faq, &.dealers, &.contact, &.roadside {
+                max-width: 740px;
+                width: 90%;
+            }
+        }
+
+        //Model Card
+        .card.model {
+            background-position: center top;
+            background-size: contain;
+            .content-container {
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #000 75%), repeat-x scroll 0 bottom;
+            }
+            .content-container-inner {
+                bottom: 30px;
+                padding: 0 5%;
+                position: absolute;
+                width: 90%;
+            }
+            .cta-container {
+                bottom: 0;
+                right: 20px;
+            }
+        }
+
+        //Dealers Card
+        .card.dealers {
+            .dealers-list {
+                li {
+                    margin-bottom: 50px;
+                    margin-right: 4.25%;
+                    text-align: center;
+                    width: 30%;
+                    &:nth-child(3n) {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+
+        //App Card
+        .card.app {
+            .content-container-inner {
+                background-position: right 0;
+            }
+            .primary {
+                bottom: 55px;
+                position: absolute;
+                right: 20px;
+            }
+            .title {
+                margin-left: 20px;
+            }
+            .bottom-content {
+                left: 20px;
+            }
+            .app-list {
+                > li {
+                    padding-right: 0px;
+                    margin-right: 10px;
+                    width: 215px;
+                }
+            }
+        }
+
+        //Contact Card
+        .card.contact { 
+            .topic {
+                display: block;
+                padding: 10px 0;
+            }
+        }
+    }
+}
+
+// Touch
+.touch, .mstouch {
+    #search {
+        .group, .tree  {
+            a {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+        #predictive-container-search {
+            #predictive-terms-search {
+                a {
+                    &:hover, &.focus {
+                        background-color: #FFF;
+                    }
+                }
+            }
+        }
+        .card {
+            &.plain {
+                .btn {
+                    &.primary {
+                        &:hover, &:active {
+                            background-color: #FFF;
+                            color: #000;
+                        }
+                    }
+                    &.secondary {
+                        &:hover, &:active {
+                            background-color: transparent;
+                            color: #FFF;
+                        }
+                    }
+                }
+            }
+            .btn {
+                &.primary {
+                    &:hover, &:active {
+                        background-color: #FFF;
+                        color: #000;
+                    }
+                }
+                &.secondary {
+                    &:hover, &:active {
+                        background-color: transparent;
+                        color: #FFF;
+                    }
+                }
+            }
+            &.contact {
+                .btn {
+                    &.primary {
+                        &:hover, &:active {
+                            background-color: #000;
+                            color: #FFF;
+                        }
+                    }
+                    &.secondary {
+                        &:hover, &:active {
+                            background-color: transparent;
+                            color: #000;
+                        }
+                    }
+                }
+            }
+            &.dealers {
+                .btn {
+                    &.primary {
+                        &:hover, &:active {
+                            background-color: #000;
+                            color: #FFF;
+                        }
+                    }
+                }
+            }
+        }
+        #no-results {
+            .btn:hover, .btn:active {
+                background-color: #000;
+                color: #FFF;
+            }
+        }
+    }
+}
+
+@include at-small-breakpoint() {
+    #search {
+
+        #search-input-summary {
+            width: 100%;
+        }
+        #search-form-search {
+            width: 90%;
+        }
+        #search-page-search {
+            background-position: left 2px;
+            font-size: 18px;
+            padding: 0 14% 10px 1%;
+            width: 85%;
+        }
+        #predictive-container-search {
+            width: 100%;
+            margin: 0 auto;
+            top: 22px;
+            right: 0;
+            left: 0;
+        }
+        #predictive-terms-search-outer {
+            width: 100%;
+        }
+        #close-search-search {
+            top: 4px;
+        }
+        .search-summary {
+            margin-bottom: 40px;
+            padding: 20px 20px 0;
+        }
+        #search .card.model {
+            width: 90%;
+            margin: 0 5% 50px;
+            padding-right: 0;
+            padding-left: 0;
+        }
+        .tree {
+            .snippet {
+                margin-bottom: 15px;
+            }
+        }
+        .group {
+            padding-bottom: 20px;
+        }
+        #pagination {
+            width: 90%;
+            margin-right: 5%;
+            margin-left: 5%;
+            padding-right: 0;
+            padding-left: 0;
+            .feedback {
+                position: static;
+                margin-top: 30px;
+            }
+            li {
+                margin-right: 0;
+            }
+        }
+        #no-results {
+            padding-right: 5%;
+            padding-left: 5%;
+            margin-top: 35px;
+            .supplemental-desc {
+                width: auto;
+            }
+        }
+        #top-searches {
+            width: 90%;
+            padding: 0 5%;
+            .index {
+                width: 20px;
+            }
+        }
+
+
+        //*******************
+        //CARDS
+        //*******************
+
+        //Model Card
+        .card.model {
+            background-position: center top;
+            min-height: 450px;
+            background-size: 130%;
+            text-align: center;
+            .description {
+                max-width: 100%;
+            }
+            .content-container {
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 35%, #000 45%), repeat-x scroll 0 bottom;
+            }
+            .content-container-inner {
+                bottom: 15px;
+                padding: 0 5%;
+                position: absolute;
+                width: 90%;
+            }
+            .cta-container {
+                position: static;
+                margin-top: 35px;
+                .btn {
+                    margin-top: 5px;
+                }
+                .disclaimer {
+                    max-width: 100%;
+                    text-align: center;
+                }
+            }
+            .disclaimer {
+                text-align: center;
+            }
+        }
+
+        //FAQ Card
+        .card.faq {
+            .faq-item {
+                &:nth-child(2) {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        //Roadside Card
+        .card.roadside {
+            .app, .app-icon {
+                display: block;
+                text-align: center;
+            }
+            .app-icon {
+                margin: 0 auto 20px;
+            }
+            .app {
+                border-left: 0;
+            }
+        }
+
+        //Dealers Card
+        .card.dealers {
+            .dealers-list {
+                display: none;
+            }
+            .mobile-summary, .btn {
+                display: block;
+            }
+        }
+
+        //App Card
+        .card.app {
+            text-align: center;
+            .content-container-inner {
+                background-image: none !important;
+                padding: 30px 0;
+                text-align: center;
+            }
+            .primary {
+                position: static;
+            }
+            .title {
+                font-size: 20px;
+                margin-bottom: 20px;
+                margin-left: 0;
+            }
+            hr {
+                display: block;
+            }
+            .bottom-content {
+                position: static;
+            }
+            .app-list {
+                > li {
+                    padding-right: 0;
+                    margin-bottom: 30px;
+                    margin-right: 0;
+                    width: 70%;
+                    &:last-child {
+                        margin-bottom: 45px;
+                    }
+                }
+            }
+            .devices {
+                a {
+                    margin-right: 5px;
+                    width: 110px;
+                }
+            }
+            .primary {
+                margin-left: 0;
+                width: 40%;
+            }
+        }
+
+        //Gallery "Card" (It's not a card but the styles are similar)
+        .card.gallery {
+            .arrow {
+                display: none;
+            }
+
+            .gallery-outer {
+                height: 210px;
+            }
+            .gallery-inner {
+                height: 230px;
+            }
+            .gallery-item {
+                img {
+                    height: 190px;
+                }
+            }
+        }
+    }
+}
+
+//
+@media (min-width: 400px) and (max-width: 640px) {
+    #search {
+        //Model Card
+        .card.model {
+            .content-container {
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, #000 60%), repeat-x scroll 0 bottom;
+            }
+        }
+    }
+}
+
+.touch, .mstouch {
+    #search {
+        #search-input-summary {
+            display: block;
+            width: 92%;
+            input {
+                border-radius: 0;
+            }
+        }
+        .search-summary {
+            border-top: 0;
+        }
+    }
+}

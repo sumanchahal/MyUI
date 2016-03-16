@@ -1,0 +1,60 @@
+@import "library";
+@import "model";
+@import "features-nav";
+@import "modules/share";
+
+
+//Features variables
+//$content-width: 77.8125%;
+$content-width: 100%;
+
+.feature-page-content{
+    width: 100%;
+    max-width: $large-max;
+    margin: 0px auto;
+
+}
+
+@include at-max-width-breakpoint(1790px){
+    .feature-page-content{
+        margin-left: 18.5%;
+        width: 78%;
+    }
+    .optional-disclaimers-container {
+        margin-left: 18.5%;
+        width: 78%;
+    }
+}
+
+
+@include at-max-width-breakpoint(1230px){
+    .feature-page-content{
+        margin-left: 23%;
+        width: 73%;
+    }
+    .optional-disclaimers-container {
+        margin-left: 23%;
+        width: 73%;
+    }
+}
+
+@include at-small-breakpoint() {
+    .feature-page-content{
+        margin-left: 0;
+        width: 100%;
+        padding: 0px $gutter-width 0px 0px;
+    }
+    .optional-disclaimers-container {
+        margin-left: 0;
+        width: 100%;
+    }
+
+}
+
+@include at-medium-breakpoint() {
+    .has-overlay{
+        .enlarge-img{
+            opacity: 1 !important;
+        }
+    }
+}

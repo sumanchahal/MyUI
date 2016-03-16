@@ -1,0 +1,175 @@
+{
+    "searchedTerm": "preowned",
+    "quantityResults": 231,
+    "searchInstead": [
+        "used"
+    ],
+    "results": [
+        {
+            "title": "Certified Pre-owned Inventory Search",
+            "url": "http://www.lexus.com/cpo/",
+            "snippet": "There are new vehicles. There are used vehicles. And then there are those in a category all their own: Lexus Certified Pre-Owned. Explore below to see why not just any pre-owned Lexus can earn this title.",
+            "type": "tree",
+            "filetype": "html",
+            "children": [
+                {
+                    "title": "What is Certified Pre-Owned?",
+                    "url": "http://www.lexus.com/cpo/overview/index.html"
+                },
+                {
+                    "title": "Previous Year Model Library",
+                    "url": "http://www.lexus.com/cpo/model_library/index.html"
+                },
+                {
+                    "title": "CPO Warranty",
+                    "url": "http://www.lexus.com/cpo/overview/warranty.html"
+                },
+                {
+                    "title": "Stellar CPO Coverage",
+                    "url": "http://www.lexus.com/cpo/overview/stellar_coverage.html"
+                }
+            ]
+        },
+        {
+            "title": "Lexus Certified Pre-Owned Vehicles: What is a Certified Pre Owned Car?",
+            "url": "http://www.lexus.com/cpo/overview/index.html",
+            "snippet": "Find out more about Lexus Certified Pre-Owned Vehicles.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Your Privacy Rights",
+            "url": "http://www.lexus.com/privacy/",
+            "snippet": "Lexus Privacy Rights and Online Privacy Statement",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Legal Terms",
+            "url": "http://www.lexus.com/privacy/legal_terms.html",
+            "snippet": "Legal Terms.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus Certified Pre-Owned",
+            "url": "http://www.lexus.com/cpo/",
+            "snippet": "To find your Certified Pre-Owned Lexus just enter the information in the Certified Pre-Owned search. ",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus Certified Pre-Owned",
+            "url": "http://www.lexus.com/cpo/index.html",
+            "snippet": "To find your Certified Pre-Owned Lexus just enter the information in the Certified Pre-Owned search. ",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus Certified Pre-Owned |",
+            "url": "http://www.lexus.com/cpo/model_library/index.html",
+            "snippet": "Use these resources to familiarize yourself with Lexus models from previous years like the LS 460 L, LS 460, LS 430, GS 450h, GS 430, GS 350, GS 300, ES 350, ES 330, ES 300, IS 350, IS 300 5-Speed, IS 300 E-Shift, IS 300 SportCross, IS 250, SC 430, LX 470, GX 470, RX 400h, RX 350, RX 330 and RX 300.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - Luxury Sedans, SUVs, Hybrids, and Performance Cars",
+            "url": "http://www.lexus.com/",
+            "snippet": "Welcome to Lexus' official site. Explore the line of Lexus luxury sedans, SUVs, hybrids, convertibles and accessories, or find a Lexus dealer near you.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Compare Your Lexus",
+            "url": "http://www.lexus.com/compare/series/IS",
+            "snippet": "Don't know which Lexus vehicle is right for you? Use our comparison grid to see the differences and similarities between our luxury vehicles. Learn more.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Compare Your Lexus",
+            "url": "http://www.lexus.com/compare/series/CT-hybrid",
+            "snippet": "Don't know which Lexus vehicle is right for you? Use our comparison grid to see the differences and similarities between our luxury vehicles. Learn more.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Compare Your Lexus",
+            "url": "http://www.lexus.com/compare/series/ES",
+            "snippet": "Don't know which Lexus vehicle is right for you? Use our comparison grid to see the differences and similarities between our luxury vehicles. Learn more.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }
+    ],
+    "cards": [
+        {
+            "type": "dealers",
+            "position": 2,
+            "title": "Nearby Dealers",
+            "count": 5,
+            "zip": 90210,
+            "dealerships": [
+                {
+                    "name": "Jim Faulk Lexus of Beverly Hills",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                },
+                {
+                    "name": "Lexus of Glendale",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                },
+                {
+                    "name": "Lexus of Santa Monica",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                },
+                {
+                    "name": "Lexus of Santa Monica",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                },
+                {
+                    "name": "Lexus of Santa Monica",
+                    "directions": "http://www.bing.com",
+                    "address1": "9230 E Wilshire Blvd",
+                    "address2": "",
+                    "City": "Beverly Hills",
+                    "state": "CA",
+                    "zip": "90212",
+                    "phone": "(310) 274-5200"
+                }
+            ]
+        }
+    ]
+}

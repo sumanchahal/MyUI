@@ -1,0 +1,211 @@
+@import "../library";
+@import "compass/utilities/sprites";
+
+#browser-not-supported {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+
+    .browser-not-supported-wrapper, {
+        position: relative;
+        z-index: 2;
+
+        margin-top: 100px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 960px;
+
+        background: black;
+        border: 10px solid $color-black;
+
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-indent: -9999px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .browser-not-supported-inner {
+        background: black;
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+    .browser-not-supported-content {
+        vertical-align: middle;
+        margin: 0px auto;
+        padding: 150px 100px 200px 100px;
+        text-align: center;
+    }
+    .browser-not-supported-divider {
+        width:22%;
+        height: 2px;
+        border: none;
+        color: white;
+        background-color: white;
+        margin-bottom: 40px;
+        margin-top: 45px;
+    }
+    h1 {
+        @include nobel-book;
+        // @include font-size(22,25,200);
+        margin: 0 2% 2%;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 17.5px;
+        letter-spacing: 0.15em;
+        color: white;
+    }
+    p {
+        // @include body-copy;
+        @include nobel-book;
+        font-size: 13px;
+        line-height: 27px;
+        letter-spacing: 0.15em;
+        color: grey;
+        margin: 0 auto 2%;
+        width: 90%;
+        a {
+            color: inherit;
+        }
+    }
+    .browser-links {
+        width: 100%;
+        max-width: 257px;
+        margin: 0 auto;
+        height: 70px;
+        display: table;
+        .link-wrapper {
+            @include nobel-book;
+            text-align: center;
+            width: 50%;
+            display: table-cell;
+            height: 70px;
+            font-size: 15px;
+            letter-spacing: 0.13em;
+            line-height: 1.5em;
+            vertical-align: middle;
+            a {
+                color: white;
+            }
+            &.right {
+                border-left: 1px solid white;
+            }
+            .left-link {
+                padding-top: 10px;
+                padding-right: 50px;
+            }
+            .right-link {
+                padding-top: 7px;
+                padding-left: 50px
+            }
+        }
+    }
+    ul {
+        display: table;
+        margin: 0 auto;
+        .browser {
+            display: inline-block;
+            padding: 0;
+            width: 165px;
+            margin-bottom: 20px;
+            a {
+                display: inline-block;
+                margin: 0 0 20px 0;
+            }
+        }
+    }
+    // .chrome {
+    //     background: sprite($globalSpriteMap, browser-support-chrome) no-repeat;
+    //     @include sprite-dimensions($globalSpriteMap, browser-support-chrome);
+    // }
+    // .firefox {
+    //     background: sprite($globalSpriteMap, browser-support-FF) no-repeat;
+    //     @include sprite-dimensions($globalSpriteMap, browser-support-FF);
+    // }
+    .ie {
+        background: sprite($globalSpriteMap, browser-support-ie) no-repeat;
+        @include sprite-dimensions($globalSpriteMap, browser-support-ie);
+    }
+    .safari {
+        background: sprite($globalSpriteMap, browser-support-safari) no-repeat;
+        @include sprite-dimensions($globalSpriteMap, browser-support-safari);
+    }
+    dl {
+        @include font-size(11,18,180);
+        text-align: center;
+    }
+    dt {
+        @include nobel-book;
+    }
+    dd {
+        @include nobel-bold;
+    }
+}
+
+.browser-not-supported-background {
+    z-index: 1;
+    background: $color-black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+
+/* Small */
+@include at-small-breakpoint() {
+    #browser-not-supported {
+
+        .browser-not-supported-wrapper {
+            border: none;
+            top: 40px;
+        }
+
+        .browser-not-supported-inner {
+            display: block;
+            padding: 0 3%;
+            width: 94%;
+        }
+        h1 {
+            @include font-size(12,14,auto);
+            margin: 0 0 15px 0;
+        }
+        p {
+            @include font-size(10,auto,auto);
+            margin: 0 auto 15px;
+            width: 90%;
+        }
+        ul {
+            li {
+                display: block;
+                padding: 0 10px 10px;
+            }
+            .browser {
+                a {
+                    margin: 0;
+                }
+            }
+        }
+        dl {
+            @include font-size(9,auto,auto);
+        }
+    }
+}

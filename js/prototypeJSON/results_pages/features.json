@@ -1,0 +1,115 @@
+{
+    "searchedTerm": "IS navigation",
+    "quantityResults": 126,
+    "searchInstead": [
+        "navigation"
+    ],
+    "results": [
+        {
+            "title": "IS 2015 Navigation System Package",
+            "url": "http://www.lexus.com/models/IS/packages#navigation-system-package",
+            "snippet": "High-resolution multimedia display, Lexus Enform App Suite, Enhanced Bluetooth® technology, backup camera and more.",
+            "type": "group",
+            "filetype": "html",
+            "children": [
+                {
+                    "title": "ES 2015 Navigation/Premium Audio Package",
+                    "url": "http://www.lexus.com/models/ES/packages#navigationpremium-audio-package"
+                },
+                {
+                    "title": "GS 2014 Navigation System",
+                    "url": "http://www.lexus.com/models/GS/packages#navigation-system"
+                },
+                {
+                    "title": "LS 2014 Navigation System",
+                    "url": "http://www.lexus.com/models/LS/technology"
+                },
+                {
+                    "title": "RX 2015 Rear-seat Entertainment and Navigation Package",
+                    "url": "http://www.lexus.com/models/RX/packages#rear-seat-entertainment-and-navigation-package"
+                }
+            ]
+        },
+        {
+            "title": "Lexus - Knowledge Center - Navigation",
+            "url": "http://www.lexus.com/contact/navigation.html",
+            "snippet": "Find answers to frequently asked navigation questions.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        },
+        {
+            "title": "Lexus IS C, Lexus IS C F SPORT | 2015 | Options & Packages | Lexus.com",
+            "url": "http://www.lexus.com/models/ISC/packages",
+            "snippet": "Packages and individual options for the 2015 Lexus IS Convertible and Lexus IS C F SPORT include the Navigation System Package, Mark Levinson Premium Audio System and more. ",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus GS, Lexus GS F SPORT, | 2015 | Options & Packages | lexus.com",
+            "url": "http://www.lexus.com/models/GS-hybrid/packages",
+            "snippet": "PACKAGEs and individual options for the 2015 Lexus GS, Lexus GS F SPORT and Lexus GS 450h include the F SPORT PACKAGE, LUXURY PACKAGE, PREMIUM PACKAGE, NAVIGATION, COLD WEATHER PACKAGE and more. ",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus GS, Lexus GS F SPORT, | 2015 | Options & Packages | lexus.com",
+            "url": "http://www.lexus.com/models/GS/packages",
+            "snippet": "PACKAGEs and individual options for the 2015 Lexus GS, Lexus GS F SPORT and Lexus GS 450h include the F SPORT PACKAGE, LUXURY PACKAGE, PREMIUM PACKAGE, NAVIGATION, COLD WEATHER PACKAGE and more. ",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus - Luxury Sedans, SUVs, Hybrids, and Performance Cars",
+            "url": "http://www.lexus.com/",
+            "snippet": "Welcome to Lexus' official site. Explore the line of Lexus luxury sedans, SUVs, hybrids, convertibles and accessories, or find a Lexus dealer near you.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus RC F - Individual Options and Packages | Lexus.com",
+            "url": "http://www.lexus.com/models/RCF/packages",
+            "snippet": "Explore Lexus RC F with packages and individual options available such as Pre-Collision System, Intuitive Parking Assist, Navigation System, and more.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus RX - Individual Options and Packages | Lexus.com",
+            "url": "http://www.lexus.com/models/RX-hybrid/packages",
+            "snippet": "Customize your Lexus RX. Packages and individual options include the Backup Camera Package, Navigation System Package, or Rear-Seat Entertainment Package.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus RX - Individual Options and Packages | Lexus.com",
+            "url": "http://www.lexus.com/models/RX/packages",
+            "snippet": "Customize your Lexus RX. Packages and individual options include the Backup Camera Package, Navigation System Package, or Rear-Seat Entertainment Package.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus CT 200h Hybrid, Lexus CT F SPORT - Features | Lexus.com",
+            "url": "http://www.lexus.com/models/CT-hybrid/features",
+            "snippet": "Your 2015 Lexus CT Hybrid and CT F SPORT features can include an Ultra Luxury Package, Advanced Navigation, Hands-Free Technology, and more.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus GS 350, Lexus GS 350 F SPORT - Features | Lexus.com",
+            "url": "http://www.lexus.com/models/GS-hybrid/features",
+            "snippet": "Your 2014 Lexus GS features can include F SPORT performance and styling, advanced navigation, track-tuned chassis, and of course, world-class luxury.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }
+    ],
+    "cards": []
+}

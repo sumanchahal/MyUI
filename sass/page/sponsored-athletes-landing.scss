@@ -1,0 +1,60 @@
+@import "typography";
+@import "../modules/module-base";
+@import "sponsored-athletes-base";
+
+.hero {
+    margin-bottom: 20px;
+}
+
+.sponsored-athletes-content {
+    text-align: center;
+    .m2-text-tile:not(.media-sub-tile) {
+        p {
+            max-width: 750px;
+            margin: 0 auto;
+            padding-bottom: 3.0rem;
+        }
+        h3 {
+            padding-bottom: 10px;
+        }
+    }
+}
+
+.grid-row {
+    .grid-item {
+        padding-bottom: 30px;
+        .media-image {
+            padding-top: 100%;
+
+            .media-tile-image {
+                margin-top: -100%;
+            }
+
+            .m2-text-tile {
+                top: auto;
+                bottom: 15px;
+                right: 0;
+                left: 0;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+.grid-item {
+    .m2-text-tile.media-sub-tile {
+        h3 {
+            font-size: 11px;
+        }
+    }
+}
+
+@include sm-up() {
+    .grid-item {
+        .m2-text-tile.media-sub-tile {
+            h3 {
+                font-size: 15px;
+            }
+        }
+    }    
+}

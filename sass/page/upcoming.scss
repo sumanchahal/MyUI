@@ -1,0 +1,32 @@
+@import "library";
+@import "modules/form";
+@import "modules/lead-forms";
+
+//LIM 496 change
+@import "modules/sumoselect";
+
+#wrapper {
+    background: #FFF;
+    padding: 0;
+}
+
+.page-wrap {
+    border-top: 1px solid #efefef;
+}
+.wrapper {
+    @include grid-container;
+    margin:0 auto 50px auto;
+}
+
+footer {
+    display: none;
+}
+
+@media screen {
+    @include at-small-breakpoint() {
+
+        .lead-form-header {
+            display: none;
+        }
+    }
+}

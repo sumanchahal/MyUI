@@ -1,0 +1,569 @@
+@import "library";
+@import "modules/carousel";
+
+$grey-accent: #efefef;
+
+/* styles component */
+
+#styles-heading {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#styles-container{
+    @include container;
+    max-width: $large-max;
+    position: relative;
+    margin-bottom: 40px;
+    .image-wrapper{
+        //        overflow: hidden;
+    }
+    .image-place-holder{
+        position: relative;
+        display: block;
+        height: 0px;
+        padding-bottom: 46%;
+        overflow: hidden;
+        background-color: black;
+
+        .place-holder-img{
+            width: 100%;
+            visibility: hidden;
+        }
+    }
+    .image-container{
+        @include grid-column(12);
+        @include omega;
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        display: block;
+        float: none;
+        overflow: hidden;
+        opacity: 0;
+        color: #fff;
+        &.selected{
+            display: block;
+        }
+        .image{
+            width: 100%;
+            overflow: hidden;
+            .gradient{
+                background: url(/assets/img/overview/styles-hero-gradient-dark.png) repeat-x bottom left;
+                width: 100%;
+                height: 322px;
+                position: absolute;
+                z-index: 1;
+                bottom: 0px;
+                .disclaimer{
+                    position: absolute;
+                    right: 5px;
+                    bottom: 5px;
+                    @include palatino;
+                    @include font-size(10,10);
+                    color: #ccc;
+
+                }
+            }
+            img{
+                width: 100%;
+                position: relative;
+                bottom: 0px;
+            }
+        }
+
+        .description{
+            //@include animationFix;  This was causing border issues on iPad LRT-8136
+            transition: translate3d(0,0,0);
+            -moz-transition: translate3d(0,0,0);
+            -ms-transition: translate3d(0,0,0);
+            -webkit-transition: translate3d(0,0,0);
+            @include calculated-grid-column(6, 1);
+            margin-right: 0px;
+            padding-left: 7.2172%;
+            position: absolute;
+            bottom: 71px;
+            z-index: 1;
+            @include box-sizing(border-box);
+            text-align: left;
+            .label {
+                @include nobel-book;
+                @include font-size(10, auto, 230);
+                margin-top: 13px;
+                margin-bottom: 7px;
+            }
+            h3{
+                @include nobel-regular;
+                @include font-size(15, 31, 200);
+                margin-bottom: -2px;
+                color: #fff;
+                &.trimName {
+                    @include trim-name;
+                }
+                &.msrp{
+                    @include font-size(12, 31, 200);
+                    margin-bottom: .25rem;
+                    .label{
+                        padding-right: 5px;
+                    }
+                }
+            }
+            p{
+                @include palatino;
+                @include font-size(13, 18, 60);
+                padding-right: $gutter-width;
+            }
+            div.shownPrice {
+                margin-bottom: 1rem;
+                @include nobel-regular;
+                font-weight: 100;
+                letter-spacing: 2px;
+                font-size: 8px;
+
+                .shownPrice-copy {
+                  font-size: 9px;
+                }
+            }
+
+
+        }
+        .stats{
+            //@include animationFix;  This was causing border issues on iPad LRT-8136
+            transition: translate3d(0,0,0);
+            -moz-transition: translate3d(0,0,0);
+            -ms-transition: translate3d(0,0,0);
+            -webkit-transition: translate3d(0,0,0);
+            z-index: 1;
+            position: absolute;
+            bottom: 71px;
+            right: 0px;
+            @include grid-column(5);
+            @include omega;
+            .stat{
+                width: 33.333%;
+                float: left;
+                position: relative;
+                .value{
+                    @include pakt;
+                    @include font-size(65, auto, 25);
+                    padding: 0px 12%;
+                    text-align: center;
+                }
+                .label{
+                    @include nobel-book;
+                    @include font-size(10, auto, 230);
+                    margin-top: 16px;
+                    padding: 0px 12%;
+                    text-align: center;
+                }
+                .divide{
+                    position: absolute;
+                    top: 0px;
+                    right: -9px;
+                    background-image: url(/assets/img/overview/divide-light.png);
+                    background-repeat: no-repeat;
+                    background-position: 100% 7px;
+                    width: 15px;
+                    height: 54px;
+                }
+            }
+        }
+
+    }
+    .trim-options{
+        width: 100%;
+        z-index: 11;
+        position: relative;
+        overflow: hidden;
+        @include clearfix;
+        .cars-container{
+            @include clearfix;
+            text-align: center;
+            background-color: #fff;
+            .styles-carousel{
+                overflow: visible !important;
+            }
+            &.single{
+              display: none;
+            }
+        }
+        .style{
+            display: table-cell;
+            height: 100%;
+            vertical-align: top;
+        }
+        .image-container{
+            display: none;
+        }
+        .product{
+            //@include animationFix; This was causing border issues on iPad LRT-8136
+            transition: all .3s ease-in-out;
+            background: #fff;
+            width: 100%;
+            float: left;
+            padding: 0px 0% 1.5% 0%;
+            @include box-sizing(border-box);
+            position: relative;
+            top: 0px;
+            z-index: 10;
+            transition: translate3d(0,0,0);
+            -moz-transition: translate3d(0,0,0);
+            -ms-transition: translate3d(0,0,0);
+            -webkit-transition: translate3d(0,0,0);
+            &:hover {
+                background-color: $grey-accent;
+                transition: all .3s ease-in-out;
+            }
+            .product-image{
+                padding-top: 10px;
+                max-width: 196px;
+                margin: 0px auto;
+                img{
+                    display: none;
+                    width: 100%;
+                    display: block;
+                    margin: 0px auto;
+                }
+            }
+            .details{
+                padding-top: 20px;
+                text-align: center;
+                color: #000;
+                .name{
+                    margin-bottom: 12px;
+                    @include nobel-bold;
+                    @include font-size(16, auto, 110);
+                    @include trim-name;
+                }
+                .offers{
+                    margin-top: 12px;
+                    @include nobel-book;
+                    @include font-size(11);
+                    padding-bottom: 14px;
+                    background: url(/assets/img/overview/styles-trim-footer.gif) no-repeat center bottom;
+                }
+            }
+            .top-arrow,
+            .bottom-arrow{
+                width: 100%;
+                height: 12px;
+                background: #fff;
+                z-index: 10;
+            }
+            .bottom-arrow{
+                display: none;
+            }
+            &.selected{
+                &:hover {
+                    background-color: $color-white;
+                }
+                .top-arrow{
+                    /*background: #FFF url(/assets/img/overview/styles-selected-arrow.png) no-repeat center 0px;*/
+                }
+            }
+            &:hover{
+                cursor: pointer;
+            }
+        }
+      &.single-outer {
+        border: 0;
+      }
+    }
+    .buttons-wrapper{
+        text-align: center;
+        .explore-features-btn{
+            margin-top: 40px;
+            @include btn;
+            display: inline-block;
+            margin-right: 2%;
+            &:hover{
+                background: #fff;
+                color: #000;
+                border-color: #000;
+            }
+        }
+        .compare-btn{
+            margin-top: 40px;
+            @include btn-lgt-stroke;
+            display: inline-block;
+            &:hover{
+                background: #000;
+                color: #fff;
+            }
+        }
+    }
+    ul.trims li {
+        @include pakt;
+        @include font-size(22,auto,100);
+        display: table-cell;
+        text-align: center;
+        sup {
+            @include font-size(12,auto,100);
+            position: relative;
+            top: 0px;
+        }
+
+        .price {
+            display: inline-block;
+        }
+        &.divider {
+            background-image: $divider;
+            background-repeat: no-repeat;
+            background-position: 50% 0;
+            padding-right: 10px;
+            width: 20px;
+        }
+        .msrp {
+            @include pakt;
+            @include font-size(19,25,150);
+            color: $color-grey-60;
+            margin: 0 0 0 5px;
+        }
+        .sub-title {
+            @include nobel-bold;
+            @include font-size(10,auto,238);
+            display: inline-block;
+            margin-left: 5px;
+            @include trim-name;
+        }
+        .dollar-sign {
+            font-size: 55%;
+            line-height: 100%;
+            vertical-align: super;
+        }
+    }
+    
+    .favorite-wrapper{
+        width: 100;
+        margin: 0;
+        padding: 15px 0 0 0;
+        @include nobel-bold;
+        @include font-size(12, auto, 150);
+        text-align: center;
+        color: #000;
+        margin: 17px 0 0;
+        #style-favorite {
+            cursor: pointer;
+            padding: 1px 0 1px 0;
+            margin: 0 0 0 10px;
+            &:empty {
+                border-left: 0;
+            }
+            span {
+                padding-left: 30px;
+                padding-top: 1px;
+            }
+            span[data-action=addLFRFavorite] {
+                background: transparent url(/assets/img/global/svg/star/gold.svg) no-repeat scroll 9% 35%;
+                color: $color-gold;
+            }
+    }
+        > span {
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+    }
+}
+
+.touch, .mstouch {
+    #styles-container {
+        .trim-options {
+            .product {
+                &:hover {
+                    background-color: $color-white;
+                }
+            }
+        }
+        .buttons-wrapper{
+          .explore-features-btn {
+            &:hover{
+              background: #000;
+              color: #fff;
+            }
+          }
+          .compare-btn{
+            &:hover{
+              background: #fff;
+              color: #000;
+            }
+          }
+        }
+    }
+}
+.trims-container, .cars-container {
+  #pointer {
+    display: block;
+  }
+}
+
+@include at-max-width-breakpoint(400px){
+    #styles-container{
+        .buttons-wrapper {
+            .explore-features-btn,
+            .compare-btn{
+                width: 100%;
+                margin: 10px auto;
+            }
+        }
+    }
+}
+
+// Add additional breakpoint for small end of medium.
+@include at-breakpoint( 1 $small-max 695px){
+    #styles-container .image-container {
+        .stats, .description{
+            bottom: 36px;
+        }
+    }
+    .trims-container, .cars-container {
+      .trim-divider {
+        border-top: 1px dotted;
+        margin: 50px 50px;
+      }
+      .compare-link {
+        font-family: "nobel-regular", Helvetica, Arial, sans-serif;
+        text-align:center;
+        margin-bottom: 5px;
+        display: block;
+        a {
+          text-transform: uppercase;
+          color: black;
+          font-size: 14px;
+          font-weight: lighter;
+          letter-spacing: .07em;
+        }
+      }
+      #pointer {
+        display: none;
+      }
+    }
+}
+
+.adding-dummy-css{
+	display : block;
+}
+
+#next-arrow {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  bottom: 50px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 1);
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0.3;
+}
+#next-arrow-label {
+  position: absolute;
+  right: 60px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffff;
+  width: 200px;
+  height: 14px;
+  text-align: right;
+  font-family: "nobel-regular", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -mozilla-text-stroke: 0px;
+}
+
+#next-inner-arrow {
+  pointer-events: none;
+  position: absolute;
+  width: 13px;
+  height: 60px;
+  background: url(/assets/img/global/arrows-sprite.gif) no-repeat 0px center;
+  background-position: -13px center;
+  top: 0px;
+  bottom: 0px;
+  right: 20px;
+  margin: auto;
+}
+
+
+#prev-arrow {
+
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 50px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 1);
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0.3;
+}
+#prev-arrow-label {
+  position: absolute;
+  left: 60px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  width: 200px;
+  height: 14px;
+  color: #ffffff;
+  font-family: "nobel-regular", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -mozilla-text-stroke: 0px;
+}
+
+#prev-inner-arrow {
+  pointer-events: none;
+  position: absolute;
+  width: 13px;
+  height: 60px;
+  background: url(/assets/img/global/arrows-sprite.gif) no-repeat 0px center;
+  /*background: url(/assets/img/overlay/arrows-sprite.gif) no-repeat 0px center;*/
+  top: 0px;
+  left: 20px;
+  margin: auto;
+}
+.trims-container {
+    display: table;
+    position: relative;
+    // .compare-link {
+    //   display:none;
+    // }
+}
+#style-counter {
+  position: absolute;
+  left: 7.2172%;
+  text-transform: uppercase;
+  bottom: 20px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #ffffff;
+  z-index: 10;
+  font-family: "nobel-regular", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -mozilla-text-stroke: 0px;
+}
+#pointer {
+  position: absolute;
+  width: 11px;
+  height: 30px;
+  top: -1px;
+  left: 150px;
+  z-index:10;
+}
+
+
+

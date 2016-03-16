@@ -1,0 +1,268 @@
+@import "../../base";
+@import "nav";
+
+/* Adding a max width for share overlays on entire pages */
+.share-overlay .share-content-wrapper .share-content {
+	max-width: 475px;
+}
+
+ul {
+  -webkit-padding-start: 0px;
+}
+em, i {
+  font-style: italic;
+}
+h2 {
+  text-transform: none;
+}
+.hero {
+  @include black-on-white();
+  @include clearfix();
+  padding: 0;
+  position: relative;
+  margin: 0 auto;
+  text-align:center;
+  &.inverted {
+    @include white-on-black();
+  }
+  .title {
+    @include nobel-bold;
+    @include font-size(22, 22, 150);
+    margin:45px auto 10px;
+  }
+
+  .description,.hero-bg-img + .description {
+    //@include font-size(18,24,0);
+    @include body-copy();
+    text-transform: none;
+    max-width:996px;
+    margin:0 auto;
+  }
+
+  hr {
+    height: 1px;
+    border: none;
+    width: 105px;
+    background: $color-grey-00;
+    color:$color-grey-00;
+    margin: 30px auto;
+    display: block;
+  }
+
+  &.full {
+    padding: 0;
+    position: relative;
+    z-index: 0;
+    max-width: initial;
+    .hero-bg-img {
+      width: 100%;
+    }
+  }
+
+  .hero-bg-img {
+    height: 0;
+    padding-bottom: 28.6%;
+    margin-bottom: 45px;
+    .title {
+      @include nobel-bold;
+      @include font-size(22,24,150);
+      @include no-select();
+      color: $color-black;
+      position: absolute;
+      top:0;
+      text-align: center;
+      padding: 0 3%;
+      width: 96%;
+      word-spacing:1px;
+      &.inverted {
+        color: $color-white;
+      }
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .hero-img {
+    position: absolute;
+    @include grid-column(10);
+    bottom: 0;
+    left: $gutter-width;
+    z-index: 100;
+    img {
+      max-width: 749px;
+      display: none;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}
+
+body {
+  .content {
+    @include container;
+    max-width:996px;
+    margin-bottom:30px;
+    h2 {
+      @include sub-heading();
+      margin-bottom: 30px;
+    }
+    p {
+      @include body-copy();
+      //letter-spacing: .75px;
+    }
+    h1 {
+      @include heading();
+    }
+  }
+}
+section.container {
+  @include container;
+  position:relative;
+  .row {
+    margin:60px 0 50px;
+    &:first-child {
+      margin-top:0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:before, &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      @include clearfix;
+    }
+  }
+}
+
+.buttons-wrapper{
+  text-align: center;
+  .btn {
+    margin-top: 40px;
+    @include btn;
+    &:hover {
+      @include black-on-white;
+      border-color:$color-grey-00;
+    }
+  }
+}
+
+
+
+.desktop {
+  display:block!important;
+}
+.mobile {
+  display:none!important;
+}
+
+@include at-max-width-breakpoint($large-near-med - 20) {
+  // max-width 1050px
+  .hero {
+    .description {
+      @include container;
+    }
+  }
+}
+
+@include at-small-and-medium-breakpoints() {
+  // max-width 959px
+  .hero {
+    padding: 0;
+    &.full {
+      padding: 0;
+    }
+    .hero-bg-img {
+      .title {
+        width:100%;
+        padding:0;
+      }
+    }
+  }
+  .badge {
+    h1 {
+      font-size: 10px;
+      span.border {
+        font-size: 40px;
+      }
+    }
+  }
+  .desktop {
+    display:none!important;
+  }
+  .mobile {
+    display:block!important;
+  }
+}
+
+
+@include at-small-breakpoint() {
+  // max-width 640
+  body {
+    .content {
+      h2 {
+        @include nobel-bold();
+        @include font-size(14, 24, 100);
+      }
+      p {
+        @include body-copy();
+      }
+    }
+    sup {
+      font-size:10px;
+      position:relative;
+      vertical-align: baseline;
+      bottom:6px;
+    }
+    sup.disclaimer-counters {
+      vertical-align: baseline;
+    }
+  }
+  .hero {
+    overflow:hidden;
+    padding: 0;
+    .title {
+      @include container;
+      @include nobel-book();
+      @include font-size(17,50,100);
+      margin:25px auto 10px;
+    }
+    .description,.hero-bg-img + .description {
+      @include container;
+      @include body-copy();
+      text-align:left;
+    }
+    hr {
+      background:none;
+      width:87.5vw;
+      border-bottom:1px dotted $color-grey-00;
+      margin:16px auto 0;
+    }
+    .hero-bg-img {
+      width:100vw;
+      height:0;
+      padding-bottom: 54%;
+      margin-bottom:0;
+      img {
+        height:auto;
+        width:100%;
+      }
+    }
+  }
+
+}
+
+.optional-disclaimers-container {
+  border-top: none;
+}
+
+#zip-wrapper {
+  opacity: 0;
+  &.active {
+    opacity: 1;
+  }
+}

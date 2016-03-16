@@ -1,0 +1,261 @@
+@import "grid";
+@import "../mixins";
+@import "typography";
+
+$thumb-height-sm: 65px;
+$slider-height-sm: 130px;
+
+$thumb-height-lg: 100px;
+$slider-height-lg: 165px;
+
+
+.no-touch.no-mstouch {
+    .thumb-slider {
+        // animation delay is only for non youch devices when open is triggered on hover.
+        &.show {
+            .thumb-slider-inner-cont {
+                @include transition-delay(0.1s);
+                .slide-strip {
+                    @include transition-delay(0.2s);
+                }
+            }
+        }
+
+        .thumb-slider-item:hover:after {
+            bottom: 0;
+        }
+    }
+}
+
+
+.thumb-slider {
+    position: relative;
+    width: calc(100% + 1px);
+    height: $slider-height-sm;
+    margin-top: 0 - $slider-height-sm;
+    overflow: hidden;
+
+
+    .m2-text-tile {
+        padding: 0px 8px;
+        h3 {
+            @include nobel-regular;
+            font-size: 10px;
+            text-align: center;
+        }
+    }
+
+    .thumb-slider-item {
+        &:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            right: 0;
+            bottom: -5px;
+            left: 0;
+            margin: auto;
+            z-index: 1;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid #fff;
+
+            @include ease-out-quart(0.5s, bottom);
+        }
+
+        &.selected {
+            .m2-text-tile h3 {
+                @include nobel-bold;
+            }
+
+            &:after {
+                bottom: 0;
+            }
+        }
+
+    }
+
+    .thumb-slider-inner-cont {
+        height: 100%;
+        margin-top: $thumb-height-sm + 1px;
+        background-color: rgba(0, 0, 0, 0.4);
+        overflow: hidden; // hides the scroll bar, particularly for android.
+        @include ease-in-out-quart(0.3s);
+    }
+
+    .thumb-slider-nav {
+        height: calc(100% - #{$thumb-height-sm});
+    }
+
+    .slide-cont {
+        width: 100%;
+        height: $thumb-height-sm * 1.5;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .slide-strip {
+        display: table;
+        height: $thumb-height-sm;
+        @include opacity(0);
+        @include ease-none(0.2s);
+    }
+    
+    .slider {
+        display: table-row;
+        height: 100%;
+        vertical-align: top;
+    }
+
+    .slider-nav-btn {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 22px;
+        text-decoration: none;
+        & > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        & > span {
+            display: none;
+        }
+
+        .prev-arrow {
+            margin-right: 5px;
+        }
+
+        .next-arrow {
+            margin-left: 5px;
+        }
+
+        path {
+            fill: #FFF;
+        }
+
+        &.prev {
+            margin-left: 20px;
+        }
+
+        &.next {
+            float: right;
+            margin-right: 20px;
+        }
+
+        &.see-all {
+            position: absolute;
+            width: 100px;
+            height: #{$slider-height-sm - $thumb-height-sm};
+            line-height: #{$slider-height-sm - $thumb-height-sm};
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            text-align: center;
+            vertical-align: middle;
+        }
+    }
+
+    .prev-arrow path {
+        fill: #FFF;
+    }
+    
+    .m2-media-tile.media-image {
+        display: table-cell;
+        vertical-align: top;
+        float: none;
+        .media-tile-image {
+            width: $thumb-height-sm * 2;
+            height: $thumb-height-sm;
+            overflow: hidden;
+            background-position: center 25%;
+            background-size: cover;
+            box-sizing: border-box;
+        }
+        &:not(:first-child) {
+            .media-tile-image { border-left: solid 2px black; }
+        }
+    }
+
+    .m2-media-tile .media-sub-tile.m2-text-tile {
+        width: 100%;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0+0,0.3+100 */
+        background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+
+
+    &.show {
+        .see-all {
+            @include opacity(0);
+        }
+        .thumb-slider-inner-cont {
+            margin-top: 0px;
+            .slide-strip {
+                @include opacity(1);
+            }
+        }
+    }
+}
+
+
+
+
+
+@include sm-up() {
+    .thumb-slider {
+        &.show {
+            .see-all {
+                @include opacity(1);
+            }
+        }
+        .slider-nav-btn {
+            display: inline-block;
+            & > span {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+
+
+@include md-up() {
+    .thumb-slider {
+        height: $slider-height-lg;
+        margin-top: 0 - $slider-height-lg;
+
+        .m2-text-tile {
+            h3 {
+                font-size: 11px;
+            }
+        }
+
+        .thumb-slider-inner-cont {
+            margin-top: $thumb-height-lg + 1px;
+        }
+
+        .thumb-slider-nav {
+            height: calc(100% - #{$thumb-height-lg});
+        }
+
+        .slide-cont {
+            height: $thumb-height-lg * 1.5;
+        }
+
+        .slide-strip {
+            height: $thumb-height-lg;
+        }
+        
+        .m2-media-tile.media-image {
+            .media-tile-image {
+                width: $thumb-height-lg * 2;
+                height: $thumb-height-lg;
+            }
+        }
+    }
+}

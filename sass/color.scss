@@ -1,0 +1,41 @@
+/* Colors */
+$color-grey-00: #000;
+$color-grey-10: #191919;
+$color-grey-20: #333;
+$color-grey-30: #424242;
+$color-grey-50: #646464;
+$color-grey-60: #999;
+$color-grey-80: #adadad;
+$color-grey-85: #d6d6d6;
+$color-grey-90: #EEE;
+$color-grey-95: #F2F2F2;
+$color-grey-100: #FFF;
+
+
+
+$color-black: $color-grey-00;
+$color-white: $color-grey-100;
+$color-grey: $color-grey-60;
+$color-grey-light: $color-grey-80;
+$color-gold: #b1955f;
+
+$color-error: #ff0000;
+$color-error-light: #ff9999;
+
+
+$color-fpo: #FF66FF;
+$color-link: $color-black;
+
+/* LIM 341 newly added */
+$color-grey-lighter: $color-grey-90;
+
+
+@mixin black-on-white {
+	color: $color-black;
+	background-color: $color-white;
+}
+
+@mixin white-on-black {
+	color: $color-white;
+	background-color: $color-black;
+}

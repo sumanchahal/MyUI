@@ -1,0 +1,82 @@
+
+
+@mixin transform($val) {
+    -ms-transform: $val;
+  -webkit-transform: $val;
+  -moz-transform: $val;
+  transform: $val;
+}
+
+@mixin opacity($val) {
+  zoom: 1;
+  filter: alpha(opacity=$val * 100);
+  opacity: $val;
+}
+
+
+@mixin transition-delay($dur) {
+  -webkit-transition-delay: $dur;
+     -moz-transition-delay: $dur;
+       -o-transition-delay: $dur;
+          transition-delay: $dur;
+}
+
+@mixin ease-none($dur, $prop: all) {
+  -webkit-transition: $prop $dur cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+     -moz-transition: $prop $dur cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+       -o-transition: $prop $dur cubic-bezier(0.250, 0.250, 0.750, 0.750); 
+          transition: $prop $dur cubic-bezier(0.250, 0.250, 0.750, 0.750);
+}
+
+
+@mixin ease-in-quart($dur, $prop: all) {
+ -webkit-transition: $prop $dur cubic-bezier(0.895, 0.030, 0.685, 0.220); 
+    -moz-transition: $prop $dur cubic-bezier(0.895, 0.030, 0.685, 0.220); 
+      -o-transition: $prop $dur cubic-bezier(0.895, 0.030, 0.685, 0.220); 
+         transition: $prop $dur cubic-bezier(0.895, 0.030, 0.685, 0.220);
+}
+
+@mixin ease-in-expo($dur, $prop: all) {
+  -webkit-transition: $prop $dur cubic-bezier(0.950, 0.050, 0.795, 0.035); 
+     -moz-transition: $prop $dur cubic-bezier(0.950, 0.050, 0.795, 0.035); 
+       -o-transition: $prop $dur cubic-bezier(0.950, 0.050, 0.795, 0.035); 
+          transition: $prop $dur cubic-bezier(0.950, 0.050, 0.795, 0.035);
+}
+
+
+@mixin ease-out-sine($dur, $prop: all) {
+  -webkit-transition: $prop $dur cubic-bezier(0.390, 0.575, 0.565, 1.000); 
+     -moz-transition: $prop $dur cubic-bezier(0.390, 0.575, 0.565, 1.000); 
+       -o-transition: $prop $dur cubic-bezier(0.390, 0.575, 0.565, 1.000); 
+          transition: $prop $dur cubic-bezier(0.390, 0.575, 0.565, 1.000);
+}
+
+@mixin ease-out-quart($dur, $prop: all) {
+  -webkit-transition: $prop $dur cubic-bezier(0.165, 0.840, 0.440, 1.000);
+     -moz-transition: $prop $dur cubic-bezier(0.165, 0.840, 0.440, 1.000);
+       -o-transition: $prop $dur cubic-bezier(0.165, 0.840, 0.440, 1.000);
+          transition: $prop $dur cubic-bezier(0.165, 0.840, 0.440, 1.000);
+}
+
+@mixin ease-out-expo($dur, $prop: all) {
+  -webkit-transition: $prop $dur cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+     -moz-transition: $prop $dur cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+       -o-transition: $prop $dur cubic-bezier(0.190, 1.000, 0.220, 1.000); 
+          transition: $prop $dur cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+
+
+
+@mixin ease-in-out-quart($dur, $prop: all) {
+  -webkit-transition: $prop $dur cubic-bezier(0.770, 0.000, 0.175, 1.000);
+     -moz-transition: $prop $dur cubic-bezier(0.770, 0.000, 0.175, 1.000);
+       -o-transition: $prop $dur cubic-bezier(0.770, 0.000, 0.175, 1.000);
+          transition: $prop $dur cubic-bezier(0.770, 0.000, 0.175, 1.000);
+}
+
+@mixin ease-in-out-expo($dur, $prop: all) {
+  -webkit-transition: $prop $dur cubic-bezier(1.000, 0.000, 0.000, 1.000); 
+     -moz-transition: $prop $dur cubic-bezier(1.000, 0.000, 0.000, 1.000); 
+       -o-transition: $prop $dur cubic-bezier(1.000, 0.000, 0.000, 1.000); 
+          transition: $prop $dur cubic-bezier(1.000, 0.000, 0.000, 1.000);
+}

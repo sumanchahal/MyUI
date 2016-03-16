@@ -1,0 +1,274 @@
+@import "../../library";
+
+/* direct copy of models/owner-benefits minus the imports, because
+ * importing models.css caused conflicts. they probably don't need
+ * the imports on model/owner-benefits, but we didn't verify because
+ * that change could potenially impact the rest of the site.
+ */
+.owner-benefits-wrapper {
+    @include clearfix;
+    margin: 0 auto;
+    padding: 0 3.75%;
+    position: relative;
+    max-width: 1204px;
+    min-height:700px;
+    z-index: 9;
+}
+
+footer {
+  z-index: 11;
+}
+
+.owner-benefits-side-bar {
+    background-color: $color-black;
+    background-size: 100%;
+    position: absolute;
+    width: 31.5%;
+    max-width: 322px;
+    z-index: 10;
+    .owner-benefits-inner {
+        position: relative;
+        &.sticky {
+            position: fixed;
+            top: 0;
+            left: $width-stroke;
+            bottom: auto;
+            width: 31.3%;
+            max-width: 322px;
+            z-index: 1;
+        }
+        &.sticky-bottom{
+            position: absolute;
+            bottom: 0;
+        }
+    }
+    .owner-benefits-side-bar-wrapper {
+        position: relative;
+        min-height: 700px;
+        overflow-x: hidden;
+        width: 99.9%;
+    }
+    .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        img {
+            width: 100%;
+        }
+    }
+    .owner-benefits-info {
+        width: 100%;
+        height: 50%;
+        margin: auto;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        text-align: center;
+        z-index: 1;
+    }
+    .owner-benefits-title {
+        img {
+            margin: 0 0 5px 0;
+        }
+    }
+    h1 {
+        @include nobel-light;
+        @include font-size(22,14,200);
+        color: $color-white;
+        margin: 0 auto;
+        width: 80%;
+    }
+    .owner-benefits-accolade {
+        @include clearfix;
+        @include accolade;
+        background: url('/assets/img/owner-benefits/title-border.png') center top no-repeat;
+        color: $color-white;
+        margin: 20px 0 0 0;
+        padding: 30px 0 0 0;
+        .accolade-container {
+            border: none;
+            margin-right: 0;
+            margin-left: 0;
+            width: 100%;
+            .image{
+                margin-top: 20px;
+            }
+            .quote {
+                @include font-size(18,22,35);
+            }
+            .link {
+                color: $color-white;
+                text-decoration: underline;
+            }
+        }
+        .carousel {
+            .indicators {
+                .next {
+                    background: url('/assets/img/global/right-arrow-thin-light.png') no-repeat center;
+                    padding: 2px 5px;
+                }
+                .prev {
+                    background: url('/assets/img/global/left-arrow-thin-light.png') no-repeat center;
+                    padding: 2px 5px;
+                }
+            }
+        }
+    }
+}
+
+.owner-benefits-content {
+    float: right;
+    margin: 30px 0 0 0;
+    width: 100%;
+    .col {
+        float: left;
+        padding: 0 6% 0 0;
+        width: 29%;
+        &:last-child {
+            padding: 0;
+        }
+    }
+    .image-wrapper {
+        height: auto;
+    }
+    img {
+        display: inline-block;
+        margin: 0 0 30px 0;
+        width: 100%;
+    }
+    .owner-benefits-item {
+        margin: 0 0 40px 0;
+        text-align: center;
+        h2 {
+            @include nobel-book;
+            @include font-size(14,14,200);
+            margin: 0 5px 5px 5px;
+        }
+        p {
+            @include body-copy;
+            margin: 0 10px 20px 10px;
+        }
+        a.link {
+            @include link;
+        }
+    }
+}
+
+.benefit-items {
+    display: none;
+}
+
+.optional-disclaimers-container {
+    position: relative;
+}
+
+.touch, .mstouch {
+    .owner-benefits-side-bar {
+      .carousel {
+        .indicators {
+          .prev, .next {
+            display:none;
+          }
+        }
+      }
+    }
+}
+
+.owner-benefits-content{
+    width: 100%;
+    max-width: $large-max;
+    margin: 30px auto 0px auto;
+//    float: none;
+    @include clearfix();
+}
+
+@include at-max-width-breakpoint(2000px){
+    .owner-benefits-content{
+        width: 92%;
+    }
+}
+
+@include at-max-width-breakpoint(1720px){
+    .owner-benefits-content{
+        width: 82%;
+    }
+}
+
+@include at-max-width-breakpoint(1475px){
+    .owner-benefits-content{
+        width: 72%;
+    }
+}
+
+@include at-max-width-breakpoint(1175px){
+    .owner-benefits-content{
+        width: 66%;
+    }
+}
+
+
+
+
+
+
+@include at-medium-breakpoint() {
+
+    .owner-benefits-side-bar {
+        left: 0;
+        .owner-benefits-inner {
+            &.sticky {
+                left: 0;
+            }
+        }
+        h1 {
+            @include font-size(18,12,200);
+        }
+    }
+    .owner-benefits-content {
+        .col {
+            padding: 0 3% 0 0;
+            width: 48.5%;
+        }
+    }
+    #owner-benefits .optional-disclaimers-container {
+        position: relative;
+        // place disclosures to the left the same width dedicated to the left hand column
+        left: 31.5%;
+    }
+}
+
+@include at-small-breakpoint() {
+    .owner-benefits-content {
+        width: 100%;
+    }
+    .owner-benefits-side-bar {
+        display: none;
+    }
+    .owner-benefits-content {
+        .col {
+            float: none;
+            padding: 0;
+            width: 100%;
+        }
+        .owner-benefits-item {
+            h2 {
+                @include font-size(16,16,200);
+            }
+            p {
+                @include font-size(14);
+            }
+        }
+    }
+    #owner-benefits .optional-disclaimers-container {
+        position: relative;
+        left: 0;
+    }
+}
+
+@include at-medium-and-large-breakpoint-landscape {
+  .owner-benefits-side-bar {
+    .bg {
+      width: 100%;
+    }
+  }
+}

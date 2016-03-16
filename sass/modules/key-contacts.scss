@@ -1,0 +1,81 @@
+@import "library";
+
+.key-contacts {
+	.contact {
+		@include grid-column(3);
+		text-align:center;
+		font-size:13px;
+		line-height:1.6em;
+
+		span, a {
+			display:block;
+		}
+
+		.contact-name {
+			text-transform:uppercase;
+			@include nobel-bold;
+			color:#000;
+			font-size:12px;
+		}
+
+		.contact-phone{
+			color:#939393;
+			text-decoration:none;
+			@include palatino;
+		}
+        .contact-email {
+            @include nobel-bold;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #000;
+            cursor: pointer;
+            text-decoration: underline;
+            &:hover {
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+	}
+
+	.slide-count-1 {
+		.single-slide {
+			@include grid-column(12);
+		}
+	}
+
+	.slide-count-2 {
+		.single-slide {
+			@include grid-column(6);
+		}
+
+		.single-slide:nth-child(2) {
+			@include omega;
+		}
+	}
+
+	.slide-count-3 {
+		.single-slide {
+			@include grid-column(4);
+		}
+
+		.single-slide:nth-child(3) {
+			@include omega;
+		}
+	}
+
+	.slide-count-4 {
+		.contact:nth-child(4) {
+			@include omega;
+		}
+	}
+}
+
+@media screen {
+	@include at-small-breakpoint() {
+		.key-contacts {
+			.contact {
+				@include grid-column(12);
+			}
+		}
+	}
+}

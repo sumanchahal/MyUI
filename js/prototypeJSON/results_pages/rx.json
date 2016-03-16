@@ -1,0 +1,93 @@
+{
+    "searchedTerm": "2012 RX",
+    "quantityResults": 54,
+    "searchInstead": [
+        "RX"
+    ],
+    "results": [
+        {
+            "title": "RX Overview",
+            "url": "http://www.lexus.com/models/RX",
+            "snippet": "Never lose your edge in the 2015 RX. Pairing the capability of available all-wheel drive and a 3.5-liter V6 with a luxurious interior and convenient technologies, the RX is a crossover designed to help you elevate your everyday.",
+            "type": "tree",
+            "filetype": "html",
+            "children": [
+                {
+                    "title": "Gallery",
+                    "url": "http://www.lexus.com/models/rx/gallery"
+                },
+                {
+                    "title": "Current Offers",
+                    "url": "http://www.lexus.com/models/rx/offers"
+                },
+                {
+                    "title": "Accessories",
+                    "url": "http://www.lexus.com/models/rx/accessories"
+                },
+                {
+                    "title": "Packages",
+                    "url": "http://www.lexus.com/models/rx/packages"
+                },
+                {
+                    "title": "Specs",
+                    "url": "http://www.lexus.com/models/rx/specifications"
+                },
+                {
+                    "title": "Technology",
+                    "url": "http://www.lexus.com/models/rx/technology"
+                }
+            ]
+        },
+        {
+            "title": "Lexus Certified Pre-Owned – Model Library – RX 2012",
+            "url": "http://www.lexus.com/cpo/model_library/RX/2012.html",
+            "snippet": "Get more details on the Certified Pre-Owned Lexus that you are interested in. This page provides information about safety, luxury, convenience, available options, dimensions, engine, transmission, performance and upgrades for each model.",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Lexus Certified Pre-Owned – Model Library – RX 2012",
+            "url": "http://www.lexus.com/cpo/model_library/RX/2012_options.html",
+            "snippet": "",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Easy Eco Tips",
+            "url": "http://drivers.lexus.com/lexusdrivers/magazine/articles/Lexus-Lifestyle/EZ-Eco",
+            "snippet": "How to help the environment this summer (while barely trying). ",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }, 
+        {
+            "title": "Index of /pub-share/xml",
+            "url": "http://drivers.lexus.com/pub-share/xml/",
+            "snippet": "null",
+            "type": "single",
+            "filetype": "html",
+            "children": []
+        }
+    ],
+    "cards": [
+        {
+            "type": "certified",
+            "position": 2,
+            "title": "RX",
+            "subhead": "Certified Pre-Owned",
+            "description": "The 2012 RX. Technology focused on keeping you focused.",
+            "linkURL": "http://www.lexus.com/cpo/model_library/RX/2012.html",
+            "background" : "/assets/img/PROTOTYPE/cards/rx.png",
+            "actions": [
+                {
+                    "label": "Search Inventory",
+                    "url": "http://www.lexus.com/cpo/index.html",
+                    "style": "primary"
+                }
+            ],
+            "photos": []
+        }
+    ]
+}

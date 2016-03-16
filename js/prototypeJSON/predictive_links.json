@@ -1,0 +1,1311 @@
+[
+    {
+        "term": "lease",
+        "weight": 11422,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "warranty",
+        "weight": 4635,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "enform",
+        "weight": 2177,
+        "results": "enform",
+        "title": "Lexus Enform Home",
+        "url": "/enform/?tab=suite"
+    },
+    {
+        "term": "is250",
+        "weight": 2096,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "is 250",
+        "weight": 2067,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "coupe",
+        "weight": 2026,
+        "results": "coupe",
+        "title": "The 2015 Lexus ISC Coupe",
+        "url": "/models/ISC"
+    },
+    {
+        "term": "is",
+        "weight": 1520,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "used",
+        "weight": 1178,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "leasing",
+        "weight": 1019,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "is 350",
+        "weight": 992,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "lf",
+        "weight": 969,
+        "results": "RC",
+        "title": "Lexus Concept Vehicles",
+        "url": "/concept/"
+    },
+    {
+        "term": "is350",
+        "weight": 947,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "key",
+        "weight": 818,
+        "results": "key",
+        "title": "Lexus Key Replacement",
+        "url": "/solr/faq.do?qt=replacement+key&rdo_search=kc"
+    },
+    {
+        "term": "navigation",
+        "weight": 784,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "lease specials",
+        "weight": 705,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "safety connect",
+        "weight": 671,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "2 door",
+        "weight": 630,
+        "results": "coupe",
+        "title": "The 2015 Lexus ISC Coupe",
+        "url": "/models/ISC"
+    },
+    {
+        "term": "convertible",
+        "weight": 610,
+        "results": "coupe",
+        "title": "The 2015 Lexus ISC Coupe",
+        "url": "/models/ISC"
+    },
+    {
+        "term": "roadside assistance",
+        "weight": 604,
+        "results": "roadside",
+        "title": "Owner Benefits",
+        "url": "https://secure.drivers.lexus.com/lexusdrivers/benefits/home.do"
+    },
+    {
+        "term": "keys",
+        "weight": 591,
+        "results": "key",
+        "title": "Lexus Key Replacement",
+        "url": "/solr/faq.do?qt=replacement+key&rdo_search=kc"
+    },
+    {
+        "term": "heads up display",
+        "weight": 588,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "mark levinson",
+        "weight": 579,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "leases",
+        "weight": 512,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "rc f",
+        "weight": 494,
+        "results": "RC",
+        "title": "Lexus Concept Vehicles",
+        "url": "/concept/"
+    },
+    {
+        "term": "rcf",
+        "weight": 457,
+        "results": "RC",
+        "title": "Lexus Concept Vehicles",
+        "url": "/concept/"
+    },
+    {
+        "term": "lease offers",
+        "weight": 449,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lexus enform",
+        "weight": 410,
+        "results": "enform",
+        "title": "Lexus Enform Home",
+        "url": "/enform/?tab=suite"
+    },
+    {
+        "term": "lease deals",
+        "weight": 388,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "f sport",
+        "weight": 381,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "lexus is",
+        "weight": 380,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "heated steering whee",
+        "weight": 373,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "replacement key",
+        "weight": 371,
+        "results": "key",
+        "title": "Lexus Key Replacement",
+        "url": "/solr/faq.do?qt=replacement+key&rdo_search=kc"
+    },
+    {
+        "term": "used cars",
+        "weight": 368,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "contact",
+        "weight": 353,
+        "results": "contact",
+        "title": "Customer Assistance Center",
+        "url": "/contact/"
+    },
+    {
+        "term": "parking assist",
+        "weight": 343,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "blind spot monitor",
+        "weight": 339,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "lease deals",
+        "weight": 338,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "warrenty",
+        "weight": 327,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "park assist",
+        "weight": 303,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "lf-nx",
+        "weight": 303,
+        "results": "RC",
+        "title": "Lexus Concept Vehicles",
+        "url": "/concept/"
+    },
+    {
+        "term": "cruise control",
+        "weight": 302,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "lease options",
+        "weight": 298,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "coupes",
+        "weight": 284,
+        "results": "coupe",
+        "title": "The 2015 Lexus ISC Coupe",
+        "url": "/models/ISC"
+    },
+    {
+        "term": "key replacement",
+        "weight": 282,
+        "results": "key",
+        "title": "Lexus Key Replacement",
+        "url": "/solr/faq.do?qt=replacement+key&rdo_search=kc"
+    },
+    {
+        "term": "pre owned",
+        "weight": 278,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "used lexus",
+        "weight": 271,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "blind spot",
+        "weight": 268,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "customer service",
+        "weight": 268,
+        "results": "contact",
+        "title": "Customer Assistance Center",
+        "url": "/contact/"
+    },
+    {
+        "term": "gps",
+        "weight": 254,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "preowned",
+        "weight": 248,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "edestination",
+        "weight": 247,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "lexus is 250",
+        "weight": 245,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "roadside",
+        "weight": 241,
+        "results": "roadside",
+        "title": "Owner Benefits",
+        "url": "https://secure.drivers.lexus.com/lexusdrivers/benefits/home.do"
+    },
+    {
+        "term": "used car",
+        "weight": 233,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "levinson",
+        "weight": 230,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "navigation system",
+        "weight": 226,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "key fob",
+        "weight": 216,
+        "results": "key",
+        "title": "Lexus Key Replacement",
+        "url": "/solr/faq.do?qt=replacement+key&rdo_search=kc"
+    },
+    {
+        "term": "lf-lc",
+        "weight": 215,
+        "results": "RC",
+        "title": "Lexus Concept Vehicles",
+        "url": "/concept/"
+    },
+    {
+        "term": "destination assist",
+        "weight": 206,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "warranties",
+        "weight": 204,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "radar cruise",
+        "weight": 202,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "night vision",
+        "weight": 188,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "replacement keys",
+        "weight": 179,
+        "results": "key",
+        "title": "Lexus Key Replacement",
+        "url": "/solr/faq.do?qt=replacement+key&rdo_search=kc"
+    },
+    {
+        "term": "lexus rc",
+        "weight": 176,
+        "results": "RC",
+        "title": "Lexus Concept Vehicles",
+        "url": "/concept/"
+    },
+    {
+        "term": "hud",
+        "weight": 175,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "intuitive parking",
+        "weight": 174,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "pandora",
+        "weight": 169,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "cpo",
+        "weight": 169,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "pre-owned",
+        "weight": 168,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "apps",
+        "weight": 166,
+        "results": "enform",
+        "title": "Lexus Enform Home",
+        "url": "/enform/?tab=suite"
+    },
+    {
+        "term": "key battery",
+        "weight": 165,
+        "results": "key",
+        "title": "Lexus Key Replacement",
+        "url": "/solr/faq.do?qt=replacement+key&rdo_search=kc"
+    },
+    {
+        "term": "is f sport",
+        "weight": 164,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "phone",
+        "weight": 164,
+        "results": "contact",
+        "title": "Customer Assistance Center",
+        "url": "/contact/"
+    },
+    {
+        "term": "lexus is250",
+        "weight": 162,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "backup camera",
+        "weight": 158,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "headlights",
+        "weight": 156,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "two door",
+        "weight": 156,
+        "results": "coupe",
+        "title": "The 2015 Lexus ISC Coupe",
+        "url": "/models/ISC"
+    },
+    {
+        "term": "lexus nx",
+        "weight": 155,
+        "results": "RC",
+        "title": "Lexus Concept Vehicles",
+        "url": "/concept/"
+    },
+    {
+        "term": "is 350 f sport",
+        "weight": 154,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "convertibles",
+        "weight": 154,
+        "results": "coupe",
+        "title": "The 2015 Lexus ISC Coupe",
+        "url": "/models/ISC"
+    },
+    {
+        "term": "ipod",
+        "weight": 153,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "adaptive cruise cont",
+        "weight": 148,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "is250c",
+        "weight": 148,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "lease special",
+        "weight": 146,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "moonroof",
+        "weight": 146,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "parking",
+        "weight": 143,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "head up display",
+        "weight": 140,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "afs",
+        "weight": 137,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "rc-f",
+        "weight": 137,
+        "results": "RC",
+        "title": "Lexus Concept Vehicles",
+        "url": "/concept/"
+    },
+    {
+        "term": "back up camera",
+        "weight": 136,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "pre-collision",
+        "weight": 135,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "intuitive parking ass",
+        "weight": 128,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "intuitive parking assist",
+        "weight": 128,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "smart stop",
+        "weight": 128,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "heads up",
+        "weight": 126,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "is 250c",
+        "weight": 123,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "collision",
+        "weight": 121,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "pre-collision system",
+        "weight": 117,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "pre-collision system",
+        "weight": 117,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "camera",
+        "weight": 117,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "radio",
+        "weight": 116,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "lane keep assist",
+        "weight": 115,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "is200",
+        "weight": 114,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "audio",
+        "weight": 112,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "sirius",
+        "weight": 111,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "2012 rx",
+        "weight": 110,
+        "results": "rx",
+        "title": "2012 RX",
+        "url": "/cpo/model_library/RX/2012.html"
+    },
+    {
+        "term": "headlight",
+        "weight": 108,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "convertable",
+        "weight": 108,
+        "results": "coupe",
+        "title": "The 2015 Lexus ISC Coupe",
+        "url": "/models/ISC"
+    },
+    {
+        "term": "heads-up display",
+        "weight": 107,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "dynamic radar cruise",
+        "weight": 105,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "is 200",
+        "weight": 105,
+        "results": "is",
+        "title": "The 2015 IS ",
+        "url": "/models/IS"
+    },
+    {
+        "term": "night view",
+        "weight": 102,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "heated steering wheel",
+        "weight": 102,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "smart key",
+        "weight": 101,
+        "results": "key",
+        "title": "Lexus Key Replacement",
+        "url": "/solr/faq.do?qt=replacement+key&rdo_search=kc"
+    },
+    {
+        "term": "battery warranty",
+        "weight": 93,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "pre collision",
+        "weight": 89,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "lease offer",
+        "weight": 87,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lease offer",
+        "weight": 87,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "2 door coupe",
+        "weight": 85,
+        "results": "coupe",
+        "title": "The 2015 Lexus ISC Coupe",
+        "url": "/models/ISC"
+    },
+    {
+        "term": "lost key",
+        "weight": 83,
+        "results": "key",
+        "title": "Lexus Key Replacement",
+        "url": "/solr/faq.do?qt=replacement+key&rdo_search=kc"
+    },
+    {
+        "term": "contact us",
+        "weight": 83,
+        "results": "contact",
+        "title": "Customer Assistance Center",
+        "url": "/contact/"
+    },
+    {
+        "term": "lease program",
+        "weight": 79,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "pre collision system",
+        "weight": 79,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "used suv",
+        "weight": 73,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "tire warranty",
+        "weight": 72,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "certified pre-owned",
+        "weight": 69,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "lease programs",
+        "weight": 64,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "new car warranty",
+        "weight": 64,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "2 door models",
+        "weight": 63,
+        "results": "coupe",
+        "title": "The 2015 Lexus ISC Coupe",
+        "url": "/models/ISC"
+    },
+    {
+        "term": "platinum warranty",
+        "weight": 59,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "new key",
+        "weight": 59,
+        "results": "key",
+        "title": "Lexus Key Replacement",
+        "url": "/solr/faq.do?qt=replacement+key&rdo_search=kc"
+    },
+    {
+        "term": "leasing options",
+        "weight": 58,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "collision avoidance",
+        "weight": 58,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "certified pre owned",
+        "weight": 54,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "hybrid warranty",
+        "weight": 53,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "factory warranty",
+        "weight": 49,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "certified preowned",
+        "weight": 49,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "email",
+        "weight": 46,
+        "results": "contact",
+        "title": "Customer Assistance Center",
+        "url": "/contact/"
+    },
+    {
+        "term": "replace key",
+        "weight": 45,
+        "results": "key",
+        "title": "Lexus Key Replacement",
+        "url": "/solr/faq.do?qt=replacement+key&rdo_search=kc"
+    },
+    {
+        "term": "contact lexus",
+        "weight": 44,
+        "results": "contact",
+        "title": "Customer Assistance Center",
+        "url": "/contact/"
+    },
+    {
+        "term": "lease a lexus",
+        "weight": 42,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "used rx 350",
+        "weight": 42,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "phone number",
+        "weight": 42,
+        "results": "contact",
+        "title": "Customer Assistance Center",
+        "url": "/contact/"
+    },
+    {
+        "term": "lease calculator",
+        "weight": 40,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lexus lease",
+        "weight": 39,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lease deal",
+        "weight": 38,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lease terms",
+        "weight": 38,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lease deal",
+        "weight": 38,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lease price",
+        "weight": 37,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lexus warranty",
+        "weight": 37,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "used rx",
+        "weight": 36,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "lease rx",
+        "weight": 35,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lease option",
+        "weight": 34,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lease prices",
+        "weight": 34,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lease return",
+        "weight": 34,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "used rx350",
+        "weight": 34,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "lease rates",
+        "weight": 32,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lease end",
+        "weight": 32,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "used vehicle",
+        "weight": 32,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "used suvs",
+        "weight": 32,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "precollision system",
+        "weight": 31,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "roadside service",
+        "weight": 31,
+        "results": "roadside",
+        "title": "Owner Benefits",
+        "url": "https://secure.drivers.lexus.com/lexusdrivers/benefits/home.do"
+    },
+    {
+        "term": "special lease",
+        "weight": 29,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "extended warranty",
+        "weight": 29,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "used lexus suv",
+        "weight": 29,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "precollision",
+        "weight": 25,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "cpo warranty",
+        "weight": 25,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "warranty information",
+        "weight": 23,
+        "results": "warranty",
+        "title": "Warranty Information page ",
+        "url": "/warranty"
+    },
+    {
+        "term": "used gx",
+        "weight": 22,
+        "results": "used",
+        "title": "Certified Pre-owned inventory search",
+        "url": "/cpo/"
+    },
+    {
+        "term": "roadside assitance",
+        "weight": 21,
+        "results": "roadside",
+        "title": "Owner Benefits",
+        "url": "https://secure.drivers.lexus.com/lexusdrivers/benefits/home.do"
+    },
+    {
+        "term": "leasing deals",
+        "weight": 20,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "leasing program",
+        "weight": 19,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "current lease offers",
+        "weight": 19,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "leasing specials",
+        "weight": 18,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "finance specials",
+        "weight": 18,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "leasing specials",
+        "weight": 18,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "special financing",
+        "weight": 18,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "renew enform",
+        "weight": 18,
+        "results": "enform",
+        "title": "Lexus Enform Home",
+        "url": "/enform/?tab=suite"
+    },
+    {
+        "term": "enform app suite",
+        "weight": 18,
+        "results": "enform",
+        "title": "Lexus Enform Home",
+        "url": "/enform/?tab=suite"
+    },
+    {
+        "term": "leasing a lexus ",
+        "weight": 17,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "pre-collision assist",
+        "weight": 16,
+        "results": "features",
+        "title": "2015 IS Features",
+        "url": "/models/IS/features"
+    },
+    {
+        "term": "special leases ",
+        "weight": 15,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lexus roadside",
+        "weight": 15,
+        "results": "roadside",
+        "title": "Owner Benefits",
+        "url": "https://secure.drivers.lexus.com/lexusdrivers/benefits/home.do"
+    },
+    {
+        "term": "leasing offers",
+        "weight": 14,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "lease incentives",
+        "weight": 14,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "leasing offers ",
+        "weight": 14,
+        "results": "lease",
+        "title": "Lexus Lease Programs",
+        "url": "https://www.lexusfinancial.com/pub/w/#planning_center/financing_options/lease"
+    },
+    {
+        "term": "rx",
+        "weight": 14,
+        "results": "rx",
+        "title": "2014 RX",
+        "url": "/models/RX"
+    }
+]

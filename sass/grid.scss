@@ -1,0 +1,1045 @@
+@import "susy";
+
+/* main grid */
+$default-columns: 12;
+$total-columns: $default-columns;
+$column-width: 4.27%;
+$gutter-width: 3.75%;
+$grid-padding: $gutter-width;
+
+$container-style: magic;
+
+/* break points */
+$small-min: 0px;
+$small-max: 640px;
+$medium-min: 641px;
+$medium-mid: 767px;
+$medium-max: 959px;
+$large-min: 960px;
+$large-max: 1204px;
+$extra-large-min: 1205px;
+$large-near-med: 1050px;
+$grid-max: $large-max;
+$full-bleed-width: 1312px;
+
+// Bit of a change in semantics here. The goal is to support mobile first.
+// I'm using bootstrap convention as a base so the folllowing breakpoints
+// will need to map slightly differently:
+//   - xs (extra small) is 0 to (small-max - 1) - NOTE: we dont actually need a breakpoint for this since we should be using a mobile-first approach.
+//   - sm (small) is small-max and up
+//   - lg (large) is large-min and up
+//   - xl (extra large) is extra-large-min and up
+@mixin sm-up ($columns: $default-columns) {
+    @media (min-width: $small-max) { @content; }
+}
+
+@mixin md-up ($columns: $default-columns) {
+    @media (min-width: $large-min) { @content; }
+}
+
+@mixin lg-up ($columns: $default-columns) {
+    @media (min-width: $extra-large-min) { @content; }
+}
+
+
+@mixin at-small-breakpoint ($columns: $default-columns) {
+    @include at-breakpoint( $columns $small-min $small-max) {@content;}
+}
+
+@mixin at-small-and-medium-breakpoints ($columns: $default-columns) {
+    @include at-breakpoint ($columns $small-min $medium-max) {@content;}
+}
+
+@mixin at-small-and-mid-breakpoints ($columns: $default-columns) {
+  @include at-breakpoint ($columns $small-min $medium-mid) {@content;}
+  
+}
+@mixin at-medium-breakpoint ($columns: $default-columns) {
+    @include at-breakpoint( $columns $medium-min $medium-max) {@content;}
+}
+
+@mixin at-medium-and-large-breakpoints ($columns: $default-columns) {
+    @include at-breakpoint ($columns $medium-min $large-max) {@content;}
+}
+
+@mixin at-small-and-large-breakpoints ($columns: $default-columns) {
+  @include at-breakpoint ($columns $small-min $large-max) {@content;}  
+  
+}
+@mixin at-medium-and-large-breakpoint-landscape(){
+  @media (min-device-width: $medium-min) and (max-device-width: $large-max) and (orientation: landscape) { @content; }
+}
+
+@mixin at-large-near-medium-breakpoint() {
+  @media (min-width: $large-min) and (max-width: $large-near-med) { @content; }
+}
+
+@mixin at-large-breakpoint ($columns: $default-columns) {
+    @include at-breakpoint( $columns $large-min $large-max) {@content;}
+}
+
+@mixin at-laptop-breakpoint(){
+  @media (max-width: 1280px) and (max-height: 728px) { @content; }
+}
+
+@mixin at-max-width-breakpoint($width){
+    @media (max-width: $width) { @content; }
+}
+
+/* grid */
+
+@mixin grid-container ($max-width: $grid-max) {
+    @include container;
+    max-width: $max-width;
+}
+
+@mixin grid-column($num-cols, $total-columns: $total-columns){
+    @include span-columns($num-cols, $total-columns);
+}
+
+
+@mixin calculated-grid-column($num-cols, $divider){
+    float: left;
+    width: columns($num-cols) + (gutter()/$divider);
+}
+
+@mixin clearfix {
+    @include has-layout;
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin full-width{
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+@mixin at-touch-device(){
+    html.touch, html.mstouch{
+        @content;
+    }
+}
+@mixin at-no-touch-device(){
+    html.no-touch.no-mstouch {
+        @content;
+    }
+}
+
+
+
+
+
+
+
+// @mixin make-columns($span) {
+//     width: ($span / $default-columns) * 100%;
+// }
+
+// @mixin pull-columns($span) {
+//     right: ($span / $default-columns) * 100%;
+// }
+
+// @mixin push-columns($span) {
+//     left: ($span / $default-columns) * 100%;
+// }
+
+// @mixin offset-columns($span) {
+//     left: ($span / $default-columns) * 100%;
+// }
+
+
+// .container-fluid {
+//   margin-right: auto;
+//   margin-left: auto;
+//   padding-left: 15px;
+//   padding-right: 15px; }
+//   .container-fluid:before, .container-fluid:after {
+//     content: " ";
+//     display: table; }
+//   .container-fluid:after {
+//     clear: both; }
+
+// .row {
+//   margin-left: -15px;
+//   margin-right: -15px; }
+//   .row:before, .row:after {
+//     content: " ";
+//     display: table; }
+//   .row:after {
+//     clear: both; }
+
+// .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+//   position: relative;
+//   min-height: 1px;
+//   padding-left: 15px;
+//   padding-right: 15px; }
+
+
+
+
+// .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+//   float: left;
+// }
+
+// .col-xs-1 {
+//     @include make-columns(1);
+// }
+
+// .col-xs-2 {
+//     @include make-columns(2);
+// }
+
+// .col-xs-3 {
+//     @include make-columns(3);
+// }
+
+// .col-xs-4 {
+//     @include make-columns(4);
+// }
+
+// .col-xs-5 {
+//     @include make-columns(5);
+// }
+
+// .col-xs-6 {
+//     @include make-columns(6);
+// }
+
+// .col-xs-7 {
+//     @include make-columns(7);
+// }
+
+// .col-xs-8 {
+//     @include make-columns(8);
+// }
+
+// .col-xs-9 {
+//     @include make-columns(9);
+// }
+
+// .col-xs-10 {
+//     @include make-columns(10);
+// }
+
+// .col-xs-11 {
+//     @include make-columns(11);
+// }
+
+// .col-xs-12 {
+//     @include make-columns(12);
+// }
+
+// .col-xs-pull-0 {
+//   right: auto;
+// }
+
+// .col-xs-pull-1 {
+//     @include pull-columns(1);
+//   @include pull-columns(1);
+// }
+
+// .col-xs-pull-2 {
+//   @include pull-columns(2);
+// }
+
+// .col-xs-pull-3 {
+//   @include pull-columns(3);
+// }
+
+// .col-xs-pull-4 {
+//   @include pull-columns(4);
+// }
+
+// .col-xs-pull-5 {
+//   @include pull-columns(5);
+// }
+
+// .col-xs-pull-6 {
+//   @include pull-columns(6);
+// }
+
+// .col-xs-pull-7 {
+//   @include pull-columns(7);
+// }
+
+// .col-xs-pull-8 {
+//   @include pull-columns(8);
+// }
+
+// .col-xs-pull-9 {
+//   @include pull-columns(9);
+// }
+
+// .col-xs-pull-10 {
+//   @include pull-columns(10);
+// }
+
+// .col-xs-pull-11 {
+//   @include pull-columns(11);
+// }
+
+// .col-xs-pull-12 {
+//   @include pull-columns(12);
+// }
+
+// .col-xs-push-0 {
+//   left: auto;
+// }
+
+// .col-xs-push-1 {
+//     @include push-columns(1);
+// }
+
+// .col-xs-push-2 {
+//     @include push-columns(2);
+// }
+
+// .col-xs-push-3 {
+//     @include push-columns(3);
+// }
+
+// .col-xs-push-4 {
+//     @include push-columns(4);
+// }
+
+// .col-xs-push-5 {
+//     @include push-columns(5);
+// }
+
+// .col-xs-push-6 {
+//     @include push-columns(6);
+// }
+
+// .col-xs-push-7 {
+//     @include push-columns(7);
+// }
+
+// .col-xs-push-8 {
+//     @include push-columns(8);
+// }
+
+// .col-xs-push-9 {
+//     @include push-columns(9);
+// }
+
+// .col-xs-push-10 {
+//     @include push-columns(10);
+// }
+
+// .col-xs-push-11 {
+//     @include push-columns(11);
+// }
+
+// .col-xs-push-12 {
+//     @include push-columns(12);
+// }
+
+// .col-xs-offset-0 {
+//   @include offset-columns(0);
+// }
+
+// .col-xs-offset-1 {
+//   @include offset-columns(1);
+// }
+
+// .col-xs-offset-2 {
+//   @include offset-columns(2);
+// }
+
+// .col-xs-offset-3 {
+//   @include offset-columns(3);
+// }
+
+// .col-xs-offset-4 {
+//   @include offset-columns(4);
+// }
+
+// .col-xs-offset-5 {
+//   @include offset-columns(5);
+// }
+
+// .col-xs-offset-6 {
+//   @include offset-columns(6);
+// }
+
+// .col-xs-offset-7 {
+//   @include offset-columns(7);
+// }
+
+// .col-xs-offset-8 {
+//   @include offset-columns(8);
+// }
+
+// .col-xs-offset-9 {
+//   @include offset-columns(9);
+// }
+
+// .col-xs-offset-10 {
+//   @include offset-columns(10);
+// }
+
+// .col-xs-offset-11 {
+//   @include offset-columns(11);
+// }
+
+// .col-xs-offset-12 {
+//   @include offset-columns(12);
+// }
+
+
+
+// @include sm-up() {
+//     .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+//     float: left;
+//   }
+
+//     .col-sm-1 {
+//         @include make-columns(1);
+//     }
+
+//     .col-sm-2 {
+//         @include make-columns(2);
+//     }
+
+//     .col-sm-3 {
+//         @include make-columns(3);
+//     }
+
+//     .col-sm-4 {
+//         @include make-columns(4);
+//     }
+
+//     .col-sm-5 {
+//         @include make-columns(5);
+//     }
+
+//     .col-sm-6 {
+//         @include make-columns(6);
+//     }
+
+//     .col-sm-7 {
+//         @include make-columns(7);
+//     }
+
+//     .col-sm-8 {
+//         @include make-columns(8);
+//     }
+
+//     .col-sm-9 {
+//         @include make-columns(9);
+//     }
+
+//     .col-sm-10 {
+//         @include make-columns(10);
+//     }
+
+//     .col-sm-11 {
+//         @include make-columns(11);
+//     }
+
+//     .col-sm-12 {
+//         @include make-columns(12);
+//     }
+
+//     .col-sm-pull-0 {
+//     right: auto;
+//   }
+
+//   .col-sm-pull-1 {
+//     @include pull-columns(1);
+//   }
+
+//   .col-sm-pull-2 {
+//     @include pull-columns(2);
+//   }
+
+//   .col-sm-pull-3 {
+//     @include pull-columns(3);
+//   }
+
+//   .col-sm-pull-4 {
+//     @include pull-columns(4);
+//   }
+
+//   .col-sm-pull-5 {
+//     @include pull-columns(5);
+//   }
+
+//   .col-sm-pull-6 {
+//     @include pull-columns(6);
+//   }
+
+//   .col-sm-pull-7 {
+//     @include pull-columns(7);
+//   }
+
+//   .col-sm-pull-8 {
+//     @include pull-columns(8);
+//   }
+
+//   .col-sm-pull-9 {
+//     @include pull-columns(9);
+//   }
+
+//   .col-sm-pull-10 {
+//     @include pull-columns(10);
+//   }
+
+//   .col-sm-pull-11 {
+//     @include pull-columns(11);
+//   }
+
+//   .col-sm-pull-12 {
+//     @include pull-columns(12);
+//   }
+
+//   .col-sm-push-0 {
+//     left: auto;
+//   }
+
+//   .col-sm-push-1 {
+//     @include push-columns(1);
+//   }
+
+//   .col-sm-push-2 {
+//     @include push-columns(2);
+//   }
+
+//   .col-sm-push-3 {
+//     @include push-columns(3);
+//   }
+
+//   .col-sm-push-4 {
+//     @include push-columns(4);
+//   }
+
+//   .col-sm-push-5 {
+//     @include push-columns(5);
+//   }
+
+//   .col-sm-push-6 {
+//     @include push-columns(6);
+//   }
+
+//   .col-sm-push-7 {
+//     @include push-columns(7);
+//   }
+
+//   .col-sm-push-8 {
+//     @include push-columns(8);
+//   }
+
+//   .col-sm-push-9 {
+//     @include push-columns(9);
+//   }
+
+//   .col-sm-push-10 {
+//     @include push-columns(10);
+//   }
+
+//   .col-sm-push-11 {
+//     @include push-columns(11);
+//   }
+
+//   .col-sm-push-12 {
+//     @include push-columns(12);
+//   }
+
+//   .col-sm-offset-0 {
+//       @include offset-columns(0);
+//     }
+
+//     .col-sm-offset-1 {
+//       @include offset-columns(1);
+//     }
+
+//     .col-sm-offset-2 {
+//       @include offset-columns(2);
+//     }
+
+//     .col-sm-offset-3 {
+//       @include offset-columns(3);
+//     }
+
+//     .col-sm-offset-4 {
+//       @include offset-columns(4);
+//     }
+
+//     .col-sm-offset-5 {
+//       @include offset-columns(5);
+//     }
+
+//     .col-sm-offset-6 {
+//       @include offset-columns(6);
+//     }
+
+//     .col-sm-offset-7 {
+//       @include offset-columns(7);
+//     }
+
+//     .col-sm-offset-8 {
+//       @include offset-columns(8);
+//     }
+
+//     .col-sm-offset-9 {
+//       @include offset-columns(9);
+//     }
+
+//     .col-sm-offset-10 {
+//       @include offset-columns(10);
+//     }
+
+//     .col-sm-offset-11 {
+//       @include offset-columns(11);
+//     }
+
+//     .col-sm-offset-12 {
+//       @include offset-columns(12);
+//     }
+// }
+
+
+// @include md-up() {
+//     .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+//     float: left;
+//   }
+
+//     .col-md-1 {
+//         @include make-columns(1);
+//     }
+
+//     .col-md-2 {
+//         @include make-columns(2);
+//     }
+
+//     .col-md-3 {
+//         @include make-columns(3);
+//     }
+
+//     .col-md-4 {
+//         @include make-columns(4);
+//     }
+
+//     .col-md-5 {
+//         @include make-columns(5);
+//     }
+
+//     .col-md-6 {
+//         @include make-columns(6);
+//     }
+
+//     .col-md-7 {
+//         @include make-columns(7);
+//     }
+
+//     .col-md-8 {
+//         @include make-columns(8);
+//     }
+
+//     .col-md-9 {
+//         @include make-columns(9);
+//     }
+
+//     .col-md-10 {
+//         @include make-columns(10);
+//     }
+
+//     .col-md-11 {
+//         @include make-columns(11);
+//     }
+
+//     .col-md-12 {
+//         @include make-columns(12);
+//     }
+
+//     .col-md-pull-0 {
+//     right: auto;
+//   }
+
+//   .col-md-pull-1 {
+//     @include pull-columns(1);
+//   }
+
+//   .col-md-pull-2 {
+//     @include pull-columns(2);
+//   }
+
+//   .col-md-pull-3 {
+//     @include pull-columns(3);
+//   }
+
+//   .col-md-pull-4 {
+//     @include pull-columns(4);
+//   }
+
+//   .col-md-pull-5 {
+//     @include pull-columns(5);
+//   }
+
+//   .col-md-pull-6 {
+//     @include pull-columns(6);
+//   }
+
+//   .col-md-pull-7 {
+//     @include pull-columns(7);
+//   }
+
+//   .col-md-pull-8 {
+//     @include pull-columns(8);
+//   }
+
+//   .col-md-pull-9 {
+//     @include pull-columns(9);
+//   }
+
+//   .col-md-pull-10 {
+//     @include pull-columns(10);
+//   }
+
+//   .col-md-pull-11 {
+//     @include pull-columns(11);
+//   }
+
+//   .col-md-pull-12 {
+//     @include pull-columns(12);
+//   }
+
+//   .col-md-push-0 {
+//     left: auto;
+//   }
+
+//   .col-md-push-1 {
+//     @include push-columns(1);
+//   }
+
+//   .col-md-push-2 {
+//     @include push-columns(2);
+//   }
+
+//   .col-md-push-3 {
+//     @include push-columns(3);
+//   }
+
+//   .col-md-push-4 {
+//     @include push-columns(4);
+//   }
+
+//   .col-md-push-5 {
+//     @include push-columns(5);
+//   }
+
+//   .col-md-push-6 {
+//     @include push-columns(6);
+//   }
+
+//   .col-md-push-7 {
+//     @include push-columns(7);
+//   }
+
+//   .col-md-push-8 {
+//     @include push-columns(8);
+//   }
+
+//   .col-md-push-9 {
+//     @include push-columns(9);
+//   }
+
+//   .col-md-push-10 {
+//     @include push-columns(10);
+//   }
+
+//   .col-md-push-11 {
+//     @include push-columns(11);
+//   }
+
+//   .col-md-push-12 {
+//     @include push-columns(12);
+//   }
+
+//   .col-md-offset-0 {
+//       @include offset-columns(0);
+//     }
+
+//     .col-md-offset-1 {
+//       @include offset-columns(1);
+//     }
+
+//     .col-md-offset-2 {
+//       @include offset-columns(2);
+//     }
+
+//     .col-md-offset-3 {
+//       @include offset-columns(3);
+//     }
+
+//     .col-md-offset-4 {
+//       @include offset-columns(4);
+//     }
+
+//     .col-md-offset-5 {
+//       @include offset-columns(5);
+//     }
+
+//     .col-md-offset-6 {
+//       @include offset-columns(6);
+//     }
+
+//     .col-md-offset-7 {
+//       @include offset-columns(7);
+//     }
+
+//     .col-md-offset-8 {
+//       @include offset-columns(8);
+//     }
+
+//     .col-md-offset-9 {
+//       @include offset-columns(9);
+//     }
+
+//     .col-md-offset-10 {
+//       @include offset-columns(10);
+//     }
+
+//     .col-md-offset-11 {
+//       @include offset-columns(11);
+//     }
+
+//     .col-md-offset-12 {
+//       @include offset-columns(12);
+//     }
+// }
+
+
+
+
+
+// @include lg-up() {
+//     .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+//     float: left;
+//   }
+
+//     .col-lg-1 {
+//         @include make-columns(1);
+//     }
+
+//     .col-lg-2 {
+//         @include make-columns(2);
+//     }
+
+//     .col-lg-3 {
+//         @include make-columns(3);
+//     }
+
+//     .col-lg-4 {
+//         @include make-columns(4);
+//     }
+
+//     .col-lg-5 {
+//         @include make-columns(5);
+//     }
+
+//     .col-lg-6 {
+//         @include make-columns(6);
+//     }
+
+//     .col-lg-7 {
+//         @include make-columns(7);
+//     }
+
+//     .col-lg-8 {
+//         @include make-columns(8);
+//     }
+
+//     .col-lg-9 {
+//         @include make-columns(9);
+//     }
+
+//     .col-lg-10 {
+//         @include make-columns(10);
+//     }
+
+//     .col-lg-11 {
+//         @include make-columns(11);
+//     }
+
+//     .col-lg-12 {
+//         @include make-columns(12);
+//     }
+
+//     .col-lg-pull-0 {
+//     right: auto;
+//   }
+
+//   .col-lg-pull-1 {
+//     @include pull-columns(1);
+//   }
+
+//   .col-lg-pull-2 {
+//     @include pull-columns(2);
+//   }
+
+//   .col-lg-pull-3 {
+//     @include pull-columns(3);
+//   }
+
+//   .col-lg-pull-4 {
+//     @include pull-columns(4);
+//   }
+
+//   .col-lg-pull-5 {
+//     @include pull-columns(5);
+//   }
+
+//   .col-lg-pull-6 {
+//     @include pull-columns(6);
+//   }
+
+//   .col-lg-pull-7 {
+//     @include pull-columns(7);
+//   }
+
+//   .col-lg-pull-8 {
+//     @include pull-columns(8);
+//   }
+
+//   .col-lg-pull-9 {
+//     @include pull-columns(9);
+//   }
+
+//   .col-lg-pull-10 {
+//     @include pull-columns(10);
+//   }
+
+//   .col-lg-pull-11 {
+//     @include pull-columns(11);
+//   }
+
+//   .col-lg-pull-12 {
+//     @include pull-columns(12);
+//   }
+
+//   .col-lg-push-0 {
+//     left: auto;
+//   }
+
+//   .col-lg-push-1 {
+//     @include push-columns(1);
+//   }
+
+//   .col-lg-push-2 {
+//     @include push-columns(2);
+//   }
+
+//   .col-lg-push-3 {
+//     @include push-columns(3);
+//   }
+
+//   .col-lg-push-4 {
+//     @include push-columns(4);
+//   }
+
+//   .col-lg-push-5 {
+//     @include push-columns(5);
+//   }
+
+//   .col-lg-push-6 {
+//     @include push-columns(6);
+//   }
+
+//   .col-lg-push-7 {
+//     @include push-columns(7);
+//   }
+
+//   .col-lg-push-8 {
+//     @include push-columns(8);
+//   }
+
+//   .col-lg-push-9 {
+//     @include push-columns(9);
+//   }
+
+//   .col-lg-push-10 {
+//     @include push-columns(10);
+//   }
+
+//   .col-lg-push-11 {
+//     @include push-columns(11);
+//   }
+
+//   .col-lg-push-12 {
+//     @include push-columns(12);
+//   }
+
+//   .col-lg-offset-0 {
+//       @include offset-columns(0);
+//     }
+
+//     .col-lg-offset-1 {
+//       @include offset-columns(1);
+//     }
+
+//     .col-lg-offset-2 {
+//       @include offset-columns(2);
+//     }
+
+//     .col-lg-offset-3 {
+//       @include offset-columns(3);
+//     }
+
+//     .col-lg-offset-4 {
+//       @include offset-columns(4);
+//     }
+
+//     .col-lg-offset-5 {
+//       @include offset-columns(5);
+//     }
+
+//     .col-lg-offset-6 {
+//       @include offset-columns(6);
+//     }
+
+//     .col-lg-offset-7 {
+//       @include offset-columns(7);
+//     }
+
+//     .col-lg-offset-8 {
+//       @include offset-columns(8);
+//     }
+
+//     .col-lg-offset-9 {
+//       @include offset-columns(9);
+//     }
+
+//     .col-lg-offset-10 {
+//       @include offset-columns(10);
+//     }
+
+//     .col-lg-offset-11 {
+//       @include offset-columns(11);
+//     }
+
+//     .col-lg-offset-12 {
+//       @include offset-columns(12);
+//     }
+// }
+
+
+
+
+// [class*="col-"] {
+//     box-sizing: border-box;
+//     margin-right: 0;
+// }
+
+// .col {
+//     @include make-columns(12);
+//     box-sizing: border-box;
+// }

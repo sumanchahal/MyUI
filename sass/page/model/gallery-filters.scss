@@ -1,0 +1,56 @@
+@import "library";
+@import "model";
+@import "modules/tab-filter";
+
+.tab-filter {
+    &.large {
+        width: 60%;
+    }
+}
+
+#gallery-trim-filter .filter-button{
+    @include trim-name;
+}
+
+@include at-medium-and-large-breakpoint-landscape() {
+    .tab-filter {
+        &.large {
+            margin-top: 45px;
+            margin-bottom: 20px;
+            padding-bottom: 19px;
+        }
+    }
+}
+
+@include at-laptop-breakpoint() {
+    .no-touch.no-mstouch {
+        .tab-filter {
+            &.large {
+                margin-top: 45px;
+                margin-bottom: 20px;
+                padding-bottom: 19px;
+            }
+        }
+    }
+}
+
+@include at-small-breakpoint() {
+    .tab-filter {
+        &.large {
+            width: 92.5%;
+            padding: 0 0 5% 0;
+            margin: 10% $gutter-width 5%;
+        }
+        &.small{
+            width: 100%;
+            padding: 0 0 5% 0;
+            margin: 5% 0;
+            ul.filter-button-list {
+                li.filter-button {
+                    @include font-size(9,auto,auto);
+                    padding: 0px 2% 10px;
+                }
+            }
+        }
+    }
+}

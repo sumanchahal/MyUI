@@ -1,0 +1,397 @@
+// A library for global elements.
+@import "typography";
+@import "vars";
+@import "grid";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3/box-sizing";
+
+
+/* FPO placement */
+@mixin fpo {
+	padding: 20px;
+	text-align: center;
+	background: $color-fpo;
+}
+
+/* General Typography */
+@mixin heading($color: $color-black, $font-size: 22, $tracking: 200){
+	color: $color;
+	@include nobel-book;
+	@include font-size($font-size, auto, $tracking);
+}
+
+@mixin section-heading($color: $color-black){
+	@include heading($color, 15, 200);
+	@include nobel-regular;
+}
+
+@mixin dealer-heading($color: $color-black){
+	@include heading($color, 30, 250);
+	@include nobel-bold;
+}
+
+@mixin overlay-heading($color: $color-black,$font-size:22){
+	@include heading($color, $font-size, 150);
+	@include nobel-bold;
+}
+
+@mixin overlay-section-heading($color: $color-black,$font-size:20){
+  @include heading($color, $font-size, 150);
+  @include nobel-bold;
+}
+
+@mixin sub-heading($color: $color-black){
+	@include heading($color, 16, 150);
+	@include nobel-bold;
+}
+
+@mixin section-heading-description($color: $color-black){
+	@include heading($color, 12, 150);
+	@include nobel-book;
+}
+
+@mixin price($font-size: 42){
+	@include pakt;
+	@include font-size($font-size, auto, 100 );
+}
+
+@mixin currency{
+    vertical-align: super;
+}
+
+@mixin vehicle-heading-medium($font-size: 38){
+  @include heading($color-grey-90, $font-size, 0);
+  @include nobel-light;
+}
+
+@mixin vehicle-heading($font-size: 92){
+	@include heading($color-grey-90, $font-size, 0);
+	@include nobel-light;
+}
+
+@mixin home-thumb-title($color: #000,$font-size: 20px){
+    @include heading($color: $color, $font-size: $font-size);
+    @include nobel-bold;
+}
+
+@mixin home-thumb-description{
+    @include palatino;
+    @include font-size(11, auto, 200);
+    color: #939393;
+    text-transform: uppercase;
+}
+
+
+/* Flourishes */
+
+@mixin border-dotted ($color: $color-black) {
+    border: 1px dotted $color;
+}
+@mixin border-dotted-top ($color: $color-black) {
+    border-top: 1px dotted $color;
+}
+@mixin border-dotted-bottom ($color: $color-black) {
+    border-bottom: 1px dotted $color;
+}
+@mixin border-dotted-top-and-bottom ($color: $color-black) {
+    @include border-dotted-top($color);
+    @include border-dotted-bottom($color);
+}
+
+/* buttons / links */
+
+@mixin btn($font-color: $color-white, $stroke-size: 2px, $stroke-color: $color-black, $bg-color: $color-black){
+	@include box-sizing(border-box);
+	padding: 15px 25px 14px 25px;
+	background: $bg-color;
+	color: $font-color;
+	@include nobel-bold;
+	@include font-size(12, 11, 150);
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	max-width: 200px;
+    border: $stroke-size solid $stroke-color;
+    cursor: pointer;
+}
+
+@mixin btn-to-top {
+	@include box-sizing(border-box);
+	max-width: 200px;
+	height: 56px;
+	@include nobel-bold;
+	@include font-size(11, 11, 100);
+	display: block;
+	text-decoration: none;
+	padding-top: 24px;
+	padding-right: 15px;
+	text-align: center;
+	margin: 0px auto;
+	color: $color-white;
+	background: $color-grey-30 url("/assets/img/global/btn-to-top-arrow.png") no-repeat 80% 28px;
+}
+
+@mixin btn-lgt-stroke{
+	@include btn($font-color: $color-black, $stroke-size: 2px, $stroke-color: $color-black, $bg-color: $color-white );
+}
+
+@mixin btn-stroke{
+	@include btn($font-color: $color-white, $stroke-size: 2px, $stroke-color: $color-white, $bg-color: $color-black );
+}
+@mixin btn-lgt{
+	@include btn($color-black, $stroke-size: 0px, $stroke-color: $color-white, $bg-color: $color-white );
+}
+
+@mixin btn-sml{
+	@include btn($color-white);
+	@include font-size (11, 11, 150);
+	padding-top: 13px;
+}
+
+@mixin disabled{
+	background: $color-grey-90;
+	color: $color-white;
+	cursor: default;
+}
+
+@mixin link($color: $color-link, $text-decoration: underline){
+    @include nobel-bold;
+    @include font-size(11, auto, 150);
+	text-decoration: none;
+	text-transform: uppercase;
+	color: $color;
+	display: inline-block;
+    cursor: pointer;
+
+    @if $text-decoration == 'underline' {
+        border-bottom: 1px solid $color;
+        padding-bottom: 3px;
+    }
+}
+
+@mixin link-arrow{
+	@include link($color-black, none);
+	padding-right: 6px;
+	background: url('/assets/img/global/btn-link-arrow.png') no-repeat center right;
+}
+
+@mixin terms{
+	@include palatino;
+	@include ps-font-size(9);
+	color: $color-grey-60;
+}
+
+
+@mixin btn-remove{
+    width: 22px;
+    height: 0px;
+    padding-top: 22px;
+    overflow: hidden;
+    cursor: pointer;
+    background: url(/assets/img/global/btn-remove.png) no-repeat;
+    display: block
+}
+
+/* must use this to force browser to always render elements that we are animating with the GPU instead of switching back and forth which causes jitter / flickering */
+@mixin animationFix($z:false, $zv:0, $d:(0,0,0), $backface:hidden) {
+  @if ($z) {
+    -webkit-transform: translatez($zv);
+    -moz-transform: translatez($zv);
+    -ms-transform: translatez($zv);
+    -o-transform: translatez($zv);
+    transform: translatez($zv);
+  } @else {
+    -webkit-backface-visibility: $backface;
+    -moz-backface-visibility: $backface;
+    -ms-backface-visibility: $backface;
+    backface-visibility: $backface;
+    -webkit-transition: translate3d $d;
+    -moz-transition: translate3d $d;
+    -ms-transition: translate3d $d;
+    transition: translate3d $d;
+  }
+}
+
+@mixin carousel-dots{
+    @include clearfix;
+    li{
+        cursor: pointer;
+        float: left;
+        background: url(/assets/img/global/carousel-dots.png) no-repeat -7px 0px;
+        width: 7px;
+        height: 0px;
+        padding-top: 7px;
+        overflow: hidden;
+        display: block;
+        margin-right: 8px;
+        &.active,
+        &:hover{
+            background-position: 0px 0px;
+        }
+    }
+}
+
+
+@mixin accolade{
+	@include container;
+	max-width: $large-max;
+    .accolade-container{
+        margin-left: columns(2);
+        @include grid-column(9);
+        padding: 40px 0px;
+        @include border-dotted-top-and-bottom();
+
+        .accolade-item {
+            text-align: center;
+        }
+        .image{
+            margin-bottom: 20px;
+            text-align: center;
+            @include nobel-bold;
+            @include font-size(11, auto, 150);
+            img{
+                display: block;
+                margin: 0px auto;
+                min-width: 145px;
+            }
+        }
+        .quote{
+            text-align: center;
+            @include font-size(36);
+            @include nobel-book-italic;
+            text-transform: none;
+            margin-bottom: 40px;
+        }
+        .link{
+            @include link;
+            margin: 0px auto;
+        }
+    }
+}
+
+/* filter styles */
+@mixin tab-filter {
+    width: 80%;
+    max-width: 960px;
+    @include border-dotted-bottom();
+    padding-bottom: 19px;
+    margin: 0px auto 20px auto;
+    ul, .filter-button-list {
+        display: table;
+        margin: 0px auto;
+        width: 100%;
+        text-align: center;
+        max-width: 960px;
+        li, .filter-button {
+            border-top: 0px;
+            text-align: center;
+            display: inline-table;
+            cursor: pointer;
+            width: auto;
+            @include nobel-book;
+            @include font-size(12, auto, 150);
+            color: #000;
+            text-decoration: none;
+            border-right: 1px dotted #000;
+            padding: 0px 2% 10px;
+            @include box-sizing(border-box);
+
+            &:last-child{
+                border-right: none;
+            }
+            &.selected{
+                @include nobel-bold;
+                background: url("/assets/img/global/nav/tools-arrow.png") no-repeat center bottom;
+            }
+            &:hover {
+                @include nobel-bold;
+            }
+        }
+    }
+}
+
+@mixin tab-filter-small{
+    @include tab-filter;
+    border-bottom: 0;
+    li, .filter-button{
+        @include nobel-regular;
+        @include font-size(10, auto, 150);
+        border-right: 1px dotted $color-grey-80;
+        color: $color-grey-80;
+        padding: 0 10px 10px;
+        &.selected {
+            @include nobel-bold;
+            background: none;
+            color: #000;
+        }
+    }
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor:pointer;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie);
+}
+@mixin arrow($color, $direction: down, $size: 10px,$width:1px,$type:thin) {
+
+  border-top: ($width)+px solid $color;
+  border-left: ($width)+px solid $color;
+  height: ($size)+px!important;
+  width: ($size)+px!important;
+  padding:0!important;
+  @if $type == 'thin' {
+    @if $direction == 'up' {
+      -webkit-transform: rotate(35deg);
+      -moz-transform: rotate(35deg);
+      transform: rotate(35deg);
+    } @else if $direction == 'right' {
+      -webkit-transform: rotate(135deg);
+      -moz-transform: rotate(135deg);
+      transform: rotate(135deg);
+    } @else if $direction == 'down' {
+      -webkit-transform: rotate(225deg);
+      -moz-transform: rotate(225deg);
+      transform: rotate(225deg);
+    } @else if $direction == 'left' {
+      -webkit-transform: rotate(315deg);
+      -moz-transform: rotate(315deg);
+      transform: rotate(315deg);
+    }
+  } @else if $type == 'block' {  
+    display: inline-block;
+    position: relative;  
+    width: 0!important;
+    height: 0!important;
+    padding:0!important;
+
+    @if $direction == 'up' {
+      border-left: ($size)+px solid transparent;
+      border-right: ($size)+px solid transparent;
+      border-bottom: ($size)+px solid $color;
+    } @else if $direction == 'left' {
+      border-top: ($size)+px solid transparent;
+      border-bottom:($size)+px solid transparent;
+      border-right:($size)+px solid $color;
+    } @else if $direction == 'down' {
+      border-left: ($size)+px solid transparent;
+      border-right: ($size)+px solid transparent;
+      border-top: ($size)+px solid $color;
+    } @else if $direction == 'right' {
+      border-top: ($size)+px solid transparent;
+      border-bottom: ($size)+px solid transparent;
+      border-left: ($size)+px solid $color;
+    }
+  }
+}
+

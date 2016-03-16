@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lexus.com - Front-end Unit Test Suite (offline)</title>
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.12.0.css">
+</head>
+<body data-page="analyticsTest" data-section="unit tests" data-subsection="qunit">
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+    <script src="../vendor/require/2.1.8/require.js" type="text/javascript"></script>
+    <script>
+        // override the asset path stuff for local unit testing.
+        require.config({baseUrl: ".."});
+
+        // set some global variables about this page.
+        window.LEXUS = window.LEXUS || {};
+        window.LEXUS.page = window.LEXUS.page || {};
+
+        window.LEXUS.page.pageId = "qunit";
+        window.LEXUS.page.sectionId = "qunit";
+        window.LEXUS.page.title = "Lexus QUnit Tests (offline)";
+
+        // stop qunit from running when loaded.
+        QUnit.config.autostart = false;
+
+        require(["require-config"], function () {
+            require.config({baseUrl: ".."});
+            require(["tests-offline.js"], function () {
+                QUnit.start();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+@import 'library';
+
+.font-content *{ padding: 10px; }
+
+h1{ @include nobel-book; font-size: 30px; }
+h2{ @include nobel-regular; font-size: 18px; }
+h3{ @include nobel-bold; font-size: 30px; }
+h4{ @include nobel-light; font-size: 92px; color: #eee;}
+.price{ font-family: 'pakt', sans-serif; font-size: 42px; }
+p{ @include palatino; font-size: 15px; }
+.quote{ @include nobel-book-italic; font-size: 36px; }
+.swatch{ @include nobel; font-style: italic; font-size: 12px; }
+.pakt{ @include pakt; font-size: 25px; }

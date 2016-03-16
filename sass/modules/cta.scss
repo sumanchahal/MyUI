@@ -1,0 +1,113 @@
+@import "library";
+@import "typography";
+
+/* CTA TAG CSS */
+
+
+
+.no-touch.no-mstouch .m2-cta-tile {
+
+    &.cta-button {
+    
+        &:hover {
+            background: #fff;
+            color: #000;
+            border-color: #000;
+            .cta-icon {
+                background-position: 100% 0%;
+            }
+        }
+
+        &.inverted {
+            &:hover{
+                background: #000;
+                color: #fff;
+            }
+        }
+        
+    }
+}
+
+
+
+
+
+.m2-cta-tile {
+
+    /* BUTTON */
+    &.cta-button {
+        @include btn;
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        max-width: none;
+
+        &:focus {
+            outline: 0;
+        }
+        // &:hover {
+        //     background: #fff;
+        //     color: #000;
+        //     border-color: #000;
+        //     .cta-icon {
+        //         background-position: 100% 0%;
+        //     }
+        // }
+
+        &.inverted {
+            @include btn-lgt-stroke;
+            // &:hover{
+            //     background: #000;
+            //     color: #fff;
+            // }
+        }
+
+        // NOTE: background-image and possibly width/height are defined inline in the cta.tag from teamsite data.
+        .cta-icon {
+            display: inline-block;
+            width: 21px;
+            height: 13px;
+            margin: 0.2ex 13px 0 13px;
+            background-position: 0%;
+            background-repeat: no-repeat;
+            vertical-align: top;
+        }
+    }
+
+    /* TEXT */
+    &.cta-text {
+        @include nobel-bold;
+        color: black;
+        text-decoration: underline;
+        font-size: 10px;
+        letter-spacing: 1px;
+        &.inverted {
+            color: white;
+        }
+    }
+
+    /* MENU ITEM */
+    &.cta-menu {
+        padding: 1rem 2rem;
+        text-align: center;
+        background-color: black;
+        @include nobel-bold;
+        font-size: 10px;
+        letter-spacing: 1px;
+        display: inline-block;
+        text-decoration: none;
+
+        &:link, &:visited {
+            color: white;
+            text-decoration: none;
+        }
+        &:hover {
+            color: black;
+            background-color: white;
+            text-decoration: none;
+
+        }
+
+
+    }
+}

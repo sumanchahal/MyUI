@@ -1,0 +1,580 @@
+@import "library";
+@import "modules/dropkick";
+@import "modules/jscrollpane";
+@import "modules/location-tooltip";
+@import "modules/dealer-search-overlay";
+
+// import all sprites in the folder src/img/dealer-locator
+$dealer-locator-sprite-dimensions: true;
+@import "dealer-locator/*.png";
+@include all-dealer-locator-sprites;
+
+/**
+ * Dealer Locator section-level styles
+ */
+
+#dealer-locator {
+
+    .favorite-wrapper{
+        width: 100;
+        margin: 0;
+        padding: 8px 0 0 0;
+        @include nobel-bold;
+        @include font-size(12, auto, 150);
+        text-align: center;
+        color: #000;
+        margin: 17px 0 0;
+        #dealer-search-favorite {
+            cursor: pointer;
+            padding: 1px 0 1px 0;
+            margin: 0 0 0 0;
+            &:empty {
+                border-left: 0;
+            }
+            span {
+                padding-left: 30px;
+                padding-top: 1px;
+            }
+            span[data-action=addFavoriteDealer] {
+                background: transparent url(/assets/img/global/svg/star/gold.svg) no-repeat scroll 9% 35%;
+                color: $color-gold;
+            }
+    }
+        > span {
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+    }
+
+	.footer-search-results {
+		display:none;
+		position:absolute;
+		left:0;
+		top:-40px;
+		height:40px;
+		background:none;
+		width:310px;
+	}
+
+	.page-wrap {
+		border-top: 1px solid #efefef;
+		position: relative;
+	}
+
+	.sub-heading{
+	    @include sub-heading;
+        a {
+          text-decoration: none;
+          color: #000;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+	}
+
+	.link-arrow {
+		@include link-arrow;
+		line-height: 1em;
+	}
+
+
+	.link-arrow {
+		line-height: 1em;
+	}
+
+	.btn-stroke {
+		@include btn-stroke;
+	}
+
+	.btn-lgt-stroke {
+		@include btn-lgt-stroke;
+	}
+
+	.page-wrap {
+//		margin-top: 14px;
+		overflow: hidden;
+		@include clearfix();
+	}
+
+	.ajax-error,
+	.dis-error {
+		display:none;
+	}
+
+	.dis-error {
+		.dealer-locator-icon-error {
+			display: inline-block;
+			margin: auto;
+			margin-bottom: 10px;
+		}
+
+      &.general-issue-large,
+      &.general-issue-medium {
+        display: inline;
+      }
+
+      &.general-issue-small {
+        display: none;
+      }
+
+	}
+
+	.dis-error-border {
+		margin-top:20px;
+		border-bottom:1px dotted #ddd;
+    	height: 1px;
+    	display:none;
+	}
+
+	.global-error {
+		display:inline-block;
+	}
+
+	.dk_open {
+		z-index: 11;
+	}
+
+	/**
+	 * Columns
+	 */
+	#dealer-search {
+		width:300px;
+		margin-left:-300px;
+		float:left;
+		padding: 40px 10px 0 20px;
+		position: relative;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+
+		&.active {
+			margin-left:0;
+		}
+	}
+
+	#map {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		margin-left:0;
+
+		&.active {
+			margin-left:310px;
+		}
+	}
+
+	#mobile-map {
+		display: none;
+		height: 175px;
+	}
+
+	.scroll-pane-search-results {
+		@include clearfix;
+		margin-top: 20px;
+		padding: 0 0 0 0;
+
+		&.has-search-results {
+			overflow-y: scroll;
+			-webkit-appearance: none;
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+
+	.scroll-pane-search-results::-webkit-scrollbar {
+	    -webkit-appearance: none;
+	}
+
+	.scroll-pane-search-results::-webkit-scrollbar:vertical {
+	    width: 9px;
+	}
+
+	.scroll-pane-search-results::-webkit-scrollbar:horizontal {
+	    height: 11px;
+	}
+
+	.scroll-pane-search-results::-webkit-scrollbar-thumb {
+	    border-radius: 8px;
+	    border: 2px solid white;
+	    background-color: rgba(0, 0, 0, .5);
+	}
+
+	/**
+	 * Search Elements
+	 */
+	.search-by {
+
+		a {
+			color: #000;
+			display: inline-block;
+			@include nobel-book;
+			font-size: 12px;
+			text-decoration: none;
+			padding:10px 11px 15px 11px;
+			letter-spacing:1px;
+			margin-bottom:10px;
+			background: url("/assets/img/dealer-locator/search-by-sep.png") no-repeat right 7px;
+
+			&:last-child {
+				//padding-right:0;
+				background:none;
+			}
+
+			&.active {
+				@include nobel-bold;
+				background-image: url("/assets/img/dealer-locator/search-by-sep.png"), url("/assets/img/dealer-locator/icon-arrow-small-down.png");
+				background-position: right 7px, center 30px;
+				background-repeat: no-repeat;
+				//background: url("/assets/img/dealer-locator/icon-arrow-small-down.png") no-repeat center 35px;
+			}
+		}
+
+		a.active:last-child {
+			background-image: url(""), url("/assets/img/dealer-locator/icon-arrow-small-down.png");
+		}
+	}
+
+	@import "modules/zip-search";
+	@import "modules/find-nearby-dealers-search-results";
+
+	.dealer-links {
+		padding: 0;
+		margin-bottom: 25px;
+
+
+		.link-arrow {
+			line-height: 1.2;
+			background: none;
+			padding-left: 5px;
+		}
+		.link-arrow:after {
+			content: "" ;
+ 			display: inline-block;
+			background: url('/assets/img/global/btn-link-arrow.png') no-repeat center right;
+			height: 7px;
+			width: 7px;
+		}
+		p {
+			margin: 10px;
+			padding: 0 20px;
+		}
+		.cahip-message {
+			margin: 0px;
+			padding: 0;
+		}
+		.link-arrow {
+			margin: 10px;
+			margin-top: 0;
+		}
+		.cahip-message {
+			margin: 0px;
+			padding: 0;
+		}
+		.link-arrow {
+			margin: 10px;
+			margin-top: 0;
+		}
+		.other-dealers {
+			.link-arrow:after {
+				background:none;
+			}
+
+			.link-arrow-inline {
+				background: url("/assets/img/global/btn-link-arrow.png") no-repeat right 4px;
+				padding-right:6px;
+				display: inline-block;
+			}
+		}
+
+	}
+	.side-dealer-message {
+		padding: 0;
+		&.no-elite-message {
+			display: none;
+		}
+	    padding-top: 15px;
+	    padding-bottom: 25px;
+		h2 {
+			font-size: 15px;
+			letter-spacing: 0.1em;
+			text-align: center;
+			padding: 0;
+		}
+		p {
+			text-align: center;
+			margin: 15px;
+			margin-bottom: 0;
+			padding: 0;
+			line-height: 140%;
+			font-size: 13px;
+			color: #4e4e4e;
+			padding-bottom: 20px;
+			border-bottom: 1px solid #c1c1c1;
+		}
+		.bottom-line {
+			//background-color: #c1c1c1;
+			//height: 1px;
+			//width: 209px;
+			//margin: 0 auto;
+			//margin-bottom: 10px;
+		}
+	}
+
+	.side-dealer-message {
+		padding: 0;
+		&.no-elite-message {
+			display: none;
+		}
+	    padding-top: 15px;
+	    padding-bottom: 25px;
+		h2 {
+			font-size: 15px;
+			letter-spacing: 0.1em;
+			text-align: center;
+			padding: 0;
+		}
+		p {
+			text-align: center;
+			margin: 15px;
+			margin-bottom: 0;
+			padding: 0;
+			line-height: 140%;
+			font-size: 13px;
+			color: #4e4e4e;
+			padding-bottom: 20px;
+			border-bottom: 1px solid #c1c1c1;
+		}
+		.bottom-line {
+			//background-color: #c1c1c1;
+			//height: 1px;
+			//width: 209px;
+			//margin: 0 auto;
+			//margin-bottom: 10px;
+		}
+	}
+    
+	.javascript-data-container {
+		display: none;
+	}
+
+    // MW: I don't know why this is here and not at the top of the page,
+    // but apparently, it breaks the style of the map if you move it.
+	@import "modules/map";
+
+	/* first time visitor overlay */
+	.first-time-visitor {
+		display:none;
+
+		.sub {
+			//max-width: 60%;
+			margin: 0 auto;
+		}
+	}
+
+	.dealer-search-overlay {
+	}
+
+
+
+	/* dis down error message */
+	.error-wrapper {
+		border: 1px solid $color-error-light;
+		@include nobel-bold;
+		font-size:13px;
+		margin:10px 0 0 0;
+		padding: 20px 25px;
+		text-align:center;
+
+		.global-error {
+			display: block;
+			margin:0 auto 10px auto;
+		}
+
+		p {
+			line-height: 1.4em;
+			margin-bottom:10px;
+			text-transform:none !important;
+			@include palatino;
+		}
+
+		.error-message {
+			color: $color-error;
+			text-transform: uppercase !important;
+			@include nobel-bold;
+
+		}
+	}
+
+	.error-message {
+		@include palatino;
+		font-size: 13px;
+		text-transform:none;
+		line-height: 1.4em;
+		margin-bottom: 10px;
+
+      .general-issue-large,
+      .general-issue-medium {
+        display: inline;
+      }
+
+      .general-issue-small {
+        display: none;
+      }
+
+	}
+
+
+	&.mode-landing {
+		.MicrosoftNav .NavBar_button {
+			display: none;
+		}
+	}
+}
+
+#dealer-locator #dealer-search {
+	.error-message {
+		color: $color-error;
+	}
+}
+
+/* Small */
+@include at-medium-breakpoint() {
+	#dealer-locator {
+        .footer-search-results {
+          background:none;
+        }
+		/**
+		 * Columns
+		 */
+		#dealer-search {
+			padding-left:3.75%;
+		}
+
+		.search-by {
+			a {
+				padding: 10px 8px 15px 8px;
+			}
+		}
+
+		.link-contact-dealer {
+			&.show-medium {
+				display:inline-block;
+			}
+
+			&.show-large,
+			&.show-small {
+				display:none;
+			}
+		}
+
+		.form-zip-search {
+			padding: 0;
+		}
+	}
+}
+
+/* Small */
+@include at-small-breakpoint() {
+    #dealer-search {
+        position: absolute;
+        left: -999em;
+		height: 0;
+    }
+
+	.mode-results {
+        #dealer-search {
+            position: static;
+            left: auto;
+            height: auto;
+        }
+    }
+
+    #dealer-locator {
+		/* prevent iOS from zooming in on focus */
+		.form-zip-search .input-search {
+			font-size: 16px;
+		}
+
+		.page-wrap {
+			margin-top: 0;
+			overflow: visible;
+		}
+
+		/**
+		 * Columns
+		 */
+		#dealer-search {
+			@include full-width;
+			padding: 0;
+		}
+
+		.form-zip-search {
+			padding: 20px;
+		}
+
+		.scroll-pane-search-results {
+			padding: 0 35px 0 35px;
+			padding: 0 20px 0 20px;
+		}
+
+		#map {
+			display:none;
+		}
+
+		.column-wrapper {
+			height: auto;
+		}
+
+		.search-by {
+			width:255px;
+			margin:0 auto;
+		}
+
+		.link-contact-dealer {
+			&.show-small {
+				display:inline-block;
+			}
+
+			&.show-large,
+			&.show-medium {
+				display:none;
+			}
+		}
+
+		.NavBar_zoomControlContainer {
+			display: none;
+		}
+
+		.optional-disclaimers-container {
+			padding:24px 3.75%;
+		}
+
+        .error-message{
+            .general-issue-large,
+            .general-issue-medium {
+              display: none;
+            }
+
+            .general-issue-small {
+              display: inline;
+            }
+        }
+
+        .dealer-links {
+        	padding:0 20px;
+        }
+
+		.dis-error {
+			margin:0 20px 0 20px;
+
+
+            &.general-issue-large,
+            &.general-issue-medium {
+              display: none;
+            }
+
+            &.general-issue-small {
+              display: inline;
+            }
+		}
+	}
+}

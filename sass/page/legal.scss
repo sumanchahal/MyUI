@@ -1,0 +1,13 @@
+@import "../modules/module-base";
+@import "legal-base";
+
+
+
+// handles a very specific situation with the spacing between phone numbers/addresses and preceding p.
+.legal-format .m2-text-tile p+h4 {
+	padding-top: 0;
+}
+ol {
+	list-style-type: upper-alpha;
+    padding-left: 20px;
+}

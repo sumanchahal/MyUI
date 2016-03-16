@@ -1,0 +1,397 @@
+@import "library";
+
+/* Lead forms styles */
+
+.lead-form-header {
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 305px;
+    position: relative;
+    width:auto;
+    text-align: center;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em;
+    }
+
+    img {
+        position: absolute;
+        left: 50%;
+        width: 1012px;
+        margin-left: -506px;
+        z-index: 0; 
+    }
+
+    h2 {
+        @include nobel-bold;
+        @include font-size(29, auto, 150);
+        color: #FFF;
+        display: inline-block;
+        line-height: 115%;
+        position: relative;
+        vertical-align: middle;
+        width: 540px;
+        z-index:1;
+    }
+}
+
+.lead-form {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 10% 0;
+
+    h2 {
+        @include nobel-bold;
+        letter-spacing: 4px;
+        font-size: 30px;
+        text-align:center;
+        text-transform:uppercase;
+        margin-bottom: 20px;
+    }
+
+    .copy {
+        margin: 0 auto 40px;
+        @include palatino;
+        font-size:13px;
+        line-height:1.4em;
+        color:#757575;
+        text-align: center;
+        width: 80%;
+    }
+
+    .form-error {
+        margin-top: 0;
+
+        &.server-error {
+            display: block;
+
+            .validation-error {
+                display: none;
+            }
+
+            .server-error {
+                display: block;
+            }
+        }
+
+        &.validation-error {
+            display: block;
+
+            .validation-error {
+                display: block;
+            }
+
+            .server-error {
+                display: none;
+            }
+        }
+    }
+
+    .row {
+        @include clearfix();
+
+        .column {
+            @include grid-column(6);
+        }
+
+        .column:nth-child(2n) {
+            @include omega; 
+        }
+    }
+
+    select.form-control {
+        @include opacity(0);
+        width: 100%;
+    }
+
+    label,
+    legend {
+        letter-spacing: 1px;
+    }
+
+    legend {
+        display: block;
+        margin-bottom: 0;
+        padding-bottom: 15px;
+    }
+
+    input[type="text"],
+    textarea {
+        @include palatino;
+        @include box-sizing(border-box);
+    }
+
+    .radio.custom-radio {
+        label {
+            font-weight: 200;
+        }
+        label span {
+            @include palatino();
+            color: #757575;
+            display: block;
+            line-height: 150%;
+            text-transform: none;
+            z-index: -1;
+        }
+    }
+
+    .checkbox.custom-checkbox label {
+        @include palatino;
+        text-transform: none;
+        font-weight: 200;
+        letter-spacing: 0;
+    }
+
+    .dk_container.custom {
+        border: 0;
+
+        .dk_toggle {
+            background: #f0f0f0 url("/assets/img/global/bg-selectbox-transparent.png") no-repeat right top;
+            line-height: 34px;
+            width: 100% !important;
+        }
+
+        .dk_label,
+        .dk_options_inner li a{
+            @include palatino;
+            font-size: 13px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        &.error {
+            border: 1px solid #ff0000;
+            height: 32px;
+
+            .dk_toggle {
+               background: #ffe8e8 url("/assets/img/global/bg-selectbox-transparent.png") no-repeat right top;
+               line-height: 31px;
+            }
+        }
+    }
+
+    .address-verification {
+        display: none;
+
+        .copy {
+            margin: 30px 0 20px;
+            text-align: left;
+        }
+
+        .radio.custom-radio label {
+            font-size: 11px;
+            line-height: 175%;
+
+            span {
+                font-size: 13px;
+            }
+
+            .hidden-character {
+                position: absolute;
+                left: -9999px;
+            }
+        }
+
+        &.loading {
+            display: block;
+
+            .radio.custom-radio,
+            .copy {
+                display: none;
+            }
+        }
+
+        &.open {
+            display: block;
+
+            .loading-wrapper {
+                display: none;
+            }
+        }
+    }
+
+    hr {
+        border: none;
+        border-bottom: 1px dotted #b2b2b2;
+        margin-top:5px;
+    }
+
+    .preferred-dealers {
+        display: none;
+
+        .error-wrapper {
+            border: 1px solid #000;
+            margin-top: 0;
+            padding: 38px 25px 28px;
+
+            .error-message,
+            a {
+                color: #000;
+                text-decoration: none;
+            }
+
+            .invalid {
+                display: none;
+            }
+
+            &.invalid {
+
+                .general {
+                    display: none;
+                }
+
+                .invalid {
+                    display: block;
+                }
+            }
+        }
+
+        &.loading {
+            display: block;
+
+            .dealer-results-wrapper,
+            .error-wrapper {
+                display: none;
+            }
+        }
+
+        &.dis-error {
+            display: block;
+
+            .dealer-results-wrapper,
+            .dealer-locator-loading {
+                display: none;
+            }
+        }
+
+        &.open {
+            display: block;
+
+            .dealer-locator-loading,
+            .error-wrapper {
+                display: none;
+            }
+        }
+    }
+
+    .loading-wrapper {
+        @include nobel-book;
+        @include box-sizing(border-box);
+        border: 1px solid #e1e1e1;
+        padding: 15px 0 20px;
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        text-align: center;
+
+        #loadingAnimation,
+        #loadingAnimationDealers {
+            @include transform(scale(0.72));
+            display: block !important;
+            margin: 0 auto 10px;
+        }
+    }
+
+    .dealer-results {
+        .checkbox.custom-checkbox label,
+        .radio.custom-radio label {
+            @include palatino;
+            line-height: 150%;
+            text-transform: none;
+        }
+    }
+
+    .ajax-error {
+        display:none;
+        color:#f00;
+    }
+
+    button {
+        padding: 11px 20px 10px 20px;
+    }
+
+    .privacy-link {
+        display: block;
+        font-size:11px;
+        color:#939393;
+        @include palatino;
+        margin: 15px 0 0 0;
+    }
+}
+
+.no-touch.no-mstouch .lead-form button:hover {
+    background: #FFF;
+    color: #000;
+}
+
+
+@media screen {
+    @include at-medium-breakpoint() {
+        .lead-form {
+            max-width:90%;
+            padding-left:5%;
+            padding-right:5%;
+        }
+    }
+
+    @include at-small-breakpoint() {
+        
+        .lead-form-header {
+            background: #FFF !important;
+            height: auto;
+            padding: 20px 3.75% 0;
+
+            h2 {
+                color: #000;
+                width: auto;
+                font-size: 16px;
+                line-height: 20px;
+                margin-top: 0;
+                top: 0;
+            }
+        }
+
+        .lead-form {
+            padding: 20px 0 0;
+            margin: 0;
+            max-width: none;
+
+            input[type=text],
+            select,
+            .dk_container.custom .dk-label {
+                font-size: 16px;
+            }
+
+            select {
+                display: block;
+                visibility: visible;
+            }
+
+            h2 {
+                font-size: 16px;
+                line-height: 20px;
+                margin-bottom: 15px;
+            }
+
+            .copy {
+                margin: 0 auto 20px;
+                width: 100%;
+            }
+
+            .loading-dealers {
+                width: 100%;
+            }
+
+            .row {
+                .column {
+                    @include grid-column(12);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@import "grid";
+@import "color";
+@import "typography";
+
+.badge-container {
+    position: relative;
+    padding: 0 $gutter-width;
+    margin: 0 auto;
+    width: 92.5%;
+    max-width: $large-max;
+    top: 82px;
+    left: 38px;
+}
+.badge-wrapper {
+    position: relative;
+}
+.badge {
+    @include white-on-black;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12%;
+
+    &.inverted {
+      @include black-on-white;
+        .badge-title {
+          .model-name {
+            background: url(/assets/img/overview/hero-border-inverted.png) no-repeat center 100%;
+          }
+        }
+
+    }
+    .badge-title {
+        @include nobel-bold;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        display: block;
+        padding: 25% 13%;
+        .top-line {
+            display: block;
+            padding: 0 0 15px;
+        }
+        .model-name {
+            @include nobel-light;
+            background: url(/assets/img/overview/hero-border.png) no-repeat center 100%;
+            display: block;
+            font-size: 84px;
+            padding: 0 0 15px;
+        }
+        .bottom-line {
+            display: block;
+            margin-top: 10px;
+        }
+    }
+}

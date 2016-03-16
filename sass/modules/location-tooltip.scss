@@ -1,0 +1,75 @@
+@import "library";
+
+$location-tooltip-sprite-dimensions: true;
+@import "dealer-locator/location-tooltip/*.png";
+@include all-location-tooltip-sprites;
+
+.location-tooltip {
+	background: #000;
+	color: #fff;
+	display:none;
+	font-size: 13px;
+	padding: 20px 20px 20px 20px;
+	position: absolute;
+	width: 380px;
+	z-index: 500;
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+
+	.tooltip-title {
+		display: block;
+		@include nobel-bold;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+	}
+
+	p {
+		@include palatino;
+		line-height: 1.2em;
+	}
+
+	.tooltip-arrow {
+		display: inline-block;
+		position: absolute;
+	
+
+		&.tooltip-arrow-right {
+			
+			@include location-tooltip-sprite(tooltip-arrow-left);
+			bottom: 20px;
+			left: -8px;
+		}
+
+		&.tooltip-arrow-bottom {
+			background: url("/assets/img/dealer-locator/location-tooltip/tooltip-arrow-up.png") no-repeat;
+			height: 8px;
+			left:auto;
+			right: 10px;
+			top: -8px;
+			width: 21px;
+		}
+	}
+
+	.tooltip-close {
+		display: inline-block;
+		cursor: pointer;
+		@include location-tooltip-sprite(tooltip-icon-close);
+		position: absolute;
+		right: 12px;
+		top: 10px;
+	}
+}
+
+/* Small */
+@include at-small-breakpoint() {
+	.location-tooltip {
+		width: auto;
+		margin: 0 4.05449% 0 4.05449%;
+		
+		.tooltip-close {
+			right: 13px;
+			top: 10px;
+		}
+	}
+}

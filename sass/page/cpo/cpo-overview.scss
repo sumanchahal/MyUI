@@ -1,0 +1,872 @@
+@import "../model/visualizer";
+@import "cpo-owner-benefits";
+@import "cpo-dealer-search";
+@import "page/model/gallery-overlay";
+@import "cpo";
+
+$grey-accent: #efefef;
+
+/* gallery-tiles.scss pulls in too much extraneous CSS, some of which breaks the subnav on CPO, so this is just what's needed */
+@mixin darkBackground {
+    background-color: rgba(0,0,0,.5);
+}
+
+.enlarge-img {
+  //    background: url(/assets/img/features/feature-image-hover.gif) 0 0 no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  opacity: 0;
+  z-index: 1;
+}
+
+.gallery-item {
+    display: table;
+    position: relative;
+    z-index: 0;
+    @include animationFix;
+    &:hover {
+        .enlarge-img{
+            opacity: 1;
+            @include darkBackground;
+        }
+        .image-controls {
+            opacity: 1;
+        }
+    }
+    .enlarge-img {
+        @include animationFix;
+        top: 0;
+//        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all .3s ease-in-out;
+        cursor: pointer;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0);
+        cursor: pointer;
+    }
+    // do not hide the button or description text for video thumbs.
+    &.video {
+        .enlarge-img{
+            opacity: 1;
+            // but dont' show the back ground until hover.
+            background: none;
+            &:hover {
+                @include darkBackground;
+            }
+        }
+    }
+
+    img {
+        display: block;
+        width: 100%;
+    }
+    &.video{
+        .image-controls{
+            display: none;
+        }
+    }
+}
+
+@include at-medium-breakpoint {
+    .enlarge-img {
+      opacity: 1;
+    }
+    .gallery-item {
+        .enlarge-icon {
+          background: url(/assets/img/features/feature-image-hover.gif) 0 0 no-repeat;
+          background-size: 100%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 22px;
+          height: 22px;
+          z-index: 1;
+          opacity: 1;
+        }
+        .btn {
+            @include font-size(8,auto,auto);
+            width: 97px;
+            height: 28px;
+            padding: 5px 8px 6px 8px;
+        }
+        .title {
+            @include font-size(8,auto,auto)
+        }
+    }
+}
+
+@include at-small-breakpoint {
+  .enlarge-img {
+    opacity: 1;
+  }
+  .gallery-item {
+      display: block;
+      position: relative;
+      .enlarge-icon {
+        background: url(/assets/img/features/feature-image-hover.gif) 0 0 no-repeat;
+        background-size: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 22px;
+        height: 22px;
+        z-index: 1;
+        opacity: 1;
+      }
+      .btn {
+          @include font-size(8,auto,auto);
+          width: 97px;
+          height: 28px;
+          padding: 5px 8px 6px 8px;
+      }
+      a {
+          display: block;
+      }
+      img {
+          display: block;
+          width: 100%;
+      }
+      &.image_transparent {
+          display: none !important;
+      }
+  }
+}
+
+/* End gallery-item.scss exerpt */
+
+/*
+header {
+  text-align:center;
+}
+*/
+.content {
+  h2 {
+    margin: 40px auto;
+  }
+}
+.hero {
+  &.fullWidth {
+    padding-bottom: 0;
+    height: auto;
+    .cpo-hero-carousel {
+      display: block;
+      width: 100%;
+      padding-bottom: 26%;
+      .carouselWrapper {
+        /* change for fullwidth */
+        width: 100%;
+        padding-bottom: 26%;
+      }
+    }
+    .cpo-hero-search {
+      display: block;
+      width: 100%;
+      position: relative;
+      top: 0;
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      transform: translateY(0);
+      background: #FFF;
+      vertical-align: middle;
+      #dealer-search {
+        background: #000;
+      }
+      header {
+        display: none;
+      }
+      .error-message {
+        background: #FFF;
+      }
+      .input-search-group {
+        display: table;
+        margin: auto;
+        padding: 5px 0;
+        h3 {
+          display: table-cell;
+          vertical-align: middle;
+          color: #FFF;
+          font-size: 17px;
+        }
+        .input-group-btn {
+          margin: 0 15px;
+        }
+        h4.get-api-zip {
+          display: table-cell;
+          vertical-align: middle;
+          color: #FFF;
+          font-size: 16px;
+          width: 205px
+        }
+      }
+      .form-zip-search .input-group-btn .input-search {
+        font-size: 16px;
+        width: 190px;
+      }
+    }
+  }
+  background: #eee;
+  overflow:hidden;
+  width:100%;
+  padding-bottom: 26.687%;
+  height: 0;
+  text-align: left;
+  .cpo-hero-carousel {
+    display: inline-block;
+    width:63.1%;
+    padding-bottom: 26.637%;
+    overflow: hidden;
+    .carouselWrapper {
+      padding-bottom: 26.687%;
+      width:63.1%;
+      position:absolute;
+      background: #eee;
+    }
+    .item {
+      overflow: hidden;
+      img {
+        width: 100%;
+        margin: 0 auto;
+        opacity: 0;
+      }
+    }
+    .indicators {
+      position: absolute;
+      bottom:5px;
+      left:0;right:0;
+      margin:0 auto;
+      .indicator {
+        width: 9px;
+        height: 9px;
+        border: 2px solid rgba(0,0,0,0);
+        background-color: $color-white;
+        &.active {
+          background-color: rgba(0,0,0,0);
+          border: 2px solid $color-white;
+        }
+      }
+    }
+  }
+  hr {
+    width: 52px;
+    height: 2px;
+    margin: 1vw auto 3vw;
+  }
+  .cpo-hero-search {
+    display: inline-block;
+    //display: table;
+    text-align: center;
+    width: 36.9%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    h2 {
+      //margin: 2vw auto 1vw;
+      line-height: 1.5;
+    }
+
+    #dealer-search {
+      //display:table-cell;
+      vertical-align:middle;
+
+    }
+    #zip-wrapper {
+      display: block;
+    }
+    .scroll-pane-search-results {
+      display: none;
+    }
+  }
+
+
+  section.block {
+    display:block;
+    width:100%;
+    position:relative;
+    float:none;
+  }
+}
+
+
+.title {
+  @include nobel-regular;
+  @include font-size(15, 18, 200);
+  margin: 10px auto;
+  overflow: hidden;
+  text-align: center;
+}
+.owner-benefits-wrapper {
+  padding:20px 0 35px;
+  clear:both;
+  .button-wrapper {
+    margin: 38px auto 76px auto;
+    text-align: center;
+    a {
+      @include btn;
+      display: inline;
+      max-width: 420px;
+    }
+  }
+  section.row {
+    display:block;
+  }
+  .title h2 {
+    @include nobel-bold;
+    @include font-size(22,22,150);
+    margin-bottom: 0;
+    margin-top: 20px;
+  }
+  .owner-benefits-content {
+    width:100%;
+    margin-bottom:20px;
+    &:before, &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+    .col {
+      width: 27%;
+    }
+    .benefit-items {
+      display: block;
+      position:relative;
+      .owner-benefits-item {
+        margin:0 0 100px 0;
+        float: left;
+        padding: 0 4.5%;
+        cursor:pointer;
+        border-right: 1px solid #eee;
+        &:nth-child(3n) {
+          padding: 0 0 0 3.5%;
+          border-right: none;
+        }
+        &:nth-child(3n + 1) {
+          padding: 0 4.5% 0 0;
+        }
+        a {
+          text-decoration:none;
+          color:inherit;
+          font-size:inherit;
+          font-style:inherit;
+        }
+        a img {
+          max-width:70px;
+          margin: 0 0 10px 0;
+          height:auto;
+          @include no-select;
+        }
+        h2 {
+          @include sub-heading;
+          height:65px;
+          position: relative;
+          .arrow {
+            display: none;
+            position: absolute;
+            width: 0;
+            height: 0;
+            right: 0;
+            top: 25%;
+            margin: 0;
+            border-style: solid;
+            border-width: 10px 10px 0 10px;
+            border-color: #000 transparent transparent transparent;
+            -webkit-transform: rotate(360deg);
+            &:after {
+              content: '';
+              position: absolute;
+              top: -21px;
+              left: -19px;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 19px 19px 0 19px;
+              border-color: white transparent transparent transparent;
+              -webkit-transform: rotate(360deg);
+            }
+          }
+        }
+        .collapsible {
+          position: relative;
+          -webkit-transition: all 1s ease;
+          -moz-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+          -o-transition: all 1s ease;
+          transition: all 1s ease;
+          &:after {
+            content: ' ';
+            width: 100%;
+            height: 1px;
+            background-color: #eee;
+            position: absolute;
+            left: 0px;
+            bottom: -50px;
+          }
+        }
+        &:nth-last-child(3), &:nth-last-child(2), &:nth-last-child(1) {
+          .collapsible:after {
+            content: none;
+          }
+        }
+        p {
+          @include body-copy();
+          height:85px;
+        }
+        .learn-more {
+          @include no-select;
+          @include link;
+          font-size:12px;
+          margin-top:25px;
+          border-bottom: 2px solid #000;
+          display: inline-block;
+          padding-bottom: 5px;
+        }
+      }
+    }
+    + button {
+      @include btn;
+      min-width:275px;
+      margin:0 auto;
+    }
+  }
+}
+
+.cpo-models {
+  @include border-dotted-top-and-bottom();
+  max-width: $large-max;
+  min-height:490px;
+
+  header {
+    h2 {
+      @include nobel-bold;
+      @include font-size(22,100,150);
+    }
+  }
+  .description {
+    text-align:center;
+    display: none;
+  }
+  .mobile-models {
+    display: none;
+  }
+  .mobile-button {
+    display: none;
+  }
+  .button-wrapper {
+    margin: 38px auto 76px auto;
+    text-align: center;
+    a {
+      @include btn;
+      display: inline;
+      max-width: 420px;
+    }
+  }
+  ul {
+    text-align:center;
+    margin:5px auto 15px;
+    padding:0;
+    list-style:none;
+    li {
+      @include link;
+
+      font-size:12px;
+      display:inline-block;
+      position:relative;
+      margin:0;
+      padding:0;
+      overflow: visible;
+      width: 15%;
+      height: 46px;
+      line-height: 46px;
+      text-align: center;
+      border-bottom:none;
+      &:last-child {
+        width: 20%;
+      }
+      &:after {
+        content: '\25BC';
+        position: absolute;
+        width: 15px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 20px;
+        visibility:hidden;
+      }
+      &.active:after {
+        visibility:visible;
+      }
+      + li {
+        border-left: 1px dotted #6c6c6c;
+      }
+    }
+  }
+  section {
+    position:absolute;
+    left:0;
+    width:100%;
+    height:260px;
+    display:block;
+    visibility:hidden;
+    opacity:0;
+    &.active {
+      visibility:visible;
+      opacity:1;
+    }
+    .product-image-container img {
+      width:250px;
+      height:auto;
+      @include no-select();
+    }
+  }
+  .product{
+    background: #fff;
+    width: 25%;
+    float: left;
+    padding: 0 0 1.5% 0;
+    @include box-sizing(border-box);
+    position: relative;
+    top: 0;
+    z-index: 10;
+    a {
+      text-decoration: none;
+    }
+    &:hover {
+      background-color: $grey-accent;
+      transition: all .3s ease-in-out;
+    }
+    .product-image{
+      padding-top: 10px;
+      max-width: 260px;
+      margin: 0 auto;
+      img{
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    .details{
+      padding-top: 20px;
+      padding-left: 13%;
+      text-decoration: none;
+      color: #000;
+      .name{
+        margin-bottom: 12px;
+        @include nobel-bold;
+        @include font-size(16, auto, 110);
+        @include trim-name;
+      }
+      .offers{
+        margin-top: 12px;
+        @include nobel-book;
+        @include font-size(11);
+        padding-bottom: 14px;
+        background: url(/assets/img/overview/styles-trim-footer.gif) no-repeat center bottom;
+      }
+    }
+    .top-arrow,
+    .bottom-arrow{
+      width: 100%;
+      height: 12px;
+      background: #fff;
+      z-index: 10;
+    }
+    .bottom-arrow{
+      display: none;
+    }
+    &.selected{
+      &:hover {
+        background-color: $color-white;
+      }
+      .top-arrow{
+        background: #FFF url(/assets/img/overview/styles-selected-arrow.png) no-repeat center 0px;
+      }
+    }
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+.cpo-overview-video {
+  max-width: $large-max;
+  padding-top:35px;
+  .cpo-video-wrapper {
+    position: relative;
+    text-align:center;
+    .module {
+      position: relative;
+      height: 0;
+      padding-bottom: 56.25%;
+    }
+    img {
+      width: 100%;
+    }
+    .BrightcoveExperience {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+}
+
+@media only screen and (min-width : $large-max) {
+  .cpo-models {
+    section {
+      left: calc(50% - 602px);
+      max-width: $large-max;
+    }
+  }
+}
+
+@include at-small-and-medium-breakpoints() {
+  .hero {
+    &.fullWidth {
+      .cpo-hero-search {
+        padding: 0;
+        #zip-wrapper {
+          margin-bottom: 0;
+        }
+        .zip-search-wrapper {
+          padding: 0;
+        }
+        .input-search-group {
+          h3 {
+            display: block;
+            color: #FFF;
+            font-size: 12px;
+          }
+          h4.get-api-zip {
+            display: block;
+            color: #FFF;
+            font-size: 12px;
+            width: 205px
+          }
+        }
+        .form-zip-search .input-group-btn {
+          margin: 5px 15px;
+          .input-search {
+            font-size: 16px;
+            width: 152px;
+            // CODE HERE!!!!
+            height: 26px;
+            vertical-align: middle;
+
+          }
+        }
+      }
+    }
+    height: auto;
+    max-height: none;
+    padding-bottom: 0;
+    .cpo-hero-carousel {
+      width:100%;
+      padding-bottom: 42.305%;
+      height: 0;
+      .carouselWrapper {
+        position: relative;
+        width:100%;
+        padding-bottom: 42.305%;
+        .item {
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .cpo-hero-search {
+      width: 100%;
+      padding:20px 0;
+      position: relative;
+      top: 0;
+      -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+      transform: translateY(0%);
+      #dealer-search {
+        display: block;
+      }
+      .scroll-pane-search-results {
+          display: block;
+      }
+    }
+  }
+  #zip-wrapper {
+    margin-bottom: 25px;
+  }
+  .owner-benefits-wrapper {
+    .owner-benefits-content {
+      .benefit-items {
+        .owner-benefits-item {
+          margin:0 0 60px 0;
+          padding: 0 3%;
+          h2 {
+            height:auto;
+            margin-bottom: 20px;
+          }
+          &:nth-child(3n) {
+            padding: 0 3%;
+            border-right: 1px solid #eee;
+          }
+          &:nth-child(3n + 1) {
+            padding: 0 3%;
+          }
+          &:nth-child(2n) {
+            padding: 0 2% 0 3%;
+            border-right: none;
+          }
+          .collapsible:after {
+            bottom: -30px;
+          }
+          &:nth-last-child(3) {
+            .collapsible:after {
+              content: ' ';
+            }
+          }
+        }
+      }
+      .col {
+        width: 44%;
+      }
+    }
+  }
+}
+
+@include at-small-breakpoint() {
+  .carousel .indicators {
+    padding: 0;
+  }
+  .search-results ul li {
+    padding: 10px 0 10px;
+  }
+  .owner-benefits-wrapper .title h2 {
+    margin-top: 10px;
+  }
+  .hero .cpo-hero-search {
+    padding: 0;
+  }
+  .hero {
+    &.fullWidth {
+      .cpo-hero-carousel {
+        width: 100%;
+        padding-bottom: 52.8125%;
+        .carouselWrapper {
+          padding-bottom: 52.8125%;
+        }
+      }
+    }
+  }
+  .owner-benefits-wrapper {
+    .button-wrapper {
+      margin: 38px auto 6px auto;
+    }
+    .owner-benefits-content {
+      .col {
+        width: 100%;
+        padding: 0;
+      }
+      .benefit-items {
+        .owner-benefits-item {
+          padding: 0;
+          border-bottom: 1px solid #000;
+          border-right: none;
+          margin-bottom: 20px;
+          &:nth-child(3n) {
+            padding: 0;
+            border-right: none;
+          }
+          &:nth-child(3n + 1) {
+            padding: 0;
+          }
+          &:nth-child(2n) {
+            padding: 0;
+          }
+          &.expanded {
+            .arrow {
+              -webkit-transform: rotate(180deg);
+              -moz-transform: rotate(180deg);
+              -ms-transform: rotate(180deg);
+              -o-transform: rotate(180deg);
+              transform: rotate(180deg);
+            }
+            .collapsible {
+              max-height: 160px;
+            }
+          }
+          p {
+            margin-bottom: 10px;
+            height: auto;
+          }
+          .learn-more {
+            margin-top: 0;
+            margin-bottom: 30px;
+          }
+          h2 {
+            height:auto;
+            margin-bottom: 20px;
+            text-align: left;
+            .arrow {
+              display: block;
+            }
+          }
+          .collapsible {
+            max-height: 0;
+            overflow: hidden;
+          }
+          img {
+            display: none;
+          }
+          &:first-child, &:last-child {
+            padding-right: 0;
+            padding-left: 0;
+          }
+        }
+      }
+      button {
+        margin: 0 auto 30px;
+      }
+    }
+  }
+  .cpo-models {
+    padding: 0 3.75% 30px;
+    min-height: 270px;
+    .title h2 {
+      line-height: 26px;
+    }
+    .description {
+      display: block;
+    }
+    .mobile-models {
+      display: block;
+      width: 100%;
+    }
+    .mobile-button {
+      display: block;
+    }
+    ul {
+      display: none;
+    }
+    section {
+      display: none;
+    }
+    .button-wrapper {
+      margin: 38px auto;
+    }
+  }
+  .cpo-overview-video {
+    padding-bottom: 0;
+  }
+}
+
+

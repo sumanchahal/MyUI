@@ -1,0 +1,510 @@
+@import "dealer";
+@import "modules/share";
+@import "modules/carousel";
+@import "modules/tooltip";
+@import "page/model/gallery";
+@import "modules/key-contacts";
+@import "page/model/gallery-overlay";
+
+$map-gallery-total-width: 1204;
+$gallery-width: 780;
+$map-width: 424;
+
+/* Fix for LRT-8099 */
+.terms .disclaimer-counters,
+#footer-disclaimer-offers {
+    display:none;
+}
+
+
+/*#cboxLoadedContent {
+	overflow:hidden !important;
+}*/
+
+#details, #print {
+	/* Prevent font scaling in landscape */
+	-webkit-text-size-adjust: none;
+	@import "modules/map";
+}
+
+.print-page {
+
+	.current-offers header a {
+		text-decoration:none !important;
+	}
+
+	.detail-group a {
+		display:none;
+	}
+}
+
+
+.page-wrap {
+	padding-top: 15px;
+	border-top: 1px solid #efefef;
+}
+.wrapper {
+	@include grid-container;
+	margin: auto;
+}
+
+.current-offers {
+	header {
+		.desktop {
+			display: inline;
+		}
+		.tablet, .mobile {
+			display: none;
+		}
+	}
+}
+
+header {
+	h1 {
+		@include heading;
+		@include nobel-bold;
+		padding: 40px 0;
+		text-align: center;
+		font-size: 30px;
+	}
+	img {
+		display: inline-block;
+		position: relative;
+		top: 5px;
+	}
+	.dealer-locator-icon-elite-dealer {
+		display: none;
+	}
+}
+
+section {
+	border-top: 1px dotted #000;
+	padding: 35px 0;
+
+	header {
+		text-align: center;
+
+		p {
+			@include nobel-book;
+			@include font-size(12, 12, 150);
+			margin-top: 15px;
+		}
+
+		a {
+			@include nobel-bold;
+			color: #000;
+		}
+
+		a:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+@import "modules/current-offers";
+
+.key-contacts {
+
+
+	h2 {
+		margin-bottom: 30px;
+	}
+
+}
+
+.services {
+	@include grid-container;
+
+	h2 {
+		margin-bottom: 30px;
+	}
+
+	h3 {
+		margin-bottom: 15px;
+	}
+
+	.service {
+		padding-bottom: 30px;
+	}
+
+	p {
+		@include palatino;
+		font-size: 13px;
+		line-height: 1.2;
+		color: #939393;
+	}
+
+	.lexus-elite {
+		h3 {
+			position: relative;
+			padding-left: 28px;
+		}
+	}
+
+	img {
+		height: 20px;
+		display: block;
+		position: absolute;
+		top: -4px;
+		left: 0;
+	}
+}
+
+.service-group {
+	@include grid-column(6);
+}
+
+.service-group:nth-child(2n+1) {
+	@include omega;
+}
+
+.dealer-details {
+
+    /* LIM 3199 */
+    .favorite-wrapper{
+        width: 100;
+        margin: 0;
+        padding: 8px 14px 0 0;
+        @include nobel-bold;
+        @include font-size(12, auto, 150);
+        text-align: center;
+        color: #000;
+        margin: 17px 0 0;
+        #dealer-detail-favorite {
+            cursor: pointer;
+            padding: 1px 0 1px 0;
+            margin: 0 0 0 10px;
+            &:empty {
+                border-left: 0;
+            }
+            span {
+                padding-left: 30px;
+                padding-top: 1px;
+            }
+            span[data-action=addFavoriteDealer] {
+                background: transparent url(/assets/img/global/svg/star/gold.svg) no-repeat scroll 9% 35%;
+                color: $color-gold;
+            }
+    }
+        > span {
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+    }
+    /* End LIM 3199*/
+
+	@include grid-container;
+	border-top: none;
+
+	.detail-group {
+		@include grid-column(3);
+	}
+
+	.detail-group:last-child {
+		@include omega;
+	}
+
+	.link-arrow {
+		@include link-arrow;
+		display: inline;
+	}
+
+	.hours, .info {
+		margin-bottom: 10px;
+	}
+
+	.tel-desktop {
+		display:block;
+	}
+
+	.tel-mobile a {
+		display:none;
+		text-decoration:none;
+		color:#939393;
+	}
+
+	h3 {
+		margin-bottom: 10px;
+	}
+
+	p {
+		font-size: 13px;
+		color: #939393;
+		line-height: 1.4;
+	}
+
+	.button {
+		margin-bottom: 5px;
+		padding: 10px 0 10px;
+		max-width: 170px;
+
+		.no-touch.no-mstouch &:hover {
+			color: $color-black;
+			background: $color-white;
+		}
+	}
+
+	.top-buttons {
+		display: none;
+	}
+
+	.buttons {
+		.desktop {
+			display: block;
+		}
+		.tablet {
+			display: none;
+		}
+	}
+
+	.share-proxy {
+		@include nobel-bold;
+		letter-spacing: 0.15em;
+		display: none;
+		text-transform: uppercase;
+		color: $color-black;
+		font-size: 11px;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.info {
+		.link-contact {
+			display: none;
+		}
+
+		.adr a {
+			color: inherit;
+			text-decoration: none;
+		}
+		.adr a:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.map {
+	overflow: hidden;
+	width:100%;
+	float:left;
+	height: 253px;
+	margin-right:0;
+}
+
+.heading-gallery {
+	position:relative;
+
+	.gallery-target {
+		cursor:pointer;
+		width:65.31517%;
+		float:left;
+		margin-right:2.05449%;
+
+		.responsive-image {
+			width: auto;
+
+			&.loaded {
+				width: 100%;
+			}
+		}
+	}
+
+	.gallery-item {
+		backface-visibility: visible;
+		-webkit-backface-visibility: visible;
+		-moz-backface-visibility: visible;
+		-ms-backface-visibility: visible;
+
+		.image-controls {
+			position: static;
+		}
+		.btn {
+			width:200px;
+		}
+	}
+
+	.map {
+		height: auto;
+		float:left;
+		width:32.63034%;
+		margin-right:0;
+	}
+}
+
+
+#details .heading-gallery {
+	padding-bottom: 10px;
+}
+
+@include at-medium-breakpoint() {
+	.utility-nav {
+		.print {
+			display: none;
+		}
+		.share a {
+			padding: 0;
+		}
+      .back {
+        font-size: 10px;
+      }
+	}
+
+	header {
+		h1 {
+			font-size: 25px;
+		}
+		img {
+			top: 7px;
+		}
+	}
+
+	.current-offers {
+		header {
+			.desktop, .mobile {
+				display: none;
+			}
+			.tablet {
+				display: inline;
+			}
+		}
+
+		.offer {
+			@include grid-column(6);
+		}
+
+		.offer:nth-child(2n) {
+			@include omega;
+		}
+	}
+
+	.dealer-details {
+		.detail-group {
+			@include grid-column(3);
+
+			&:last-child {
+				@include omega;
+			}
+		}
+
+		.buttons {
+			.desktop {
+				display: none;
+			}
+			.tablet {
+				display: block;
+			}
+		}
+	}
+}
+
+@media screen {
+	@include at-small-breakpoint() {
+        .heading-gallery {
+			.gallery-target {
+				width: 100%;
+				float: none;
+			}
+			.map {
+				display: none;
+			}
+		}
+
+		.utility-nav ul {
+			display: none;
+		}
+
+		.heading-wrapper {
+			padding: 0;
+		}
+
+		header {
+			h1 {
+				font-size: 16px;
+				padding: 30px 0 20px 0;
+			}
+			img {
+				height: 22px;
+				top: 5px;
+			}
+		}
+
+		section {
+			padding: 30px 0;
+
+			h2 {
+				font-size: 18px;
+			}
+		}
+
+		.service-group {
+			@include grid-column(12);
+		}
+
+		.current-offers {
+			header {
+				padding-bottom: 25px;
+
+				.desktop, .tablet {
+					display: none;
+				}
+				.mobile {
+					display: inline;
+				}
+			}
+
+			.offer {
+				@include grid-column(12);
+			}
+		}
+
+		.dealer-details {
+			.detail-group {
+				@include grid-column(12);
+				padding-bottom: 30px;
+
+				&:last-child {
+					display:none;
+				}
+
+
+				.tel-desktop {
+					display:none;
+				}
+
+				.tel-mobile,
+				.tel-mobile a {
+					display:inline-block;
+				}
+
+			}
+			.top-buttons {
+				display: block;
+				padding-bottom: 20px;
+			}
+			.button {
+				max-width: $small-max;
+				margin-bottom: 5px;
+			}
+			.buttons {
+				display: none;
+			}
+
+			.share-proxy {
+				display: inline;
+			}
+
+			.info {
+				.link-directions {
+					display: none;
+				}
+
+				.link-contact {
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
+

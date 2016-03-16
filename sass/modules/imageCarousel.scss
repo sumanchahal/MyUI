@@ -1,0 +1,202 @@
+@import "../library";
+
+.carousel-container {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+  @include no-select;
+}
+.carousel {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+  .loading & {}
+
+  &.dragging {
+    cursor: pointer;
+  }
+}
+.carousel-container .carousel-track,
+.carousel-container .carousel {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.carousel-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+  .loading & {
+    visibility: hidden;
+  }
+}
+.item {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  [dir="rtl"] & {
+    float: right;
+  }
+  img {
+    display: block;
+  }
+  &.loading img {
+    display: none;
+  }
+  display: none;
+
+  &.dragging img {
+    pointer-events: none;
+  }
+
+  .initialized & {
+    display: block;
+  }
+
+  .loading & {
+    visibility: hidden;
+  }
+
+  .vertical & {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+  }
+}
+
+.prev,
+.next {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 0;
+  font-size: 0;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  margin-top: -10px;
+  padding: 0;
+  border: none;
+  outline: none;
+  &:hover, &:focus {
+    outline: none;
+    background: transparent;
+    color: transparent;
+    &:before {
+      opacity: 0.85;
+    }
+  }
+  &.disabled:before {
+    opacity: 0;
+  }
+}
+.prev:before, .next:before {
+  font-size: 20px;
+  line-height: 1;
+  color: #eee;
+  opacity: 0.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.prev {
+  left: -25px;
+  &:before {
+    content: '\276C';
+  }
+}
+.next {
+  right: -25px;
+  &:before {
+    content: '\276D';
+  }
+}
+
+.carousel-container {
+  margin-bottom: 30px;
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: -45px;
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  width: 100%;
+  li {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+    .dot {
+      border: 0;
+      background: transparent;
+      display: block;
+      height: 20px;
+      width: 20px;
+      outline: none;
+      line-height: 0;
+      font-size: 0;
+      color: transparent;
+      padding: 5px;
+      cursor: pointer;
+      &:hover, &:focus {
+        outline: none;
+        &:before {
+          opacity: 0.6;
+        }
+      }
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '\25CB';
+        width: 20px;
+        height: 20px;
+        font-size: 15px;
+        line-height: 20px;
+        text-align: center;
+        color: $color-grey-100;
+        opacity: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+    }
+
+    &.active dot:before {
+      content:'\25CF';
+      color: $color-grey-100;
+      opacity: 1;
+    }
+  }
+}

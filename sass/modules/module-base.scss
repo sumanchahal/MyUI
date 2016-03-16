@@ -1,0 +1,60 @@
+@import "library";
+@import "typography";
+@import "mixins";
+@import "../grid/grid-base";
+@import "cta";
+@import "text-tile";
+@import "menu-tile";
+@import "media-tile";
+@import "thumb-slider";
+@import "./page/model/gallery-overlay";
+
+[class*="m2-"], [class*="m2-"] * {
+	box-sizing: border-box;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #000;
+}
+
+// all r4 content should have a wrapping div with this class.
+.m2-content {
+	max-width: 1195px;
+  display: block;
+  margin:0 auto 150px;
+  // padding: 0;
+
+ 
+}
+
+.header-line {
+ 	border-top: solid 1px #000;
+}
+
+.page-title {
+	padding: 15px 0;
+	//border-top: solid 1px #000;
+	h1 {
+		@include nobel-book;
+		font-size: 15px;
+    text-align: center;
+    letter-spacing: 4px;
+    padding: 0 30px;
+	}
+}
+
+// .header-wrapper {
+//     border-bottom: solid 1px #000;
+// }
+
+
+@include sm-up() {
+	.page-title {
+		padding: 35px 0;
+		h1 {
+			font-size: 22px;
+		}
+	}
+}

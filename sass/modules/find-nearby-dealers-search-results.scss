@@ -1,0 +1,179 @@
+@import "library";
+$nav-icons-spacing: 20px;
+$dealer-locator-sprite-dimensions: true;
+@import "dealer-locator/*.png";
+@include all-dealer-locator-sprites;
+
+/**
+ * Dealer Search Results
+ */
+.search-results {
+	text-align: center;
+	margin-bottom: 25px;
+
+    #ajaxLoader {
+        margin: 0 auto;
+    }
+
+	.sub-heading{
+	    @include sub-heading;
+	}
+
+	.link-arrow {
+		@include link-arrow;
+		line-height: 1em;
+	}
+
+	.btn-stroke {
+		@include btn-stroke;
+		border: 2px solid $color-black;
+	}
+
+	.btn-stroke:hover {
+		background: $color-white;
+		color: $color-black;
+	}
+
+	.btn-lgt-stroke {
+		@include btn-lgt-stroke;
+	}
+
+	.btn-lgt-stroke:hover {
+		background: $color-black;
+		color: $color-white;
+	}
+
+	ul {
+		li {
+			text-align: left;
+			border-bottom: 1px solid #c1c1c1;
+			line-height: 1.2em;
+			padding: 25px 0 15px;
+            margin: 0 30px;
+
+			&:first-child {
+				padding-top:0;
+			}
+		}
+	}
+
+	.btn {
+		max-width: 225px;
+		margin: 10px 0;
+	}
+
+	.marker {
+		display:block;
+		margin:0 auto 20px auto;
+        @include dealer-locator-sprite(icon-marker-small);
+		width:20px;
+		height:29px;
+
+		&:hover,
+		&.active {
+			cursor:pointer;
+			@include dealer-locator-sprite(lexus-pin-offstate);
+		}
+		&.elite {
+			@include dealer-locator-sprite(icon-marker-gold-hightlighted);
+		}
+		&.non-elite {
+			@include dealer-locator-sprite(icon-marker-black);
+		}
+	}
+
+	.elite-dealer {
+		color: #ccac00;
+		display: block;
+		@include palatino;
+		font-size: 13px;
+		@include dealer-locator-sprite(icon-elite-dealer);
+		line-height:1.7em;
+		width:auto;
+		padding-left:25px;
+		margin:3px 0 3px 0;
+	}
+
+	.distance {
+		font-size:10px;
+		@include nobel-regular;
+		letter-spacing: 1px;
+	}
+
+	.no-pma-dealers-found {
+		font-size:12px;
+		color:#939393;
+		margin:20px 0 20px 0;
+	}
+
+	address {
+		color: #939393;
+		@include palatino;
+		font-size: 13px;
+
+		.street,
+		.phone {
+			display:block;
+		}
+
+		a {
+			color: #939393;
+			text-decoration:none;
+		}
+
+	}
+
+	.link-contact-dealer {
+		&.show-large {
+			display:inline-block;
+		}
+
+		&.show-small,
+		&.show-medium {
+			display:none;
+		}
+	}
+
+	.link-hours {
+		display:inline-block;
+	}
+}
+
+.dealer-links {
+    .btn-lgt-stroke {
+        @include btn-lgt-stroke;
+    }
+
+    .btn-lgt-stroke:hover {
+        background: $color-black;
+        color: $color-white;
+    }
+}
+
+@include at-medium-breakpoint() {
+	.search-results {
+		.btn:hover,
+		.btn:active {
+			background:#000 !important;
+			color:#fff !important;
+		}
+	}
+    .dealer-links {
+        .js-btn-see-more-dealers:hover,
+        .js-btn-see-more-dealers:active {
+            background:#fff !important;
+            color:#000 !important;
+        }
+    }
+}
+
+@include at-small-breakpoint() {
+	.search-results, .dealer-links {
+		.btn {
+			width:100%;
+			max-width:100%;
+		}
+	}
+}
+
+

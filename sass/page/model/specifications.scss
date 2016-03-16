@@ -1,0 +1,784 @@
+@import "compass/css3/box-shadow";
+@import "library";
+@import "features";
+@import "modules/share";
+@import "modules/carousel";
+
+#specifications #content{
+    overflow: hidden;
+}
+.carousel {
+    .indicators{
+        line-height: 0px;
+        padding: 0px;
+    }
+}
+.jump-point{
+  position: absolute;
+  margin-top: -58px;
+  display: inline-block;
+}
+.tiny{
+  font-size:0.5em;
+  position:relative;
+  top:-0.5em;
+}
+.spec-wrapper-inner {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+
+.specifications-category{
+    width: 100%;
+    max-width: $large-max;
+    margin: 0px auto;
+    padding: 0px;
+    @include box-sizing(border-box);
+    position: relative;
+  .image-container{
+      position: relative;
+      z-index: 10;
+      img{
+        width: 100%;
+      }
+  }
+    .key-specs-container{
+        position: absolute;
+        top: 110px;
+        left: 0px;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        @include pakt;
+        @include font-size(55, auto, 25);
+        .key-spec{
+            padding: 0% 5%;
+            display: inline-block;
+            position: relative;
+            .name{
+                display: block;
+                text-align: center;
+                margin-top: 10px;
+                @include nobel-regular;
+                @include font-size(10, 20, 230);
+            }
+            &:after{
+                content:"";
+                position: absolute;
+                height: 54px;
+                width: 15px;
+                top: 0px;
+                right: -7px;
+                background: url(/assets/img/overview/divide-light.png) no-repeat center center;
+            }
+            &:last-child{
+                padding-right: 0px;
+                &:after{
+                    display: none;
+                }
+            }
+            &:first-child{
+                padding-left: 0px;
+            }
+        }
+    }
+    .details{
+        width: 100%;
+        position: absolute;
+        z-index: 20;
+        top: 0px;
+        left: 0px;
+        text-align: center;
+        //          visibility: hidden;
+    }
+  .bottom-specs-container{
+      border-bottom: 1px solid $color-grey-90;
+      padding-bottom: 25px;
+      position: relative;
+      z-index: 5;
+      @include clearfix();
+      .spec{
+          text-align: center;
+          display: inline-block;
+          vertical-align: middle;
+          width: 48.5%;
+          padding: 0 3%;
+          @include box-sizing(border-box);
+          position: relative;
+          .spec-wrapper{
+              border-bottom: 1px solid $color-grey-90;
+              padding: 40px 0 25px;
+              position: relative;
+          }
+          .title{
+              @include nobel-bold;
+              @include font-size(12, auto, 200);
+              margin-bottom: 10px;
+          }
+          .description{
+              @include palatino;
+              @include font-size(12, 20, 30);
+              padding: 0px 18%;
+          }
+          .description-regular{
+              @include palatino;
+              @include font-size (13, 18, 25);
+              padding: 0 18%;
+          }
+          &:nth-child(odd){
+              padding-left: 0;
+              border-right: 1px solid $color-grey-90;
+          }
+          &:nth-child(even){
+              padding-right: 0;
+          }
+          &.no-border {
+            .spec-wrapper{
+              border-bottom: 0;
+              padding-bottom: 0;
+            }
+          }
+          &.centered{
+              margin-left: 25%;
+              border-right: 0;
+          }
+
+      }
+  }
+  &.engine{
+      .image-container {
+          height: 0;
+          padding-bottom: 53.15%;
+      }
+      .bottom-specs-container{
+          position: relative;
+          z-index: 2;
+      }
+  }
+  &.performance{
+      .image-container{
+        height: 0;
+          padding-bottom: 59.96%;
+          .foreground-image{
+              position: absolute;
+              top: 39%;
+              left: 0px;
+          }
+      }
+      .bottom-specs-container{
+          .spec{
+              .title{
+                  @include pakt;
+                  @include font-size(35, auto, 25);
+                  margin-bottom: 20px;
+                  font-weight: normal;
+              }
+          }
+      }
+  }
+    &.chassis{
+      padding: 0px;
+      .details {
+          position: static;
+      }
+      .image-container{
+          margin: 0 auto;
+          text-align: center;
+          height: 0px;
+          padding-bottom: 55.98%;
+          max-width: $large-max;
+          img{
+              margin-top:0;
+          }
+      }
+      .bottom-specs-container{
+          @include box-sizing(border-box);
+          margin: 0px auto;
+          max-width: $large-max;
+          padding: 20px $gutter-width 20px $gutter-width;
+          border-bottom: 0px;
+          .spec{
+              &.cutout{
+                  position: relative;
+                  min-height: 1px;
+                  width: 1%;
+                  img{
+                      position: absolute;
+                      top: -30px;
+                      left:96px;
+                  }
+              }
+          }
+      }
+    }
+    &.drive-train{
+        z-index: 109;
+        .image-container{
+            margin-bottom: 28px;
+            .details{
+                position: static;
+                .specifications-dropdown{
+                    top: auto;
+                }
+            }
+        }
+        .bottom-specs-container{
+
+        }
+    }
+    &.dimensions{
+        .image-container{
+            height: 0;
+            text-align: center;
+            margin: 0 auto;
+            padding-bottom: 41.52%;
+            .specifications-dropdown{
+                position: relative;
+                .dropdown-options-container{
+                    position: absolute;
+                }
+            }
+        }
+        .details{
+            position: relative;
+            .key-specs-container{
+                position: relative;
+                top: 0px;
+
+            }
+        }
+        .bottom-specs-container{
+            border-bottom: 0px;
+            padding: 43px 0 115px;
+            margin: auto 4%;
+            .spec{
+                width: 100%;
+                border-right: 0px;
+                border-bottom: 1px solid $color-grey-90;
+                padding: 25px 0px;
+                display: table;
+                text-align: left;
+                min-height: 70px;
+                .spec-wrapper{
+                    position: relative;
+                    width: 100%;
+                    padding:0px;
+                    border: none;
+                }
+                .title{
+                    display: inline-block;
+                    width: 50%;
+                    margin: 0px;
+                    line-height: 22px;
+                }
+                .description{
+                    padding: 0px;
+                    display: inline-table;
+                    border-bottom: 0px;
+                    width: 48%;
+                }
+                &.centered{
+                    margin-left: 0px;
+                }
+            }
+        }
+    }
+    &.dark{
+        .specifications-dropdown {
+            .dropdown-heading {
+                .selected-trim{
+                    color: $color-black;
+                    border-color: $color-black;
+                    .spec-name,
+                    .trim-name {
+                        border-bottom: 1px solid $color-black
+                    }
+                }
+                .dropdown-btn{
+                    background-position: -21px 0px;
+                }
+            }
+        }
+        .key-specs-container{
+            color: $color-black;
+            .key-spec {
+                &:after{
+                    background: url(/assets/img/overview/divide-dark.png) no-repeat center center;
+                }
+            }
+        }
+    }
+    .key-specs-container{
+            .key-spec {
+                .unit{
+                    font-size:65%;
+                }
+                .value + .unit{
+                    margin-left: -5px;
+                }
+            }
+        }
+}
+
+
+.specifications-dropdown{
+    margin: 40px auto 0px auto;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    position: relative;
+    z-index: 22;
+  .dropdown-heading{
+      @include animationFix();
+      @include clearfix();
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    .selected-trim{
+      cursor: pointer;
+      @include nobel-book;
+      @include font-size(22, 18, 200);
+      color: $color-white;
+      display: inline-block;
+      .spec-name,
+      .trim-name {
+        border-bottom: 1px solid $color-white;
+      }
+    }
+    .dropdown-btn{
+      cursor: pointer;
+      display: inline-block;
+      width: 21px;
+      height: 20px;
+      background: url(/assets/img/specifications/dropdown-arrows.gif) no-repeat;
+      vertical-align: bottom;
+      margin: 5px 0;
+    }
+  }
+
+    .dropdown-options-container{
+        position: absolute;
+        opacity: 0;
+        display: none;
+        width: 100%;
+        max-width: 378px;
+        text-align: left;
+        background: $color-grey-90;
+        margin-top: -10px;
+        padding-top: 28px;
+        left: 50%;
+        @include box-sizing(border-box);
+            .carrot{
+                background: url(/assets/img/specifications/dropdown-carrot.png) no-repeat;
+                width: 33px;
+                height: 16px;
+                position: absolute;
+                top: -16px;
+                left: 50%;
+                margin-left: -16px;
+            }
+            h3{
+                @include nobel-book;
+                @include font-size(18, 20, 150);
+                margin-bottom: 18px;
+                text-align: center;
+            }
+            .dropdown-options{
+                margin: 0px auto;
+                width: 84%;
+                background: $color-white;
+                li {
+                  margin: 0;
+                  @include nobel-book;
+                  @include font-size(11, 20, 150);
+                  @include clearfix;
+                  a {
+                        @include clearfix;
+                        border-top: 1px solid $color-grey-90;
+                        padding: 10px 0;
+                        margin: 0 20px;
+                        color: #000;
+                        display: block;
+                        text-decoration: none;
+                    }
+                    &.list-heading{
+                        padding: 10px 0;
+                        margin: 0 20px;
+                        &:hover {
+                            @include nobel-book;
+                            @include font-size(11, 20, 150);
+                            cursor: default;
+                        }
+                    }
+                    .name{
+                        text-align: left;
+                    }
+                    .value{
+                        float: right;
+                    }
+
+                    &.selected{
+                        @include nobel-bold;
+                        @include font-size(11,  20, 230);
+                    }
+                    &:hover + li a {
+                        border-top: 1px solid #FFF;
+                    }
+                    &.list-heading:hover + li a {
+                        border-top: 1px solid $color-grey-90;
+                    }
+                }
+            }
+        .disclaimer-container{
+            width: 84%;
+            margin: 21px auto 20px auto;
+            @include palatino;
+            @include font-size(9, auto, 25);
+        }
+    }
+}
+
+
+@include at-no-touch-device{
+    .specifications-dropdown{
+        .dropdown-options-container{
+            .dropdown-options li{
+                &:hover, &:focus {
+                    background-color: $color-grey-90;
+                    outline: 0;
+                }
+            }
+            li.list-heading {
+                &:hover {
+                    background-color: #FFF;
+                    cursor: default;
+                }
+            }
+        }
+    }
+}
+
+@include at-large-breakpoint {
+    .specifications-category {
+        &.chassis{
+            .image-container{
+                height: 0;
+                padding: 0 0 55.98% 0;
+            }
+        }
+    }
+}
+
+@include at-medium-breakpoint{
+    .specifications-category {
+        .image-container {
+            .key-specs-container {
+                .key-spec {
+                    padding: 0% 3.5%;
+                    @include font-size(47, auto, 0);
+                }
+            }
+        }
+
+     &.chassis{
+       .bottom-specs-container{
+         padding: 20px $gutter-width 15px $gutter-width;
+         margin-left: 0;
+         .spec{
+           &.cutout{
+             position: relative;
+             img{
+               position: relative;
+               left:30px;
+
+             }
+           }
+         }
+       }
+     }
+    }
+    .specifications-category {
+        &.dimensions {
+            .bottom-specs-container{
+                padding: 32px 0 115px;
+                .spec {
+                    padding: 18px 0;
+                    min-height: 61px;
+                    .spec-wrapper {
+                        margin: 0 50px;
+                        width: auto;
+                    }
+                    .title {
+                      width: 58%;
+                    }
+                    .description {
+                      width: 40%;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .bottom-specs-container {
+        display:block;
+    }
+
+}
+
+
+@include at-small-breakpoint{
+
+    .specifications-category{
+        padding: 0px;
+        .image-container{
+            .key-specs-container{
+                top: 90px;
+                .key-spec{
+                    width: 100%;
+                    padding: 0%;
+                    &:after{
+                        display: none;
+                    }
+                    @include font-size(55, auto, 0);
+                }
+            }
+        }
+
+
+        .bottom-specs-container{
+            margin: 0 10px 0 10px;
+
+            .spec {
+                vertical-align: top;
+                min-height: 0;
+                .spec-wrapper{
+                    position: static;
+                    padding:20px 10px 20px 10px;
+                    margin: 0;
+                    .title {
+                        margin: 5px 0 10px 0;
+                    }
+                }
+            }
+
+        }
+
+        &.performance{
+            .image-container{
+                margin-bottom: 60px;
+                .foreground-image{
+                    top: auto;
+                    bottom: -92px;
+
+                }
+            }
+        }
+
+        &.chassis{
+            .bottom-specs-container{
+                top: 0px;
+                .spec{
+                    width: 100%;
+                    padding: 0px;
+                    &:nth-child(odd){
+                        border-right: 0px;
+                    }
+                    &.no-border{
+                          border-bottom: 1px solid $color-grey-90;
+                          padding-bottom: 20px;
+                    }
+                    &.cutout{
+                        width: 100%;
+                        img{
+                            position: relative;
+                            top: -20px;
+                            left: 0px;
+                            margin: 20px auto;
+                        }
+                    }
+                }
+            }
+        }
+        &.engine {
+          .image-container{
+              margin: 0 auto;
+              padding-bottom: 0px;
+              height: 360px;
+              img{
+                  min-width: 640px;
+                  margin-left: -320px;
+                  left: 50%;
+                  position: relative;
+              }
+          }
+
+          .bottom-specs-container {
+            .spec {
+              border-right: 0 ;
+              float: none;
+              width: 100%;
+              &:nth-child(odd){
+                padding-left: 0px;
+                border-right: 0;
+              }
+            }
+            .spec:last-child {
+              .spec-wrapper {
+                border-bottom: 0;
+              }
+            }
+          }
+        }
+
+        &.chassis{
+            .details{
+                position: static;
+            }
+          .image-container{
+             padding: 0 0 55.93% 0;
+              img{
+                  margin-top: 0px;
+              }
+          }
+            .bottom-specs-container{
+                padding-bottom: 0px;
+            }
+        }
+        &.dimensions{
+            .image-container{
+                .details{
+                    top: 117px;
+                    position: absolute;
+                    z-index:1;
+                }
+                img{
+                    margin-left: -95%;
+                }
+            }
+            .bottom-specs-container{
+                padding-top: 0;
+                padding-bottom: 75px;
+                margin-left: 0;
+                .spec{
+                    border-bottom: 0px;
+                    padding: 15px 0px;
+                    .title,
+                    .description{
+                        text-align: center;
+                        margin: 0px;
+                        width: 100%;
+                        display: block;
+                        float: none;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .specifications-dropdown {
+        margin-top: 20px;
+        .dropdown-heading {
+            margin: 0px auto;
+            .selected-trim {
+                //@include font-size(18 , 18, 200);
+            }
+            .dropdown-btn {
+              margin: 5px;
+            }
+
+        }
+        .dropdown-options-container {
+            width: 100%;
+            max-width: 100%;
+            left: 0px;
+            margin-left: 0px !important;
+            @include box-shadow( 0px 2px 5px #666);
+            .dropdown-options{
+                padding: 0px;
+                width: 100%;
+                li {
+                    @include clearfix;
+                    a {
+                        @include clearfix;
+                    }
+                    .name {
+                        @include trim-name;
+                        text-transform: uppercase;
+                        float: left;
+                    }
+                    .trim-name {
+                        float: left;
+                    }
+                    .value{
+                        float: right;
+                        .asterisk{
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* VD specific breakpoints for longer spec titles on mobile */
+    .specifications-category {
+        &.performance,
+        &.drive-train{
+            .spec-name {
+              display: inline;
+            }
+            .spec-name:after {
+                content:"\a";
+                white-space: pre;
+            }
+        }
+        /*Make headings appear at top of div*/
+        &.drive-train {
+            .spec{
+                .spec-wrapper{
+                    padding:20px 0 20px 6px;
+                }
+            }
+        }
+        &.performance {
+            .spec{
+                /* makes the division between acceleration and turning circle more even*/
+                &:nth-child(even){
+                  padding-left: 4px;
+                }
+
+              .spec-wrapper{
+                  padding-right:0;
+                  .description{
+                      padding:8px;
+                  }
+
+              }
+          }
+            .image-container{
+                height: 0px;
+                padding-bottom: 100%;
+                .foreground-image{
+                    left: -100px;
+                    width: 340px;
+                }
+            }
+      }
+        &.dimensions{
+            .image-container{
+                height: auto;
+                padding-bottom: 0;
+                img{
+                    position: relative;
+                    width: 640px;
+                }
+            }
+        }
+    }
+}
+
+

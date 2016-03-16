@@ -1,0 +1,35 @@
+@import "../mixins";
+
+
+
+.brightcove-cont {
+    display: block;
+    position: relative;
+    max-width: 100%;
+}
+
+.brightcove-inner-cont {
+    padding-top: 56.25%;
+    @include opacity(0);
+    @include ease-none(0.5s);
+    &.show {
+        @include opacity(1);
+    }
+}
+
+#brightCovePlayer {
+    position: absolute;
+    // using !important here so the inline styles added by brightcove do not override.
+    width: 100% !important;
+    height: 100% !important;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    
+    
+    // width: 100%;
+    // min-height: 20%;
+    // overflow: hidden;
+    // padding-bottom: 56.3%;
+}
